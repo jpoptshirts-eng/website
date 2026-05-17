@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-black antialiased;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scroll-line {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 18%,
+      rgba(234, 234, 234, 0.35) 32%,
+      rgba(255, 111, 174, 0.55) 46%,
+      rgba(255, 77, 0, 0.45) 50%,
+      rgba(255, 111, 174, 0.55) 54%,
+      rgba(234, 234, 234, 0.35) 68%,
+      transparent 82%,
+      transparent 100%
+    );
+    background-size: 100% 320%;
+    animation: scroll-line-flow 5s linear infinite;
+  }
+
+  @keyframes scroll-line-flow {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-line {
+      animation: none;
+      background: #eaeaea;
+      background-size: auto;
+    }
+  }
+}
