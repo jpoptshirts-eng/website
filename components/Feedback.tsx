@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { testimonials } from "@/lib/data";
 import SectionLabel from "./SectionLabel";
 import SafeImage from "./SafeImage";
+import { pageContainer } from "@/lib/layout";
 
 export default function Feedback() {
   return (
@@ -12,7 +13,7 @@ export default function Feedback() {
       className="scroll-mt-24 py-16 md:py-20 lg:py-[120px]"
       aria-labelledby="feedback-heading"
     >
-      <div className="mx-auto max-w-page px-6 lg:px-8">
+      <div className={pageContainer}>
         <SectionLabel>Feedback</SectionLabel>
         <h2
           id="feedback-heading"
@@ -24,7 +25,7 @@ export default function Feedback() {
         {/*
           Replace these with real testimonials from Jacinto's portfolio or LinkedIn recommendations.
         */}
-        <div className="mt-14 grid grid-cols-1 gap-8 md:gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-8">
+        <div className="mt-14 grid w-full grid-cols-1 gap-8 md:gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-8 xl:gap-10">
           {testimonials.map((item, index) => (
             <motion.blockquote
               key={item.name}

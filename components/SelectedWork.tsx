@@ -5,6 +5,7 @@ import { caseStudies } from "@/lib/data";
 import SectionLabel from "./SectionLabel";
 import CaseStudyCard from "./CaseStudyCard";
 import ArrowLink from "./ArrowLink";
+import { pageContainer } from "@/lib/layout";
 
 export default function SelectedWork() {
   return (
@@ -13,8 +14,8 @@ export default function SelectedWork() {
       className="scroll-mt-24 py-16 md:py-20 lg:py-[120px]"
       aria-labelledby="work-heading"
     >
-      <div className="mx-auto max-w-page px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+      <div className={pageContainer}>
+        <div className="grid w-full gap-10 lg:grid-cols-12 lg:gap-10 xl:gap-12">
           <div className="lg:col-span-5">
             <SectionLabel>Selected Work</SectionLabel>
             <h2
@@ -50,7 +51,7 @@ export default function SelectedWork() {
           </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8 lg:mt-16 lg:grid-cols-4 lg:gap-8">
+        <div className="mt-14 grid w-full grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8 lg:mt-16 lg:grid-cols-4 lg:gap-8 xl:gap-10">
           {caseStudies.map((study, index) => (
             <CaseStudyCard key={study.href} study={study} index={index} />
           ))}

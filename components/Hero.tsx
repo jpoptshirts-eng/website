@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ArrowLink from "./ArrowLink";
 import ScrollIndicator from "./ScrollIndicator";
+import { pageContainer } from "@/lib/layout";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -32,8 +33,8 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-page px-6 lg:px-8">
-        <div className="relative lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-4 xl:gap-x-6">
+      <div className={pageContainer}>
+        <div className="relative w-full lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-6 xl:gap-x-10 2xl:gap-x-14">
           {/* Text column — overlaps left edge of portrait on desktop */}
           <div
             id="about"
@@ -96,10 +97,10 @@ export default function Hero() {
 
           {/* Portrait — shifted left from the right edge */}
           <div className="order-2 mt-10 lg:order-none lg:col-span-4 lg:col-start-7 lg:row-start-1 lg:mt-0 lg:z-10 xl:col-span-4 xl:col-start-7">
-            <div className="relative mx-auto w-full max-w-sm md:max-w-md lg:max-w-none lg:pr-4">
+            <div className="relative flex w-full flex-col items-center lg:items-end lg:pr-0 xl:pr-8">
               {/* Soft pink circle behind head & shoulders */}
               <div
-                className="pointer-events-none absolute left-1/2 top-[8%] z-0 aspect-square w-[90%] -translate-x-1/2 rounded-full bg-soft-pink md:top-[6%] md:w-[95%] lg:top-[5%] lg:w-[110%] lg:max-w-[460px]"
+                className="pointer-events-none absolute left-1/2 top-[8%] z-0 aspect-square w-[90%] -translate-x-1/2 rounded-full bg-soft-pink md:top-[6%] md:w-[95%] lg:top-[5%] lg:w-[min(100%,520px)] xl:w-[min(100%,580px)]"
                 aria-hidden
               />
 
@@ -119,7 +120,7 @@ export default function Hero() {
                     </span>
                   </div>
                 ) : (
-                  <div className="relative mx-auto aspect-[3/4] w-full max-w-md lg:max-w-none">
+                  <div className="relative aspect-[3/4] w-full max-w-md lg:max-h-[min(85vh,720px)] lg:max-w-none lg:w-full">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/images/jacinto-hero-bw.png?v=4"
