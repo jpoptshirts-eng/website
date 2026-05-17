@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data";
 import ArrowLink from "./ArrowLink";
-import { pageContainer } from "@/lib/layout";
 
 function Logo() {
   const [logoError, setLogoError] = useState(false);
@@ -48,9 +47,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-white/95 backdrop-blur-sm">
-      <div
-        className={`${pageContainer} grid grid-cols-[1fr_auto] items-center gap-4 py-5 lg:grid-cols-[1fr_auto_1fr]`}
-      >
+      <div className="mx-auto grid max-w-page grid-cols-[1fr_auto] items-center gap-4 px-6 py-5 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
         <Logo />
 
         <nav

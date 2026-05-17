@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Brain, Network, TrendingUp, FlaskConical } from "lucide-react";
 import { approachItems } from "@/lib/data";
 import type { ApproachItem } from "@/lib/data";
-import { pageContainer } from "@/lib/layout";
 
 const iconMap = {
   brain: Brain,
@@ -25,12 +24,12 @@ export default function Approach() {
       className="scroll-mt-24 border-t border-border py-16 md:py-20 lg:py-[120px]"
       aria-labelledby="approach-heading"
     >
-      <div className={pageContainer}>
+      <div className="mx-auto max-w-page px-6 lg:px-8">
         <h2 id="approach-heading" className="sr-only">
           My approach
         </h2>
 
-        <div className="grid w-full grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
           {approachItems.map((item, index) => (
             <motion.div
               key={item.title}

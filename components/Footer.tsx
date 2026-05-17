@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ArrowLink from "./ArrowLink";
-import { pageContainer } from "@/lib/layout";
 
 const footerLinks = [
   { label: "Work", href: "#work" },
@@ -20,8 +19,8 @@ export default function Footer() {
         className="py-16 md:py-20 lg:py-[120px]"
         aria-labelledby="cta-heading"
       >
-        <div className={pageContainer}>
-          <div className="grid w-full gap-10 lg:grid-cols-12 lg:items-end lg:gap-10 xl:gap-12">
+        <div className="mx-auto max-w-page px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-8">
             <motion.h2
               id="cta-heading"
               initial={{ opacity: 0, y: 20 }}
@@ -65,7 +64,7 @@ export default function Footer() {
 
       {/* Footer bar */}
       <div className="border-t border-border py-10">
-        <div className={`${pageContainer} flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between`}>
+        <div className="mx-auto flex max-w-page flex-col gap-8 px-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <nav aria-label="Footer">
             <ul className="flex flex-wrap gap-6">
               {footerLinks.map((link) => (
