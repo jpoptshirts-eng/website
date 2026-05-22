@@ -8,7 +8,7 @@ const footerLinks = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/jacintodematos" },
-  { label: "Email", href: "mailto:hello@jacintodematos.com" },
+  { label: "Email", href: "mailto:jjmatos@hotmail.com" },
 ];
 
 export default function Footer() {
@@ -52,7 +52,7 @@ export default function Footer() {
               className="lg:col-span-3 lg:flex lg:justify-end"
             >
               <ArrowLink
-                href="mailto:hello@jacintodematos.com"
+                href="mailto:jjmatos@hotmail.com"
                 variant="button-solid"
               >
                 Get in touch

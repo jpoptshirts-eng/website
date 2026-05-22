@@ -77,7 +77,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden justify-self-end lg:block">
-          <ArrowLink href="mailto:hello@jacintodematos.com" variant="button-outline">
+          <ArrowLink href="mailto:jjmatos@hotmail.com" variant="button-outline">
             Get in touch
           </ArrowLink>
         </div>
@@ -121,7 +121,7 @@ export default function Header() {
               ))}
               <div className="mt-4">
                 <ArrowLink
-                  href="mailto:hello@jacintodematos.com"
+                  href="mailto:jjmatos@hotmail.com"
                   variant="button-outline"
                   className="w-full justify-center"
                 >
