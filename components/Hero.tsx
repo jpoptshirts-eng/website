@@ -33,7 +33,7 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto max-w-page px-6 lg:px-8">
-        <div className="relative lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-4 xl:gap-x-6">
+        <div className="relative overflow-visible lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-4 xl:gap-x-6">
           {/* LEFT: headline + copy (Hero-content reference) */}
           <div
             id="about"
@@ -96,34 +96,41 @@ export default function Hero() {
 
           {/* RIGHT: portrait + pink circle (hidden below 544px) */}
           <div className="hidden min-[544px]:block lg:col-span-4 lg:col-start-8 lg:row-start-1 lg:z-10 xl:col-start-7">
-            <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:ml-auto lg:max-w-[34rem] xl:max-w-[38rem]">
+            <div className="relative ml-auto w-full max-w-[20rem] overflow-visible sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[32rem]">
               <div
                 className="pointer-events-none absolute left-1/2 top-[8%] z-0 aspect-square w-[90%] -translate-x-1/2 rounded-full bg-soft-pink md:top-[6%] md:w-[95%] lg:top-[5%] lg:w-[110%] lg:max-w-[460px]"
                 aria-hidden
               />
 
-              {/* Height = label + headline through “products.” — image pinned to bottom */}
+              {/* Baseline anchor — portrait grows up/left from bottom-right */}
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10 min-[544px]:h-[calc(3.25rem+6*2.35rem*0.92)] sm:h-[calc(3.25rem+6*3rem*0.92)] md:h-[calc(3.25rem+6*3.75rem*0.92)] lg:h-[calc(3.25rem+6*4rem*0.92)] xl:h-[calc(3.25rem+6*4.75rem*0.92)]"
+                className="relative z-10 overflow-visible min-[544px]:h-[calc(3.25rem+6*2.35rem*0.92)] sm:h-[calc(3.25rem+6*3rem*0.92)] md:h-[calc(3.25rem+6*3.75rem*0.92)] lg:h-[calc(3.25rem+6*4rem*0.92)] xl:h-[calc(3.25rem+6*4.75rem*0.92)]"
               >
                 {heroError ? (
-                  <div className="absolute inset-x-0 bottom-0 top-0" aria-hidden>
-                    <span className="flex h-full items-end justify-center pb-4 text-sm text-grey">
-                      Portrait
-                    </span>
+                  <div
+                    className="absolute bottom-0 right-0 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[32rem]"
+                    aria-hidden
+                  >
+                    <div className="relative aspect-[4/5] w-full">
+                      <span className="absolute inset-0 flex items-end justify-end pb-0 text-sm text-grey">
+                        Portrait
+                      </span>
+                    </div>
                   </div>
                 ) : (
-                  <div className="absolute inset-x-0 bottom-0 top-0 flex items-end justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/jacinto-hero.png?v=3"
-                      alt="Jacinto De Matos, Senior Product Designer"
-                      className="max-h-full w-full max-w-full object-contain object-bottom"
-                      onError={() => setHeroError(true)}
-                    />
+                  <div className="absolute bottom-0 right-0 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[32rem]">
+                    <div className="relative aspect-[4/5] w-full">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/jacinto-hero.png?v=3"
+                        alt="Jacinto De Matos, Senior Product Designer"
+                        className="h-full w-full object-contain object-bottom"
+                        onError={() => setHeroError(true)}
+                      />
+                    </div>
                   </div>
                 )}
               </motion.div>
