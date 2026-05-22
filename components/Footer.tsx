@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import ArrowLink from "./ArrowLink";
 
 const footerLinks = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/about" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/jacintodematos" },
   { label: "Email", href: "mailto:hello@jacintodematos.com" },
 ];
@@ -69,7 +69,7 @@ export default function Footer() {
             <ul className="flex flex-wrap gap-6">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  {link.href.startsWith("#") ? (
+                  {link.href.startsWith("#") || link.href.startsWith("/") ? (
                     <Link
                       href={link.href}
                       className="text-sm font-semibold uppercase tracking-wide text-black transition-colors hover:text-orange"

@@ -23,10 +23,10 @@ export interface ApproachItem {
 }
 
 export const navLinks = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Feedback", href: "#feedback" },
-  { label: "Approach", href: "#approach" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/about" },
+  { label: "Feedback", href: "/#feedback" },
+  { label: "Approach", href: "/#approach" },
 ] as const;
 
 export const caseStudies: CaseStudy[] = [
@@ -72,31 +72,30 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-// Replace these with real testimonials from Jacinto's portfolio or LinkedIn recommendations.
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Jacinto combines deep strategic thinking with exceptional execution. He's data-informed, user-obsessed and always drives for real business impact.",
-    name: "Sabeena Ahmed",
-    role: "Head of Product",
-    company: "Waitrose",
-    avatar: "/images/avatar-1.png",
-  },
-  {
-    quote:
-      "Jacinto brings clarity to complexity. He asks the right questions, challenges assumptions and delivers designs that are both elegant and highly effective.",
-    name: "Richard Hayward",
-    role: "Product Director",
-    company: "Waitrose",
-    avatar: "/images/avatar-2.png",
-  },
-  {
-    quote:
-      "A collaborative leader and a brilliant problem solver. Jacinto elevates the teams he works with and consistently raises the bar.",
-    name: "Tom Gurr",
+      "Jac is a proactive, high-impact Senior Product Designer who improved delivery speed and consistency on PrimaryBid's flagship IPO product.",
+    name: "Rory Woods",
     role: "Head of Design",
     company: "PrimaryBid",
-    avatar: "/images/avatar-3.png",
+    avatar: "/images/avatar-rory.png",
+  },
+  {
+    quote:
+      "Jacinto has led our UX/UI covering our app and website for the last 3 years and has been tremendous.",
+    name: "Patrick Allan",
+    role: "CTO",
+    company: "Kaizen Languages",
+    avatar: "/images/avatar-patrick.png",
+  },
+  {
+    quote:
+      "Jacinto has done an amazing job designing the Smarter app and has been a pleasure to work with.",
+    name: "Carl Lewis",
+    role: "Lead Android Developer",
+    company: "Smarter",
+    avatar: "/images/avatar-carl.png",
   },
 ];
 

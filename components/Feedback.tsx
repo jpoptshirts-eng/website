@@ -21,9 +21,6 @@ export default function Feedback() {
           What others say<span className="text-orange">.</span>
         </h2>
 
-        {/*
-          Replace these with real testimonials from Jacinto's portfolio or LinkedIn recommendations.
-        */}
         <div className="mt-14 grid grid-cols-1 gap-8 md:gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-8">
           {testimonials.map((item, index) => (
             <motion.blockquote

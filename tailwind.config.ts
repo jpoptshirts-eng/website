@@ -16,6 +16,8 @@ const config: Config = {
         border: "#EAEAEA",
         grey: "#666666",
         white: "#FFFFFF",
+        cream: "#F9F7F2",
+        "cream-muted": "#F5F2ED",
       },
       fontFamily: {
         sans: ["var(--font-poppins)", "system-ui", "sans-serif"],

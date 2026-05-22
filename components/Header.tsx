@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/lib/data";
@@ -44,6 +45,12 @@ function Logo() {
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/about") return pathname === "/about";
+    return false;
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-white/95 backdrop-blur-sm">
@@ -58,9 +65,13 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs font-semibold uppercase tracking-[0.15em] text-black transition-colors hover:text-orange"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-black transition-colors hover:text-orange"
+              aria-current={isActive(link.href) ? "page" : undefined}
             >
               {link.label}
+              {isActive(link.href) && (
+                <span className="h-1.5 w-1.5 rounded-full bg-orange" aria-hidden />
+              )}
             </Link>
           ))}
         </nav>
@@ -98,10 +109,14 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="py-3 text-sm font-semibold uppercase tracking-[0.15em] text-black"
+                  className="inline-flex items-center gap-2 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-black"
                   onClick={() => setMenuOpen(false)}
+                  aria-current={isActive(link.href) ? "page" : undefined}
                 >
                   {link.label}
+                  {isActive(link.href) && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-orange" aria-hidden />
+                  )}
                 </Link>
               ))}
               <div className="mt-4">
