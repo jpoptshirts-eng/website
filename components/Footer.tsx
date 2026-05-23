@@ -7,7 +7,10 @@ import ArrowLink from "./ArrowLink";
 const footerLinks = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/jacintodematos" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/jacinto-de-matos-00b303124/",
+  },
   { label: "Email", href: "mailto:jjmatos@hotmail.com" },
 ];
 

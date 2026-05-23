@@ -10,6 +10,25 @@
   body {
     @apply bg-white text-black antialiased;
   }
+
+  html.case-study-scroll {
+    scroll-padding-top: var(--case-study-scroll-offset, 14.5rem);
+  }
+
+  .case-study-section {
+    scroll-margin-top: var(--case-study-scroll-offset, 14.5rem);
+  }
+}
+
+@layer components {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {
