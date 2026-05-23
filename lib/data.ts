@@ -52,23 +52,23 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     number: "03",
-    title: "Kaizen Languages",
-    subtitle: "(Personal Project)",
-    description:
-      "A personalised language learning app that adapts to motivation, ability and real-life progress.",
-    tags: ["Mobile", "Learning", "Behaviour"],
-    image: "/images/kaizen.png",
-    href: "/work/kaizen-languages",
-  },
-  {
-    number: "04",
-    title: "PrimaryBid",
-    subtitle: "(Fintech SaaS)",
+    title: "Transactional website and IPO",
+    subtitle: "(PrimaryBid)",
     description:
       "Simplifying complex IPO investment workflows for trust, clarity and confidence at every step.",
     tags: ["Fintech", "SaaS", "Trust"],
     image: "/images/primarybid.png",
     href: "/work/primarybid",
+  },
+  {
+    number: "04",
+    title: "AI language learning",
+    subtitle: "(Kaizen Languages)",
+    description:
+      "iOS and Android AI language learning app that adapts to motivation, ability and real-life progress.",
+    tags: ["AI", "iOS", "Android"],
+    image: "/images/kaizen.png",
+    href: "/work/kaizen-languages",
   },
 ];
 
