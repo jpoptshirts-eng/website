@@ -1,7 +1,6 @@
 export const quickShopSubnav = [
   { id: "overview", label: "Overview" },
   { id: "opportunity", label: "Opportunity" },
-  { id: "my-role", label: "My role" },
   { id: "problem", label: "Problem" },
   { id: "insights", label: "Insights" },
   { id: "principles", label: "Principles" },
@@ -9,9 +8,8 @@ export const quickShopSubnav = [
   { id: "solution", label: "Solution" },
   { id: "decisions", label: "Decisions" },
   { id: "validation", label: "Validation" },
-  { id: "impact", label: "Impact" },
+  { id: "results", label: "Results" },
   { id: "reflection", label: "Reflection" },
-  { id: "skills", label: "Skills" },
 ] as const;
 
 export const quickShopHero = {
@@ -32,7 +30,7 @@ export const quickShopHero = {
   ],
   image: "/images/work/quickshop/hero-hand.png",
   imageAlt:
-    "Hand holding a phone showing the Waitrose QuickShop personalised basket experience.",
+    "Hand holding an iPhone showing the Waitrose Favourites and Quick Shop experience.",
 };
 
 export const quickShopOpportunity = {
@@ -52,38 +50,20 @@ export const quickShopOpportunity = {
 };
 
 export const quickShopMyRole = {
-  label: "03 My role",
-  headline: "I led the experience strategy.",
-  intro:
-    "As Senior Product Designer, I led the end-to-end experience design for QuickShop, from defining the customer problem and testing interaction models through to shaping the MVP direction with product, data and engineering teams.",
+  title: "My role",
   avatar: "/images/jacinto-hero.png",
   avatarAlt: "Jacinto De Matos",
-  cards: [
-    {
-      title: "Framed the customer problem",
-      copy: "I translated repeat shopping behaviour into a clear product opportunity focused on reducing effort, improving confidence and speeding up basket building.",
-      icon: "target" as const,
-    },
-    {
-      title: "Explored interaction models",
-      copy: "I designed and compared different recommendation experiences, including Joy Scrolling, Step-by-Step Shopping and Netflix-style navigation.",
-      icon: "layout" as const,
-    },
-    {
-      title: "Validated behaviour through testing",
-      copy: "I used customer feedback to understand which models felt faster, clearer and easier to trust during repeat weekly shops.",
-      icon: "users" as const,
-    },
-    {
-      title: "Shaped the MVP direction",
-      copy: "I helped prioritise a focused Top Regulars MVP to validate behavioural assumptions quickly while reducing implementation complexity.",
-      icon: "flag" as const,
-    },
+  body: "I led the experience strategy, interaction design, prototyping and validation approach for QuickShop, working across repeat shopping behaviour, recommendation logic and personalised basket-building flows.",
+  bullets: [
+    "Defined the behavioural problem around repeat weekly grocery shopping",
+    "Designed and compared personalised basket-building interaction models",
+    "Created prototypes to test recommendation structure, confidence and customer control",
+    "Worked with product, data and engineering teams to shape a focused Top Regulars MVP",
   ],
 };
 
 export const quickShopProblem = {
-  label: "04 Problem",
+  label: "03 Problem",
   headline: "Repeat shopping still felt like starting again.",
   body: "Most online grocery experiences treated every shopping session as a new browsing journey.",
   body2:
@@ -109,7 +89,7 @@ export const quickShopQuotes = [
 ];
 
 export const quickShopInsights = {
-  label: "06 Behavioural insights",
+  label: "04 Behavioural insights",
   headline: "Customers wanted speed, not more choice.",
   intro:
     "Research showed that grocery shopping is deeply habitual. Customers often shop around predictable routines, familiar products and replenishment cycles.",
@@ -138,7 +118,7 @@ export const quickShopInsights = {
 };
 
 export const quickShopPrinciples = {
-  label: "07 Design principles",
+  label: "05 Design principles",
   headline: "Reduce effort, not control.",
   intro:
     "These principles shaped how the experience balanced behavioural intelligence, trust and customer control.",
@@ -173,7 +153,7 @@ export const quickShopPrinciples = {
 };
 
 export const quickShopExploration = {
-  label: "08 Concept exploration",
+  label: "06 Concept exploration",
   headline: "Three ways to rebuild a basket.",
   intro:
     "A major part of the project focused on testing different interaction models for personalised basket building.",
@@ -218,7 +198,7 @@ export const quickShopExploration = {
 };
 
 export const quickShopSolution = {
-  label: "10 Solution",
+  label: "07 Solution",
   headline: "A faster way to rebuild regular shops.",
   body: "The final direction focused on a simplified Step-by-Step basket-building experience.",
   body2:
@@ -254,7 +234,7 @@ export const quickShopSolution = {
 };
 
 export const quickShopDecisions = {
-  label: "11 Key product decisions",
+  label: "08 Key product decisions",
   headline: "The decisions that shaped the experience.",
   subcopy:
     "The product direction was shaped by customer behaviour, recommendation trust and delivery constraints.",
@@ -287,7 +267,7 @@ export const quickShopDecisions = {
 };
 
 export const quickShopValidation = {
-  label: "12 Validation and iteration",
+  label: "09 Validation and iteration",
   headline: "Testing helped simplify the direction.",
   body: "The concepts were tested with customers across different shopping behaviours and levels of online grocery familiarity.",
   process: [
@@ -321,31 +301,64 @@ export const quickShopValidation = {
 };
 
 export const quickShopImpact = {
-  label: "13 Impact",
-  headline:
-    "QuickShop reframed repeat grocery shopping around behaviour, confidence and speed.",
-  outcomes: [
+  label: "10 Results",
+  headline: "The impact of reducing repeat shopping friction.",
+  intro:
+    "QuickShop delivered measurable gains in speed, basket value, engagement and repeat behaviour, showing the value of data-informed personalisation when it is designed around customer confidence and control.",
+  featured: {
+    metric: "25%",
+    title: "faster completion",
+    detail: "26 mins → 21 mins",
+    highlight: "5 minutes saved per shop",
+    copy: "Completion time dropped from 26 minutes to 21 minutes, saving customers around 5 minutes per shop.",
+  },
+  primary: [
     {
-      title: "Reduced basket-building friction",
-      copy: "The experience streamlined repeat shopping by surfacing highly relevant products earlier.",
+      metric: "+12%",
+      title: "increase in AOV",
+      copy: "Infrequent shoppers saw a 12% increase in average order value.",
     },
     {
-      title: "Increased repeat-purchase efficiency",
-      copy: "Customers could rebuild regular baskets faster using confidence-based recommendations.",
+      metric: "+19%",
+      title: "more items per basket",
+      copy: "High-value customers added 19% more items per basket.",
     },
     {
-      title: "Established recommendation frameworks",
-      copy: "The project helped define how personalisation, recommendation confidence and behavioural prediction could scale across future grocery experiences.",
+      metric: "2",
+      title: "extra orders",
+      copy: "Users made two additional orders over a 13-week period.",
     },
     {
-      title: "Created foundations for AI-assisted commerce",
-      copy: "QuickShop established early frameworks for more intelligent grocery experiences centred around behavioural understanding, predictive shopping and adaptive recommendation systems.",
+      metric: "37%",
+      title: "feature retention",
+      copy: "37% of users returned to use the feature again.",
     },
   ],
+  secondary: [
+    {
+      metric: "25%",
+      title: "growth in Very High Value customers",
+      copy: "The Very High Value customer segment grew by 25%.",
+    },
+  ],
+  behaviour: [
+    {
+      metric: "45%",
+      title: "reduction from Favourites",
+      copy: "Navigational add-to-basket actions from Favourites dropped by 45%.",
+    },
+    {
+      metric: "10%",
+      title: "reduction from Search",
+      copy: "Add-to-basket actions from Search dropped by 10%, showing customers relied less on manual searching.",
+    },
+  ],
+  insight:
+    "Browse and discovery remained stable, showing QuickShop reduced repeat-shopping friction without stopping spontaneous shopping behaviour.",
 };
 
 export const quickShopReflection = {
-  label: "14 Reflection",
+  label: "11 Reflection",
   headline: "Personalisation only worked when it reduced effort.",
   body: "The most important learning was that personalisation alone does not reduce friction.",
   body2:
@@ -354,27 +367,4 @@ export const quickShopReflection = {
     "Designing for repeat grocery behaviour required balancing prediction with clarity, speed with trust and automation with human shopping habits.",
   from: "How do we recommend more products?",
   to: "How do we make routine shopping feel effortless?",
-};
-
-export const quickShopSkills = {
-  label: "15 Skills",
-  headline: "Core skills demonstrated.",
-  tags: [
-    "Product strategy",
-    "Behavioural UX",
-    "Recommendation systems",
-    "AI-assisted commerce",
-    "Systems thinking",
-    "Personalisation design",
-    "Interaction design",
-    "Information architecture",
-    "User research",
-    "Rapid prototyping",
-    "A/B testing",
-    "Cross-functional collaboration",
-    "Data-informed design",
-    "E-commerce optimisation",
-  ],
-  closing:
-    "QuickShop demonstrated how behavioural insight, recommendation logic and careful interaction design can turn a repetitive shopping task into a faster, more confident and more intelligent customer experience.",
 };

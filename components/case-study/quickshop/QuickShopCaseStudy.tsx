@@ -7,7 +7,6 @@ import {
   Clock,
   Eye,
   Feather,
-  Flag,
   GitBranch,
   LayoutGrid,
   Repeat,
@@ -16,7 +15,6 @@ import {
   SlidersHorizontal,
   Target,
   User,
-  Users,
   Zap,
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
@@ -41,7 +39,6 @@ import {
   quickShopValidation,
   quickShopImpact,
   quickShopReflection,
-  quickShopSkills,
 } from "@/lib/quickshop-data";
 import { cn } from "@/lib/utils";
 
@@ -50,13 +47,6 @@ const opportunityIcons = {
   basket: ShoppingBasket,
   branch: GitBranch,
   clock: Clock,
-};
-
-const myRoleIcons = {
-  target: Target,
-  layout: LayoutGrid,
-  users: Users,
-  flag: Flag,
 };
 
 const insightIcons = {
@@ -135,18 +125,18 @@ export default function QuickShopCaseStudy() {
         id="overview"
         className={cn(
           caseStudySection,
-          "overflow-hidden bg-white pb-0 pt-12 md:pt-16 lg:pt-20",
+          "overflow-hidden bg-gradient-to-b from-white via-white to-cream-muted pb-0 pt-12 md:pt-16 lg:pt-20",
         )}
         aria-labelledby="quickshop-title"
       >
         <div className={caseStudyContainer}>
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
             <motion.div
               custom={0}
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="flex-1 lg:max-w-[48%]"
+              className="flex-1 pb-4 lg:max-w-[42%] lg:pb-16 xl:max-w-[44%]"
             >
               <CaseStudyLabel>{quickShopHero.label}</CaseStudyLabel>
               <CaseStudyHeadline as="h1" id="quickshop-title">
@@ -177,26 +167,70 @@ export default function QuickShopCaseStudy() {
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="relative flex flex-1 flex-col justify-end lg:min-h-[26rem] xl:min-h-[28rem]"
+              className="relative flex min-w-0 flex-1 flex-col justify-end lg:min-h-[28rem] xl:min-h-[30rem]"
             >
-              <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:ml-auto lg:mr-0 lg:max-w-[30rem] xl:max-w-[32rem]">
+              <div className="relative mx-auto w-full max-w-[37rem] sm:max-w-[42rem] lg:ml-auto lg:mr-0 lg:max-w-[53rem] xl:max-w-[58rem] 2xl:max-w-[64rem]">
                 <div
-                  className="pointer-events-none absolute -right-[6%] top-[6%] z-0 aspect-square w-[78%] rounded-full bg-soft-pink sm:w-[82%] lg:-right-[4%] lg:top-[4%] lg:w-[86%]"
+                  className="pointer-events-none absolute -right-[8%] top-[-2%] z-0 aspect-square w-[86%] rounded-full bg-soft-pink lg:-right-[4%] lg:w-[88%]"
                   aria-hidden
                 />
-                <div className="relative z-10 translate-x-3 translate-y-6 sm:translate-x-5 sm:translate-y-8 lg:translate-x-6 lg:translate-y-10">
-                  <CaseStudyMockupImage
-                    src={quickShopHero.image}
-                    alt={quickShopHero.imageAlt}
-                    priority
-                    width={1021}
-                    height={1024}
-                    className="w-full"
-                  />
-                </div>
+                <CaseStudyMockupImage
+                  src={quickShopHero.image}
+                  alt={quickShopHero.imageAlt}
+                  priority
+                  width={1021}
+                  height={1024}
+                  className="relative z-10 w-full object-contain object-bottom"
+                />
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={caseStudyFadeUp}
+            className="mt-14 border-t border-border pt-12 md:mt-16 md:pt-14 lg:mt-20 lg:pt-16"
+            aria-labelledby="my-role-heading"
+          >
+            <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-14">
+              <div>
+                <div className="mb-5 flex flex-col items-start gap-3">
+                  <div className="relative h-[4.5rem] w-[4rem] shrink-0 overflow-hidden rounded-[50%] bg-soft-pink ring-2 ring-orange/15 sm:h-20 sm:w-[4.5rem]">
+                    <CaseStudyMockupImage
+                      src={quickShopMyRole.avatar}
+                      alt={quickShopMyRole.avatarAlt}
+                      className="h-full w-full object-cover object-[center_15%]"
+                    />
+                  </div>
+                  <h2
+                    id="my-role-heading"
+                    className="text-xs font-semibold uppercase tracking-[0.2em] text-orange"
+                  >
+                    {quickShopMyRole.title}
+                  </h2>
+                </div>
+                <p className="text-base leading-relaxed text-black md:text-lg">
+                  {quickShopMyRole.body}
+                </p>
+              </div>
+              <ul className="mt-6 flex flex-col gap-3 lg:mt-0 lg:justify-center">
+                {quickShopMyRole.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                      aria-hidden
+                    />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -261,67 +295,7 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 03 My role */}
-      <section
-        id="my-role"
-        className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="qs-my-role-heading"
-      >
-        <div className={caseStudyContainer}>
-          <div className="lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={caseStudyFadeUp}
-            >
-              <div className="mb-5 flex flex-col items-start gap-3">
-                <div className="relative h-[4.5rem] w-[4rem] shrink-0 overflow-hidden rounded-[50%] bg-soft-pink ring-2 ring-orange/15 sm:h-20 sm:w-[4.5rem]">
-                  <CaseStudyMockupImage
-                    src={quickShopMyRole.avatar}
-                    alt={quickShopMyRole.avatarAlt}
-                    className="h-full w-full object-cover object-[center_15%]"
-                  />
-                </div>
-                <CaseStudyLabel>{quickShopMyRole.label}</CaseStudyLabel>
-              </div>
-              <CaseStudyHeadline id="qs-my-role-heading">
-                {quickShopMyRole.headline}
-              </CaseStudyHeadline>
-              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-                {quickShopMyRole.intro}
-              </p>
-            </motion.div>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-0">
-              {quickShopMyRole.cards.map((card, index) => {
-                const Icon = myRoleIcons[card.icon];
-                return (
-                  <motion.article
-                    key={card.title}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-40px" }}
-                    custom={index * 0.05}
-                    variants={caseStudyFadeUp}
-                    className="rounded-2xl bg-[#FFF0E8] p-6"
-                  >
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-white">
-                      <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
-                    </div>
-                    <h3 className="font-bold text-black">{card.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-grey">
-                      {card.copy}
-                    </p>
-                  </motion.article>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 04 Problem */}
+      {/* 03 Problem */}
       <section
         id="problem"
         className={cn(caseStudySection, "relative overflow-hidden bg-cream")}
@@ -385,7 +359,7 @@ export default function QuickShopCaseStudy() {
 
       <CaseStudyQuote text={quickShopQuotes[0]} />
 
-      {/* 06 Insights */}
+      {/* 04 Behavioural insights */}
       <section
         id="insights"
         className={cn(caseStudySection, "bg-white")}
@@ -439,7 +413,7 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 07 Principles */}
+      {/* 05 Design principles */}
       <section
         id="principles"
         className={cn(caseStudySection, "relative overflow-hidden bg-cream-muted")}
@@ -501,7 +475,7 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 08 Exploration */}
+      {/* 06 Concept exploration */}
       <section
         id="exploration"
         className={cn(caseStudySection, "bg-white")}
@@ -602,7 +576,7 @@ export default function QuickShopCaseStudy() {
 
       <CaseStudyQuote text={quickShopQuotes[1]} />
 
-      {/* 10 Solution */}
+      {/* 07 Solution */}
       <section
         id="solution"
         className={cn(caseStudySection, "overflow-hidden bg-cream pb-0")}
@@ -694,7 +668,7 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 11 Decisions */}
+      {/* 08 Key product decisions */}
       <section
         id="decisions"
         className={cn(caseStudySection, "bg-white pb-16 md:pb-20 lg:pb-24")}
@@ -759,7 +733,7 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 12 Validation */}
+      {/* 09 Validation and iteration */}
       <section
         id="validation"
         className={cn(caseStudySection, "bg-cream-muted")}
@@ -828,57 +802,128 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 13 Impact */}
+      {/* 10 Results */}
       <section
-        id="impact"
-        className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="qs-impact-heading"
+        id="results"
+        className={cn(
+          caseStudySection,
+          "relative overflow-hidden bg-cream-muted",
+        )}
+        aria-labelledby="qs-results-heading"
       >
+        <div
+          className="pointer-events-none absolute -right-20 top-16 h-64 w-64 rounded-full bg-soft-pink/50 blur-3xl"
+          aria-hidden
+        />
         <div className={caseStudyContainer}>
+          <div className="relative lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+            >
+              <CaseStudyLabel>{quickShopImpact.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="qs-results-heading">
+                {quickShopImpact.headline}
+              </CaseStudyHeadline>
+              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+                {quickShopImpact.intro}
+              </p>
+            </motion.div>
+
+            <motion.article
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={0.08}
+              variants={caseStudyFadeUp}
+              className="mt-10 rounded-2xl border border-border bg-[#FFF0E8] p-8 md:p-10 lg:mt-0"
+            >
+              <p className="text-5xl font-black leading-none tracking-tight text-orange md:text-6xl">
+                {quickShopImpact.featured.metric}
+              </p>
+              <h3 className="mt-2 text-xl font-bold text-black md:text-2xl">
+                {quickShopImpact.featured.title}
+              </h3>
+              <p className="mt-6 text-2xl font-bold text-black md:text-3xl">
+                {quickShopImpact.featured.detail}
+              </p>
+              <p className="mt-4 inline-block rounded-full bg-white px-4 py-2 text-sm font-semibold text-orange ring-1 ring-orange/20">
+                {quickShopImpact.featured.highlight}
+              </p>
+              <p className="mt-6 text-sm leading-relaxed text-grey md:text-base">
+                {quickShopImpact.featured.copy}
+              </p>
+            </motion.article>
+          </div>
+
+          <div className="-mx-6 mt-12 overflow-x-auto px-6 scrollbar-none lg:mx-0 lg:mt-14 lg:overflow-visible lg:px-0">
+            <div className="flex min-w-max gap-4 lg:min-w-0 lg:grid lg:grid-cols-5 lg:gap-4 xl:gap-5">
+              {[...quickShopImpact.primary, ...quickShopImpact.secondary].map(
+                (item, index) => (
+                  <motion.article
+                    key={item.title}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-40px" }}
+                    custom={index * 0.05}
+                    variants={caseStudyFadeUp}
+                    className="w-[17rem] shrink-0 rounded-2xl border border-border bg-white p-6 md:w-[18rem] md:p-7 lg:w-auto lg:shrink lg:p-5 xl:p-6"
+                  >
+                    <p className="text-3xl font-black leading-none text-orange lg:text-[1.75rem] xl:text-4xl">
+                      {item.metric}
+                    </p>
+                    <h3 className="mt-3 text-sm font-bold leading-snug text-black">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-grey">
+                      {item.copy}
+                    </p>
+                  </motion.article>
+                ),
+              )}
+            </div>
+          </div>
+
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={caseStudyFadeUp}
-            className="max-w-3xl"
+            className="mt-10 rounded-2xl border border-border bg-[#FFF0E8] p-6 md:p-8 lg:mt-12"
           >
-            <CaseStudyLabel>{quickShopImpact.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="qs-impact-heading">
-              {quickShopImpact.headline}
-            </CaseStudyHeadline>
-          </motion.div>
-
-          <div className="-mx-6 mt-14 overflow-x-auto px-6 scrollbar-none lg:mx-0 lg:mt-16 lg:overflow-visible lg:px-0">
-            <div className="flex min-w-max gap-4 lg:min-w-0 lg:grid lg:grid-cols-4 lg:gap-5">
-              {quickShopImpact.outcomes.map((outcome, index) => (
-                <motion.article
-                  key={outcome.title}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-40px" }}
-                  custom={index * 0.05}
-                  variants={caseStudyFadeUp}
-                  className="w-[17rem] shrink-0 rounded-2xl border border-border bg-white p-6 md:w-[18rem] md:p-7 lg:w-auto lg:shrink"
-                >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#FFE4D6]">
-                    <span className="text-sm font-bold text-orange">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+            <ul className="grid gap-6 md:grid-cols-2">
+              {quickShopImpact.behaviour.map((item) => (
+                <li key={item.title} className="flex gap-3">
+                  <span
+                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                    aria-hidden
+                  />
+                  <div>
+                    <p className="text-lg font-bold text-black">
+                      <span className="text-orange">{item.metric}</span>{" "}
+                      {item.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-grey md:text-base">
+                      {item.copy}
+                    </p>
                   </div>
-                  <h3 className="text-sm font-bold leading-snug text-black md:text-base">
-                    {outcome.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-grey">
-                    {outcome.copy}
-                  </p>
-                </motion.article>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+            <p className="mt-6 flex gap-3 border-t border-orange/15 pt-6 text-base leading-relaxed text-black md:text-lg">
+              <span
+                className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                aria-hidden
+              />
+              {quickShopImpact.insight}
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* 14 Reflection */}
+      {/* 11 Reflection */}
       <section
         id="reflection"
         className={cn(caseStudySection, "bg-white")}
@@ -934,55 +979,6 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 15 Skills */}
-      <section
-        id="skills"
-        className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="qs-skills-heading"
-      >
-        <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{quickShopSkills.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="qs-skills-heading">
-              {quickShopSkills.headline}
-            </CaseStudyHeadline>
-          </motion.div>
-
-          <motion.ul
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="mt-10 flex flex-wrap gap-3 lg:mt-12"
-          >
-            {quickShopSkills.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full border border-border bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-black"
-              >
-                {tag}
-              </li>
-            ))}
-          </motion.ul>
-
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0.08}
-            variants={caseStudyFadeUp}
-            className="mt-10 max-w-3xl text-base leading-relaxed text-grey md:text-lg"
-          >
-            {quickShopSkills.closing}
-          </motion.p>
-        </div>
-      </section>
     </>
   );
 }
