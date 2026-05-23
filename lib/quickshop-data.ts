@@ -179,7 +179,7 @@ export const quickShopExploration = {
     "A major part of the project focused on testing different interaction models for personalised basket building.",
   image: "/images/work/quickshop/mockup-explore.png",
   imageAlt:
-    "Two phone screens showing Waitrose QuickShop favourites and list view interaction concepts.",
+    "iPhone showing the Waitrose Quick Shop regulars screen with product shortcuts and favourites.",
   concepts: [
     {
       number: "01",

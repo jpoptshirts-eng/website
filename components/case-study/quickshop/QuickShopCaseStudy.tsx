@@ -523,16 +523,16 @@ export default function QuickShopCaseStudy() {
               <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
                 {quickShopExploration.intro}
               </p>
-              <div className="relative mt-10 hidden w-full lg:block">
+              <div className="relative mt-10 hidden w-full max-w-[20rem] lg:block">
                 <div
-                  className="pointer-events-none absolute -left-6 top-1/4 aspect-square w-[70%] rounded-full bg-soft-pink"
+                  className="pointer-events-none absolute left-1/2 top-[10%] z-0 aspect-square w-[88%] -translate-x-1/2 rounded-full bg-soft-pink"
                   aria-hidden
                 />
                 <CaseStudyMockupImage
                   src={quickShopExploration.image}
                   alt={quickShopExploration.imageAlt}
-                  width={2800}
-                  height={1990}
+                  width={529}
+                  height={1024}
                   className="relative z-10"
                 />
               </div>
@@ -584,16 +584,16 @@ export default function QuickShopCaseStudy() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-10 w-full max-w-md lg:hidden">
+          <div className="relative mx-auto mt-10 w-full max-w-[18rem] lg:hidden">
             <div
-              className="pointer-events-none absolute -left-4 top-1/4 aspect-square w-1/2 rounded-full bg-soft-pink"
+              className="pointer-events-none absolute left-1/2 top-[10%] z-0 aspect-square w-[88%] -translate-x-1/2 rounded-full bg-soft-pink"
               aria-hidden
             />
             <CaseStudyMockupImage
               src={quickShopExploration.image}
               alt={quickShopExploration.imageAlt}
-              width={2800}
-              height={1990}
+              width={529}
+              height={1024}
               className="relative z-10"
             />
           </div>
