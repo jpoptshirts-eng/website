@@ -30,6 +30,19 @@ export const shoppingListsHero = {
     "Two mobile screens showing the Waitrose shopping list creation and top up flow.",
 };
 
+export const myRole = {
+  title: "My role",
+  avatar: "/images/jacinto-hero.png",
+  avatarAlt: "Jacinto De Matos",
+  body: "I led the experience strategy, interaction design, prototyping and validation approach, working across customer behaviour, data logic and basket-building flows.",
+  bullets: [
+    "Defined the behavioural problem and customer planning patterns",
+    "Designed the mobile list creation and basket-building experience",
+    "Created prototypes to test input methods, editable suggestions and customer control",
+    "Worked through recommendation logic, confidence states and refinement patterns",
+  ],
+};
+
 export const whyItMattered = {
   label: "02 Why this mattered",
   headline: "Shopping lists sat at the centre of weekly grocery planning.",
@@ -165,7 +178,7 @@ export const solution = {
   label: "07 Solution",
   headline: "The solution.",
   subcopy:
-    "AI that understands messy intent. An experience that keeps you in control.",
+    "AI that understands messy intent. An experience that keeps customers in control.",
   features: [
     {
       title: "Understand anything",
@@ -273,11 +286,11 @@ export const validation = {
 
 export const impact = {
   label: "10 Impact and outcomes",
-  headline: "Turning planning behaviour into a scalable shopping experience.",
-  body: "The concept connected a high-value customer behaviour with a faster, more flexible way to build baskets. Instead of asking customers to search one product at a time, the experience translated messy intent into editable, shoppable suggestions.",
+  headline: "From fragmented planning to editable basket creation.",
+  body: "The concept connected a high-value customer behaviour with a faster, more flexible way to build baskets. Instead of asking customers to search one product at a time, the experience translated messy intent into editable, shoppable suggestions that customers could review, refine and add to basket.",
   outcomes: [
     {
-      title: "Reduced basket building effort",
+      title: "Reduced basket-building effort",
       copy: "Customers could move from fragmented planning inputs to draft basket suggestions faster.",
     },
     {
@@ -289,7 +302,7 @@ export const impact = {
       copy: "The experience worked across typed lists, uploaded notes, screenshots, meal ideas and preference-based inputs.",
     },
     {
-      title: "Created a scalable AI shopping model",
+      title: "Created a scalable AI-assisted shopping model",
       copy: "The logic could adapt across known customers, new customers, favourites, preferences and purchase history.",
     },
     {

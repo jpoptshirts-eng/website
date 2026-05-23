@@ -25,6 +25,7 @@ import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
 import {
   shoppingListsSubnav,
   shoppingListsHero,
+  myRole,
   whyItMattered,
   problem,
   quotes,
@@ -174,6 +175,55 @@ export default function ShoppingListsCaseStudy() {
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp}
+            className="mt-14 border-t border-border pt-12 md:mt-16 md:pt-14 lg:mt-20 lg:pt-16"
+            aria-labelledby="my-role-heading"
+          >
+            <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-14">
+              <div>
+                <div className="mb-5 flex flex-col items-start gap-3">
+                  <div className="relative h-[4.5rem] w-[4rem] shrink-0 overflow-hidden rounded-[50%] bg-soft-pink ring-2 ring-orange/15 sm:h-20 sm:w-[4.5rem]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={myRole.avatar}
+                      alt={myRole.avatarAlt}
+                      className="h-full w-full object-cover object-[center_15%]"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <h2
+                    id="my-role-heading"
+                    className="text-xs font-semibold uppercase tracking-[0.2em] text-orange"
+                  >
+                    {myRole.title}
+                  </h2>
+                </div>
+                <p className="text-base leading-relaxed text-black md:text-lg">
+                  {myRole.body}
+                </p>
+              </div>
+              <ul className="mt-6 flex flex-col gap-3 lg:mt-0 lg:justify-center">
+                {myRole.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                      aria-hidden
+                    />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -614,7 +664,7 @@ export default function ShoppingListsCaseStudy() {
       {/* 08 Decisions */}
       <section
         id="decisions"
-        className={cn(caseStudySection, "bg-cream pb-8 md:pb-12")}
+        className={cn(caseStudySection, "bg-cream pb-16 md:pb-20 lg:pb-24")}
         aria-labelledby="decisions-heading"
       >
         <div className={caseStudyContainer}>
@@ -632,12 +682,12 @@ export default function ShoppingListsCaseStudy() {
               <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
                 {decisions.subcopy}
               </p>
-              <div className="relative mt-10 hidden max-w-sm lg:block">
+              <div className="relative mx-auto mt-14 mb-2 hidden h-[21rem] w-full max-w-[320px] lg:mb-6 lg:mt-16 lg:block">
                 <div
-                  className="pointer-events-none absolute -right-8 top-1/4 z-0 aspect-square w-[70%] rounded-full bg-orange"
+                  className="pointer-events-none absolute left-1/2 top-[62%] z-0 aspect-square w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange"
                   aria-hidden
                 />
-                <div className="relative z-10">
+                <div className="absolute left-1/2 top-[62%] z-10 flex w-full -translate-x-1/2 -translate-y-1/2 justify-center">
                   <MockupImage
                     src={decisions.image}
                     alt={decisions.imageAlt}
@@ -687,16 +737,18 @@ export default function ShoppingListsCaseStudy() {
             </div>
           </div>
 
-          <div className="relative mt-10 lg:hidden">
+          <div className="relative mx-auto mt-14 mb-2 h-[21rem] max-w-[320px] lg:hidden">
             <div
-              className="pointer-events-none absolute right-0 top-0 z-0 aspect-square w-1/2 rounded-full bg-orange/90"
+              className="pointer-events-none absolute left-1/2 top-[62%] z-0 aspect-square w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange"
               aria-hidden
             />
-            <MockupImage
-              src={decisions.image}
-              alt={decisions.imageAlt}
-              className="relative z-10 mx-auto max-w-[280px]"
-            />
+            <div className="absolute left-1/2 top-[62%] z-10 flex w-full -translate-x-1/2 -translate-y-1/2 justify-center">
+              <MockupImage
+                src={decisions.image}
+                alt={decisions.imageAlt}
+                className="max-w-[280px]"
+              />
+            </div>
           </div>
         </div>
       </section>
