@@ -8,6 +8,7 @@ export const quickShopSubnav = [
   { id: "solution", label: "Solution" },
   { id: "decisions", label: "Decisions" },
   { id: "validation", label: "Validation" },
+  { id: "proof", label: "Proof" },
   { id: "results", label: "Results" },
   { id: "reflection", label: "Reflection" },
 ] as const;
@@ -298,6 +299,32 @@ export const quickShopValidation = {
       copy: "Customers lost confidence when lower-confidence recommendations appeared too prominently.",
     },
   ],
+};
+
+export const quickShopProof = {
+  label: "Proof",
+  headline: "What proved the direction was right",
+  intro:
+    "The strongest signal came from comparing different recommendation models against real shopping behaviour. Customers did not want more ways to browse. They wanted a faster way to rebuild the shop they already had in mind.",
+  cards: [
+    {
+      title: "Structured shopping outperformed novelty",
+      copy:
+        "The Step-by-Step model tested better than endless feeds because it gave customers clearer progression, better orientation and a stronger sense of control.",
+    },
+    {
+      title: "Poor matches damaged trust quickly",
+      copy:
+        "Lower-confidence recommendations made the experience feel less reliable. This reinforced the decision to prioritise fewer, higher-confidence products rather than a larger set of suggestions.",
+    },
+    {
+      title: "MVP scope protected delivery",
+      copy:
+        "Although broader recommendation groups tested well, focusing the first release on Top Regulars reduced delivery complexity and allowed the team to validate the highest-confidence behaviour first.",
+    },
+  ],
+  closing:
+    "The winning direction was not the most visually novel. It was the one that best matched routine shopping behaviour.",
 };
 
 export const quickShopImpact = {

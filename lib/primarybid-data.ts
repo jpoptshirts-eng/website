@@ -8,6 +8,7 @@ export const primaryBidSubnav = [
   { id: "platform", label: "Platform" },
   { id: "decisions", label: "Decisions" },
   { id: "validation", label: "Validation" },
+  { id: "proof", label: "Proof" },
   { id: "impact", label: "Impact" },
   { id: "reflection", label: "Reflection" },
 ] as const;
@@ -238,6 +239,32 @@ export const primaryBidValidation = {
       copy: "Broker and account tooling became easier to navigate and manage at scale.",
     },
   ],
+};
+
+export const primaryBidProof = {
+  label: "Proof",
+  headline: "What validated the design direction",
+  intro:
+    "In a regulated investment journey, confidence was the key measure of usability. The design direction was validated when complex financial information became easier to scan, explain and reuse across customer and operational workflows.",
+  cards: [
+    {
+      title: "Clarity reduced hesitation",
+      copy:
+        "Users and stakeholders responded better when offer details, key dates, risk information and application actions were structured around a clearer hierarchy.",
+    },
+    {
+      title: "Reusable patterns improved consistency",
+      copy:
+        "Offer cards, status indicators, key date rows, CTA modules, account fields and education panels created a more predictable experience across customer-facing and broker workflows.",
+    },
+    {
+      title: "Responsive layouts supported different decision contexts",
+      copy:
+        "Mobile supported quick offer discovery, while desktop gave users more room to review dense investment information before applying.",
+    },
+  ],
+  closing:
+    "The proof was not only that the interface became simpler. It was that regulated complexity became easier to understand, repeat and operate.",
 };
 
 export const primaryBidImpact = {

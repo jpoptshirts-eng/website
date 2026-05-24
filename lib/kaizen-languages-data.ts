@@ -8,6 +8,7 @@ export const kaizenSubnav = [
   { id: "writing", label: "Writing" },
   { id: "gamification", label: "Gamification" },
   { id: "conversion", label: "Conversion" },
+  { id: "proof", label: "Proof" },
   { id: "impact", label: "Impact" },
   { id: "decisions", label: "Decisions" },
   { id: "reflection", label: "Reflection" },
@@ -331,6 +332,32 @@ export const kaizenConversion = {
       "Social links on app performed 8.5% better for conversion than web",
     ],
   },
+};
+
+export const kaizenProof = {
+  label: "Proof",
+  headline: "What changed the product direction",
+  intro:
+    "The strongest evidence challenged the original assumption that more intermediate and expert content would solve retention. Research showed that beginners needed stronger foundations, clearer recovery moments and more active practice before advanced content could create lasting value.",
+  cards: [
+    {
+      title: "Confidence mattered before content depth",
+      copy:
+        "Learners were not only dropping out because they needed more lessons. They struggled when correction felt repetitive, pronunciation errors were hard to recover from and progress felt unclear.",
+    },
+    {
+      title: "Writing created active learning",
+      copy:
+        "Studying beginner Japanese learning methods helped shape a writing experience around recognition, stroke practice, repetition and recall. This gave beginners a more tangible sense of progress.",
+    },
+    {
+      title: "Behavioural loops supported retention",
+      copy:
+        "Gamification, streaks, rewards and progress visibility gave learners reasons to return, while still supporting the learning goal rather than feeling like decoration.",
+    },
+  ],
+  closing:
+    "The product direction shifted from adding more content to designing the confidence loops that helped learners keep going.",
 };
 
 export const kaizenImpact = {

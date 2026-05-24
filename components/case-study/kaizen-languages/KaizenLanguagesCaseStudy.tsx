@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Heart, Layers, LineChart, Pencil, Scale, Star, TrendingUp, Zap } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
+import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
@@ -25,6 +26,7 @@ import {
   kaizenGamification,
   kaizenRetention,
   kaizenConversion,
+  kaizenProof,
   kaizenImpact,
   kaizenDecisions,
   kaizenReflection,
@@ -906,6 +908,13 @@ export default function KaizenLanguagesCaseStudy() {
       </section>
 
       <CaseStudyQuote text={kaizenQuotes[2]} />
+
+      <CaseStudyProof
+        content={kaizenProof}
+        headingId="kaizen-proof-heading"
+        sectionClassName="bg-cream"
+        cardClassName="bg-white"
+      />
 
       {/* Impact */}
       <section

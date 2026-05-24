@@ -8,6 +8,7 @@ export const shoppingListsSubnav = [
   { id: "solution", label: "Solution" },
   { id: "decisions", label: "Decisions" },
   { id: "validation", label: "Validation" },
+  { id: "proof", label: "Proof" },
   { id: "impact", label: "Impact" },
   { id: "reflection", label: "Reflection" },
 ] as const;
@@ -282,6 +283,32 @@ export const validation = {
       response: "Grouped items by occasion and category.",
     },
   ],
+};
+
+export const proof = {
+  label: "Proof",
+  headline: "What gave us confidence",
+  intro:
+    "The direction was supported by a clear behavioural pattern: customers were already planning shops outside the product. The opportunity was to translate that existing intent into a faster, editable basket-building experience without removing customer control.",
+  cards: [
+    {
+      title: "Behaviour already existed",
+      copy:
+        "Customers were already using paper lists, notes, screenshots, meal ideas and household reminders to plan shops before opening the grocery experience. This showed the product did not need to create a new behaviour. It needed to support one that already existed.",
+    },
+    {
+      title: "Ambiguity was the real problem",
+      copy:
+        "Inputs like milk, bread or pasta showed that customers rarely think in exact product names. The experience needed to interpret intent, suggest likely matches and keep alternatives visible where confidence was lower.",
+    },
+    {
+      title: "Control protected trust",
+      copy:
+        "Testing showed that customers were more comfortable with AI-assisted suggestions when they could review, edit, swap, remove and adjust quantities before committing anything to basket.",
+    },
+  ],
+  closing:
+    "The proof was not that customers wanted automation. It was that they wanted less effort while still feeling in control.",
 };
 
 export const impact = {

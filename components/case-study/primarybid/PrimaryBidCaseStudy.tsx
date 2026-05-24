@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
+import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
@@ -27,6 +28,7 @@ import {
   primaryBidPlatform,
   primaryBidDecisions,
   primaryBidValidation,
+  primaryBidProof,
   primaryBidImpact,
   primaryBidReflection,
 } from "@/lib/primarybid-data";
@@ -727,6 +729,13 @@ export default function PrimaryBidCaseStudy() {
           </div>
         </div>
       </section>
+
+      <CaseStudyProof
+        content={primaryBidProof}
+        headingId="pb-proof-heading"
+        sectionClassName="bg-cream"
+        cardClassName="bg-white"
+      />
 
       {/* 10 Impact */}
       <section

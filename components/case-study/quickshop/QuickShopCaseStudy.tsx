@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
+import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import CaseStudyMockupImage from "@/components/case-study/CaseStudyMockupImage";
@@ -37,6 +38,7 @@ import {
   quickShopSolution,
   quickShopDecisions,
   quickShopValidation,
+  quickShopProof,
   quickShopImpact,
   quickShopReflection,
 } from "@/lib/quickshop-data";
@@ -801,6 +803,13 @@ export default function QuickShopCaseStudy() {
           </div>
         </div>
       </section>
+
+      <CaseStudyProof
+        content={quickShopProof}
+        headingId="qs-proof-heading"
+        sectionClassName="bg-white"
+        cardClassName="bg-cream-muted"
+      />
 
       {/* 10 Results */}
       <section

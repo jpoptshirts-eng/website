@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
+import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
@@ -35,6 +36,7 @@ import {
   solution,
   decisions,
   validation,
+  proof,
   impact,
   reflection,
 } from "@/lib/shopping-lists-data";
@@ -833,6 +835,13 @@ export default function ShoppingListsCaseStudy() {
           </div>
         </div>
       </section>
+
+      <CaseStudyProof
+        content={proof}
+        headingId="proof-heading"
+        sectionClassName="bg-cream"
+        cardClassName="bg-white"
+      />
 
       {/* 10 Impact */}
       <section
