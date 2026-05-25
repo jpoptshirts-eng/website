@@ -3,6 +3,7 @@ export const shoppingListsSubnav = [
   { id: "why-it-mattered", label: "Why it mattered" },
   { id: "problem", label: "Problem" },
   { id: "insights", label: "Insights" },
+  { id: "constraints", label: "Constraints" },
   { id: "hypothesis", label: "Hypothesis" },
   { id: "principles", label: "Principles" },
   { id: "solution", label: "Solution" },
@@ -145,8 +146,75 @@ export const insights = {
   ],
 };
 
+export const constraintsTradeoffs = {
+  label: "05 Constraints & trade-offs",
+  headline: "Designing within real product and system limits",
+  intro:
+    "The experience had to work with messy inputs, imperfect interpretation and an MVP delivery window. These limits shaped what we could ship and what we chose not to.",
+  constraints: [
+    {
+      title: "Ambiguous list inputs",
+      copy: "Physical lists were often vague, making accurate product interpretation difficult.",
+    },
+    {
+      title: "Unreliable OCR",
+      copy: "Confidence varied with handwriting, formatting and image clarity.",
+    },
+    {
+      title: "Thin data for new customers",
+      copy: "Without behavioural history, personalisation accuracy was limited early on.",
+    },
+    {
+      title: "Voice raised the wrong expectations",
+      copy: "Spoken input suggested a conversational assistant rather than lightweight list capture.",
+    },
+    {
+      title: "MVP delivery pressure",
+      copy: "Engineering feasibility and timelines limited how complex AI interactions could be in the first release.",
+    },
+    {
+      title: "Operational complexity",
+      copy: "Availability, substitutions and category logic added backend and experience complexity.",
+    },
+    {
+      title: "Trust in recommendations",
+      copy: "Automated suggestions needed to feel transparent, reviewable and easy to challenge.",
+    },
+    {
+      title: "Control over automation",
+      copy: "Customers needed editability, not invisible decisions applied to their basket.",
+    },
+  ],
+  tradeoffs: [
+    {
+      title: "Editable drafts over full automation",
+      copy: "We prioritised AI-generated suggestions customers could review, swap and adjust before checkout.",
+    },
+    {
+      title: "Voice deprioritised for MVP",
+      copy: "Conversational voice was removed from the first release to reduce UX complexity and unrealistic expectations.",
+    },
+    {
+      title: "Lightweight preferences first",
+      copy: "Onboarding captured simple signals instead of building a full recommendation engine upfront.",
+    },
+    {
+      title: "Mixed inputs over rigid flows",
+      copy: "Typing, image upload and quick capture supported how people already plan, rather than forcing structure.",
+    },
+    {
+      title: "Signals matched customer maturity",
+      copy: "Popularity and behavioural cues supported new customers; purchase history mattered more for returning shoppers.",
+    },
+    {
+      title: "Validate before scaling AI",
+      copy: "We prioritised fast MVP learning before investing in deeper AI-driven functionality.",
+    },
+  ],
+};
+
 export const hypothesis = {
-  label: "05 Hypothesis",
+  label: "06 Hypothesis",
   headline: "If we could interpret messy intent, we could reduce planning effort.",
   body: "We believed that if we could capture shopping intent naturally, interpret ambiguous inputs and generate editable draft baskets, we could reduce planning effort while increasing confidence, basket completion and repeat usage.",
   steps: [
@@ -171,7 +239,7 @@ export const hypothesis = {
 };
 
 export const principles = {
-  label: "06 Design principles",
+  label: "07 Design principles",
   headline: "Reduce effort — not control.",
   subcopy: "AI should accelerate basket building without removing customer ownership.",
   intro:
@@ -196,7 +264,7 @@ export const principles = {
 };
 
 export const solution = {
-  label: "07 Solution",
+  label: "08 Solution",
   headline: "The solution.",
   subcopy:
     "AI that understands messy intent. An experience that keeps customers in control.",
@@ -223,7 +291,7 @@ export const solution = {
 };
 
 export const decisions = {
-  label: "08 Key product decisions",
+  label: "09 Key product decisions",
   headline: "The decisions that made the experience work.",
   subcopy: "Trust came from restraint, clarity and control — not just automation.",
   items: [
@@ -258,7 +326,7 @@ export const decisions = {
 };
 
 export const validation = {
-  label: "09 Validation and iteration",
+  label: "10 Validation and iteration",
   headline: "Validation and iteration.",
   body: "We tested early concepts, refined the experience in response to feedback, and validated the solution with real customers.",
   process: [
@@ -332,7 +400,7 @@ export const proof = {
 };
 
 export const impact = {
-  label: "10 Impact and outcomes",
+  label: "11 Impact and outcomes",
   headline: "From fragmented planning to editable basket creation.",
   body: "The concept connected a high-value customer behaviour with a faster, more flexible way to build baskets. Instead of asking customers to search one product at a time, the experience translated messy intent into editable, shoppable suggestions that customers could review, refine and add to basket.",
   outcomes: [
@@ -360,7 +428,7 @@ export const impact = {
 };
 
 export const reflection = {
-  label: "11 Reflection",
+  label: "12 Reflection",
   headline: "Automation alone did not create trust.",
   lead: "The biggest shift was not helping customers create lists. It was helping them turn intent into a basket.",
   body: "Customers valued speed, but only when they retained visibility, flexibility and control. That insight reframed the experience from a simple list-making tool into an intelligent, editable shopping assistant.",

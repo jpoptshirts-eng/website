@@ -33,6 +33,7 @@ import {
   quickShopProblem,
   quickShopQuotes,
   quickShopInsights,
+  quickShopConstraintsTradeoffs,
   quickShopPrinciples,
   quickShopExploration,
   quickShopSolution,
@@ -415,7 +416,85 @@ export default function QuickShopCaseStudy() {
         </div>
       </section>
 
-      {/* 05 Design principles */}
+      {/* 05 Constraints & trade-offs */}
+      <section
+        id="constraints"
+        className={cn(caseStudySection, "bg-cream")}
+        aria-labelledby="qs-constraints-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>{quickShopConstraintsTradeoffs.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="qs-constraints-heading">
+              {quickShopConstraintsTradeoffs.headline}
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {quickShopConstraintsTradeoffs.intro}
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid gap-10 lg:mt-14 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
+                Constraints
+              </h3>
+              <ul className="mt-5 flex flex-col gap-3">
+                {quickShopConstraintsTradeoffs.constraints.map((item, index) => (
+                  <motion.li
+                    key={item.title}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-30px" }}
+                    custom={index * 0.03}
+                    variants={caseStudyFadeUp}
+                    className="rounded-2xl border border-border bg-white p-4 md:p-5"
+                  >
+                    <p className="text-sm font-bold leading-snug text-black">
+                      {item.title}
+                    </p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-grey">
+                      {item.copy}
+                    </p>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
+                Trade-offs
+              </h3>
+              <ul className="mt-5 flex flex-col gap-3">
+                {quickShopConstraintsTradeoffs.tradeoffs.map((item, index) => (
+                  <motion.li
+                    key={item.title}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-30px" }}
+                    custom={index * 0.03}
+                    variants={caseStudyFadeUp}
+                    className="rounded-2xl border border-border bg-white p-4 md:p-5"
+                  >
+                    <p className="text-sm font-bold leading-snug text-black">
+                      {item.title}
+                    </p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-grey">
+                      {item.copy}
+                    </p>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 06 Design principles */}
       <section
         id="principles"
         className={cn(caseStudySection, "relative overflow-hidden bg-cream-muted")}

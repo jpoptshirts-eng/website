@@ -3,6 +3,7 @@ export const quickShopSubnav = [
   { id: "opportunity", label: "Opportunity" },
   { id: "problem", label: "Problem" },
   { id: "insights", label: "Insights" },
+  { id: "constraints", label: "Constraints" },
   { id: "principles", label: "Principles" },
   { id: "exploration", label: "Exploration" },
   { id: "solution", label: "Solution" },
@@ -118,8 +119,63 @@ export const quickShopInsights = {
   ],
 };
 
+export const quickShopConstraintsTradeoffs = {
+  label: "05 Constraints & trade-offs",
+  headline: "Prioritising what we could prove in the MVP",
+  intro:
+    "QuickShop needed to validate predictive basket building without blocking roadmap delivery. Real constraints around engineering effort, category scale and customer trust shaped what shipped first.",
+  constraints: [
+    {
+      title: "Fast validation required",
+      copy: "We needed to prove the predictive shopping experience quickly without delaying broader roadmap delivery.",
+    },
+    {
+      title: "Engineering cost of the full vision",
+      copy: "A fully guided multi-step experience demanded significant build effort before value was proven.",
+    },
+    {
+      title: "Relevance at category scale",
+      copy: "Maintaining useful recommendations across large product ranges added complexity to logic and presentation.",
+    },
+    {
+      title: "Risk of recommendation overload",
+      copy: "Too many layers could overwhelm customers and weaken confidence in what was being suggested.",
+    },
+    {
+      title: "Speed, familiarity and discovery",
+      copy: "The journey had to balance routine efficiency with enough discovery without slowing repeat shops.",
+    },
+    {
+      title: "Evidence before scale",
+      copy: "Behavioural and commercial metrics needed to justify investment before expanding the experience.",
+    },
+  ],
+  tradeoffs: [
+    {
+      title: "Top Regulars as MVP",
+      copy: "We launched a focused entry point first rather than the full multi-step basket-building experience.",
+    },
+    {
+      title: "Less exploration upfront",
+      copy: "Category breadth was reduced initially to improve delivery speed and learning clarity.",
+    },
+    {
+      title: "Structured steps over joy scrolling",
+      copy: "Testing showed continuous feeds caused cognitive fatigue and loss of orientation, so we prioritised step-based navigation.",
+    },
+    {
+      title: "Inspiration deferred",
+      copy: "Recipe-led and inspirational experiences waited until core behavioural assumptions were validated.",
+    },
+    {
+      title: "Customer control over automation",
+      copy: "Selections stayed reviewable rather than relying too heavily on automated basket creation.",
+    },
+  ],
+};
+
 export const quickShopPrinciples = {
-  label: "05 Design principles",
+  label: "06 Design principles",
   headline: "Reduce effort, not control.",
   intro:
     "These principles shaped how the experience balanced behavioural intelligence, trust and customer control.",
@@ -154,7 +210,7 @@ export const quickShopPrinciples = {
 };
 
 export const quickShopExploration = {
-  label: "06 Concept exploration",
+  label: "07 Concept exploration",
   headline: "Three ways to rebuild a basket.",
   intro:
     "A major part of the project focused on testing different interaction models for personalised basket building.",
@@ -199,7 +255,7 @@ export const quickShopExploration = {
 };
 
 export const quickShopSolution = {
-  label: "07 Solution",
+  label: "08 Solution",
   headline: "A faster way to rebuild regular shops.",
   body: "The final direction focused on a simplified Step-by-Step basket-building experience.",
   body2:
@@ -235,7 +291,7 @@ export const quickShopSolution = {
 };
 
 export const quickShopDecisions = {
-  label: "08 Key product decisions",
+  label: "09 Key product decisions",
   headline: "The decisions that shaped the experience.",
   subcopy:
     "The product direction was shaped by customer behaviour, recommendation trust and delivery constraints.",
@@ -268,7 +324,7 @@ export const quickShopDecisions = {
 };
 
 export const quickShopValidation = {
-  label: "09 Validation and iteration",
+  label: "10 Validation and iteration",
   headline: "Testing helped simplify the direction.",
   body: "The concepts were tested with customers across different shopping behaviours and levels of online grocery familiarity.",
   process: [
@@ -328,7 +384,7 @@ export const quickShopProof = {
 };
 
 export const quickShopImpact = {
-  label: "10 Results",
+  label: "11 Results",
   headline: "The impact of reducing repeat shopping friction.",
   intro:
     "QuickShop delivered measurable gains in speed, basket value, engagement and repeat behaviour, showing the value of data-informed personalisation when it is designed around customer confidence and control.",
@@ -385,7 +441,7 @@ export const quickShopImpact = {
 };
 
 export const quickShopReflection = {
-  label: "11 Reflection",
+  label: "12 Reflection",
   headline: "Personalisation only worked when it reduced effort.",
   body: "The most important learning was that personalisation alone does not reduce friction.",
   body2:
