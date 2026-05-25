@@ -21,6 +21,7 @@ import {
   kaizenLesson,
   kaizenSuggestion,
   kaizenIteration,
+  kaizenDesignJudgement,
   kaizenStrategy,
   kaizenWriting,
   kaizenGamification,
@@ -410,6 +411,9 @@ export default function KaizenLanguagesCaseStudy() {
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
               {kaizenResearch.body}
             </p>
+            <p className="mt-4 text-base leading-relaxed text-grey md:text-lg">
+              {kaizenResearch.recruitment}
+            </p>
           </motion.div>
           <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
             <div>
@@ -608,29 +612,40 @@ export default function KaizenLanguagesCaseStudy() {
 
           {/* Iteration */}
           <div className="mt-20 border-t border-border pt-16 lg:mt-24 lg:pt-20">
-            <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-10 xl:gap-12">
-              <div>
-                <CaseStudyLabel>{kaizenIteration.label}</CaseStudyLabel>
-                <h3 className="text-2xl font-bold text-black md:text-3xl">
-                  {kaizenIteration.headline}
-                </h3>
-                <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-                  {kaizenIteration.body}
+            <CaseStudyLabel>{kaizenIteration.label}</CaseStudyLabel>
+            <h3 className="mt-2 text-2xl font-bold text-black md:text-3xl">
+              {kaizenIteration.headline}
+            </h3>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              <motion.article
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={caseStudyFadeUp}
+                className="rounded-2xl border border-border bg-cream-muted p-6 md:p-7"
+              >
+                <h4 className="font-bold text-black">{kaizenIteration.before.title}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                  {kaizenIteration.before.body}
                 </p>
-                <div className="mt-8">
-                  <BulletList items={kaizenIteration.changes} />
-                </div>
-              </div>
-              <div className="mt-10 flex justify-center lg:mt-0 lg:justify-end">
-                <KpiCallout
-                  icon="chart"
-                  compact
-                  className="w-full max-w-[16rem] sm:max-w-[17rem] lg:w-[17rem]"
-                >
-                  {kaizenIteration.result}
-                </KpiCallout>
-              </div>
+              </motion.article>
+              <motion.article
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                custom={0.05}
+                variants={caseStudyFadeUp}
+                className="rounded-2xl border border-orange/25 bg-white p-6 md:p-7"
+              >
+                <h4 className="font-bold text-black">{kaizenIteration.after.title}</h4>
+                <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                  {kaizenIteration.after.body}
+                </p>
+              </motion.article>
             </div>
+            <p className="mt-8 border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg">
+              {kaizenIteration.result}
+            </p>
           </div>
         </div>
       </section>
@@ -679,6 +694,48 @@ export default function KaizenLanguagesCaseStudy() {
               </motion.li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Design judgement */}
+      <section
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="kaizen-judgement-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>{kaizenDesignJudgement.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="kaizen-judgement-heading">
+              {kaizenDesignJudgement.headline}
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {kaizenDesignJudgement.intro}
+            </p>
+          </motion.div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12">
+            {kaizenDesignJudgement.cards.map((card, index) => (
+              <motion.article
+                key={card.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                custom={index * 0.05}
+                variants={caseStudyFadeUp}
+                className="rounded-2xl border border-border bg-cream-muted p-6 md:p-7"
+              >
+                <h3 className="font-bold text-black">{card.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                  {card.copy}
+                </p>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -761,7 +818,7 @@ export default function KaizenLanguagesCaseStudy() {
                 icon="star"
                 className="w-full max-w-[32rem] sm:max-w-[34rem] lg:w-[34rem]"
               >
-                {kaizenWriting.result}
+                62% NPS in testing, 12% above average. {kaizenWriting.result}
               </KpiCallout>
             </div>
           </div>
@@ -936,6 +993,9 @@ export default function KaizenLanguagesCaseStudy() {
             </CaseStudyHeadline>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
               {kaizenImpact.intro}
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-grey md:text-lg">
+              {kaizenImpact.analyticsNote}
             </p>
           </motion.div>
 

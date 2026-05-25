@@ -20,7 +20,7 @@ export const shoppingListsHero = {
   meta: [
     { label: "Role", value: "Senior Product Designer" },
     { label: "Company", value: "Waitrose & Partners" },
-    { label: "Timeline", value: "12 weeks" },
+    { label: "Timeline", value: "4 months" },
     {
       label: "Focus",
       value: "Intelligent shopping lists / Behavioural UX / AI assisted basket building",
@@ -76,11 +76,31 @@ export const problem = {
   headline: "Real-world shopping behaviour is messy.",
   body: "Customers rarely think in exact product titles or SKUs. Instead, they create fragmented reminders throughout the week: handwritten notes, screenshots, meals, family requests, generic reminders and brand references. Traditional grocery experiences forced customers to manually translate this intent into products one item at a time.",
   painPoints: [
-    { title: "Slow basket building", icon: "clock" as const },
-    { title: "Decision fatigue", icon: "brain" as const },
-    { title: "Repetitive searching", icon: "search" as const },
-    { title: "Low confidence", icon: "shield" as const },
-    { title: "Friction for new customers", icon: "user" as const },
+    {
+      title: "Slow basket building",
+      copy: "Customers translated messy list items into products one at a time before they could start shopping.",
+      icon: "clock" as const,
+    },
+    {
+      title: "Decision fatigue",
+      copy: "Too many possible matches for vague inputs made planning feel harder than it needed to be.",
+      icon: "brain" as const,
+    },
+    {
+      title: "Repetitive searching",
+      copy: "The same items and brands were searched again each week instead of reusing existing intent.",
+      icon: "search" as const,
+    },
+    {
+      title: "Low confidence",
+      copy: "Customers hesitated when they could not see, review or correct suggestions before adding to basket.",
+      icon: "shield" as const,
+    },
+    {
+      title: "Friction for new customers",
+      copy: "Less purchase history meant more guesswork and more manual work to build a first online basket.",
+      icon: "user" as const,
+    },
   ],
 };
 

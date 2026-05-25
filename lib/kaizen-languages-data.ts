@@ -24,7 +24,7 @@ export const kaizenHero = {
     "As founding product designer, I led the end-to-end design of a native iOS and Android language learning app, shaping the lesson experience, onboarding, writing interactions, gamification, experimentation and conversion journeys. The challenge was not only helping people learn a language, but helping them feel confident enough to keep going.",
   meta: [
     { label: "Role", value: "Founding Product Designer" },
-    { label: "Timeline", value: "July 2019 to June 2022" },
+    { label: "Timeline", value: "3 years" },
     { label: "Platform", value: "Native iOS and Android" },
     {
       label: "Team",
@@ -51,13 +51,13 @@ export const kaizenMyRole = {
   title: "My role",
   avatar: "/images/jacinto-hero.png",
   avatarAlt: "Jacinto De Matos",
-  body: "I owned the product design from discovery through optimisation — across research, UX, UI, prototyping, testing, analytics and product improvement. Because Kaizen was an early-stage product, the role required both strategic thinking and hands-on execution.",
+  body: "I owned the product design from discovery through optimisation — across UX, UI, research, analytics, workshops, guidelines, product foundations and hands-on delivery. Because Kaizen was an early-stage product, the role required both strategic thinking and execution.",
   bullets: [
     "Defining the core lesson experience",
     "Building testable prototypes",
     "Creating product flows and UI systems",
     "Running guerrilla and remote user testing",
-    "Analysing funnel and conversion data",
+    "Using Firebase funnels and Hotjar to analyse behaviour",
     "Shaping A/B tests and CRO decisions",
     "Producing assets and documentation for developers",
     "Collaborating with language specialists on lesson structure and writing systems",
@@ -129,8 +129,11 @@ export const kaizenResearch = {
     "Study of spaced repetition and language memory techniques",
     "Study of beginner Japanese learning methods, including Genki",
     "Collaboration with language specialists and AI stakeholders",
-    "Behavioural analysis around lesson completion, retention and conversion",
+    "Firebase funnels and Hotjar for behavioural and drop-off analysis",
+    "A/B testing across onboarding, lessons and subscription screens",
   ],
+  recruitment:
+    "To avoid testing with generic app users, I recruited people actively learning Japanese through language schools, meetups, comic stores, WeWork, flyers outside independent classes and remote platforms such as UserTesting and TryMyUI. This helped validate the product with learners who were already experiencing the motivation, confidence and pronunciation challenges the app needed to solve.",
   learningGoals: [
     "What makes a lesson feel useful rather than intimidating",
     "Where users lose confidence",
@@ -172,25 +175,43 @@ export const kaizenSuggestion = {
     "Supported confidence without removing learning effort",
     "Kept help contextual rather than hidden elsewhere",
   ],
-  result: "Introducing Suggestion increased lesson completions by 25%.",
+  result:
+    "Suggestion gave learners a clearer recovery path when pronunciation failed, without removing the learning challenge.",
   image: "/images/work/kaizen-languages/mockup-suggestion.png",
   imageAlt:
     "Kaizen Languages Suggestion card helping users recover from pronunciation errors.",
 };
 
+export const kaizenDesignJudgement = {
+  label: "Design judgement",
+  headline: "Designing for moments when AI breaks down",
+  intro:
+    "Conversational learning depends on confidence, but speech recognition and repeated corrections can quickly create frustration. I focused on recovery moments that helped learners continue without feeling punished by the technology.",
+  cards: [
+    {
+      title: "Suggestion cards after repeated errors",
+      copy: "When learners struggled to pronounce unfamiliar words, I introduced a suggestion card that broke difficult words into syllables and let users hear slowed audio before trying again.",
+    },
+    {
+      title: "A skip path when recognition failed",
+      copy: "Analytics showed that some learners were leaving lessons when microphone recognition failed repeatedly. I introduced a skip option after a minimum number of corrections so users could continue without abandoning the lesson.",
+    },
+  ],
+};
+
 export const kaizenIteration = {
   label: "08 Iteration",
-  headline: "Using interaction design to improve engagement and retention",
-  body: "Version 5 was functional, but not interactive enough. Chat bubbles appeared statically, guidance was disconnected from the user’s actions and support elements were too separated from the lesson flow. In Version 6, I made the conversation feel more alive by introducing typing motion, moving options closer to instructional content and using bottom drawer cards to surface grammar and learning support more contextually.",
-  changes: [
-    "More responsive AI behaviour",
-    "Better placement of options and guidance",
-    "Improved instructional hierarchy",
-    "More contextual grammar support",
-    "A more engaging, less static lesson flow",
-  ],
+  headline: "From static lessons to interactive learning loops",
+  before: {
+    title: "Version 5",
+    body: "Lessons felt more static, with limited interaction states, weaker recovery moments and less guidance when learners became stuck.",
+  },
+  after: {
+    title: "Version 6",
+    body: "Version 6 introduced AI typing states, clearer options, drawer cards, grammar prompts and more supportive recovery moments, making the experience feel more responsive and easier to continue.",
+  },
   result:
-    "Conversion improved across versions, rising from 1.6% in Version 5 to 2.7% in Version 6, with Version 7 later reaching 3.8%.",
+    "Conversion rose from 1.6% in Version 5 to 2.7% in Version 6, a roughly 70% uplift, with Version 7 later reaching 3.8%.",
 };
 
 export const kaizenStrategy = {
@@ -247,7 +268,7 @@ export const kaizenWriting = {
   collaboration:
     "I worked closely with language specialists to define the character sets, pronunciation and quiz logic. I also collaborated with developers to understand the technical constraints of stroke recognition, including the acceptable drawing area, stroke size and preventing users from completing the interaction by drawing outside the required path.",
   result:
-    "The writing feature achieved a 62% NPS, which was 12% above average. In testing, users were highly engaged with the writing mechanic and were able to recall the majority of characters during the final quiz.",
+    "In testing, users were highly engaged with the writing mechanic and were able to recall the majority of characters during the final quiz.",
   flowLabel: "Learning sequence planning",
   characterImage: "/images/work/kaizen-languages/writing-character-a.png",
   characterAlt:
@@ -338,22 +359,22 @@ export const kaizenProof = {
   label: "Proof",
   headline: "What changed the product direction",
   intro:
-    "The strongest evidence challenged the original assumption that more intermediate and expert content would solve retention. Research showed that beginners needed stronger foundations, clearer recovery moments and more active practice before advanced content could create lasting value.",
+    "Research, moderated testing and product analytics challenged the assumption that more advanced content alone would improve retention. The strongest gains came from recovery design, beginner foundations and small, measurable experiments.",
   cards: [
     {
-      title: "Confidence mattered before content depth",
+      title: "Completion improved through character control",
       copy:
-        "Learners were not only dropping out because they needed more lessons. They struggled when correction felt repetitive, pronunciation errors were hard to recover from and progress felt unclear.",
+        "Giving learners the option to switch between Romaji, Hiragana and Kanji gave them more control over difficulty and increased lesson completion by 25%.",
     },
     {
-      title: "Writing created active learning",
+      title: "Writing validated active learning",
       copy:
-        "Studying beginner Japanese learning methods helped shape a writing experience around recognition, stroke practice, repetition and recall. This gave beginners a more tangible sense of progress.",
+        "The writing feature was shaped around stroke order, repetition and recall, then validated with a 62% NPS, 12% above average.",
     },
     {
-      title: "Behavioural loops supported retention",
+      title: "Small pricing changes improved conversion",
       copy:
-        "Gamification, streaks, rewards and progress visibility gave learners reasons to return, while still supporting the learning goal rather than feeling like decoration.",
+        "A/B testing showed that moving the ‘most popular’ label to the 6 month plan increased 6 month subscribers by more than 20%.",
     },
   ],
   closing:
@@ -365,6 +386,8 @@ export const kaizenImpact = {
   headline: "Impact at a glance",
   intro:
     "The writing feature became one of the strongest indicators that beginner-focused learning could create deeper engagement. It showed that users valued active practice, guided progression and the feeling of genuine learning achievement.",
+  analyticsNote:
+    "Alongside moderated testing, I used Firebase funnels, Hotjar and A/B testing to understand where learners dropped off, which lesson changes improved completion, and how pricing presentation affected subscription behaviour.",
   metrics: [
     {
       metric: "+25%",
@@ -456,5 +479,5 @@ export const kaizenReflection = {
     "Business goals with the needs of the core learner audience",
   ],
   closing:
-    "The result was a more adaptive and engaging language learning experience designed around sustainable human behaviour.",
+    "This project shifted the product from simply adding more content to designing the confidence loops that helped learners keep going. The biggest improvement came from combining research, analytics and small product experiments to reduce friction, support recovery and make progress feel more achievable.",
 };

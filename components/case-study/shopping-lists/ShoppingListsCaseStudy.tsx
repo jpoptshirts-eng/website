@@ -332,14 +332,17 @@ export default function ShoppingListsCaseStudy() {
                   viewport={{ once: true, margin: "-30px" }}
                   custom={index * 0.05}
                   variants={fadeUp}
-                  className="flex flex-col items-center rounded-2xl border border-border bg-white px-4 py-8 text-center"
+                  className="flex flex-col rounded-2xl border border-border bg-white p-5 text-center md:p-6"
                 >
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#FFE4D6]">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#FFE4D6]">
                     <Icon className="h-6 w-6 text-orange" strokeWidth={1.75} />
                   </div>
                   <h3 className="text-sm font-bold leading-snug text-black">
                     {point.title}
                   </h3>
+                  <p className="mt-2 text-xs leading-relaxed text-grey md:text-sm">
+                    {point.copy}
+                  </p>
                 </motion.article>
               );
             })}
