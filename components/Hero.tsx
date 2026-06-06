@@ -33,11 +33,11 @@ export default function Hero() {
       </div>
 
       <div className="mx-auto max-w-page px-6 lg:px-8">
-        <div className="relative overflow-visible lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-4 xl:gap-x-6">
+        <div className="relative overflow-visible min-[554px]:grid min-[554px]:grid-cols-12 min-[554px]:items-start lg:gap-x-4 xl:gap-x-6">
           {/* LEFT: headline + copy (Hero-content reference) */}
           <div
             id="about"
-            className="scroll-mt-24 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:z-30"
+            className="scroll-mt-24 min-[554px]:col-span-7 min-[554px]:col-start-1 min-[554px]:row-start-1 min-[554px]:z-30 lg:col-span-7 lg:col-start-1 lg:row-start-1 lg:z-30"
           >
             <motion.p
               custom={0}
@@ -94,43 +94,35 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT: portrait + pink circle (hidden below 544px) */}
-          <div className="hidden min-[544px]:block lg:col-span-4 lg:col-start-8 lg:row-start-1 lg:z-10 xl:col-start-7">
-            <div className="relative ml-auto w-full max-w-[20rem] overflow-visible sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[32rem]">
-              <div
-                className="pointer-events-none absolute left-1/2 top-[8%] z-0 aspect-square w-[90%] -translate-x-1/2 rounded-full bg-soft-pink md:top-[6%] md:w-[95%] lg:top-[5%] lg:w-[110%] lg:max-w-[460px]"
-                aria-hidden
-              />
-
-              {/* Baseline anchor — portrait grows up/left from bottom-right */}
+          {/* RIGHT: portrait + pink circle (hidden below 554px) */}
+          <div className="hidden min-[554px]:block min-[554px]:col-span-5 min-[554px]:col-start-8 min-[554px]:row-start-1 min-[554px]:z-10 lg:col-span-4 lg:col-start-8 xl:col-start-7">
+            <div className="relative ml-auto w-full max-w-[20rem] overflow-visible sm:max-w-[22rem] md:max-w-[24rem] lg:max-w-[27rem] xl:max-w-[29rem]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="relative z-10 overflow-visible min-[544px]:h-[calc(3.25rem+6*2.35rem*0.92)] sm:h-[calc(3.25rem+6*3rem*0.92)] md:h-[calc(3.25rem+6*3.75rem*0.92)] lg:h-[calc(3.25rem+6*4rem*0.92)] xl:h-[calc(3.25rem+6*4.75rem*0.92)]"
+                className="relative z-10 overflow-visible min-[554px]:h-[calc(3.25rem+6*2.35rem*0.92)] sm:h-[calc(3.25rem+6*3rem*0.92)] md:h-[calc(3.25rem+6*3.75rem*0.92)] lg:h-[calc(3.25rem+6*4rem*0.92)] xl:h-[calc(3.25rem+6*4.75rem*0.92)]"
               >
                 {heroError ? (
                   <div
-                    className="absolute bottom-0 right-0 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[32rem]"
+                    className="absolute bottom-0 right-0 w-full min-[554px]:w-[16rem] min-[554px]:max-w-none min-[554px]:origin-bottom-right min-[554px]:scale-[0.96] sm:w-[18rem] sm:scale-[0.98] md:w-[21rem] md:scale-[1] lg:w-[25rem] lg:scale-[1.03] xl:w-[26rem] xl:scale-[1.04]"
                     aria-hidden
                   >
-                    <div className="relative aspect-[4/5] w-full">
-                      <span className="absolute inset-0 flex items-end justify-end pb-0 text-sm text-grey">
-                        Portrait
-                      </span>
-                    </div>
+                    <span className="text-sm text-grey">Portrait</span>
                   </div>
                 ) : (
-                  <div className="absolute bottom-0 right-0 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] xl:max-w-[32rem]">
-                    <div className="relative aspect-[4/5] w-full">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src="/images/jacinto-hero.png?v=3"
-                        alt="Jacinto De Matos, Senior Product Designer"
-                        className="h-full w-full object-contain object-bottom"
-                        onError={() => setHeroError(true)}
-                      />
-                    </div>
+                  <div className="absolute bottom-0 right-0 w-full min-[554px]:w-[16rem] min-[554px]:max-w-none min-[554px]:origin-bottom-right min-[554px]:scale-[0.96] sm:w-[18rem] sm:scale-[0.98] md:w-[21rem] md:scale-[1] lg:w-[25rem] lg:scale-[1.03] xl:w-[26rem] xl:scale-[1.04]">
+                    <div
+                      className="pointer-events-none absolute left-1/2 top-[46%] z-0 aspect-square w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-soft-pink"
+                      aria-hidden
+                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/jacinto-hero.png?v=5"
+                      alt="Jacinto De Matos, Senior Product Designer"
+                      className="relative z-10 h-auto w-full bg-transparent object-contain object-bottom"
+                      onError={() => setHeroError(true)}
+                    />
                   </div>
                 )}
               </motion.div>
@@ -163,7 +155,7 @@ export default function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="mt-10 max-w-sm min-[544px]:hidden lg:hidden"
+          className="mt-10 max-w-sm min-[554px]:hidden lg:hidden"
         >
           <p className="text-sm leading-relaxed text-black">
             Designing at the intersection of{" "}

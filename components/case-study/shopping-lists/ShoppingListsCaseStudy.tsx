@@ -22,7 +22,7 @@ import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import ArrowLink from "@/components/ArrowLink";
-import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   shoppingListsSubnav,
   shoppingListsHero,
@@ -156,7 +156,7 @@ export default function ShoppingListsCaseStudy() {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="relative flex flex-1 flex-col justify-end lg:justify-end"
+              className={cn("relative flex-1 flex-col justify-end lg:justify-end", caseStudyHeroImageColumn)}
             >
               <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:ml-auto lg:max-w-none">
                 <div

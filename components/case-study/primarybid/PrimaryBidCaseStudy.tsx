@@ -15,7 +15,7 @@ import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   primaryBidSubnav,
   primaryBidHero,
@@ -122,7 +122,7 @@ export default function PrimaryBidCaseStudy() {
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="relative flex flex-1 flex-col justify-center"
+              className={cn("relative flex-1 flex-col justify-center", caseStudyHeroImageColumn)}
             >
               <div className="relative mx-auto w-full max-w-[28rem] lg:ml-auto lg:max-w-none">
                 <div

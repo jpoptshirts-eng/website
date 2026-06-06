@@ -3,3 +3,6 @@ export const caseStudyContainer = "mx-auto max-w-page px-6 lg:px-8";
 
 export const caseStudySection =
   "case-study-section py-16 md:py-20 lg:py-24";
+
+/** Hide case study hero mockups below 554px to avoid overlap on small screens */
+export const caseStudyHeroImageColumn = "hidden min-[554px]:flex";

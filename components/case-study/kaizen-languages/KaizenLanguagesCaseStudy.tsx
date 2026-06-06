@@ -8,7 +8,7 @@ import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   kaizenSubnav,
   kaizenHero,
@@ -227,7 +227,7 @@ export default function KaizenLanguagesCaseStudy() {
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="relative hidden min-w-0 flex-1 flex-col lg:flex lg:min-h-[32rem]"
+              className={cn("relative min-w-0 flex-1 flex-col min-[554px]:min-h-[24rem] md:min-h-[28rem] lg:min-h-[32rem]", caseStudyHeroImageColumn)}
             >
               {/* Circle sized to pre-enlargement bounds so it stays fixed when the image grows */}
               <div

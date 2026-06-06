@@ -24,7 +24,7 @@ import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import CaseStudyMockupImage from "@/components/case-study/CaseStudyMockupImage";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   quickShopSubnav,
   quickShopHero,
@@ -170,7 +170,7 @@ export default function QuickShopCaseStudy() {
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="relative flex min-w-0 flex-1 flex-col justify-end lg:min-h-[28rem] xl:min-h-[30rem]"
+              className={cn("relative min-w-0 flex-1 flex-col justify-end lg:min-h-[28rem] xl:min-h-[30rem]", caseStudyHeroImageColumn)}
             >
               <div className="relative mx-auto w-full max-w-[37rem] sm:max-w-[42rem] lg:ml-auto lg:mr-0 lg:max-w-[53rem] xl:max-w-[58rem] 2xl:max-w-[64rem]">
                 <div
