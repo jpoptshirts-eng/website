@@ -1,17 +1,18 @@
 export const shoppingListsSubnav = [
   { id: "overview", label: "Overview" },
   { id: "why-it-mattered", label: "Why it mattered" },
+  { id: "list-behaviour", label: "List behaviour" },
   { id: "problem", label: "Problem" },
-  { id: "insights", label: "Insights" },
-  { id: "constraints", label: "Constraints" },
-  { id: "hypothesis", label: "Hypothesis" },
-  { id: "principles", label: "Principles" },
-  { id: "solution", label: "Solution" },
-  { id: "decisions", label: "Decisions" },
+  { id: "product-gap", label: "Product gap" },
+  { id: "direction", label: "Direction" },
+  { id: "mapping", label: "Mapping" },
+  { id: "personalisation", label: "Personalisation" },
+  { id: "mvp", label: "MVP" },
+  { id: "feedback", label: "Feedback" },
   { id: "validation", label: "Validation" },
-  { id: "proof", label: "Proof" },
+  { id: "next-steps", label: "Next steps" },
   { id: "impact", label: "Impact" },
-  { id: "reflection", label: "Reflection" },
+  { id: "closing", label: "Closing" },
 ] as const;
 
 export const shoppingListsHero = {
@@ -72,8 +73,54 @@ export const whyItMattered = {
   ],
 };
 
+export const listBehaviour = {
+  label: "03 What list behaviour revealed",
+  headline: "Lists were shopping missions, not product collections.",
+  intro:
+    "Existing list behaviour showed that customers were using lists to organise real shopping missions, not just save individual products.",
+  stats: [
+    { stat: "47%", label: "Core essentials" },
+    { stat: "10%", label: "Category shortlisting" },
+    { stat: "9%", label: "Shopping for others" },
+    { stat: "3%", label: "Plans and events" },
+    { stat: "2%", label: "Dietary" },
+    { stat: "2%", label: "Meal specific" },
+  ],
+  namesTitle: "What saved list names showed",
+  namesCopy:
+    "Saved list names showed that customers organised shopping around routines, meals, occasions, people, household spaces and repeat missions.",
+  nameExamples: [
+    {
+      title: "Routine shops",
+      examples: "weekly, monthly, next shop",
+    },
+    {
+      title: "Meals and categories",
+      examples: "pasta, baking, dairy, drinks",
+    },
+    {
+      title: "Occasions",
+      examples: "Christmas, BBQ, party, picnic",
+    },
+    {
+      title: "Essentials",
+      examples: "basics, stock up, full shop",
+    },
+    {
+      title: "People",
+      examples: "Dad, baby, kids, pets",
+    },
+    {
+      title: "Household spaces",
+      examples: "fridge, freezer, cupboard, bathroom",
+    },
+  ],
+  closing:
+    "Lists were not static product collections. They were dynamic, collaborative and evolving shopping systems.",
+};
+
 export const problem = {
-  label: "03 The problem",
+  label: "04 The problem",
   headline: "Real-world shopping behaviour is messy.",
   body: "Customers rarely think in exact product titles or SKUs. Instead, they create fragmented reminders throughout the week: handwritten notes, screenshots, meals, family requests, generic reminders and brand references. Traditional grocery experiences forced customers to manually translate this intent into products one item at a time.",
   painPoints: [
@@ -105,6 +152,28 @@ export const problem = {
   ],
 };
 
+export const productGap = {
+  label: "05 Product gap",
+  headline: "App and web fragmentation",
+  body: "The current lists experience was fragmented across app and web. The app did not support saved lists, while web lists were tied to specific products. Multi-search behaved more like a temporary output than something customers could save, reuse or build on.",
+  opportunity:
+    "The opportunity was to move from temporary search outputs and fixed product lists towards reusable, intelligent product groupings across platforms.",
+  cards: [
+    {
+      title: "App",
+      copy: "No saved lists. Multi-search behaved like a temporary output.",
+    },
+    {
+      title: "Web",
+      copy: "Saved product lists, but tied to specific products.",
+    },
+    {
+      title: "Opportunity",
+      copy: "Reusable, intelligent product groupings across app and web.",
+    },
+  ],
+};
+
 export const quotes = [
   {
     number: "Quote 01",
@@ -120,37 +189,92 @@ export const quotes = [
   },
 ];
 
-export const insights = {
-  label: "04 Behavioural insights",
-  headline: "Designing around how people actually plan.",
-  body: "Planning often happened away from the supermarket. Inputs were messy, ambiguous and created across multiple moments throughout the week. The experience needed to support natural planning behaviour while keeping customers confident and in control.",
-  cards: [
+export const productDirection = {
+  label: "06 Hypothesis and product direction",
+  headline: "From messy intent to editable draft trolleys",
+  hypothesis:
+    "If we could capture shopping intent naturally, interpret ambiguous inputs and generate editable draft trolleys, we could reduce planning effort while increasing confidence, basket completion and repeat usage.",
+  direction: [
+    "Capture intent instantly",
+    "Translate intelligently",
+    "Generate a draft trolley",
+    "Keep customers in control",
+    "Learn and improve over time",
+  ],
+};
+
+export const intentMapping = {
+  label: "07 Intent-to-product mapping",
+  headline: "How vague intent becomes a specific recommendation",
+  intro:
+    "The key design shift was moving from generic search results to product prediction. The system needed to interpret vague or high-level inputs using behavioural signals, then recommend likely products customers could quickly review and adjust.",
+  steps: [
     {
       number: "01",
-      title: "Customers planned before they shopped",
-      copy: "Planning happened across notes apps, paper lists, conversations, screenshots and meal inspiration. The experience needed to support behaviour that already existed in the real world.",
-      icon: "notepad" as const,
+      title: "Customer writes",
+      copy: "“milk”, “pasta”, “snacks” or uploads a handwritten list",
+      icon: "message" as const,
     },
     {
       number: "02",
-      title: "Intent was highly ambiguous",
-      copy: "Simple inputs like ‘milk’, ‘bread’ and ‘pasta’ required interpretation, not simple matching. Customers expected the system to understand context, preferences and likely behaviour.",
+      title: "AI interprets",
+      copy: "Purchase history, favourites, preferences, brand and range, price sensitivity",
       icon: "search" as const,
     },
     {
       number: "03",
-      title: "Automation only worked when customers stayed in control",
-      copy: "Confidence increased when recommendations were editable, alternatives were visible and quantities could be changed easily. Transparency mattered more than aggressive automation.",
+      title: "System recommends",
+      copy: "Specific product, likely quantity and alternatives if needed",
+      icon: "basket" as const,
+    },
+    {
+      number: "04",
+      title: "Customer reviews",
+      copy: "Swap, remove, adjust quantity and review before adding to trolley",
       icon: "sliders" as const,
     },
   ],
+  image: "/images/work/shopping-lists/mockup2.png",
+  imageAlt:
+    "Two mobile screens showing a customer entering shopping intent and receiving editable basket suggestions.",
 };
 
-export const constraintsTradeoffs = {
-  label: "05 Constraints & trade-offs",
-  headline: "Designing within real product and system limits",
+export const personalisation = {
+  label: "08 Personalisation and confidence",
+  headline: "Different strategies for known and new customers",
+  body: "Known and new customers required different recommendation strategies. Returning customers gave the system stronger signals through favourites, purchase history, substitutions and shopping behaviour. Newer customers needed lighter preference capture, category defaults and popular products until better behavioural data existed.",
+  mvpNote:
+    "For MVP, we prioritised signed-in customers because the feature sat within Favourites and product mapping was stronger with account history. New customers could still be supported after account creation through popular products and lightweight preferences.",
+  returning: [
+    "Favourites",
+    "Purchase history",
+    "Substitutions",
+    "Shopping behaviour",
+  ],
+  newer: [
+    "Lightweight preferences",
+    "Category defaults",
+    "Popular products",
+    "Progressive learning over time",
+  ],
+};
+
+export const mvpScope = {
+  label: "09 MVP scope and trade-offs",
+  headline: "Proving intent-to-basket without unnecessary complexity",
   intro:
-    "The experience had to work with messy inputs, imperfect interpretation and an MVP delivery window. These limits shaped what we could ship and what we chose not to.",
+    "The MVP needed to prove whether real-world shopping intent could be converted into basket-ready products without adding unnecessary complexity.",
+  included: [
+    "Quick add mapped products",
+    "Scan list auto-convert",
+    "Meal input ingredient breakdown",
+    "Editable draft basket",
+  ],
+  removed: ["Voice input"],
+  voiceNote:
+    "Voice was useful long term, but not essential to prove the core intent-to-basket loop. It also risked making the experience feel like a conversational assistant, which added complexity and raised the wrong expectations.",
+  mainTradeoff:
+    "We prioritised signed-in customers for MVP because personalisation depended on favourites, previous orders and shopping behaviour. Progressive sign-in could be explored later once the feature had proved value.",
   constraints: [
     {
       title: "Ambiguous list inputs",
@@ -161,163 +285,8 @@ export const constraintsTradeoffs = {
       copy: "Confidence varied with handwriting, formatting and image clarity.",
     },
     {
-      title: "Thin data for new customers",
-      copy: "Without behavioural history, personalisation accuracy was limited early on.",
-    },
-    {
-      title: "Voice raised the wrong expectations",
-      copy: "Spoken input suggested a conversational assistant rather than lightweight list capture.",
-    },
-    {
-      title: "MVP delivery pressure",
-      copy: "Engineering feasibility and timelines limited how complex AI interactions could be in the first release.",
-    },
-    {
       title: "Operational complexity",
-      copy: "Availability, substitutions and category logic added backend and experience complexity.",
-    },
-    {
-      title: "Trust in recommendations",
-      copy: "Automated suggestions needed to feel transparent, reviewable and easy to challenge.",
-    },
-    {
-      title: "Control over automation",
-      copy: "Customers needed editability, not invisible decisions applied to their basket.",
-    },
-  ],
-  tradeoffs: [
-    {
-      title: "Editable drafts over full automation",
-      copy: "We prioritised AI-generated suggestions customers could review, swap and adjust before checkout.",
-    },
-    {
-      title: "Voice deprioritised for MVP",
-      copy: "Conversational voice was removed from the first release to reduce UX complexity and unrealistic expectations.",
-    },
-    {
-      title: "Lightweight preferences first",
-      copy: "Onboarding captured simple signals instead of building a full recommendation engine upfront.",
-    },
-    {
-      title: "Mixed inputs over rigid flows",
-      copy: "Typing, image upload and quick capture supported how people already plan, rather than forcing structure.",
-    },
-    {
-      title: "Signals matched customer maturity",
-      copy: "Popularity and behavioural cues supported new customers; purchase history mattered more for returning shoppers.",
-    },
-    {
-      title: "Validate before scaling AI",
-      copy: "We prioritised fast MVP learning before investing in deeper AI-driven functionality.",
-    },
-  ],
-};
-
-export const hypothesis = {
-  label: "06 Hypothesis",
-  headline: "If we could interpret messy intent, we could reduce planning effort.",
-  body: "We believed that if we could capture shopping intent naturally, interpret ambiguous inputs and generate editable draft baskets, we could reduce planning effort while increasing confidence, basket completion and repeat usage.",
-  steps: [
-    {
-      label: "Capture shopping intent naturally",
-      icon: "message" as const,
-    },
-    {
-      label: "Interpret ambiguous inputs",
-      icon: "search" as const,
-    },
-    {
-      label: "Generate editable draft baskets",
-      icon: "basket" as const,
-    },
-    {
-      label: "Keep refinement lightweight",
-      icon: "sliders" as const,
-    },
-  ],
-  panelTitle: "Increase confidence, basket completion and repeat usage.",
-};
-
-export const principles = {
-  label: "07 Design principles",
-  headline: "Reduce effort — not control.",
-  subcopy: "AI should accelerate basket building without removing customer ownership.",
-  intro:
-    "These principles shaped how the experience balanced intelligence, trust and customer control.",
-  items: [
-    {
-      number: "1.",
-      title: "Start with intent, not products",
-      copy: "Customers think in meals and household needs, not exact product names.",
-    },
-    {
-      number: "2.",
-      title: "Keep refinement lightweight",
-      copy: "Editing quantities, swapping products and removing items needed to feel effortless.",
-    },
-    {
-      number: "3.",
-      title: "Make the system feel collaborative",
-      copy: "The experience should feel assistive rather than automated.",
-    },
-  ],
-};
-
-export const solution = {
-  label: "08 Solution",
-  headline: "The solution.",
-  subcopy:
-    "AI that understands messy intent. An experience that keeps customers in control.",
-  features: [
-    {
-      title: "Understand anything",
-      copy: "Natural language and notes are turned into smart, shoppable suggestions.",
-      color: "purple" as const,
-    },
-    {
-      title: "Refine with ease",
-      copy: "Edit, add or remove items in seconds. Always your list, your way.",
-      color: "orange" as const,
-    },
-    {
-      title: "Seamless to basket",
-      copy: "Everything flows straight to your shop, ready to buy.",
-      color: "pink" as const,
-    },
-  ],
-  image: "/images/work/shopping-lists/mockup2.png",
-  imageAlt:
-    "Two mobile screens showing a customer entering shopping intent and receiving editable basket suggestions.",
-};
-
-export const decisions = {
-  label: "09 Key product decisions",
-  headline: "The decisions that made the experience work.",
-  subcopy: "Trust came from restraint, clarity and control — not just automation.",
-  items: [
-    {
-      number: "01",
-      title: "We intentionally avoided full automation",
-      copy: "Customers needed editable drafts, not invisible decisions. Recommendations stayed transparent and reviewable.",
-      icon: "eye" as const,
-    },
-    {
-      number: "02",
-      title: "We prioritised mixed-input behaviour",
-      copy: "People plan in many ways — typed lists, meal ideas, notes and screenshots — so the experience had to support messy real-world input.",
-      icon: "pencil" as const,
-    },
-    {
-      number: "03",
-      title: "We used confidence-based recommendation logic",
-      copy: "High-confidence suggestions could speed up basket building, while more ambiguous inputs surfaced alternatives.",
-      icon: "target" as const,
-    },
-    {
-      number: "04",
-      title: "We designed for new customers first",
-      copy: "New users had less history and more uncertainty, so the journey needed lightweight guidance and confidence-building support.",
-      icon: "user" as const,
+      copy: "Availability, substitutions and category logic added backend complexity.",
     },
   ],
   image: "/images/work/shopping-lists/mockup4.png",
@@ -325,128 +294,124 @@ export const decisions = {
     "Mobile screen showing editable product suggestions with quantity controls and add to trolley action.",
 };
 
-export const validation = {
-  label: "10 Validation and iteration",
-  headline: "Validation and iteration.",
-  body: "We tested early concepts, refined the experience in response to feedback, and validated the solution with real customers.",
-  process: [
-    {
-      number: "01",
-      title: "Research",
-      copy: "User interviews and concept testing",
-    },
-    {
-      number: "02",
-      title: "Prototype",
-      copy: "Low-fi to hi-fi prototypes across mobile",
-    },
-    {
-      number: "03",
-      title: "Test and learn",
-      copy: "Usability testing with customers",
-    },
-    {
-      number: "04",
-      title: "Iterate",
-      copy: "Refine, retest and improve confidence",
-    },
-  ],
-  learnings: [
-    {
-      number: "01",
-      title: "Customers expected flexibility",
-      quote: "I want to tweak items before adding them to my list.",
-      response: "Gave customers edit control before adding to basket.",
-    },
-    {
-      number: "02",
-      title: "Visibility improved trust",
-      quote: "Seeing what was added helps me feel confident.",
-      response: "Made suggestions visible, reviewable and editable.",
-    },
-    {
-      number: "03",
-      title: "Grouping improved comprehension",
-      quote: "Grouped suggestions are easier to scan.",
-      response: "Grouped items by occasion and category.",
-    },
-  ],
-};
-
-export const proof = {
-  label: "Proof",
-  headline: "What gave us confidence",
+export const feedbackLoop = {
+  label: "10 Feedback loop",
+  headline: "Learning from corrections without over-interpreting",
   intro:
-    "The direction was supported by a clear behavioural pattern: customers were already planning shops outside the product. The opportunity was to translate that existing intent into a faster, editable basket-building experience without removing customer control.",
-  cards: [
+    "Every customer correction can become a signal, but not every correction means the same thing. The system needed to learn carefully from edits, swaps, removals and quantity changes.",
+  rows: [
     {
-      title: "Behaviour already existed",
-      copy:
-        "Customers were already using paper lists, notes, screenshots, meal ideas and household reminders to plan shops before opening the grocery experience. This showed the product did not need to create a new behaviour. It needed to support one that already existed.",
+      action: "Removes oat milk",
+      learns: "Negative preference signal",
+      future: "Suggest it less often",
     },
     {
-      title: "Ambiguity was the real problem",
-      copy:
-        "Inputs like milk, bread or pasta showed that customers rarely think in exact product names. The experience needed to interpret intent, suggest likely matches and keep alternatives visible where confidence was lower.",
+      action: "Swaps branded cereal for own-label",
+      learns: "Price sensitivity",
+      future: "Prioritise value alternatives",
     },
     {
-      title: "Control protected trust",
-      copy:
-        "Testing showed that customers were more comfortable with AI-assisted suggestions when they could review, edit, swap, remove and adjust quantities before committing anything to basket.",
+      action: "Increases pasta quantity",
+      learns: "Household size signal",
+      future: "Adjust future quantities",
+    },
+    {
+      action: "Keeps recipe ingredients",
+      learns: "Meal interest signal",
+      future: "Suggest similar meals",
+    },
+    {
+      action: "Unchecks an item",
+      learns: "May already have it at home",
+      future: "Do not treat as dislike",
     },
   ],
   closing:
-    "The proof was not that customers wanted automation. It was that they wanted less effort while still feeling in control.",
+    "The system should learn from behaviour, but avoid over-interpreting temporary shopping decisions.",
+};
+
+export const validation = {
+  label: "11 Validation and iteration",
+  headline: "Validation and iteration",
+  body: "We tested early concepts with customers, then refined around clarity, trust and control.",
+  testing: [
+    { stat: "5", label: "Moderated tests" },
+    { stat: "5", label: "Unmoderated tests" },
+    { stat: "6/7", label: "Ease of Use rating" },
+  ],
+  validated: [
+    "Customers understood the value of turning a list, meal idea or uploaded image into a draft trolley.",
+    "The review area was important because customers wanted control before anything was added.",
+    "Uploading an image created strong interest, but expectations needed clearer explanation.",
+  ],
+  changed: [
+    "Terminology around lists, meals, saved groups and upload image needed to be clearer.",
+    "Customers needed to see what the system recognised before product matching happened.",
+    "The product needed to show confidence and allow easy swapping, rather than feel fully automated.",
+  ],
+  note: "Testing validated behaviour, trust and interaction patterns, not production-level OCR accuracy or recommendation performance.",
+};
+
+export const nextValidation = {
+  label: "12 What still needed validation",
+  headline: "From concept validation to production readiness",
+  closing:
+    "The next stage was not about adding more features. It was about improving accuracy, language and trust so customers felt confident using the experience repeatedly.",
+  columns: [
+    {
+      title: "Improve product accuracy",
+      items: [
+        "Connect to a fuller product catalogue",
+        "Retest product matching with a larger product set",
+        "Improve vague input mapping for terms like “milk”, “bread” and “pasta”",
+      ],
+    },
+    {
+      title: "Improve clarity and trust",
+      items: [
+        "Refine terminology around saved lists, meal groups and uploaded images",
+        "Make upload-image limitations clearer",
+        "Show what has been recognised before anything is added to trolley",
+      ],
+    },
+    {
+      title: "Define smarter rules",
+      items: [
+        "Use confidence levels to decide when the system predicts, asks or lets customers swap",
+        "Keep review before add to trolley",
+        "Validate whether customers reuse saved lists, meal groups and product selections over time",
+      ],
+    },
+  ],
 };
 
 export const impact = {
-  label: "11 Impact and outcomes",
-  headline: "From fragmented planning to editable basket creation.",
-  body: "The concept connected a high-value customer behaviour with a faster, more flexible way to build baskets. Instead of asking customers to search one product at a time, the experience translated messy intent into editable, shoppable suggestions that customers could review, refine and add to basket.",
+  label: "13 Impact and outcomes",
+  headline: "Impact and outcomes",
   outcomes: [
     {
-      title: "Reduced basket-building effort",
-      copy: "Customers could move from fragmented planning inputs to draft basket suggestions faster.",
+      title: "Reduced effort from intent to trolley",
+      copy: "Customers could move from real-world planning inputs to draft basket suggestions faster.",
     },
     {
-      title: "Improved confidence before adding to basket",
-      copy: "Visibility, grouping and edit controls helped customers understand and review what had been suggested.",
+      title: "Protected trust through review and control",
+      copy: "Suggestions stayed visible, editable and reversible before anything was added to trolley.",
     },
     {
-      title: "Supported multiple planning behaviours",
-      copy: "The experience worked across typed lists, uploaded notes, screenshots, meal ideas and preference-based inputs.",
-    },
-    {
-      title: "Created a scalable AI-assisted shopping model",
-      copy: "The logic could adapt across known customers, new customers, favourites, preferences and purchase history.",
+      title: "Created a reusable AI-assisted shopping model",
+      copy: "The logic could adapt across favourites, purchase history, preferences, product availability and customer corrections.",
     },
     {
       title: "Linked to a high-value commercial behaviour",
-      copy: "Shopping lists were connected to larger basket sizes, repeat planning and stronger grocery shopping intent.",
+      copy: "Shopping lists were already associated with higher order frequency, higher average order value and larger trolley value.",
     },
   ],
 };
 
-export const reflection = {
-  label: "12 Reflection",
-  headline: "Automation alone did not create trust.",
-  lead: "The biggest shift was not helping customers create lists. It was helping them turn intent into a basket.",
-  body: "Customers valued speed, but only when they retained visibility, flexibility and control. That insight reframed the experience from a simple list-making tool into an intelligent, editable shopping assistant.",
-  cards: [
-    {
-      title: "Control built confidence",
-      copy: "Editable suggestions made AI feel helpful rather than prescriptive.",
-      icon: "sliders" as const,
-    },
-    {
-      title: "Visibility increased trust",
-      copy: "Customers wanted to understand what was suggested and why.",
-      icon: "eye" as const,
-    },
-    {
-      title: "Intent became the real input",
-      copy: "The product worked best when it responded to messy human planning behaviour.",
-      icon: "target" as const,
-    },
-  ],
+export const closing = {
+  label: "14 Closing thought",
+  headline: "Closing thought",
+  body: "We were not designing a shopping list. We were designing a system that removed effort from turning intent into a shop, then helped customers reuse that intent again and again.",
+  body2:
+    "The value was not just faster basket building. It was turning real-life planning behaviour into a reusable, personalised shopping system.",
 };
