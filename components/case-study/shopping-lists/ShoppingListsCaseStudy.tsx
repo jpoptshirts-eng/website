@@ -4,35 +4,41 @@ import { motion } from "framer-motion";
 import {
   Brain,
   Clock,
+  Layers,
+  Monitor,
+  RefreshCw,
   Search,
   ShieldQuestion,
   ShoppingBasket,
   SlidersHorizontal,
+  Smartphone,
+  Sparkles,
+  Target,
   User,
-  NotepadText,
   MessageCircle,
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
+import ArrowLink from "@/components/ArrowLink";
 import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
 import {
   shoppingListsSubnav,
   shoppingListsHero,
   myRole,
   whyItMattered,
-  listBehaviour,
+  listHabit,
+  listCommercial,
   problem,
+  modelShift,
   productGap,
   quotes,
-  productDirection,
+  designPrinciples,
   intentMapping,
-  personalisation,
   mvpScope,
   feedbackLoop,
   validation,
-  nextValidation,
   impact,
   closing,
 } from "@/lib/shopping-lists-data";
@@ -62,6 +68,25 @@ const mappingIcons = {
   sliders: SlidersHorizontal,
 };
 
+const principleIcons = {
+  target: Target,
+  sparkles: Sparkles,
+  sliders: SlidersHorizontal,
+  shield: ShieldQuestion,
+  refresh: RefreshCw,
+};
+
+const decisionIcons = {
+  search: Search,
+  user: User,
+};
+
+const productGapIcons = {
+  smartphone: Smartphone,
+  monitor: Monitor,
+  layers: Layers,
+};
+
 function MockupImage({
   src,
   alt,
@@ -78,7 +103,7 @@ function MockupImage({
     <img
       src={src}
       alt={alt}
-      className={cn("h-auto w-full object-contain", className)}
+      className={cn("h-auto w-full bg-transparent object-contain", className)}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
     />
@@ -261,11 +286,11 @@ export default function ShoppingListsCaseStudy() {
         </div>
       </section>
 
-      {/* What list behaviour revealed */}
+      {/* List habit evidence */}
       <section
-        id="list-behaviour"
-        className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="list-behaviour-heading"
+        id="behaviour"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="behaviour-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -275,72 +300,128 @@ export default function ShoppingListsCaseStudy() {
             variants={fadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>{listBehaviour.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="list-behaviour-heading">
-              {listBehaviour.headline}
+            <CaseStudyLabel>{listHabit.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="behaviour-heading">
+              {listHabit.headline}
             </CaseStudyHeadline>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {listBehaviour.intro}
+              {listHabit.intro}
             </p>
           </motion.div>
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:mt-12 lg:grid-cols-6 lg:gap-4">
-            {listBehaviour.stats.map((item, index) => (
-              <motion.div
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4">
+            {listHabit.stats.map((item, index) => (
+              <motion.article
                 key={item.label}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-30px" }}
                 custom={index * 0.04}
                 variants={fadeUp}
-                className="rounded-2xl border border-border bg-cream-muted p-4 text-center md:p-5"
+                className="rounded-2xl border border-border bg-cream-muted p-6"
               >
                 <p className="text-2xl font-black text-orange md:text-3xl">
                   {item.stat}
                 </p>
-                <p className="mt-1 text-xs leading-snug text-black md:text-sm">
-                  {item.label}
+                <p className="mt-2 text-sm font-bold text-black">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-grey">
+                  {item.copy}
                 </p>
-              </motion.div>
+              </motion.article>
+            ))}
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mt-10 max-w-3xl lg:mt-12"
+          >
+            <h3 className="text-lg font-bold text-black md:text-xl">
+              {listHabit.insightTitle}
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-grey md:text-lg">
+              {listHabit.insight}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Commercial behaviour */}
+      <section
+        id="commercial"
+        className={cn(caseStudySection, "bg-cream-muted")}
+        aria-labelledby="commercial-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>{listCommercial.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="commercial-heading">
+              {listCommercial.headline}
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {listCommercial.body}
+            </p>
+          </motion.div>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12">
+            {listCommercial.stats.map((item, index) => (
+              <motion.article
+                key={item.label}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+                custom={index * 0.04}
+                variants={fadeUp}
+                className="rounded-2xl border border-border bg-white p-6"
+              >
+                <p className="text-xl font-black text-orange md:text-2xl">
+                  {item.stat}
+                </p>
+                <p className="mt-2 text-sm font-bold text-black">{item.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-grey">
+                  {item.copy}
+                </p>
+              </motion.article>
             ))}
           </div>
 
           <div className="mt-12 lg:mt-14">
             <h3 className="text-lg font-bold text-black md:text-xl">
-              {listBehaviour.namesTitle}
+              {listCommercial.objectiveTitle}
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-grey md:text-lg">
-              {listBehaviour.namesCopy}
+              {listCommercial.objectiveCopy}
             </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {listBehaviour.nameExamples.map((group, index) => (
-                <motion.div
-                  key={group.title}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {listCommercial.objectives.map((item, index) => (
+                <motion.article
+                  key={item.title}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-30px" }}
                   custom={index * 0.04}
                   variants={fadeUp}
-                  className="rounded-2xl border border-border bg-white p-5"
+                  className="rounded-2xl border border-border bg-white p-5 md:p-6"
                 >
-                  <p className="text-sm font-bold text-black">{group.title}</p>
+                  <h4 className="font-bold text-black">{item.title}</h4>
                   <p className="mt-2 text-sm leading-relaxed text-grey">
-                    {group.examples}
+                    {item.copy}
                   </p>
-                </motion.div>
+                </motion.article>
               ))}
             </div>
+            <p className="mt-8 text-sm leading-relaxed text-grey md:text-base">
+              {listCommercial.opportunityLine}
+            </p>
           </div>
-
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="mt-10 max-w-3xl border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:mt-12 md:text-lg"
-          >
-            {listBehaviour.closing}
-          </motion.p>
         </div>
       </section>
 
@@ -404,6 +485,95 @@ export default function ShoppingListsCaseStudy() {
         </div>
       </section>
 
+      {/* Model shift */}
+      <section
+        id="model-shift"
+        className={cn(caseStudySection, "bg-cream-muted")}
+        aria-labelledby="model-shift-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>{modelShift.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="model-shift-heading">
+              {modelShift.headline}
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {modelShift.intro}
+            </p>
+          </motion.div>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-12">
+            <motion.article
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="rounded-2xl border border-border bg-white p-6 md:p-7"
+            >
+              <h3 className="font-bold text-black">
+                {modelShift.searchModel.title}
+              </h3>
+              <ul className="mt-4 flex flex-col gap-2">
+                {modelShift.searchModel.bullets.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-relaxed text-grey md:text-base"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-grey"
+                      aria-hidden
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
+            <motion.article
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.05}
+              variants={fadeUp}
+              className="rounded-2xl border border-orange/25 bg-white p-6 md:p-7"
+            >
+              <h3 className="font-bold text-black">
+                {modelShift.predictionModel.title}
+              </h3>
+              <ul className="mt-4 flex flex-col gap-2">
+                {modelShift.predictionModel.bullets.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
+                  >
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                      aria-hidden
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.article>
+          </div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mt-10 max-w-3xl border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg"
+          >
+            {modelShift.closing}
+          </motion.p>
+        </div>
+      </section>
+
       {/* Product gap */}
       <section
         id="product-gap"
@@ -431,33 +601,39 @@ export default function ShoppingListsCaseStudy() {
           </motion.div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3 lg:mt-12">
-            {productGap.cards.map((card, index) => (
-              <motion.article
-                key={card.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                custom={index * 0.05}
-                variants={fadeUp}
-                className="rounded-2xl border border-border bg-white p-6"
-              >
-                <h3 className="font-bold text-black">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-grey">
-                  {card.copy}
-                </p>
-              </motion.article>
-            ))}
+            {productGap.cards.map((card, index) => {
+              const Icon = productGapIcons[card.icon];
+              return (
+                <motion.article
+                  key={card.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-30px" }}
+                  custom={index * 0.05}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-border bg-white p-6"
+                >
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFE4D6]">
+                    <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="font-bold text-black">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-grey">
+                    {card.copy}
+                  </p>
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </section>
 
       <CaseStudyQuote text={quotes[0].text} />
 
-      {/* Hypothesis and product direction */}
+      {/* Design principles */}
       <section
-        id="direction"
+        id="principles"
         className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="direction-heading"
+        aria-labelledby="principles-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -467,36 +643,39 @@ export default function ShoppingListsCaseStudy() {
             variants={fadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>{productDirection.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="direction-heading">
-              {productDirection.headline}
+            <CaseStudyLabel>{designPrinciples.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="principles-heading">
+              {designPrinciples.headline}
             </CaseStudyHeadline>
-            <p className="mt-6 border-l-2 border-orange pl-6 text-base leading-relaxed text-black md:text-lg">
-              {productDirection.hypothesis}
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {designPrinciples.intro}
             </p>
           </motion.div>
 
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
-            {productDirection.direction.map((item, index) => (
-              <motion.li
-                key={item}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                custom={index * 0.04}
-                variants={fadeUp}
-                className="flex gap-3 rounded-2xl bg-[#FFF0E8] p-5 md:p-6"
-              >
-                <span
-                  className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                  aria-hidden
-                />
-                <span className="text-sm font-medium leading-relaxed text-black md:text-base">
-                  {item}
-                </span>
-              </motion.li>
-            ))}
-          </ul>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-5">
+            {designPrinciples.items.map((item, index) => {
+              const Icon = principleIcons[item.icon];
+              return (
+                <motion.article
+                  key={item.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-30px" }}
+                  custom={index * 0.04}
+                  variants={fadeUp}
+                  className="flex flex-col rounded-2xl bg-[#FFF0E8] p-5 md:p-6"
+                >
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-white">
+                    <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="font-bold text-black">{item.title}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-grey">
+                    {item.copy}
+                  </p>
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -558,6 +737,9 @@ export default function ShoppingListsCaseStudy() {
                   );
                 })}
               </ol>
+              <p className="mt-8 text-sm leading-relaxed text-grey md:text-base">
+                {intentMapping.closing}
+              </p>
             </motion.div>
 
             <motion.div
@@ -587,93 +769,11 @@ export default function ShoppingListsCaseStudy() {
         </div>
       </section>
 
-      {/* Personalisation and confidence */}
-      <section
-        id="personalisation"
-        className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="personalisation-heading"
-      >
-        <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{personalisation.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="personalisation-heading">
-              {personalisation.headline}
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {personalisation.body}
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-grey md:text-lg">
-              {personalisation.mvpNote}
-            </p>
-          </motion.div>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-12">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="rounded-2xl border border-border bg-white p-6 md:p-7"
-            >
-              <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
-                Returning customers
-              </h3>
-              <ul className="mt-4 flex flex-col gap-2">
-                {personalisation.returning.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                      aria-hidden
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={0.05}
-              variants={fadeUp}
-              className="rounded-2xl border border-border bg-white p-6 md:p-7"
-            >
-              <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
-                Newer customers
-              </h3>
-              <ul className="mt-4 flex flex-col gap-2">
-                {personalisation.newer.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                      aria-hidden
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* MVP scope and trade-offs */}
       <section
-        id="mvp"
-        className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="mvp-heading"
+        id="trade-offs"
+        className={cn(caseStudySection, "bg-cream-muted")}
+        aria-labelledby="trade-offs-heading"
       >
         <div className={caseStudyContainer}>
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
@@ -684,7 +784,7 @@ export default function ShoppingListsCaseStudy() {
               variants={fadeUp}
             >
               <CaseStudyLabel>{mvpScope.label}</CaseStudyLabel>
-              <CaseStudyHeadline id="mvp-heading">
+              <CaseStudyHeadline id="trade-offs-heading">
                 {mvpScope.headline}
               </CaseStudyHeadline>
               <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
@@ -700,8 +800,12 @@ export default function ShoppingListsCaseStudy() {
                     {mvpScope.included.map((item) => (
                       <li
                         key={item}
-                        className="text-sm leading-relaxed text-black md:text-base"
+                        className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
                       >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                          aria-hidden
+                        />
                         {item}
                       </li>
                     ))}
@@ -715,8 +819,12 @@ export default function ShoppingListsCaseStudy() {
                     {mvpScope.removed.map((item) => (
                       <li
                         key={item}
-                        className="text-sm leading-relaxed text-black md:text-base"
+                        className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
                       >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                          aria-hidden
+                        />
                         {item}
                       </li>
                     ))}
@@ -727,15 +835,40 @@ export default function ShoppingListsCaseStudy() {
               <p className="mt-6 text-sm leading-relaxed text-grey md:text-base">
                 {mvpScope.voiceNote}
               </p>
-              <p className="mt-6 border-l-2 border-orange pl-6 text-sm font-medium leading-relaxed text-black md:text-base">
-                {mvpScope.mainTradeoff}
-              </p>
+
+              <div className="mt-8 flex flex-col gap-4">
+                {mvpScope.decisions.map((item) => {
+                  const Icon = decisionIcons[item.icon];
+                  return (
+                    <article
+                      key={item.title}
+                      className="flex items-start gap-4 rounded-2xl border border-border bg-white p-5"
+                    >
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFE4D6]">
+                        <Icon
+                          className="h-4 w-4 text-orange"
+                          strokeWidth={1.75}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-black">
+                          <span className="text-orange">{item.number}</span>{" "}
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-grey">
+                          {item.copy}
+                        </p>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
 
               <div className="mt-8 flex flex-col gap-3">
                 {mvpScope.constraints.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-2xl border border-border bg-cream-muted p-4"
+                    className="rounded-2xl border border-border bg-white p-4"
                   >
                     <p className="text-sm font-bold text-black">{item.title}</p>
                     <p className="mt-1 text-sm leading-relaxed text-grey">
@@ -944,72 +1077,48 @@ export default function ShoppingListsCaseStudy() {
           >
             {validation.note}
           </motion.p>
+
+          <div className="mt-14 border-t border-border pt-12 lg:mt-16">
+            <h3 className="text-lg font-bold text-black md:text-xl">
+              {validation.nextTitle}
+            </h3>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {validation.nextColumns.map((column, index) => (
+                <motion.article
+                  key={column.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-30px" }}
+                  custom={index * 0.05}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-border bg-cream-muted p-6"
+                >
+                  <h4 className="font-bold text-black">{column.title}</h4>
+                  <ul className="mt-4 flex flex-col gap-2">
+                    {column.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-3 text-sm leading-relaxed text-grey"
+                      >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                          aria-hidden
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.article>
+              ))}
+            </div>
+            <p className="mt-8 max-w-3xl border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black">
+              {validation.nextClosing}
+            </p>
+          </div>
         </div>
       </section>
 
       <CaseStudyQuote text={quotes[2].text} />
-
-      {/* What still needed validation */}
-      <section
-        id="next-steps"
-        className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="next-steps-heading"
-      >
-        <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{nextValidation.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="next-steps-heading">
-              {nextValidation.headline}
-            </CaseStudyHeadline>
-          </motion.div>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
-            {nextValidation.columns.map((column, index) => (
-              <motion.article
-                key={column.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                custom={index * 0.05}
-                variants={fadeUp}
-                className="rounded-2xl border border-border bg-white p-6"
-              >
-                <h3 className="font-bold text-black">{column.title}</h3>
-                <ul className="mt-4 flex flex-col gap-2">
-                  {column.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 text-sm leading-relaxed text-grey"
-                    >
-                      <span
-                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                        aria-hidden
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
-            ))}
-          </div>
-
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="mt-10 max-w-3xl border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg"
-          >
-            {nextValidation.closing}
-          </motion.p>
-        </div>
-      </section>
 
       {/* Impact and outcomes */}
       <section
@@ -1029,9 +1138,12 @@ export default function ShoppingListsCaseStudy() {
             <CaseStudyHeadline id="impact-heading">
               {impact.headline}
             </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {impact.intro}
+            </p>
           </motion.div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-14">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
             {impact.outcomes.map((outcome, index) => (
               <motion.article
                 key={outcome.title}
@@ -1056,29 +1168,59 @@ export default function ShoppingListsCaseStudy() {
 
       {/* Closing thought */}
       <section
-        id="closing"
-        className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="closing-heading"
+        id="reflection"
+        className={cn(caseStudySection, "bg-cream")}
+        aria-labelledby="reflection-heading"
       >
         <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{closing.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="closing-heading">
-              {closing.headline}
-            </CaseStudyHeadline>
-            <p className="mt-8 text-lg font-medium leading-relaxed text-black md:text-xl">
-              {closing.body}
-            </p>
-            <p className="mt-6 text-base leading-relaxed text-grey md:text-lg">
-              {closing.body2}
-            </p>
-          </motion.div>
+          <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
+              <CaseStudyLabel>{closing.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="reflection-heading">
+                {closing.headline}
+              </CaseStudyHeadline>
+              <p className="mt-8 text-lg font-medium leading-relaxed text-black md:text-xl">
+                {closing.body}
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-grey md:text-lg">
+                {closing.body2}
+              </p>
+              <ArrowLink
+                href={closing.prototype.href}
+                external
+                variant="orange"
+                className="mt-8"
+              >
+                {closing.prototype.label}
+              </ArrowLink>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.08}
+              variants={fadeUp}
+              className="relative mt-10 lg:mt-0"
+            >
+              <div
+                className="pointer-events-none absolute -right-[5%] top-[8%] z-0 aspect-square w-[55%] rounded-full bg-soft-pink"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute bottom-[5%] left-0 z-0 aspect-square w-[45%] rounded-full bg-orange/80"
+                aria-hidden
+              />
+              <div className="relative z-10">
+                <MockupImage src={closing.image} alt={closing.imageAlt} />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>

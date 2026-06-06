@@ -1,18 +1,18 @@
 export const shoppingListsSubnav = [
   { id: "overview", label: "Overview" },
   { id: "why-it-mattered", label: "Why it mattered" },
-  { id: "list-behaviour", label: "List behaviour" },
+  { id: "behaviour", label: "Behaviour" },
+  { id: "commercial", label: "Commercial" },
   { id: "problem", label: "Problem" },
+  { id: "model-shift", label: "Model shift" },
   { id: "product-gap", label: "Product gap" },
-  { id: "direction", label: "Direction" },
+  { id: "principles", label: "Principles" },
   { id: "mapping", label: "Mapping" },
-  { id: "personalisation", label: "Personalisation" },
-  { id: "mvp", label: "MVP" },
+  { id: "trade-offs", label: "Trade-offs" },
   { id: "feedback", label: "Feedback" },
   { id: "validation", label: "Validation" },
-  { id: "next-steps", label: "Next steps" },
   { id: "impact", label: "Impact" },
-  { id: "closing", label: "Closing" },
+  { id: "reflection", label: "Reflection" },
 ] as const;
 
 export const shoppingListsHero = {
@@ -22,7 +22,7 @@ export const shoppingListsHero = {
   meta: [
     { label: "Role", value: "Senior Product Designer" },
     { label: "Company", value: "Waitrose & Partners" },
-    { label: "Timeline", value: "4 months" },
+    { label: "Timeline", value: "6 months" },
     {
       label: "Focus",
       value: "Intelligent shopping lists / Behavioural UX / AI assisted basket building",
@@ -73,54 +73,91 @@ export const whyItMattered = {
   ],
 };
 
-export const listBehaviour = {
-  label: "03 What list behaviour revealed",
-  headline: "Lists were shopping missions, not product collections.",
+export const listHabit = {
+  label: "03 The behaviour existed, but the habit was weak",
+  headline: "Customers used lists, but most had not built a repeatable habit.",
   intro:
-    "Existing list behaviour showed that customers were using lists to organise real shopping missions, not just save individual products.",
+    "Customers were already using lists, but the data showed that most were not building a repeatable list habit. The opportunity was not simply helping customers add items from lists to trolley. It was helping more customers create, reuse and mature their lists into a faster way to build a shop.",
   stats: [
-    { stat: "47%", label: "Core essentials" },
-    { stat: "10%", label: "Category shortlisting" },
-    { stat: "9%", label: "Shopping for others" },
-    { stat: "3%", label: "Plans and events" },
-    { stat: "2%", label: "Dietary" },
-    { stat: "2%", label: "Meal specific" },
-  ],
-  namesTitle: "What saved list names showed",
-  namesCopy:
-    "Saved list names showed that customers organised shopping around routines, meals, occasions, people, household spaces and repeat missions.",
-  nameExamples: [
     {
-      title: "Routine shops",
-      examples: "weekly, monthly, next shop",
+      stat: "373k+",
+      label: "Saved shopping lists",
+      copy: "Existing list behaviour was already present across the customer base.",
     },
     {
-      title: "Meals and categories",
-      examples: "pasta, baking, dairy, drinks",
+      stat: "252k+",
+      label: "Customers",
+      copy: "A meaningful number of customers had created at least one saved list.",
     },
     {
-      title: "Occasions",
-      examples: "Christmas, BBQ, party, picnic",
+      stat: "80%",
+      label: "Had only one list",
+      copy: "Most list users had not yet developed a repeatable list habit.",
     },
     {
-      title: "Essentials",
-      examples: "basics, stock up, full shop",
-    },
-    {
-      title: "People",
-      examples: "Dad, baby, kids, pets",
-    },
-    {
-      title: "Household spaces",
-      examples: "fridge, freezer, cupboard, bathroom",
+      stat: "0.5%",
+      label: "Added lists to trolley",
+      copy: "Very few saved lists were being converted into basket-building behaviour.",
     },
   ],
-  closing:
-    "Lists were not static product collections. They were dynamic, collaborative and evolving shopping systems.",
+  insightTitle: "What this told us",
+  insight:
+    "The issue was not whether customers understood lists. They already did. The bigger opportunity was to improve list creation, reuse and conversion into trolley-building behaviour, especially for customers who planned their shop before entering the grocery journey.",
+};
+
+export const listCommercial = {
+  label: "04 Why list maturity mattered commercially",
+  headline: "List maturity was a strategic growth opportunity.",
+  body: "List users showed stronger commercial behaviour, with higher order frequency, higher average order value and higher-value trolleys. That made list creation and reuse a strategic growth opportunity, not just a usability improvement.",
+  stats: [
+    {
+      stat: "72%",
+      label: "Higher order frequency",
+      copy: "List users ordered more often than non-list users.",
+    },
+    {
+      stat: "36%",
+      label: "Higher average order value",
+      copy: "List users generated stronger average order value.",
+    },
+    {
+      stat: "£417.03 vs £177.52",
+      label: "Net cart revenue",
+      copy: "List users showed materially higher trolley value than non-list users.",
+    },
+    {
+      stat: "£22.46 vs £16.42",
+      label: "Average value per shop",
+      copy: "A £6.35 uplift per shop showed the value of increasing list usage.",
+    },
+  ],
+  objectiveTitle: "The business objective",
+  objectiveCopy:
+    "The objective was to move more customers from single-list behaviour into repeat list usage, increase list-to-trolley conversion, and support competitor win-back by making Waitrose faster and easier for planned shops.",
+  objectives: [
+    {
+      title: "Increase list maturity",
+      copy: "Move more single-list customers towards two or more reusable lists.",
+    },
+    {
+      title: "Improve list-to-trolley conversion",
+      copy: "Turn saved planning behaviour into basket-building behaviour.",
+    },
+    {
+      title: "Support Ocado win-back",
+      copy: "Reduce the friction for customers bringing existing planning habits from competitors.",
+    },
+    {
+      title: "Grow high-value shopping behaviour",
+      copy: "Increase exposure to a behaviour already linked with higher frequency and higher order value.",
+    },
+  ],
+  opportunityLine:
+    "The opportunity connected a £150m Ocado win-back ambition with a £400m existing-shopper spend opportunity.",
 };
 
 export const problem = {
-  label: "04 The problem",
+  label: "05 The problem",
   headline: "Real-world shopping behaviour is messy.",
   body: "Customers rarely think in exact product titles or SKUs. Instead, they create fragmented reminders throughout the week: handwritten notes, screenshots, meals, family requests, generic reminders and brand references. Traditional grocery experiences forced customers to manually translate this intent into products one item at a time.",
   painPoints: [
@@ -152,8 +189,37 @@ export const problem = {
   ],
 };
 
+export const modelShift = {
+  label: "06 From search-and-select to prediction-first",
+  headline: "From search-and-select to prediction-first",
+  intro:
+    "Traditional grocery search asks customers to translate intent into individual product decisions. For a weekly shop, that creates repeated effort: search, compare, select, adjust and repeat. A prediction-first model changes the sequence. The customer starts with intent, and the system generates a draft trolley using behavioural signals that can be reviewed and edited.",
+  searchModel: {
+    title: "Search-and-select model",
+    bullets: [
+      "Customer starts with a product search",
+      "Each item requires a separate decision",
+      "Generic terms create long result lists",
+      "Customers carry the cognitive effort",
+      "Basket building is slow and repetitive",
+    ],
+  },
+  predictionModel: {
+    title: "Prediction-first model",
+    bullets: [
+      "Customer starts with shopping intent",
+      "System interprets the likely need",
+      "Behavioural signals guide the recommendation",
+      "Customer reviews, swaps and adjusts",
+      "Basket building becomes faster while control remains visible",
+    ],
+  },
+  closing:
+    "The goal was not full automation. It was to reduce the effort between intent and trolley while keeping confidence high.",
+};
+
 export const productGap = {
-  label: "05 Product gap",
+  label: "07 Product gap",
   headline: "App and web fragmentation",
   body: "The current lists experience was fragmented across app and web. The app did not support saved lists, while web lists were tied to specific products. Multi-search behaved more like a temporary output than something customers could save, reuse or build on.",
   opportunity:
@@ -162,14 +228,17 @@ export const productGap = {
     {
       title: "App",
       copy: "No saved lists. Multi-search behaved like a temporary output.",
+      icon: "smartphone" as const,
     },
     {
       title: "Web",
       copy: "Saved product lists, but tied to specific products.",
+      icon: "monitor" as const,
     },
     {
       title: "Opportunity",
       copy: "Reusable, intelligent product groupings across app and web.",
+      icon: "layers" as const,
     },
   ],
 };
@@ -189,79 +258,81 @@ export const quotes = [
   },
 ];
 
-export const productDirection = {
-  label: "06 Hypothesis and product direction",
-  headline: "From messy intent to editable draft trolleys",
-  hypothesis:
-    "If we could capture shopping intent naturally, interpret ambiguous inputs and generate editable draft trolleys, we could reduce planning effort while increasing confidence, basket completion and repeat usage.",
-  direction: [
-    "Capture intent instantly",
-    "Translate intelligently",
-    "Generate a draft trolley",
-    "Keep customers in control",
-    "Learn and improve over time",
+export const designPrinciples = {
+  label: "08 Design principles",
+  headline: "Reduce effort, not control.",
+  intro:
+    "These principles shaped how the experience balanced prediction, trust and customer ownership.",
+  items: [
+    {
+      title: "Start with intent",
+      copy: "Let customers begin with how they naturally plan: typed lists, notes, meal ideas, screenshots or saved lists.",
+      icon: "target" as const,
+    },
+    {
+      title: "Predict before search",
+      copy: "Use behavioural signals to suggest likely products before asking customers to search item by item.",
+      icon: "sparkles" as const,
+    },
+    {
+      title: "Keep control visible",
+      copy: "Suggestions must stay editable, swappable and removable before anything is added to trolley.",
+      icon: "sliders" as const,
+    },
+    {
+      title: "Show confidence",
+      copy: "Make it clear what the system has recognised, where it is confident and where review is needed.",
+      icon: "shield" as const,
+    },
+    {
+      title: "Learn carefully",
+      copy: "Use customer corrections as signals without over-interpreting temporary decisions or one-off changes.",
+      icon: "refresh" as const,
+    },
   ],
 };
 
 export const intentMapping = {
-  label: "07 Intent-to-product mapping",
+  label: "09 Intent-to-product mapping",
   headline: "How vague intent becomes a specific recommendation",
   intro:
-    "The key design shift was moving from generic search results to product prediction. The system needed to interpret vague or high-level inputs using behavioural signals, then recommend likely products customers could quickly review and adjust.",
+    "Prediction-first only worked if the system could translate vague customer inputs into specific, reviewable products. The design challenge was deciding what the system should infer, when it should use customer history, and where customers needed control.",
   steps: [
     {
       number: "01",
       title: "Customer writes",
-      copy: "“milk”, “pasta”, “snacks” or uploads a handwritten list",
+      copy: "“milk”, “bread”, “pasta”, “snacks” or uploads a handwritten list.",
       icon: "message" as const,
     },
     {
       number: "02",
-      title: "AI interprets",
-      copy: "Purchase history, favourites, preferences, brand and range, price sensitivity",
+      title: "System interprets",
+      copy: "Favourites, purchase history, preferences, brand/range, price sensitivity and popular products.",
       icon: "search" as const,
     },
     {
       number: "03",
       title: "System recommends",
-      copy: "Specific product, likely quantity and alternatives if needed",
+      copy: "A likely product, likely quantity and alternatives where confidence is lower.",
       icon: "basket" as const,
     },
     {
       number: "04",
       title: "Customer reviews",
-      copy: "Swap, remove, adjust quantity and review before adding to trolley",
+      copy: "Swap, remove, adjust quantity and review before adding to trolley.",
       icon: "sliders" as const,
     },
   ],
+  closing:
+    "The output needed to mirror the input closely enough for customers to recognise what had been interpreted, compare it quickly and correct anything that felt wrong.",
   image: "/images/work/shopping-lists/mockup2.png",
   imageAlt:
     "Two mobile screens showing a customer entering shopping intent and receiving editable basket suggestions.",
 };
 
-export const personalisation = {
-  label: "08 Personalisation and confidence",
-  headline: "Different strategies for known and new customers",
-  body: "Known and new customers required different recommendation strategies. Returning customers gave the system stronger signals through favourites, purchase history, substitutions and shopping behaviour. Newer customers needed lighter preference capture, category defaults and popular products until better behavioural data existed.",
-  mvpNote:
-    "For MVP, we prioritised signed-in customers because the feature sat within Favourites and product mapping was stronger with account history. New customers could still be supported after account creation through popular products and lightweight preferences.",
-  returning: [
-    "Favourites",
-    "Purchase history",
-    "Substitutions",
-    "Shopping behaviour",
-  ],
-  newer: [
-    "Lightweight preferences",
-    "Category defaults",
-    "Popular products",
-    "Progressive learning over time",
-  ],
-};
-
 export const mvpScope = {
-  label: "09 MVP scope and trade-offs",
-  headline: "Proving intent-to-basket without unnecessary complexity",
+  label: "10 MVP scope and trade-offs",
+  headline: "Proving intent-to-trolley without unnecessary complexity",
   intro:
     "The MVP needed to prove whether real-world shopping intent could be converted into basket-ready products without adding unnecessary complexity.",
   included: [
@@ -273,8 +344,20 @@ export const mvpScope = {
   removed: ["Voice input"],
   voiceNote:
     "Voice was useful long term, but not essential to prove the core intent-to-basket loop. It also risked making the experience feel like a conversational assistant, which added complexity and raised the wrong expectations.",
-  mainTradeoff:
-    "We prioritised signed-in customers for MVP because personalisation depended on favourites, previous orders and shopping behaviour. Progressive sign-in could be explored later once the feature had proved value.",
+  decisions: [
+    {
+      number: "01",
+      title: "We moved from search-and-select to prediction-first",
+      copy: "Instead of making customers search for every item, the system interpreted shopping intent first and generated a draft trolley customers could review, swap and adjust.",
+      icon: "search" as const,
+    },
+    {
+      number: "02",
+      title: "We prioritised signed-in customers for MVP",
+      copy: "Personalisation depended on favourites, previous orders and shopping behaviour, so signed-in customers gave the system stronger signals for product mapping. Newer customers could still be supported after account creation through popular products and lightweight preferences.",
+      icon: "user" as const,
+    },
+  ],
   constraints: [
     {
       title: "Ambiguous list inputs",
@@ -295,7 +378,7 @@ export const mvpScope = {
 };
 
 export const feedbackLoop = {
-  label: "10 Feedback loop",
+  label: "11 Feedback loop",
   headline: "Learning from corrections without over-interpreting",
   intro:
     "Every customer correction can become a signal, but not every correction means the same thing. The system needed to learn carefully from edits, swaps, removals and quantity changes.",
@@ -331,7 +414,7 @@ export const feedbackLoop = {
 };
 
 export const validation = {
-  label: "11 Validation and iteration",
+  label: "12 Validation and iteration",
   headline: "Validation and iteration",
   body: "We tested early concepts with customers, then refined around clarity, trust and control.",
   testing: [
@@ -350,14 +433,10 @@ export const validation = {
     "The product needed to show confidence and allow easy swapping, rather than feel fully automated.",
   ],
   note: "Testing validated behaviour, trust and interaction patterns, not production-level OCR accuracy or recommendation performance.",
-};
-
-export const nextValidation = {
-  label: "12 What still needed validation",
-  headline: "From concept validation to production readiness",
-  closing:
+  nextTitle: "What still needed validation",
+  nextClosing:
     "The next stage was not about adding more features. It was about improving accuracy, language and trust so customers felt confident using the experience repeatedly.",
-  columns: [
+  nextColumns: [
     {
       title: "Improve product accuracy",
       items: [
@@ -388,22 +467,32 @@ export const nextValidation = {
 export const impact = {
   label: "13 Impact and outcomes",
   headline: "Impact and outcomes",
+  intro:
+    "The concept connected an existing high-value behaviour with a faster way to create, reuse and convert lists into trolleys.",
   outcomes: [
     {
       title: "Reduced effort from intent to trolley",
-      copy: "Customers could move from real-world planning inputs to draft basket suggestions faster.",
+      copy: "Customers could move from a note, meal idea, saved list or handwritten shop into editable product suggestions faster.",
     },
     {
-      title: "Protected trust through review and control",
-      copy: "Suggestions stayed visible, editable and reversible before anything was added to trolley.",
+      title: "Shifted the model from search to prediction",
+      copy: "The experience reduced reliance on item-by-item search by generating a draft trolley first, then letting customers review and refine.",
     },
     {
-      title: "Created a reusable AI-assisted shopping model",
-      copy: "The logic could adapt across favourites, purchase history, preferences, product availability and customer corrections.",
+      title: "Improved list maturity",
+      copy: "The strategy targeted customers who had only one list, helping them create and reuse multiple shopping missions over time.",
     },
     {
-      title: "Linked to a high-value commercial behaviour",
-      copy: "Shopping lists were already associated with higher order frequency, higher average order value and larger trolley value.",
+      title: "Improved list-to-trolley conversion",
+      copy: "The opportunity was to turn saved planning behaviour into actual basket-building behaviour, addressing the very low list-to-trolley conversion baseline.",
+    },
+    {
+      title: "Linked to high-value customer behaviour",
+      copy: "List usage was already associated with higher order frequency, higher average order value and stronger trolley value.",
+    },
+    {
+      title: "Supported competitor win-back",
+      copy: "A faster intent-to-trolley experience could help customers bringing established planning habits from Ocado or other grocery competitors.",
     },
   ],
 };
@@ -414,4 +503,11 @@ export const closing = {
   body: "We were not designing a shopping list. We were designing a system that removed effort from turning intent into a shop, then helped customers reuse that intent again and again.",
   body2:
     "The value was not just faster basket building. It was turning real-life planning behaviour into a reusable, personalised shopping system.",
+  prototype: {
+    href: "https://list-umber-zeta.vercel.app/",
+    label: "View prototype",
+  },
+  image: "/images/work/shopping-lists/prototype-mockup.png?v=2",
+  imageAlt:
+    "Waitrose shopping lists prototype showing create your list and build shop screens on mobile.",
 };

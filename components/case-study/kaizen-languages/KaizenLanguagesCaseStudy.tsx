@@ -175,7 +175,7 @@ export default function KaizenLanguagesCaseStudy() {
         aria-labelledby="kaizen-title"
       >
         <div className={caseStudyContainer}>
-          <div className="flex min-w-0 flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
+          <div className="flex min-w-0 flex-col gap-12 overflow-hidden lg:flex-row lg:items-stretch lg:gap-10 lg:overflow-visible xl:gap-14">
             <motion.div
               custom={0}
               variants={caseStudyFadeUp}
@@ -227,7 +227,7 @@ export default function KaizenLanguagesCaseStudy() {
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="relative flex min-w-0 flex-1 flex-col lg:min-h-[32rem]"
+              className="relative hidden min-w-0 flex-1 flex-col lg:flex lg:min-h-[32rem]"
             >
               {/* Circle sized to pre-enlargement bounds so it stays fixed when the image grows */}
               <div
