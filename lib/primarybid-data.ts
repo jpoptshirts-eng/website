@@ -15,10 +15,8 @@ export const primaryBidSubnav = [
 
 export const primaryBidHero = {
   label: "01 Case Study",
-  title: "Designing confidence into regulated investment journeys",
+  title: "Build trust in regulated investment journeys",
   subcopy:
-    "At PrimaryBid, I designed responsive investment experiences, broker tools and scalable product systems that helped make public market participation clearer, safer and easier to navigate.",
-  intro:
     "Public market investing is complex, regulated and often intimidating for retail investors. I helped design product experiences that made investment participation feel clearer, more trustworthy and easier to navigate across mobile, tablet and desktop.",
   meta: [
     { label: "Role", value: "Senior Product Designer" },
@@ -29,7 +27,7 @@ export const primaryBidHero = {
       value: "Fintech / Regulated UX / High-trust product design / Design systems",
     },
   ],
-  image: "/images/work/primarybid/hero-phones.png",
+  image: "/images/work/primarybid/hero-phones.png?v=3",
   imageAlt:
     "Three iPhone screens showing PrimaryBid live offers and how-it-works education overlay.",
 };

@@ -24,7 +24,7 @@ export const quickShopHero = {
   meta: [
     { label: "Role", value: "Senior Product Designer" },
     { label: "Company", value: "Waitrose & Partners" },
-    { label: "Timeline", value: "6 months" },
+    { label: "Timeline", value: "8 months" },
     {
       label: "Focus",
       value: "Personalisation / Behavioural UX / AI-assisted commerce",

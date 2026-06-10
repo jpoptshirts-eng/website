@@ -20,8 +20,6 @@ export const kaizenHero = {
   title: "Kaizen Languages",
   subcopy:
     "Designing an AI-powered language learning experience around confidence, motivation and retention.",
-  intro:
-    "As founding product designer, I led the end-to-end design of a native iOS and Android language learning app, shaping the lesson experience, onboarding, writing interactions, gamification, experimentation and conversion journeys. The challenge was not only helping people learn a language, but helping them feel confident enough to keep going.",
   meta: [
     { label: "Role", value: "Founding Product Designer" },
     { label: "Timeline", value: "3 years" },
@@ -51,6 +49,7 @@ export const kaizenMyRole = {
   title: "My role",
   avatar: "/images/jacinto-hero.png",
   avatarAlt: "Jacinto De Matos",
+  lead: "As founding product designer, I led the end-to-end design of a native iOS and Android language learning app, shaping the lesson experience, onboarding, writing interactions, gamification, experimentation and conversion journeys. The challenge was not only helping people learn a language, but helping them feel confident enough to keep going.",
   body: "I owned the product design from discovery through optimisation — across UX, UI, research, analytics, workshops, guidelines, product foundations and hands-on delivery. Because Kaizen was an early-stage product, the role required both strategic thinking and execution.",
   bullets: [
     "Defining the core lesson experience",

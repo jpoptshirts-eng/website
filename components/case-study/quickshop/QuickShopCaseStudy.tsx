@@ -24,7 +24,7 @@ import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import CaseStudyMockupImage from "@/components/case-study/CaseStudyMockupImage";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroRow, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   quickShopSubnav,
   quickShopHero,
@@ -128,18 +128,18 @@ export default function QuickShopCaseStudy() {
         id="overview"
         className={cn(
           caseStudySection,
-          "overflow-hidden bg-gradient-to-b from-white via-white to-cream-muted pb-0 pt-12 md:pt-16 lg:pt-20",
+          "overflow-hidden bg-gradient-to-b from-white via-white to-cream-muted pb-0 pt-12 md:overflow-visible md:pt-16 lg:pt-20",
         )}
         aria-labelledby="quickshop-title"
       >
         <div className={caseStudyContainer}>
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
+          <div className={cn(caseStudyHeroRow, "md:items-start")}>
             <motion.div
               custom={0}
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="flex-1 pb-4 lg:max-w-[42%] lg:pb-16 xl:max-w-[44%]"
+              className="flex-1 pb-4 md:max-w-[42%] xl:max-w-[44%]"
             >
               <CaseStudyLabel>{quickShopHero.label}</CaseStudyLabel>
               <CaseStudyHeadline as="h1" id="quickshop-title">
@@ -165,28 +165,24 @@ export default function QuickShopCaseStudy() {
               </dl>
             </motion.div>
 
-            <motion.div
-              custom={0.1}
-              variants={caseStudyFadeUp}
-              initial="hidden"
-              animate="visible"
-              className={cn("relative min-w-0 flex-1 flex-col justify-end lg:min-h-[28rem] xl:min-h-[30rem]", caseStudyHeroImageColumn)}
-            >
-              <div className="relative mx-auto w-full max-w-[37rem] sm:max-w-[42rem] lg:ml-auto lg:mr-0 lg:max-w-[53rem] xl:max-w-[58rem] 2xl:max-w-[64rem]">
-                <div
-                  className="pointer-events-none absolute -right-[8%] top-[-2%] z-0 aspect-square w-[86%] rounded-full bg-soft-pink lg:-right-[4%] lg:w-[88%]"
-                  aria-hidden
-                />
-                <CaseStudyMockupImage
-                  src={quickShopHero.image}
-                  alt={quickShopHero.imageAlt}
-                  priority
-                  width={1021}
-                  height={1024}
-                  className="relative z-10 w-full object-contain object-bottom"
-                />
+            <div className={cn("relative justify-end", caseStudyHeroImageColumn)}>
+              <div className="relative w-full">
+                <div className="relative mx-auto w-full max-w-[37rem] sm:max-w-[42rem] md:ml-auto md:mr-0 md:max-w-[53rem] xl:max-w-[58rem] 2xl:max-w-[64rem]">
+                  <div
+                    className="pointer-events-none absolute -right-[8%] top-[-2%] z-0 aspect-square w-[86%] rounded-full bg-soft-pink lg:-right-[4%] lg:w-[88%]"
+                    aria-hidden
+                  />
+                  <CaseStudyMockupImage
+                    src={quickShopHero.image}
+                    alt={quickShopHero.imageAlt}
+                    priority
+                    width={1021}
+                    height={1024}
+                    className="relative z-10 w-full object-contain object-bottom"
+                  />
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <motion.div
@@ -194,7 +190,7 @@ export default function QuickShopCaseStudy() {
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
             variants={caseStudyFadeUp}
-            className="mt-14 border-t border-border pt-12 md:mt-16 md:pt-14 lg:mt-20 lg:pt-16"
+            className="mt-12 border-t border-border pt-10 md:pt-12"
             aria-labelledby="my-role-heading"
           >
             <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-14">
@@ -240,7 +236,10 @@ export default function QuickShopCaseStudy() {
       {/* 02 Overview */}
       <section
         id="opportunity"
-        className={cn(caseStudySection, "relative overflow-hidden bg-cream-muted")}
+        className={cn(
+          caseStudySection,
+          "relative overflow-hidden bg-cream-muted pt-[100px] pb-16 md:pb-20 lg:pb-24",
+        )}
         aria-labelledby="opportunity-heading"
       >
         <div

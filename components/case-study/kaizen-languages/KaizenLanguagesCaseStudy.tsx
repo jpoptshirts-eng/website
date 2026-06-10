@@ -8,7 +8,7 @@ import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroRow, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   kaizenSubnav,
   kaizenHero,
@@ -175,13 +175,13 @@ export default function KaizenLanguagesCaseStudy() {
         aria-labelledby="kaizen-title"
       >
         <div className={caseStudyContainer}>
-          <div className="flex min-w-0 flex-col gap-12 overflow-hidden lg:flex-row lg:items-stretch lg:gap-10 lg:overflow-visible xl:gap-14">
+          <div className={cn(caseStudyHeroRow, "min-w-0 md:overflow-visible")}>
             <motion.div
               custom={0}
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="min-w-0 flex-1 lg:max-w-[48%]"
+              className="min-w-0 flex-1 md:max-w-[48%]"
             >
               <CaseStudyLabel>{kaizenHero.label}</CaseStudyLabel>
               <CaseStudyHeadline as="h1" id="kaizen-title">
@@ -189,9 +189,6 @@ export default function KaizenLanguagesCaseStudy() {
               </CaseStudyHeadline>
               <p className="mt-8 max-w-lg border-l-2 border-orange pl-6 text-base leading-relaxed text-black md:mt-10 md:text-lg">
                 {kaizenHero.subcopy}
-              </p>
-              <p className="mt-4 max-w-lg text-sm leading-relaxed text-grey md:text-base">
-                {kaizenHero.intro}
               </p>
               <dl className="mt-10 flex flex-col gap-5 lg:mt-12">
                 {kaizenHero.meta.map((item) => (
@@ -222,35 +219,26 @@ export default function KaizenLanguagesCaseStudy() {
               </div>
             </motion.div>
 
-            <motion.div
-              custom={0.1}
-              variants={caseStudyFadeUp}
-              initial="hidden"
-              animate="visible"
-              className={cn("relative min-w-0 flex-1 flex-col min-[554px]:min-h-[24rem] md:min-h-[28rem] lg:min-h-[32rem]", caseStudyHeroImageColumn)}
+            <div
+              className={cn(
+                "relative justify-center md:py-4 lg:py-0",
+                caseStudyHeroImageColumn,
+              )}
             >
-              {/* Circle sized to pre-enlargement bounds so it stays fixed when the image grows */}
-              <div
-                className="pointer-events-none absolute inset-0 z-0 flex justify-center lg:justify-end lg:pr-[100px]"
-                aria-hidden
-              >
-                <div className="relative h-full w-full max-w-[22rem] sm:max-w-[26rem] lg:max-w-full">
-                  <div className="absolute -right-[8%] top-[8%] aspect-square w-[75%] rounded-full bg-soft-pink md:w-[80%]" />
+              <div className="relative ml-auto w-full max-w-[calc(22rem+150px)] sm:max-w-[calc(24rem+150px)] md:max-w-full lg:max-w-[calc(26rem+150px)] xl:max-w-[calc(28rem+150px)]">
+                <div
+                  className="pointer-events-none absolute -right-[8%] top-[8%] z-0 aspect-square w-[75%] rounded-full bg-soft-pink md:w-[80%]"
+                  aria-hidden
+                />
+                <div className="relative z-10">
+                  <MockupImage
+                    src={kaizenHero.image}
+                    alt={kaizenHero.imageAlt}
+                    priority
+                  />
                 </div>
               </div>
-              <div className="pointer-events-none absolute inset-0 z-10 flex justify-center lg:justify-end lg:pr-[100px]">
-                <div className="relative h-full w-full max-w-[22rem] sm:max-w-[26rem] lg:max-w-full">
-                  <div className="absolute -right-[8%] top-[8%] flex w-[75%] justify-center md:w-[80%]">
-                    <MockupImage
-                      src={kaizenHero.image}
-                      alt={kaizenHero.imageAlt}
-                      priority
-                      className="w-full max-w-[calc(22rem+200px)] sm:max-w-[calc(26rem+200px)] lg:w-[calc(100%+200px)] lg:max-w-[calc(100%+200px)] lg:origin-center lg:scale-[1.3]"
-                    />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Overview + My role */}
@@ -309,9 +297,10 @@ export default function KaizenLanguagesCaseStudy() {
                     {kaizenMyRole.title}
                   </h2>
                 </div>
-                <p className="text-base leading-relaxed text-black md:text-lg">
-                  {kaizenMyRole.body}
-                </p>
+                <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
+                  <p>{kaizenMyRole.lead}</p>
+                  <p>{kaizenMyRole.body}</p>
+                </div>
               </div>
               <ul className="mt-6 flex flex-col gap-3 lg:mt-0 lg:justify-center">
                 {kaizenMyRole.bullets.map((bullet) => (

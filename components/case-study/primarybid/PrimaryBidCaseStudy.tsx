@@ -15,7 +15,7 @@ import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroRow, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   primaryBidSubnav,
   primaryBidHero,
@@ -85,13 +85,13 @@ export default function PrimaryBidCaseStudy() {
         aria-labelledby="primarybid-title"
       >
         <div className={caseStudyContainer}>
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
+          <div className={cn(caseStudyHeroRow, "md:items-start")}>
             <motion.div
               custom={0}
               variants={caseStudyFadeUp}
               initial="hidden"
               animate="visible"
-              className="flex-1 lg:max-w-[46%]"
+              className="flex-1 md:max-w-[52%] lg:max-w-[50%]"
             >
               <CaseStudyLabel>{primaryBidHero.label}</CaseStudyLabel>
               <CaseStudyHeadline as="h1" id="primarybid-title">
@@ -99,9 +99,6 @@ export default function PrimaryBidCaseStudy() {
               </CaseStudyHeadline>
               <p className="mt-8 max-w-lg border-l-2 border-orange pl-6 text-base leading-relaxed text-black md:mt-10 md:text-lg">
                 {primaryBidHero.subcopy}
-              </p>
-              <p className="mt-4 max-w-lg text-sm leading-relaxed text-grey md:text-base">
-                {primaryBidHero.intro}
               </p>
               <dl className="mt-10 flex flex-col gap-5 lg:mt-12">
                 {primaryBidHero.meta.map((item) => (
@@ -117,26 +114,25 @@ export default function PrimaryBidCaseStudy() {
               </dl>
             </motion.div>
 
-            <motion.div
-              custom={0.1}
-              variants={caseStudyFadeUp}
-              initial="hidden"
-              animate="visible"
-              className={cn("relative flex-1 flex-col justify-center", caseStudyHeroImageColumn)}
+            <div
+              className={cn(
+                "relative mb-5 items-center justify-start md:mb-0 md:items-start md:pt-7 lg:pt-8",
+                caseStudyHeroImageColumn,
+              )}
             >
-              <div className="relative mx-auto w-full max-w-[28rem] lg:ml-auto lg:max-w-none">
+              <div className="relative mx-auto w-full max-w-[calc(14rem+50px)] sm:max-w-[calc(16rem+50px)] md:ml-auto md:mr-0 md:max-w-[calc(18rem+50px)] lg:max-w-[calc(20rem+50px)] xl:max-w-[calc(22rem+50px)]">
                 <div
-                  className="pointer-events-none absolute -right-[8%] top-[8%] z-0 aspect-square w-[75%] rounded-full bg-soft-pink md:w-[80%]"
+                  className="pointer-events-none absolute -right-[8%] top-[10%] z-0 aspect-square w-[72%] rounded-full bg-soft-pink md:w-[76%]"
                   aria-hidden
                 />
                 <MockupImage
                   src={primaryBidHero.image}
                   alt={primaryBidHero.imageAlt}
                   priority
-                  className="relative z-10"
+                  className="relative z-10 object-top"
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

@@ -22,7 +22,7 @@ import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import ArrowLink from "@/components/ArrowLink";
-import { caseStudyContainer, caseStudySection, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
+import { caseStudyContainer, caseStudySection, caseStudyHeroRow, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
   shoppingListsSubnav,
   shoppingListsHero,
@@ -122,13 +122,13 @@ export default function ShoppingListsCaseStudy() {
         aria-labelledby="case-study-title"
       >
         <div className={caseStudyContainer}>
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-10 xl:gap-14">
+          <div className={cn(caseStudyHeroRow, "md:items-start")}>
             <motion.div
               custom={0}
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="flex-1 lg:max-w-[48%]"
+              className="flex-1 md:max-w-[48%]"
             >
               <CaseStudyLabel>{shoppingListsHero.label}</CaseStudyLabel>
               <CaseStudyHeadline as="h1" id="case-study-title">
@@ -151,16 +151,10 @@ export default function ShoppingListsCaseStudy() {
               </dl>
             </motion.div>
 
-            <motion.div
-              custom={0.1}
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className={cn("relative flex-1 flex-col justify-end lg:justify-end", caseStudyHeroImageColumn)}
-            >
-              <div className="relative mx-auto w-full max-w-[22rem] sm:max-w-[26rem] lg:ml-auto lg:max-w-none">
+            <div className={cn("relative justify-end", caseStudyHeroImageColumn)}>
+              <div className="relative ml-auto w-full max-w-[24rem] sm:max-w-[28rem] md:max-w-[26rem] lg:max-w-[28rem]">
                 <div
-                  className="pointer-events-none absolute -right-[8%] top-[8%] z-0 aspect-square w-[75%] rounded-full bg-soft-pink md:w-[80%]"
+                  className="pointer-events-none absolute -right-[8%] top-[12%] z-0 aspect-square w-[78%] rounded-full bg-soft-pink md:top-[10%] md:w-[82%]"
                   aria-hidden
                 />
                 <div className="relative z-10">
@@ -168,10 +162,11 @@ export default function ShoppingListsCaseStudy() {
                     src={shoppingListsHero.image}
                     alt={shoppingListsHero.imageAlt}
                     priority
+                    className="max-h-[24rem] object-bottom sm:max-h-[26rem] lg:max-h-[28rem]"
                   />
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <motion.div
@@ -179,7 +174,7 @@ export default function ShoppingListsCaseStudy() {
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
             variants={fadeUp}
-            className="mt-14 border-t border-border pt-12 md:mt-16 md:pt-14 lg:mt-20 lg:pt-16"
+            className="mt-12 border-t border-border pt-10 md:pt-12"
             aria-labelledby="my-role-heading"
           >
             <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-14">
@@ -228,7 +223,7 @@ export default function ShoppingListsCaseStudy() {
       {/* 02 Why it mattered */}
       <section
         id="why-it-mattered"
-        className={cn(caseStudySection, "bg-cream-muted")}
+        className={cn(caseStudySection, "bg-cream-muted pt-[100px] pb-16 md:pb-20 lg:pb-24")}
         aria-labelledby="why-heading"
       >
         <div className={caseStudyContainer}>
