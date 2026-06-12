@@ -157,6 +157,13 @@ const nextStepIcons = {
   filters: SlidersHorizontal,
 };
 
+const tradeOffIcons = {
+  content: Shield,
+  backend: Server,
+  structure: Users,
+  scope: ListOrdered,
+};
+
 function IconCard({
   title,
   copy,
@@ -195,12 +202,14 @@ function TradeOffCard({
   title,
   body,
   tradeOff,
+  icon: Icon,
   index = 0,
 }: {
   label: string;
   title: string;
   body: string[];
   tradeOff: string;
+  icon?: React.ComponentType<{ className?: string }>;
   index?: number;
 }) {
   return (
@@ -212,6 +221,11 @@ function TradeOffCard({
       variants={caseStudyFadeUp}
       className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 md:p-7 lg:p-8"
     >
+      {Icon ? (
+        <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#FFE4D6]">
+          <Icon className="h-5 w-5 text-orange" aria-hidden />
+        </div>
+      ) : null}
       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
         {label}
       </p>
@@ -1180,16 +1194,20 @@ export default function MealPlansCaseStudy() {
           </motion.div>
 
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:mt-14 lg:gap-6">
-            {mealPlansTradeOffs.cards.map((card, index) => (
-              <TradeOffCard
-                key={card.title}
-                label={card.label}
-                title={card.title}
-                body={card.body}
-                tradeOff={card.tradeOff}
-                index={index}
-              />
-            ))}
+            {mealPlansTradeOffs.cards.map((card, index) => {
+              const Icon = tradeOffIcons[card.icon];
+              return (
+                <TradeOffCard
+                  key={card.title}
+                  label={card.label}
+                  title={card.title}
+                  body={card.body}
+                  tradeOff={card.tradeOff}
+                  icon={Icon}
+                  index={index}
+                />
+              );
+            })}
           </div>
 
           <motion.p

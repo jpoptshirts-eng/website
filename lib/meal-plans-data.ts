@@ -504,6 +504,7 @@ export const mealPlansTradeOffs = {
   cards: [
     {
       label: "Content risk",
+      icon: "content" as const,
       title: "Dietary recipes were not always shoppable",
       body: [
         "Many vegan and gluten-free recipes were available for customers to read, but not to add directly to trolley. This was due to concerns around allergens, dietary accuracy and author confidence.",
@@ -514,6 +515,7 @@ export const mealPlansTradeOffs = {
     },
     {
       label: "Backend logic",
+      icon: "backend" as const,
       title: "Dietary filtering reduced recipe variety",
       body: [
         "Recipes were tagged by authors with dietary labels such as vegetarian, vegan and pescatarian. However, when customers selected multiple dietary preferences, the backend treated them as combined requirements.",
@@ -524,6 +526,7 @@ export const mealPlansTradeOffs = {
     },
     {
       label: "Content structure",
+      icon: "structure" as const,
       title: "Serving size groups created relevance issues",
       body: [
         "Because the available recipe pool was limited, serving sizes were grouped together in the backend. Customers could choose ranges such as 1, 2–4, 5–7 and 8+.",
@@ -534,6 +537,7 @@ export const mealPlansTradeOffs = {
     },
     {
       label: "Scope control",
+      icon: "scope" as const,
       title: "An added review step increased complexity",
       body: [
         "The original journey allowed customers to build a meal plan, send ingredients to trolley, then complete their final review there. This matched existing shopping behaviour because customers already use trolley to check quantities, remove items, review availability and complete their shop.",
