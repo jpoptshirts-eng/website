@@ -18,6 +18,9 @@ const config: Config = {
         white: "#FFFFFF",
         cream: "#F9F7F2",
         "cream-muted": "#F5F2ED",
+        "meal-green": "#3D853D",
+        "meal-green-muted": "#E8F3E8",
+        "meal-green-light": "#C5E0C5",
       },
       fontFamily: {
         sans: ["var(--font-poppins)", "system-ui", "sans-serif"],

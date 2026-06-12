@@ -52,6 +52,16 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     number: "03",
+    title: "Meal Plans",
+    subtitle: "(Waitrose)",
+    description:
+      "A guided meal planning journey that turns recipe inspiration into structured, shop-ready weekly plans.",
+    tags: ["Meal planning", "Recipes", "Commerce"],
+    image: "/images/meal-plans.png",
+    href: "/work/meal-plans",
+  },
+  {
+    number: "04",
     title: "Transactional website and IPO",
     subtitle: "(PrimaryBid)",
     description:
@@ -61,7 +71,7 @@ export const caseStudies: CaseStudy[] = [
     href: "/work/primarybid",
   },
   {
-    number: "04",
+    number: "05",
     title: "AI language learning",
     subtitle: "(Kaizen Languages)",
     description:
