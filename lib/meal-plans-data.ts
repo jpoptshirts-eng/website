@@ -9,6 +9,7 @@ export const mealPlansSubnav = [
   { id: "direction", label: "Direction" },
   { id: "solution", label: "Solution" },
   { id: "accessibility", label: "Accessibility" },
+  { id: "trade-offs", label: "Trade-offs" },
   { id: "results", label: "Results" },
   { id: "reflection", label: "Reflection" },
 ] as const;
@@ -493,6 +494,57 @@ export const mealPlansValidation = {
     "First time user and really enjoying it.",
     "Love how quick it is.",
   ],
+};
+
+export const mealPlansTradeOffs = {
+  label: "Trade-offs & delivery constraints",
+  headline: "Several constraints shaped what we could ship for MVP.",
+  intro:
+    "Meal Plans was not only a UX challenge. The experience depended on recipe content, dietary tagging, backend rules, author confidence and trolley logic all working together. Several constraints shaped what we could ship for MVP and what needed to move into later phases.",
+  cards: [
+    {
+      label: "Content risk",
+      title: "Dietary recipes were not always shoppable",
+      body: [
+        "Many vegan and gluten-free recipes were available for customers to read, but not to add directly to trolley. This was due to concerns around allergens, dietary accuracy and author confidence.",
+        "That created a major constraint for Meal Plans because dietary preferences were a core part of the proposition. If those recipes were excluded, customers with specific dietary needs saw less variety and the experience felt less useful.",
+      ],
+      tradeOff:
+        "I worked with recipe authors and content teams to identify which recipes could be reviewed and potentially made shoppable. This created a long dependency, taking around six months of review and back-and-forth, but it helped create a safer path for expanding dietary coverage.",
+    },
+    {
+      label: "Backend logic",
+      title: "Dietary filtering reduced recipe variety",
+      body: [
+        "Recipes were tagged by authors with dietary labels such as vegetarian, vegan and pescatarian. However, when customers selected multiple dietary preferences, the backend treated them as combined requirements.",
+        "For example, if a customer selected vegetarian and pescatarian, the system only returned recipes that matched both tags. Instead of expanding choice, selecting more dietary preferences reduced the number of available recipes.",
+      ],
+      tradeOff:
+        "The ideal solution was to move towards more inclusive matching, so customers could see vegetarian recipes, pescatarian recipes and recipes that matched both. This required more delivery time than the project allowed, so we worked within the existing logic for MVP and captured it as a future improvement.",
+    },
+    {
+      label: "Content structure",
+      title: "Serving size groups created relevance issues",
+      body: [
+        "Because the available recipe pool was limited, serving sizes were grouped together in the backend. Customers could choose ranges such as 1, 2–4, 5–7 and 8+.",
+        "This made the experience appear broader, but it created friction. A customer cooking for two people could still be shown a recipe serving four, which made some recommendations feel less relevant and harder to act on.",
+      ],
+      tradeOff:
+        "The frontend had to mirror the backend structure. Showing individual serving sizes in the UI would have created a misleading experience because the returned recipes would still be based on grouped ranges. We kept the grouped model for MVP and captured more precise serving logic for phase two.",
+    },
+    {
+      label: "Scope control",
+      title: "An added review step increased complexity",
+      body: [
+        "The original journey allowed customers to build a meal plan, send ingredients to trolley, then complete their final review there. This matched existing shopping behaviour because customers already use trolley to check quantities, remove items, review availability and complete their shop.",
+        "During delivery, an additional ingredient review step was added before trolley. I challenged this direction because it duplicated the review behaviour that already existed in trolley, while creating a less reliable experience. Availability, sold out items and duplicate ingredients were clearer once items were in trolley, especially when linked to the customer\u2019s booked slot.",
+      ],
+      tradeOff:
+        "We moved forward with the extra review step for MVP, but it added frontend and backend complexity and contributed to the project timeline extending from an expected 9\u201310 months to around 14 months. The key learning was that reassurance needs to sit where it creates the most value. In this case, trolley was the stronger review environment.",
+    },
+  ],
+  closing:
+    "Looking back, these constraints shaped one of the biggest lessons from the project: a meal planning experience is only as strong as the operational systems behind it. The UX had to work with recipe governance, dietary confidence, backend rules and trolley behaviour, not around them.",
 };
 
 export const mealPlansQuotes = [

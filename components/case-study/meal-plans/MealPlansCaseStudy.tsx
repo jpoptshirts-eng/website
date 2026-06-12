@@ -66,6 +66,7 @@ import {
   mealPlansSolution,
   mealPlansAccessibility,
   mealPlansValidation,
+  mealPlansTradeOffs,
   mealPlansQuotes,
   mealPlansImpact,
   mealPlansLearnings,
@@ -185,6 +186,51 @@ function IconCard({
       ) : null}
       <h3 className="font-bold text-black">{title}</h3>
       <p className={cn("mt-3", copyClassName)}>{copy}</p>
+    </motion.article>
+  );
+}
+
+function TradeOffCard({
+  label,
+  title,
+  body,
+  tradeOff,
+  index = 0,
+}: {
+  label: string;
+  title: string;
+  body: string[];
+  tradeOff: string;
+  index?: number;
+}) {
+  return (
+    <motion.article
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      custom={index * 0.05}
+      variants={caseStudyFadeUp}
+      className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 md:p-7 lg:p-8"
+    >
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+        {label}
+      </p>
+      <h3 className="mt-3 text-lg font-bold leading-snug text-black md:text-xl">
+        {title}
+      </h3>
+      <div className="mt-4 space-y-3 text-sm leading-relaxed text-grey md:text-base">
+        {body.map((paragraph) => (
+          <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+        ))}
+      </div>
+      <div className="mt-6 border-t border-border pt-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange">
+          Trade-off
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-black md:text-base">
+          {tradeOff}
+        </p>
+      </div>
     </motion.article>
   );
 }
@@ -1107,6 +1153,54 @@ export default function MealPlansCaseStudy() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Trade-offs & delivery constraints */}
+      <section
+        id="trade-offs"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="mp-trade-offs-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>{mealPlansTradeOffs.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="mp-trade-offs-heading">
+              {mealPlansTradeOffs.headline}
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-grey md:text-lg">
+              {mealPlansTradeOffs.intro}
+            </p>
+          </motion.div>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:mt-14 lg:gap-6">
+            {mealPlansTradeOffs.cards.map((card, index) => (
+              <TradeOffCard
+                key={card.title}
+                label={card.label}
+                title={card.title}
+                body={card.body}
+                tradeOff={card.tradeOff}
+                index={index}
+              />
+            ))}
+          </div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-10 max-w-4xl border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:mt-12 md:text-lg"
+          >
+            {mealPlansTradeOffs.closing}
+          </motion.p>
         </div>
       </section>
 
