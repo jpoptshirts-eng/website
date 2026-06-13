@@ -121,9 +121,10 @@ export const primaryBidSolution = {
       "Reduced visual noise to improve scanning",
       "Consistent card patterns for repeatable financial information",
     ],
-    image: "/images/work/primarybid/mockup-phones-hero-alt.png",
     imageAlt:
-      "Three iPhone screens showing PrimaryBid live offers, navigation and offer discovery.",
+      "Animated PrimaryBid live offers experience with back navigation on iPhone.",
+    video: "/videos/work/primarybid/iphone-live-back-button.mp4",
+    phoneFrame: "/images/work/primarybid/iphone-x-frame.png",
   },
   offerDetail: {
     headline: "Helping users make informed decisions",
@@ -147,9 +148,9 @@ export const primaryBidSolution = {
       "Apply in seconds with no hidden fees or commission",
       "Track your order every step of the way",
     ],
-    image: "/images/work/primarybid/hero-phones.png",
+    image: "/images/work/primarybid/ipad-personal-details.png",
     imageAlt:
-      "PrimaryBid how-it-works overlay explaining public offers in three clear steps.",
+      "iPad showing PrimaryBid personal details, contact information and broker settings.",
   },
 };
 
@@ -164,6 +165,9 @@ export const primaryBidPlatform = {
       "Tablet support for account and operational workflows",
       "Consistent navigation and hierarchy across breakpoints",
     ],
+    image: "/images/work/primarybid/multi-platform.png",
+    imageAlt:
+      "PrimaryBid laptop and iPhone showing the Atlantis plc offer across desktop and mobile.",
   },
   broker: {
     headline: "Designing for operational clarity",
@@ -296,5 +300,8 @@ export const primaryBidReflection = {
   body: "Users do not only evaluate speed, features or functionality. They evaluate trust, clarity, reassurance, predictability and transparency.",
   body2:
     "Designing within regulated environments required balancing compliance with usability, complexity with clarity and operational requirements with customer trust. The result was a more structured and scalable investment experience designed around confidence, transparency and consistency.",
+  image: "/images/work/primarybid/ipad-live-offer.png",
+  imageAlt:
+    "iPad showing PrimaryBid live offer details for Oxford Biomedica with Apple Pencil.",
 };
 

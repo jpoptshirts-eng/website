@@ -55,21 +55,65 @@ function MockupImage({
   alt,
   priority = false,
   className,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   className?: string;
+  width?: number;
+  height?: number;
 }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       className={cn("h-auto w-full object-contain", className)}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
     />
+  );
+}
+
+function PhoneVideoMockup({
+  videoSrc,
+  frameSrc,
+  alt,
+  className,
+}: {
+  videoSrc: string;
+  frameSrc: string;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn("relative mx-auto w-full max-w-[17.5rem] sm:max-w-xs", className)}
+      style={{ aspectRatio: "443 / 832" }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={frameSrc}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-contain"
+        decoding="async"
+      />
+      <video
+        src={videoSrc}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={alt}
+        className="absolute left-[4.8%] top-[1.9%] z-10 h-[96.1%] w-[90.4%] rounded-[8.5%] object-cover object-top"
+      />
+    </div>
   );
 }
 
@@ -407,10 +451,11 @@ export default function PrimaryBidCaseStudy() {
               variants={caseStudyFadeUp}
               className="mt-10 lg:mt-0"
             >
-              <MockupImage
-                src={primaryBidSolution.liveOffers.image}
+              <PhoneVideoMockup
+                videoSrc={primaryBidSolution.liveOffers.video}
+                frameSrc={primaryBidSolution.liveOffers.phoneFrame}
                 alt={primaryBidSolution.liveOffers.imageAlt}
-                className="mx-auto max-w-lg"
+                className="lg:ml-auto"
               />
             </motion.div>
           </div>
@@ -499,7 +544,9 @@ export default function PrimaryBidCaseStudy() {
               <MockupImage
                 src={primaryBidSolution.education.image}
                 alt={primaryBidSolution.education.imageAlt}
-                className="mx-auto max-w-sm"
+                width={1890}
+                height={2610}
+                className="mx-auto max-w-md lg:max-w-lg xl:max-w-xl"
               />
             </motion.div>
           </div>
@@ -528,37 +575,56 @@ export default function PrimaryBidCaseStudy() {
             </CaseStudyHeadline>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={0.05}
-            variants={caseStudyFadeUp}
-            className="mt-10 max-w-3xl lg:mt-12"
-          >
-            <div className="mb-3 flex items-center gap-3">
-              <div className={pbIconWrap}>
-                <Smartphone className={pbIcon} strokeWidth={1.75} />
+          <div className="mt-10 lg:mt-12 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.05}
+              variants={caseStudyFadeUp}
+              className="min-w-0 max-w-3xl"
+            >
+              <div className="mb-3 flex items-center gap-3">
+                <div className={pbIconWrap}>
+                  <Smartphone className={pbIcon} strokeWidth={1.75} />
+                </div>
+                <h3 className="text-2xl font-bold text-black">
+                  {primaryBidPlatform.responsive.headline}
+                </h3>
               </div>
-              <h3 className="text-2xl font-bold text-black">
-                {primaryBidPlatform.responsive.headline}
-              </h3>
-            </div>
-            <p className="text-base leading-relaxed text-black md:text-lg">
-              {primaryBidPlatform.responsive.body}
-            </p>
-            <ul className="mt-8 flex flex-col gap-3">
-              {primaryBidPlatform.responsive.points.map((point) => (
-                <li key={point} className="flex gap-3 text-sm md:text-base">
-                  <span
-                    className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                    aria-hidden
-                  />
-                  <span className="leading-relaxed text-black">{point}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+              <p className="text-base leading-relaxed text-black md:text-lg">
+                {primaryBidPlatform.responsive.body}
+              </p>
+              <ul className="mt-8 flex flex-col gap-3">
+                {primaryBidPlatform.responsive.points.map((point) => (
+                  <li key={point} className="flex gap-3 text-sm md:text-base">
+                    <span
+                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                      aria-hidden
+                    />
+                    <span className="leading-relaxed text-black">{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.1}
+              variants={caseStudyFadeUp}
+              className="mt-10 flex justify-center lg:mt-0 lg:justify-end"
+            >
+              <MockupImage
+                src={primaryBidPlatform.responsive.image}
+                alt={primaryBidPlatform.responsive.imageAlt}
+                width={1278}
+                height={782}
+                className="w-full max-w-xl xl:max-w-2xl"
+              />
+            </motion.div>
+          </div>
 
           <div className="mt-16 border-t border-border pt-16 lg:mt-20 lg:pt-20">
             <motion.div
@@ -790,25 +856,44 @@ export default function PrimaryBidCaseStudy() {
         aria-labelledby="pb-reflection-heading"
       >
         <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{primaryBidReflection.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="pb-reflection-heading">
-              {primaryBidReflection.headline}
-            </CaseStudyHeadline>
-            <p className="mt-8 text-lg font-medium leading-relaxed text-black md:text-xl">
-              {primaryBidReflection.lead}
-            </p>
-            <div className="mt-8 space-y-4 text-base leading-relaxed text-grey md:text-lg">
-              <p className="text-black">{primaryBidReflection.body}</p>
-              <p>{primaryBidReflection.body2}</p>
-            </div>
-          </motion.div>
+          <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+              className="min-w-0 max-w-3xl"
+            >
+              <CaseStudyLabel>{primaryBidReflection.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="pb-reflection-heading">
+                {primaryBidReflection.headline}
+              </CaseStudyHeadline>
+              <p className="mt-8 text-lg font-medium leading-relaxed text-black md:text-xl">
+                {primaryBidReflection.lead}
+              </p>
+              <div className="mt-8 space-y-4 text-base leading-relaxed text-grey md:text-lg">
+                <p className="text-black">{primaryBidReflection.body}</p>
+                <p>{primaryBidReflection.body2}</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={0.1}
+              variants={caseStudyFadeUp}
+              className="mt-10 flex justify-center lg:mt-0 lg:justify-end"
+            >
+              <MockupImage
+                src={primaryBidReflection.image}
+                alt={primaryBidReflection.imageAlt}
+                width={2409}
+                height={1823}
+                className="w-full max-w-xl xl:max-w-2xl"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
