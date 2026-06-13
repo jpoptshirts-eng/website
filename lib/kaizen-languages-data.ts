@@ -181,23 +181,6 @@ export const kaizenSuggestion = {
     "Kaizen Languages Suggestion card helping users recover from pronunciation errors.",
 };
 
-export const kaizenDesignJudgement = {
-  label: "Design judgement",
-  headline: "Designing for moments when AI breaks down",
-  intro:
-    "Conversational learning depends on confidence, but speech recognition and repeated corrections can quickly create frustration. I focused on recovery moments that helped learners continue without feeling punished by the technology.",
-  cards: [
-    {
-      title: "Suggestion cards after repeated errors",
-      copy: "When learners struggled to pronounce unfamiliar words, I introduced a suggestion card that broke difficult words into syllables and let users hear slowed audio before trying again.",
-    },
-    {
-      title: "A skip path when recognition failed",
-      copy: "Analytics showed that some learners were leaving lessons when microphone recognition failed repeatedly. I introduced a skip option after a minimum number of corrections so users could continue without abandoning the lesson.",
-    },
-  ],
-};
-
 export const kaizenIteration = {
   label: "08 Iteration",
   headline: "From static lessons to interactive learning loops",
@@ -275,6 +258,10 @@ export const kaizenWriting = {
   heroImage: "/images/work/kaizen-languages/mockup-writing-hero.png",
   heroAlt:
     "Kaizen Languages writing feature showing Hiragana and Katakana practice screens.",
+  showcaseImage: "/images/work/kaizen-languages/mockup-writing-kana.png",
+  showcaseAlt:
+    "Kaizen Languages Hiragana writing flow showing character sets, stroke practice and recall quiz.",
+  showcaseBackground: "#0D47A1",
 };
 
 export const kaizenGamification = {
@@ -479,4 +466,7 @@ export const kaizenReflection = {
   ],
   closing:
     "This project shifted the product from simply adding more content to designing the confidence loops that helped learners keep going. The biggest improvement came from combining research, analytics and small product experiments to reduce friction, support recovery and make progress feel more achievable.",
+  animationImage: "/images/work/kaizen-languages/jpn-lesson-1-animation.gif",
+  animationAlt:
+    "Animated Kaizen Languages Japanese lesson showing greeting interactions and learner feedback.",
 };

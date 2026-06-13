@@ -21,7 +21,6 @@ import {
   kaizenLesson,
   kaizenSuggestion,
   kaizenIteration,
-  kaizenDesignJudgement,
   kaizenStrategy,
   kaizenWriting,
   kaizenGamification,
@@ -129,17 +128,23 @@ function MockupImage({
   alt,
   priority = false,
   className,
+  width,
+  height,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   className?: string;
+  width?: number;
+  height?: number;
 }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       className={cn("h-auto w-full bg-transparent object-contain", className)}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
@@ -686,52 +691,10 @@ export default function KaizenLanguagesCaseStudy() {
         </div>
       </section>
 
-      {/* Design judgement */}
-      <section
-        className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="kaizen-judgement-heading"
-      >
-        <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{kaizenDesignJudgement.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="kaizen-judgement-heading">
-              {kaizenDesignJudgement.headline}
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {kaizenDesignJudgement.intro}
-            </p>
-          </motion.div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12">
-            {kaizenDesignJudgement.cards.map((card, index) => (
-              <motion.article
-                key={card.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                custom={index * 0.05}
-                variants={caseStudyFadeUp}
-                className="rounded-2xl border border-border bg-cream-muted p-6 md:p-7"
-              >
-                <h3 className="font-bold text-black">{card.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
-                  {card.copy}
-                </p>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Writing */}
       <section
         id="writing"
-        className={cn(caseStudySection, "bg-white")}
+        className={cn(caseStudySection, "bg-white !pb-0")}
         aria-labelledby="kaizen-writing-heading"
       >
         <div className={caseStudyContainer}>
@@ -812,6 +775,25 @@ export default function KaizenLanguagesCaseStudy() {
             </div>
           </div>
         </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={caseStudyFadeUp}
+          className="mt-16 w-full leading-none lg:mt-20"
+          style={{ backgroundColor: kaizenWriting.showcaseBackground }}
+        >
+          <div className={cn(caseStudyContainer, "!px-0")}>
+            <MockupImage
+              src={kaizenWriting.showcaseImage}
+              alt={kaizenWriting.showcaseAlt}
+              width={4000}
+              height={1869}
+              className="mx-auto block w-full object-contain"
+            />
+          </div>
+        </motion.div>
       </section>
 
       <CaseStudyQuote text={kaizenQuotes[1]} />
@@ -892,7 +874,12 @@ export default function KaizenLanguagesCaseStudy() {
                 <div
                   className={cn(
                     "image" in block && block.image
-                      ? "min-w-0 lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start lg:gap-12 xl:gap-16"
+                      ? cn(
+                          "min-w-0 lg:grid lg:items-start lg:gap-12 xl:gap-16",
+                          index === 1
+                            ? "lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]"
+                            : "lg:grid-cols-[minmax(0,1fr)_auto]",
+                        )
                       : "max-w-3xl",
                   )}
                 >
@@ -935,13 +922,20 @@ export default function KaizenLanguagesCaseStudy() {
                     )}
                   </div>
                   {"image" in block && block.image && (
-                    <div className="mt-10 flex min-w-0 justify-center lg:mt-0 lg:justify-end">
+                    <div
+                      className={cn(
+                        "mt-10 flex min-w-0 justify-center lg:mt-0 lg:justify-end",
+                        index === 1 && "lg:justify-center xl:justify-end",
+                      )}
+                    >
                       <MockupImage
                         src={block.image}
                         alt={block.imageAlt}
                         className={cn(
-                          "w-full max-w-[calc(100%-100px)]",
-                          index === 1 ? "lg:max-w-[28rem]" : "lg:max-w-[22rem]",
+                          "w-full",
+                          index === 1
+                            ? "max-w-xl sm:max-w-2xl lg:max-w-[36rem] xl:max-w-[44rem]"
+                            : "max-w-[calc(100%-100px)] lg:max-w-[22rem]",
                         )}
                       />
                     </div>
@@ -1083,34 +1077,53 @@ export default function KaizenLanguagesCaseStudy() {
         aria-labelledby="kaizen-reflection-heading"
       >
         <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>{kaizenReflection.label}</CaseStudyLabel>
-            <CaseStudyHeadline id="kaizen-reflection-heading">
-              {kaizenReflection.headline}
-            </CaseStudyHeadline>
-            <p className="mt-8 text-lg font-medium leading-relaxed text-black md:text-xl">
-              {kaizenReflection.lead}
-            </p>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {kaizenReflection.body}
-            </p>
-            <p className="mt-8 border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg">
-              {kaizenReflection.shift}
-            </p>
-            <p className="mt-8 text-sm font-semibold uppercase tracking-[0.15em] text-orange">
-              Designing for learning behaviour required balancing
-            </p>
-            <BulletList items={kaizenReflection.balance} />
-            <p className="mt-8 text-base leading-relaxed text-grey md:text-lg">
-              {kaizenReflection.closing}
-            </p>
-          </motion.div>
+          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+              className="min-w-0 max-w-3xl"
+            >
+              <CaseStudyLabel>{kaizenReflection.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="kaizen-reflection-heading">
+                {kaizenReflection.headline}
+              </CaseStudyHeadline>
+              <p className="mt-8 text-lg font-medium leading-relaxed text-black md:text-xl">
+                {kaizenReflection.lead}
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+                {kaizenReflection.body}
+              </p>
+              <p className="mt-8 border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg">
+                {kaizenReflection.shift}
+              </p>
+              <p className="mt-8 text-sm font-semibold uppercase tracking-[0.15em] text-orange">
+                Designing for learning behaviour required balancing
+              </p>
+              <BulletList items={kaizenReflection.balance} />
+              <p className="mt-8 text-base leading-relaxed text-grey md:text-lg">
+                {kaizenReflection.closing}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={0.1}
+              variants={caseStudyFadeUp}
+              className="mt-10 flex justify-center lg:sticky lg:top-32 lg:mt-0"
+            >
+              <MockupImage
+                src={kaizenReflection.animationImage}
+                alt={kaizenReflection.animationAlt}
+                width={402}
+                height={800}
+                className="w-full max-w-[14rem] object-contain sm:max-w-[16rem] lg:max-w-[18rem] xl:max-w-[20rem]"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
