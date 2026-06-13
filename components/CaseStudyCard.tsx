@@ -19,14 +19,14 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -4 }}
-      className="group flex h-full min-w-0 flex-col rounded-md border border-border bg-white p-6 transition-colors hover:border-orange/40 md:p-7 lg:p-4 xl:p-5"
+      className="group flex h-full min-w-0 flex-col rounded-md border border-border bg-white p-6 transition-colors hover:border-orange/40 md:p-7"
     >
       <Link href={study.href} className="flex h-full flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange">
         <span className="text-sm font-bold text-orange">{study.number}</span>
 
-        <h3 className="mt-4 text-xl font-bold leading-tight text-black md:text-2xl lg:text-lg xl:text-xl">
+        <h3 className="mt-4 text-xl font-bold leading-tight text-black md:text-2xl">
           {study.title}
-          <span className="block text-lg font-semibold text-grey md:text-xl lg:text-base xl:text-lg">
+          <span className="block text-lg font-semibold text-grey md:text-xl">
             {study.subtitle}
           </span>
         </h3>
@@ -53,7 +53,7 @@ export default function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             fill
             width={400}
             height={300}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
             placeholderLabel={study.title}
           />

@@ -12,9 +12,14 @@ export interface CaseStudyNavItem {
 interface CaseStudySubnavProps {
   items: readonly CaseStudyNavItem[];
   className?: string;
+  accentClassName?: string;
 }
 
-export default function CaseStudySubnav({ items, className }: CaseStudySubnavProps) {
+export default function CaseStudySubnav({
+  items,
+  className,
+  accentClassName = "border-orange bg-orange text-white",
+}: CaseStudySubnavProps) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
   const navRef = useRef<HTMLElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -157,7 +162,7 @@ export default function CaseStudySubnav({ items, className }: CaseStudySubnavPro
               className={cn(
                 "shrink-0 select-none rounded-full border px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
                 isActive
-                  ? "border-orange bg-orange text-white"
+                  ? accentClassName
                   : "border-border bg-white text-black hover:border-orange hover:text-orange",
               )}
               aria-current={isActive ? "true" : undefined}

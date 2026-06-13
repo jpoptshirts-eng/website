@@ -21,6 +21,13 @@ const config: Config = {
         "meal-green": "#3D853D",
         "meal-green-muted": "#E8F3E8",
         "meal-green-light": "#C5E0C5",
+        "cellar-burgundy": "#720026",
+        "cellar-burgundy-muted": "#F7EEF1",
+        "cellar-burgundy-light": "#E8D0D8",
+        "cellar-burgundy-deep": "#4A0404",
+        "smarter-turquoise": "#3BCFC4",
+        "smarter-turquoise-muted": "#E8F8F7",
+        "smarter-navy": "#1A2233",
       },
       fontFamily: {
         sans: ["var(--font-poppins)", "system-ui", "sans-serif"],

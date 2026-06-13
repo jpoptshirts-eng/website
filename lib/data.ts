@@ -52,18 +52,23 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     number: "03",
-    title: "Meal Plans",
+    title: "Cellar Account",
     subtitle: "(Waitrose)",
     description:
-      "A guided meal planning journey that turns recipe inspiration into structured, shop-ready weekly plans.",
-    tags: ["Meal planning", "Recipes", "Commerce"],
-    image: "/images/meal-plans.png",
-    href: "/work/meal-plans",
+      "How I helped redefine the account strategy, leverage existing Waitrose infrastructure and reduce delivery effort by over 50% while accelerating customer value.",
+    tags: [
+      "Product Strategy",
+      "Customer Accounts",
+      "Roadmap Prioritisation",
+      "Loyalty & CRM",
+    ],
+    image: "/images/cellar.png",
+    href: "/work/cellar",
   },
   {
     number: "04",
-    title: "Transactional website and IPO",
-    subtitle: "(PrimaryBid)",
+    title: "PrimaryBid",
+    subtitle: "Transactional website and IPO",
     description:
       "Simplifying complex IPO investment workflows for trust, clarity and confidence at every step.",
     tags: ["Fintech", "SaaS", "Trust"],
@@ -72,13 +77,23 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     number: "05",
-    title: "AI language learning",
-    subtitle: "(Kaizen Languages)",
+    title: "Kaizen Languages",
+    subtitle: "AI language learning",
     description:
       "iOS and Android AI language learning app that adapts to motivation, ability and real-life progress.",
     tags: ["AI", "iOS", "Android"],
     image: "/images/kaizen.png",
     href: "/work/kaizen-languages",
+  },
+  {
+    number: "06",
+    title: "Smarter",
+    subtitle: "Connected kitchen ecosystem",
+    description:
+      "Designing one connected app for the iKettle, Smarter Coffee and FridgeCam.",
+    tags: ["Connected products", "IoT", "Mobile app", "Grocery"],
+    image: "/images/smarter.png",
+    href: "/work/smarter",
   },
 ];
 

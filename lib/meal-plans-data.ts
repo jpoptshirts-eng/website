@@ -679,6 +679,6 @@ export const mealPlansReflection = {
 };
 
 export const mealPlansProjectNav = {
-  previous: { title: "QuickShop", href: "/work/quickshop" },
-  next: { title: "Shopping Lists", href: "/work/shopping-lists" },
+  previous: { title: "Waitrose Cellar", href: "/work/cellar" },
+  next: { title: "PrimaryBid", href: "/work/primarybid" },
 };

@@ -50,7 +50,7 @@ export default function SelectedWork() {
           </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8 lg:mt-16 lg:grid-cols-5 lg:gap-2">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-8">
           {caseStudies.map((study, index) => (
             <CaseStudyCard key={study.href} study={study} index={index} />
           ))}

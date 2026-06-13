@@ -5,6 +5,7 @@ interface CaseStudyHeadlineProps {
   as?: "h1" | "h2";
   className?: string;
   id?: string;
+  accentClassName?: string;
 }
 
 export default function CaseStudyHeadline({
@@ -12,6 +13,7 @@ export default function CaseStudyHeadline({
   as: Tag = "h2",
   className,
   id,
+  accentClassName = "text-orange",
 }: CaseStudyHeadlineProps) {
   const text = children.replace(/\.\s*$/, "");
 
@@ -27,7 +29,7 @@ export default function CaseStudyHeadline({
       )}
     >
       {text}
-      <span className="text-orange">.</span>
+      <span className={accentClassName}>.</span>
     </Tag>
   );
 }
