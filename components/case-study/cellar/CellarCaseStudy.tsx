@@ -19,6 +19,8 @@ import {
   cellarProblem,
   cellarReframe,
   cellarStrategy,
+  cellarInfrastructure,
+  cellarOrderHistory,
   cellarOutcome,
   cellarProjectNav,
 } from "@/lib/cellar-data";
@@ -67,10 +69,27 @@ function Section({
   return (
     <section
       id={id}
-      className={cn(caseStudySection, "py-14 md:py-16 lg:py-20", className)}
+      className={cn(caseStudySection, "py-12 md:py-14 lg:py-16", className)}
     >
       <div className={caseStudyContainer}>{children}</div>
     </section>
+  );
+}
+
+function RoadmapFlow({ steps }: { steps: string[] }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      {steps.map((step, index) => (
+        <span key={step} className="flex items-center gap-2">
+          <span className="rounded-full border border-cellar-burgundy/20 bg-white px-3 py-1.5 text-xs font-semibold text-cellar-burgundy md:text-sm">
+            {step}
+          </span>
+          {index < steps.length - 1 ? (
+            <ArrowRight className="h-3.5 w-3.5 text-cellar-burgundy/40" aria-hidden />
+          ) : null}
+        </span>
+      ))}
+    </div>
   );
 }
 
@@ -85,11 +104,14 @@ export default function CellarCaseStudy() {
       {/* Hero */}
       <section
         id="overview"
-        className={cn(caseStudySection, "border-b border-border bg-white pb-12 pt-10 md:pb-16 md:pt-12 lg:pb-20 lg:pt-14")}
+        className={cn(
+          caseStudySection,
+          "border-b border-border bg-white pb-10 pt-10 md:pb-14 md:pt-12 lg:pb-16 lg:pt-14",
+        )}
         aria-labelledby="cellar-title"
       >
         <div className={caseStudyContainer}>
-          <div className={cn(caseStudyHeroRow, "lg:items-center lg:gap-12 xl:gap-16")}>
+          <div className={cn(caseStudyHeroRow, "lg:items-center lg:gap-10 xl:gap-14")}>
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -161,12 +183,12 @@ export default function CellarCaseStudy() {
               variants={caseStudyFadeUp}
               className={cn(caseStudyHeroImageColumn, "relative flex-1")}
             >
-              <div className="overflow-hidden rounded-sm border border-border bg-cellar-burgundy-muted">
+              <div className="overflow-hidden rounded-sm">
                 <CaseStudyMockupImage
                   src={cellarHero.image}
                   alt={cellarHero.imageAlt}
                   priority
-                  className="w-full object-cover"
+                  className="w-full bg-white object-cover"
                 />
               </div>
             </motion.div>
@@ -175,8 +197,8 @@ export default function CellarCaseStudy() {
       </section>
 
       {/* Opportunity */}
-      <Section id="opportunity" className="bg-cellar-burgundy-muted/40">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14">
+      <Section id="opportunity" className="bg-cellar-burgundy-muted/30">
+        <div className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-10 xl:gap-12">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -218,18 +240,41 @@ export default function CellarCaseStudy() {
 
       {/* Problem */}
       <Section id="problem" className="bg-white">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={caseStudyFadeUp}
-          className="max-w-2xl"
-        >
-          <CellarLabel>{cellarProblem.label}</CellarLabel>
-          <CellarHeadline id="cellar-problem-heading" className="mt-3">
-            {cellarProblem.headline}
-          </CellarHeadline>
-        </motion.div>
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+          >
+            <CellarLabel>{cellarProblem.label}</CellarLabel>
+            <CellarHeadline id="cellar-problem-heading" className="mt-3">
+              {cellarProblem.headline}
+            </CellarHeadline>
+            <div className="mt-6 space-y-3 text-sm leading-relaxed text-grey md:text-base">
+              {cellarProblem.intro.map((paragraph, index) => (
+                <p key={paragraph} className={index < 4 ? "text-black" : undefined}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            custom={0.06}
+            variants={caseStudyFadeUp}
+            className="mt-8 flex justify-center lg:mt-0"
+          >
+            <CaseStudyMockupImage
+              src={cellarProblem.image.src}
+              alt={cellarProblem.image.alt}
+              className="w-full max-w-[14rem] object-contain sm:max-w-[16rem] md:max-w-[18rem] lg:max-w-[20rem]"
+            />
+          </motion.div>
+        </div>
 
         <div className="mt-8 grid gap-6 lg:mt-10 lg:grid-cols-2 lg:gap-8">
           <motion.article
@@ -237,7 +282,7 @@ export default function CellarCaseStudy() {
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
             variants={caseStudyFadeUp}
-            className="rounded-xl border border-border bg-cellar-burgundy-muted/50 p-5 md:p-6"
+            className="rounded-xl border border-border bg-cellar-burgundy-muted/40 p-5 md:p-6"
           >
             <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-cellar-burgundy">
               {cellarProblem.roadmap.title}
@@ -287,9 +332,6 @@ export default function CellarCaseStudy() {
             <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-cellar-burgundy">
               {cellarProblem.learned.title}
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-grey md:text-base">
-              {cellarProblem.learned.intro}
-            </p>
             <ul className="mt-4 flex flex-col gap-2">
               {cellarProblem.learned.items.map((item) => (
                 <li key={item} className="flex gap-2.5 text-sm text-black md:text-base">
@@ -303,6 +345,41 @@ export default function CellarCaseStudy() {
             </ul>
           </motion.article>
         </div>
+
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={caseStudyFadeUp}
+          className="mt-8 max-w-3xl text-sm leading-relaxed text-black md:mt-10 md:text-base"
+        >
+          {cellarProblem.tension}
+        </motion.p>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          variants={caseStudyFadeUp}
+          className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-10"
+        >
+          {cellarProblem.callout.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-xl border border-cellar-burgundy/20 bg-cellar-burgundy-muted/30 px-5 py-4 md:px-6 md:py-5"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-cellar-burgundy">
+                {item.label}
+              </p>
+              <div className="mt-2 flex items-center gap-2">
+                <ArrowDown className="h-4 w-4 shrink-0 text-cellar-burgundy/60" aria-hidden />
+                <p className="text-sm font-semibold text-black md:text-base">
+                  {item.outcome}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
 
         <motion.blockquote
           initial="hidden"
@@ -318,36 +395,53 @@ export default function CellarCaseStudy() {
       </Section>
 
       {/* Reframe — turning point */}
-      <section className="border-y border-cellar-burgundy/15 bg-cellar-burgundy-muted py-12 md:py-14 lg:py-16">
+      <section
+        id="reframe"
+        className="border-y border-cellar-burgundy/15 bg-cellar-burgundy-muted/50 py-16 md:py-20 lg:py-24"
+      >
         <div className={caseStudyContainer}>
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={caseStudyFadeUp}
-            className="mx-auto max-w-3xl"
+            className="mx-auto max-w-4xl"
           >
-            <div className="rounded-xl border border-cellar-burgundy/15 bg-white p-5 md:p-6">
+            <CellarLabel>{cellarReframe.label}</CellarLabel>
+            <p className="mt-4 text-sm font-semibold uppercase tracking-[0.16em] text-grey">
+              Reframing the problem
+            </p>
+
+            <div className="mt-8 space-y-3 text-base leading-relaxed text-grey md:text-lg">
+              {cellarReframe.body.map((paragraph, index) => (
+                <p key={paragraph} className={index === 0 ? "text-black" : undefined}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="mt-10 rounded-xl border border-border bg-white p-6 md:mt-12 md:p-8">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-grey">
                 Before
               </p>
-              <p className="mt-2 text-base leading-relaxed text-grey md:text-lg">
+              <p className="mt-3 text-lg leading-relaxed text-grey md:text-xl">
                 {cellarReframe.before}
               </p>
             </div>
-            <div className="flex justify-center py-4" aria-hidden>
-              <ArrowDown className="h-6 w-6 text-cellar-burgundy" />
+            <div className="flex justify-center py-5" aria-hidden>
+              <ArrowDown className="h-7 w-7 text-cellar-burgundy" />
             </div>
-            <div className="rounded-xl border border-cellar-burgundy/30 bg-white p-5 md:p-6">
+            <div className="rounded-xl border-2 border-cellar-burgundy/30 bg-white p-6 md:p-8">
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cellar-burgundy">
                 After
               </p>
-              <p className="mt-2 text-lg font-bold leading-snug text-black md:text-xl">
+              <p className="mt-3 text-xl font-bold leading-snug text-black md:text-2xl lg:text-[1.75rem] lg:leading-snug">
                 {cellarReframe.after}
               </p>
             </div>
-            <p className="mt-6 text-center text-sm leading-relaxed text-grey md:text-base">
-              {cellarReframe.copy}
+
+            <p className="mt-10 text-base leading-relaxed text-black md:mt-12 md:text-lg">
+              {cellarReframe.closing}
             </p>
           </motion.div>
         </div>
@@ -379,7 +473,7 @@ export default function CellarCaseStudy() {
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
           variants={caseStudyFadeUp}
-          className="mt-8 rounded-xl border border-border bg-cellar-burgundy-muted/40 p-5 md:p-6 lg:mt-10"
+          className="mt-8 rounded-xl border border-border bg-cellar-burgundy-muted/30 p-5 md:p-6 lg:mt-10"
         >
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-cellar-burgundy">
             Customer flow
@@ -413,7 +507,7 @@ export default function CellarCaseStudy() {
             whileInView="visible"
             viewport={{ once: true, margin: "-40px" }}
             variants={caseStudyFadeUp}
-            className="rounded-xl border border-cellar-burgundy/20 bg-cellar-burgundy-muted/60 p-5"
+            className="rounded-xl border border-cellar-burgundy/20 bg-cellar-burgundy-muted/40 p-5"
           >
             <h3 className="text-sm font-bold text-cellar-burgundy">Included</h3>
             <ul className="mt-4 flex flex-col gap-2">
@@ -454,7 +548,7 @@ export default function CellarCaseStudy() {
             viewport={{ once: true, margin: "-40px" }}
             custom={0.08}
             variants={caseStudyFadeUp}
-            className="rounded-xl border border-cellar-burgundy/15 bg-white p-5 md:col-span-1"
+            className="rounded-xl border border-cellar-burgundy/15 bg-white p-5"
           >
             <h3 className="text-sm font-bold text-cellar-burgundy">Trade-off</h3>
             <p className="mt-4 text-sm leading-relaxed text-black">
@@ -468,7 +562,7 @@ export default function CellarCaseStudy() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={caseStudyFadeUp}
-          className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-6 lg:mt-8"
+          className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-6"
         >
           {cellarStrategy.benefits.map((benefit) => (
             <li
@@ -482,9 +576,94 @@ export default function CellarCaseStudy() {
         </motion.ul>
       </Section>
 
+      {/* Infrastructure rationale */}
+      <Section className="bg-cellar-burgundy-muted/30">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={caseStudyFadeUp}
+          className="max-w-2xl"
+        >
+          <CellarLabel>{cellarInfrastructure.label}</CellarLabel>
+          <CellarHeadline className="mt-3">{cellarInfrastructure.headline}</CellarHeadline>
+        </motion.div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-3 md:gap-5 lg:mt-10">
+          {cellarInfrastructure.cards.map((card, index) => (
+            <motion.article
+              key={card.title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={index * 0.04}
+              variants={caseStudyFadeUp}
+              className="rounded-xl border border-border bg-white p-5 md:p-6"
+            >
+              <h3 className="font-bold capitalize text-black">{card.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                {card.copy}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={caseStudyFadeUp}
+          className="mt-8 max-w-3xl text-sm leading-relaxed text-black md:mt-10 md:text-base"
+        >
+          {cellarInfrastructure.closing}
+        </motion.p>
+      </Section>
+
+      {/* Order history priority */}
+      <section className="case-study-section overflow-hidden bg-white pt-12 md:pt-14 lg:pt-16">
+        <div className={caseStudyContainer}>
+          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+            >
+              <CellarLabel>{cellarOrderHistory.label}</CellarLabel>
+              <CellarHeadline className="mt-3">{cellarOrderHistory.headline}</CellarHeadline>
+              <div className="mt-6 space-y-3 text-sm leading-relaxed text-grey md:text-base">
+                {cellarOrderHistory.body.map((paragraph, index) => (
+                  <p key={paragraph} className={index === 0 ? "text-black" : undefined}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-8">
+                <RoadmapFlow steps={cellarOrderHistory.roadmap} />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={0.06}
+              variants={caseStudyFadeUp}
+              className="mt-8 flex justify-center lg:mt-0 lg:justify-center"
+            >
+              <CaseStudyMockupImage
+                src={cellarOrderHistory.image.src}
+                alt={cellarOrderHistory.image.alt}
+                className="block w-full max-w-md object-contain object-bottom lg:max-w-lg xl:max-w-xl"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Outcome */}
-      <Section id="outcome" className="bg-cellar-burgundy-muted/40">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14">
+      <Section id="outcome" className="bg-cellar-burgundy-muted/30">
+        <div className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-10 xl:gap-12">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -496,39 +675,11 @@ export default function CellarCaseStudy() {
             <CellarHeadline id="cellar-outcome-heading" className="mt-3">
               {cellarOutcome.headline}
             </CellarHeadline>
-            <p className="mt-4 text-sm leading-relaxed text-grey md:text-base">
-              {cellarOutcome.body}
-            </p>
-
-            <div className="mt-6 rounded-xl border border-border bg-white p-5">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-cellar-burgundy">
-                Next priority
-              </p>
-              <p className="mt-1 text-lg font-bold text-black">
-                {cellarOutcome.priority}
-              </p>
-              <ul className="mt-4 flex flex-col gap-2">
-                {cellarOutcome.benefits.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-black">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-cellar-burgundy" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-2">
-              {cellarOutcome.roadmap.map((step, index) => (
-                <span key={step} className="flex items-center gap-2">
-                  <span className="rounded-full border border-cellar-burgundy/20 bg-white px-3 py-1.5 text-xs font-semibold text-cellar-burgundy">
-                    {step}
-                  </span>
-                  {index < cellarOutcome.roadmap.length - 1 ? (
-                    <span className="text-cellar-burgundy/40" aria-hidden>
-                      →
-                    </span>
-                  ) : null}
-                </span>
+            <div className="mt-5 space-y-3 text-sm leading-relaxed text-grey md:text-base">
+              {cellarOutcome.body.map((paragraph, index) => (
+                <p key={paragraph} className={index === 0 ? "text-black" : undefined}>
+                  {paragraph}
+                </p>
               ))}
             </div>
           </motion.div>
