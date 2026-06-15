@@ -177,6 +177,55 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
+function PhoneVideoMockup({
+  videoSrc,
+  frameSrc,
+  alt,
+  className,
+  aspectRatio = "507 / 1024",
+  screenClassName = "left-[6.1%] top-[3.6%] h-[93.5%] w-[88%] scale-[1.02] rounded-[8%]",
+}: {
+  videoSrc: string;
+  frameSrc: string;
+  alt: string;
+  className?: string;
+  aspectRatio?: string;
+  screenClassName?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative mx-auto w-full max-w-[17.5rem] bg-transparent sm:max-w-xs lg:max-w-sm",
+        className,
+      )}
+      style={{ aspectRatio }}
+    >
+      <video
+        src={videoSrc}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-label={alt}
+        className={cn(
+          "absolute z-0 origin-center bg-transparent object-cover object-[50%_32%]",
+          screenClassName,
+        )}
+      />
+      {/* Bezel sits above the video; the frame PNG uses a transparent screen cutout */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={frameSrc}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full object-contain"
+        decoding="async"
+      />
+    </div>
+  );
+}
+
 function ReservedMediaArea({
   src,
   alt,
@@ -1131,11 +1180,20 @@ export default function KaizenLanguagesCaseStudy() {
               </h3>
               <BulletList items={kaizenGamification.writingConnection} />
             </motion.div>
-            <MockupImage
-              src={kaizenGamification.image}
-              alt={kaizenGamification.imageAlt}
-              className="mt-10 lg:mt-0"
-            />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.06}
+              variants={caseStudyFadeUp}
+              className="mt-10 min-w-0 w-full lg:mt-0 lg:sticky lg:top-32 lg:flex lg:justify-end"
+            >
+              <PhoneVideoMockup
+                videoSrc={kaizenGamification.video}
+                frameSrc={kaizenGamification.phoneFrame}
+                alt={kaizenGamification.videoAlt}
+              />
+            </motion.div>
           </div>
 
         </div>

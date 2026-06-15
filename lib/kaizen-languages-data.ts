@@ -429,9 +429,10 @@ export const kaizenGamification = {
     "Rewards helped users feel progress after completing a learning loop",
     "The mechanic supported both motivation and memory",
   ],
-  image: "/images/work/kaizen-languages/mockup-gamification.png",
-  imageAlt:
-    "Kaizen Languages gamification screens showing streaks, rewards and progress.",
+  video: "/videos/work/kaizen-languages/gamification.mp4",
+  phoneFrame: "/images/work/kaizen-languages/iphone-white-bezel.png",
+  videoAlt:
+    "Screen recording of the Kaizen Languages gamification experience showing streaks, rewards and progress.",
 };
 
 export const kaizenRetention = {
