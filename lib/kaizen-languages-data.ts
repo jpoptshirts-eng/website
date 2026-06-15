@@ -3,6 +3,8 @@ export const kaizenSubnav = [
   { id: "challenge", label: "Challenge" },
   { id: "research", label: "Research" },
   { id: "insight", label: "Insight" },
+  { id: "visual-direction", label: "Visual direction" },
+  { id: "ai-conversation", label: "AI conversation" },
   { id: "lesson", label: "Lesson" },
   { id: "strategy", label: "Strategy" },
   { id: "writing", label: "Writing" },
@@ -121,7 +123,7 @@ export const kaizenResearch = {
   headline: "Understanding how people learn, where they struggle and what keeps them going",
   body: "To design a credible learning product, I needed to understand both the educational and behavioural side of language learning. The research focused on how learners build confidence, where they lose momentum and what type of support helps them continue after making mistakes.",
   inputs: [
-    "Competitive review of language and chat-based products",
+    "Competitive review of language-learning onboarding and lesson patterns",
     "In-person guerrilla research with learners",
     "Remote testing using platforms such as UserTesting",
     "Visits to language schools, meet-ups and learning communities",
@@ -140,6 +142,146 @@ export const kaizenResearch = {
     "What drives repeat use and paid conversion",
     "Whether beginners needed more foundational support before advanced content",
   ],
+};
+
+export const kaizenVisualDirection = {
+  label: "Early product direction",
+  headline: "Defining how an AI tutor should feel",
+  intro: [
+    "Before designing the core lesson experience, I reviewed established language-learning products to understand their onboarding, learning flows, visual conventions and how they introduced learners to a new language.",
+    "None of the products offered the same AI conversation experience as Kaizen. Competitor analysis gave me useful reference points, but it could not provide the final answer. I needed to explore what would make our product feel credible, approachable and distinct.",
+  ],
+  routes: [
+    {
+      title: "Photography-led",
+      icon: "camera" as const,
+      hypothesis:
+        "The hypothesis was that seeing real people and places would make the AI experience feel more credible, human and culturally connected.",
+    },
+    {
+      title: "Illustration direction one",
+      icon: "sparkles" as const,
+      hypothesis:
+        "The hypothesis was that a playful visual language could reduce anxiety and make starting a new language feel less intimidating.",
+    },
+    {
+      title: "Illustration direction two",
+      icon: "palette" as const,
+      hypothesis:
+        "The hypothesis was that a more considered visual style could help the product feel distinctive and provide it with a stronger identity.",
+    },
+    {
+      title: "Hybrid direction",
+      icon: "layers" as const,
+      hypothesis:
+        "The hypothesis was that photography could provide trust and realism, while illustration added warmth, flexibility and personality.",
+    },
+  ],
+  heroImage: {
+    src: "/images/work/kaizen-languages/visual-direction-hero.png",
+    alt: "Kaizen Languages iPhone mockup showing the Japanese lessons interface with locked and unlocked lesson states.",
+  },
+  researchFinding: {
+    headline: "What learners responded to",
+    body: [
+      "I tested the four directions through guerrilla research with people interested in learning Japanese, the first language we planned to launch.",
+      "The photography-led direction received the strongest response. Participants felt that seeing real people made the experience feel more authentic and reinforced the impression that they would be learning with a genuine tutor rather than interacting with an abstract piece of technology.",
+      "This was particularly important because conversational AI was still unfamiliar. Photography helped humanise the proposition and build trust before the first lesson had started.",
+    ],
+  },
+  constraint: {
+    headline: "Adapting the evidence to an early-stage budget",
+    body: [
+      "I recommended the photography-led direction to the founders, but as an early-stage company, Kaizen did not have the budget required to produce and maintain a scalable photography library.",
+      "The team selected one of the illustration-led routes instead. I created the illustration system from scratch and adapted it to retain as much warmth, personality and human connection as possible while remaining affordable and scalable.",
+    ],
+    decision:
+      "Use research to identify the strongest customer direction, then adapt its underlying principles to the commercial reality of the business.",
+    supporting:
+      "The final execution was not the highest-rated route, but it retained the qualities participants valued most: approachability, personality and the feeling of learning with someone rather than from a static interface.",
+  },
+  transitionToAi:
+    "The visual exploration established how the product should feel. The next challenge was defining how the tutor and learner would interact once a lesson began.",
+};
+
+export const kaizenAiConversation = {
+  label: "Core interaction model",
+  headline: "Designing conversation as a lesson",
+  intro: [
+    "Conversation was the core of the Kaizen experience, but a conventional messaging interface would not provide enough support for someone learning a new language.",
+    "Before defining the interaction model, I reviewed messaging and language-learning products to understand established behaviours, including message hierarchy, audio controls, conversation pacing and how supporting information was presented. Competitors provided useful interface patterns, but none were solving the same problem: creating a conversation that felt natural while also functioning as a structured AI-powered lesson.",
+  ],
+  challenge: {
+    headline: "One conversation, multiple learning needs",
+    body: "The interface needed to support a natural exchange while helping learners understand pronunciation, meaning and different Japanese character systems. I mapped the states and controls required throughout a lesson:",
+    requirements: [
+      "Distinguishing the learner's messages from those of the AI tutor",
+      "Showing when the tutor was composing or speaking",
+      "Replaying a spoken phrase",
+      "Listening at normal or reduced speed",
+      "Revealing a translation only when required",
+      "Switching between romaji and Japanese character systems",
+      "Communicating response or connection errors",
+      "Helping learners recover without losing the conversation",
+    ],
+  },
+  media: {
+    src: "/images/work/kaizen-languages/ai-conversation.png",
+    alt: "Kaizen Languages app mockups showing welcome, AI conversation, lessons, progress and subscription screens.",
+    placeholderLabel: "AI conversation interface image to be added",
+  },
+  support: {
+    headline: "Balancing immersion with support",
+    body: [
+      "Rather than showing every learning aid permanently, I explored progressive disclosure so learners could first attempt to understand a phrase and then reveal additional support when needed.",
+      "Hiding the translation by default increased the level of challenge and encouraged learners to interpret the Japanese phrase before falling back on English.",
+      "Audio replay and reduced-speed pronunciation provided support without interrupting the conversation. Switching between romaji and hiragana allowed the experience to adapt as learners became more confident with the Japanese writing system.",
+      "The messaging interface therefore became more than a chat screen. It became a flexible learning system that could adjust the level of assistance without removing the feeling of a real conversation.",
+    ],
+  },
+  states: [
+    {
+      title: "AI responding",
+      learnerNeed: "Understand that the conversation is progressing.",
+      designResponse: "A clear composing or speaking state.",
+    },
+    {
+      title: "Audio playing",
+      learnerNeed: "Follow the tutor's spoken response.",
+      designResponse: "Animated audio feedback and a visible playback state.",
+    },
+    {
+      title: "Phrase unclear",
+      learnerNeed: "Hear the pronunciation more carefully.",
+      designResponse: "Normal and reduced-speed playback controls.",
+    },
+    {
+      title: "Meaning unclear",
+      learnerNeed: "Access additional support without leaving the lesson.",
+      designResponse: "A translation that can be revealed on demand.",
+    },
+    {
+      title: "Script unfamiliar",
+      learnerNeed: "Read the phrase at the appropriate learning level.",
+      designResponse: "The ability to switch between romaji and hiragana.",
+    },
+    {
+      title: "System error",
+      learnerNeed: "Understand what happened and continue the conversation.",
+      designResponse: "A clear error state with a recovery or retry action.",
+    },
+  ],
+  delivery: {
+    headline: "Defining the behaviour for development",
+    body: [
+      "I designed the individual message states, audio behaviours, errors and character-set variations, then documented how each component should respond throughout the conversation.",
+      "I also created an interactive prototype to communicate timing, audio feedback, animation and transitions to the engineering team—details that could not be understood fully from static screens alone.",
+    ],
+    closing:
+      "The documentation turned a collection of screens into a shared interaction model that design and engineering could build consistently.",
+  },
+  transitionToLesson:
+    "With the core conversation model established, I put it in front of learners to understand where the experience still broke down.",
 };
 
 export const kaizenLesson = {

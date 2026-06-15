@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Layers, LineChart, Pencil, Scale, Star, TrendingUp, Zap } from "lucide-react";
+import { Camera, Heart, Layers, LineChart, Palette, Pencil, Scale, Sparkles, Star, TrendingUp, Zap } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import CaseStudyProof from "@/components/case-study/CaseStudyProof";
@@ -18,6 +18,8 @@ import {
   kaizenQuotes,
   kaizenResearch,
   kaizenInsight,
+  kaizenVisualDirection,
+  kaizenAiConversation,
   kaizenLesson,
   kaizenSuggestion,
   kaizenIteration,
@@ -41,6 +43,13 @@ const decisionIcons = {
   zap: Zap,
   scale: Scale,
   pencil: Pencil,
+};
+
+const visualDirectionIcons = {
+  camera: Camera,
+  sparkles: Sparkles,
+  palette: Palette,
+  layers: Layers,
 };
 
 const kpiIcons = {
@@ -165,6 +174,44 @@ function BulletList({ items }: { items: string[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+function ReservedMediaArea({
+  src,
+  alt,
+  placeholderLabel,
+  className,
+}: {
+  src: string;
+  alt: string;
+  placeholderLabel: string;
+  className?: string;
+}) {
+  if (src) {
+    return (
+      <MockupImage
+        src={src}
+        alt={alt}
+        className={cn("w-full", className)}
+      />
+    );
+  }
+
+  return (
+    // Placeholder — replace `src` in kaizen-languages-data.ts when the final asset is ready
+    <div
+      role="img"
+      aria-label={placeholderLabel}
+      className={cn(
+        "flex aspect-[16/10] w-full items-center justify-center rounded-2xl border border-dashed border-border bg-cream-muted px-6",
+        className,
+      )}
+    >
+      <p className="text-center text-sm leading-relaxed text-grey">
+        {placeholderLabel}
+      </p>
+    </div>
   );
 }
 
@@ -487,6 +534,260 @@ export default function KaizenLanguagesCaseStudy() {
       </section>
 
       <CaseStudyQuote text={kaizenQuotes[0]} />
+
+      {/* Visual direction */}
+      <section
+        id="visual-direction"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="kaizen-visual-direction-heading"
+      >
+        <div className={caseStudyContainer}>
+          <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 xl:gap-14">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+              className="min-w-0"
+            >
+              <CaseStudyLabel>{kaizenVisualDirection.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="kaizen-visual-direction-heading">
+                {kaizenVisualDirection.headline}
+              </CaseStudyHeadline>
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
+                {kaizenVisualDirection.intro.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-40px" }}
+              custom={0.06}
+              variants={caseStudyFadeUp}
+              className="mt-10 flex min-w-0 items-center justify-center lg:mt-0"
+            >
+              <MockupImage
+                src={kaizenVisualDirection.heroImage.src}
+                alt={kaizenVisualDirection.heroImage.alt}
+                className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
+              />
+            </motion.div>
+          </div>
+
+          <div className="-mx-6 mt-12 overflow-x-auto px-6 scrollbar-none xl:mx-0 xl:overflow-visible xl:px-0">
+            <ul className="flex min-w-max gap-4 xl:min-w-0 xl:grid xl:grid-cols-4 xl:gap-5">
+            {kaizenVisualDirection.routes.map((route, index) => {
+              const Icon = visualDirectionIcons[route.icon];
+              return (
+                <motion.li
+                  key={route.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-30px" }}
+                  custom={index * 0.04}
+                  variants={caseStudyFadeUp}
+                  className="w-[17rem] shrink-0 rounded-2xl border border-border bg-cream-muted p-6 md:w-[18rem] xl:w-auto xl:shrink"
+                >
+                  <div
+                    className={cn(
+                      iconWrap,
+                      "mb-4 h-11 w-11",
+                      index % 2 === 1 && "bg-soft-pink",
+                    )}
+                  >
+                    <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
+                  </div>
+                  <p className="text-sm font-bold text-black md:text-base">
+                    {route.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                    {route.hypothesis}
+                  </p>
+                </motion.li>
+              );
+            })}
+            </ul>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-16 max-w-3xl lg:mt-20"
+          >
+            <h3 className="text-2xl font-bold text-black md:text-3xl">
+              {kaizenVisualDirection.researchFinding.headline}
+            </h3>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {kaizenVisualDirection.researchFinding.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-16 lg:mt-20"
+          >
+            <h3 className="text-2xl font-bold text-black md:text-3xl">
+              {kaizenVisualDirection.constraint.headline}
+            </h3>
+            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {kaizenVisualDirection.constraint.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <p className="mt-8 border-l-2 border-orange pl-6 text-base font-bold leading-relaxed text-black md:text-lg">
+              Design decision: {kaizenVisualDirection.constraint.decision}
+            </p>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-grey md:text-lg">
+              {kaizenVisualDirection.constraint.supporting}
+            </p>
+          </motion.div>
+
+          <p className="mt-16 max-w-3xl text-base leading-relaxed text-black md:text-lg lg:mt-20">
+            {kaizenVisualDirection.transitionToAi}
+          </p>
+        </div>
+      </section>
+
+      {/* AI conversation */}
+      <section
+        id="ai-conversation"
+        className={cn(caseStudySection, "bg-cream-muted")}
+        aria-labelledby="kaizen-ai-conversation-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>{kaizenAiConversation.label}</CaseStudyLabel>
+            <CaseStudyHeadline id="kaizen-ai-conversation-heading">
+              {kaizenAiConversation.headline}
+            </CaseStudyHeadline>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {kaizenAiConversation.intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-12 max-w-3xl lg:mt-14"
+          >
+            <h3 className="text-2xl font-bold text-black md:text-3xl">
+              {kaizenAiConversation.challenge.headline}
+            </h3>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {kaizenAiConversation.challenge.body}
+            </p>
+            <div className="mt-8">
+              <BulletList items={kaizenAiConversation.challenge.requirements} />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            variants={caseStudyFadeUp}
+            className="mt-12 lg:mt-14"
+          >
+            <ReservedMediaArea
+              src={kaizenAiConversation.media.src}
+              alt={kaizenAiConversation.media.alt}
+              placeholderLabel={kaizenAiConversation.media.placeholderLabel}
+            />
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-16 max-w-3xl lg:mt-20"
+          >
+            <h3 className="text-2xl font-bold text-black md:text-3xl">
+              {kaizenAiConversation.support.headline}
+            </h3>
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {kaizenAiConversation.support.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="mt-16 lg:mt-20">
+            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
+              Interaction states
+            </h3>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {kaizenAiConversation.states.map((state, index) => (
+                <motion.li
+                  key={state.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-30px" }}
+                  custom={index * 0.04}
+                  variants={caseStudyFadeUp}
+                  className="rounded-2xl border border-border bg-white p-6"
+                >
+                  <p className="text-sm font-bold text-black md:text-base">
+                    {state.title}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-grey">
+                    <span className="font-semibold text-black">Learner need:</span>{" "}
+                    {state.learnerNeed}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-grey">
+                    <span className="font-semibold text-black">Design response:</span>{" "}
+                    {state.designResponse}
+                  </p>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-16 lg:mt-20"
+          >
+            <h3 className="text-2xl font-bold text-black md:text-3xl">
+              {kaizenAiConversation.delivery.headline}
+            </h3>
+            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {kaizenAiConversation.delivery.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <KpiCallout icon="trending" className="mt-8 max-w-3xl">
+              {kaizenAiConversation.delivery.closing}
+            </KpiCallout>
+          </motion.div>
+
+          <p className="mt-16 max-w-3xl text-base leading-relaxed text-black md:text-lg lg:mt-20">
+            {kaizenAiConversation.transitionToLesson}
+          </p>
+        </div>
+      </section>
 
       {/* Lesson */}
       <section
