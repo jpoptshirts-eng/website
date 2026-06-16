@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import KaizenLanguagesCaseStudy from "@/components/case-study/kaizen-languages/KaizenLanguagesCaseStudy";
+import KaizenLanguagesOverview from "@/components/case-study/kaizen-languages/KaizenLanguagesOverview";
 
 export const metadata: Metadata = {
   title: "Kaizen Languages — Case Study | Jacinto De Matos",
@@ -14,7 +14,7 @@ export default function KaizenLanguagesPage() {
     <>
       <Header />
       <main className="case-study-page overflow-x-clip bg-white">
-        <KaizenLanguagesCaseStudy />
+        <KaizenLanguagesOverview />
       </main>
       <Footer />
     </>

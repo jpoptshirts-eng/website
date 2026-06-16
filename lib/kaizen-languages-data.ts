@@ -403,7 +403,7 @@ export const kaizenWriting = {
   showcaseImage: "/images/work/kaizen-languages/mockup-writing-kana.png",
   showcaseAlt:
     "Kaizen Languages Hiragana writing flow showing character sets, stroke practice and recall quiz.",
-  showcaseBackground: "#0D47A1",
+  showcaseBackground: "#20459D",
 };
 
 export const kaizenGamification = {
@@ -433,6 +433,50 @@ export const kaizenGamification = {
   phoneFrame: "/images/work/kaizen-languages/iphone-white-bezel.png",
   videoAlt:
     "Screen recording of the Kaizen Languages gamification experience showing streaks, rewards and progress.",
+  streaksShowcaseImage: "/images/work/kaizen-languages/streaks-showcase.jpg",
+  streaksShowcaseAlt:
+    "Kaizen Languages streak screens showing freeze and repair mechanics across lessons, announcements and onboarding.",
+  streaksShowcaseBackground: "#371F97",
+};
+
+export const kaizenPractice = {
+  phoneFrame: "/images/work/kaizen-languages/iphone-8-silver-bezel.png",
+  hero: {
+    src: "/images/work/kaizen-languages/practice/exercises-hub.png",
+    alt: "Kaizen Languages exercises hub showing progress, words, grammar and offline download prompts.",
+  },
+  screens: {
+    wordsList: {
+      src: "/images/work/kaizen-languages/practice/words-list.png",
+      alt: "Kaizen Languages words list showing encountered vocabulary with strong, medium and weak confidence markers.",
+      caption: "Encountered vocabulary organised by confidence",
+    },
+    wordDetail: {
+      src: "/images/work/kaizen-languages/practice/word-detail.png",
+      alt: "Kaizen Languages word detail screen showing definitions, examples and audio for a Japanese vocabulary item.",
+      caption: "Word detail with definitions, examples and audio",
+    },
+    grammarList: {
+      src: "/images/work/kaizen-languages/practice/grammar-list.png",
+      alt: "Kaizen Languages grammar list showing encountered grammar points with confidence markers.",
+      caption: "Grammar points linked to lesson history",
+    },
+    sentenceBuild: {
+      src: "/images/work/kaizen-languages/practice/sentence-build.png",
+      alt: "Kaizen Languages sentence-building exercise using selectable word tiles.",
+      caption: "Sentence-building with selectable tiles",
+    },
+    conjugation: {
+      src: "/images/work/kaizen-languages/practice/conjugation.png",
+      alt: "Kaizen Languages verb conjugation exercise with multiple-choice answers.",
+      caption: "Conjugation and recognition tasks",
+    },
+    streakFeedback: {
+      src: "/images/work/kaizen-languages/practice/streak-feedback.png",
+      alt: "Kaizen Languages exercise streak feedback celebrating ten correct answers in a row.",
+      caption: "Streak feedback during exercise sessions",
+    },
+  },
 };
 
 export const kaizenRetention = {
