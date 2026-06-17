@@ -11,16 +11,13 @@ import {
   Eye,
   Layers,
   Maximize2,
-  MessageSquare,
   Monitor,
   Repeat,
   RotateCcw,
-  Route,
   Search,
   Smartphone,
   Tablet,
   UserCog,
-  Users,
   X,
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
@@ -40,6 +37,7 @@ import {
   primaryBidArchetypes,
   primaryBidBroker,
   primaryBidChallenge,
+  primaryBidComponents,
   primaryBidCrossChannel,
   primaryBidEngineering,
   primaryBidHero,
@@ -82,25 +80,11 @@ const orderOutcomeIcons = {
   discovery: Compass,
 };
 
-const brokerDashboardIcons = {
-  route: Route,
-  message: MessageSquare,
-  users: Users,
-};
-
 const additionalImprovementIcons = {
   recovery: RotateCcw,
   broker: Building2,
   ipo: Layers,
 };
-
-function FigureCaption({ children }: { children: ReactNode }) {
-  return (
-    <figcaption className="mt-3 text-sm leading-relaxed text-grey">
-      {children}
-    </figcaption>
-  );
-}
 
 function InsightCallout({ children }: { children: ReactNode }) {
   return (
@@ -150,12 +134,10 @@ function JourneyPills({ steps }: { steps: readonly string[] }) {
 function ExpandableImage({
   src,
   alt,
-  caption,
   minWidth = "48rem",
 }: {
   src: string;
   alt: string;
-  caption?: string;
   minWidth?: string;
 }) {
   const [open, setOpen] = useState(false);
@@ -208,7 +190,6 @@ function ExpandableImage({
           Expand diagram
         </button>
       </div>
-      {caption ? <FigureCaption>{caption}</FigureCaption> : null}
 
       {open ? (
         <div
@@ -276,7 +257,10 @@ function SectionIntro({
 export default function PrimaryBidCaseStudy() {
   return (
     <>
-      <CaseStudySubnav items={primaryBidSubnav} />
+      <CaseStudySubnav
+        items={primaryBidSubnav}
+        ariaLabel="PrimaryBid case-study sections"
+      />
 
       {/* Hero + My role + Chapter 1 */}
       <section
@@ -401,7 +385,6 @@ export default function PrimaryBidCaseStudy() {
                 alt={primaryBidChallenge.imageAlt}
                 className="w-full rounded-xl border border-border"
               />
-              <FigureCaption>{primaryBidChallenge.imageCaption}</FigureCaption>
             </figure>
           </motion.div>
 
@@ -752,7 +735,7 @@ export default function PrimaryBidCaseStudy() {
       </section>
 
       <section
-        id="structuring"
+        id="platform"
         className={cn(caseStudySection, "bg-white")}
         aria-labelledby="pb-structuring-heading"
       >
@@ -790,7 +773,6 @@ export default function PrimaryBidCaseStudy() {
             <ExpandableImage
               src={primaryBidStructuring.architectureImage}
               alt={primaryBidStructuring.architectureAlt}
-              caption={primaryBidStructuring.architectureCaption}
             />
           </div>
 
@@ -800,14 +782,13 @@ export default function PrimaryBidCaseStudy() {
               alt={primaryBidStructuring.indexAlt}
               className="w-full rounded-xl border border-border"
             />
-            <FigureCaption>{primaryBidStructuring.indexCaption}</FigureCaption>
           </figure>
         </div>
       </section>
 
       {/* Chapter 4 — T-Web */}
       <section
-        id="t-web"
+        id="responsive-design"
         className={cn(caseStudySection, "bg-cream-muted")}
         aria-labelledby="pb-responsive-heading"
       >
@@ -896,7 +877,6 @@ export default function PrimaryBidCaseStudy() {
                 alt={primaryBidTimeSensitive.imageAlt}
                 className="mx-auto h-auto w-full max-w-md"
               />
-              <FigureCaption>{primaryBidTimeSensitive.imageCaption}</FigureCaption>
             </motion.figure>
           </div>
         </div>
@@ -954,7 +934,6 @@ export default function PrimaryBidCaseStudy() {
                   alt={image.alt}
                   className="w-full rounded-xl border border-border"
                 />
-                <FigureCaption>{image.caption}</FigureCaption>
               </motion.figure>
             ))}
           </div>
@@ -962,7 +941,7 @@ export default function PrimaryBidCaseStudy() {
       </section>
 
       <section
-        id="payment"
+        id="transactions"
         className={cn(caseStudySection, "bg-white")}
         aria-labelledby="pb-payment-heading"
       >
@@ -1184,8 +1163,65 @@ export default function PrimaryBidCaseStudy() {
       </section>
 
       <section
-        id="wider-contribution"
+        id="design-system"
         className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="pb-components-heading"
+      >
+        <div className={caseStudyContainer}>
+          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+            >
+              <CaseStudyLabel>{primaryBidComponents.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="pb-components-heading">
+                {primaryBidComponents.headline}
+              </CaseStudyHeadline>
+              <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
+                {primaryBidComponents.body.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                <p>{primaryBidComponents.closing}</p>
+              </div>
+            </motion.div>
+
+            <motion.figure
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.08}
+              variants={caseStudyFadeUp}
+              className="mt-10 lg:mt-0"
+            >
+              <CaseStudyMockupImage
+                src={primaryBidComponents.asideImage.src}
+                alt={primaryBidComponents.asideImage.alt}
+                className="w-full"
+              />
+            </motion.figure>
+          </div>
+
+          <motion.figure
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-30px" }}
+            variants={caseStudyFadeUp}
+            className="mt-10"
+          >
+            <CaseStudyMockupImage
+              src={primaryBidComponents.fullWidthImage.src}
+              alt={primaryBidComponents.fullWidthImage.alt}
+              className="w-full"
+            />
+          </motion.figure>
+        </div>
+      </section>
+
+      <section
+        id="wider-contribution"
+        className={cn(caseStudySection, "bg-cream-muted")}
         aria-labelledby="pb-wider-contribution-heading"
       >
         <div className={caseStudyContainer}>
@@ -1199,123 +1235,59 @@ export default function PrimaryBidCaseStudy() {
             </p>
           </SectionIntro>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="mt-16 border-t border-border pt-12 md:pt-16"
-            aria-labelledby="pb-broker-dashboard-heading"
-          >
-            <CaseStudyLabel>
-              {primaryBidWiderContribution.brokerDashboard.label}
-            </CaseStudyLabel>
-            <CaseStudyHeadline id="pb-broker-dashboard-heading">
-              {primaryBidWiderContribution.brokerDashboard.headline}
-            </CaseStudyHeadline>
-            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-black md:text-lg">
-              {primaryBidWiderContribution.brokerDashboard.body.map(
-                (paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ),
-              )}
-            </div>
-
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-              {primaryBidWiderContribution.brokerDashboard.cards.map(
-                (card, index) => {
-                  const Icon = brokerDashboardIcons[card.icon];
-                  return (
-                    <motion.article
-                      key={card.title}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-30px" }}
-                      custom={index * 0.04}
-                      variants={caseStudyFadeUp}
-                      className="rounded-2xl border border-border bg-[#FFF0E8] p-6"
+          <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+            >
+              <h3 className="text-xl font-bold text-black md:text-2xl">
+                {primaryBidWiderContribution.brokerDashboard.headline}
+              </h3>
+              <div className="mt-4 space-y-4 text-base leading-relaxed text-black md:text-lg">
+                {primaryBidWiderContribution.brokerDashboard.body.map(
+                  (paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ),
+                )}
+              </div>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {primaryBidWiderContribution.brokerDashboard.bullets.map(
+                  (item) => (
+                    <li
+                      key={item}
+                      className="rounded-full bg-[#FFE4D6] px-3 py-1.5 text-xs font-semibold text-black md:text-sm"
                     >
-                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-white">
-                        <Icon
-                          className="h-5 w-5 text-orange"
-                          strokeWidth={1.75}
-                        />
-                      </div>
-                      <h3 className="font-bold text-black">{card.title}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-grey">
-                        {card.copy}
-                      </p>
-                    </motion.article>
-                  );
-                },
-              )}
-            </div>
+                      {item}
+                    </li>
+                  ),
+                )}
+              </ul>
+            </motion.div>
 
-            <figure className="mt-10">
-              <CaseStudyMockupImage
-                src={primaryBidWiderContribution.brokerDashboard.image}
-                alt={primaryBidWiderContribution.brokerDashboard.imageAlt}
-                className="w-full rounded-xl border border-border"
-              />
-            </figure>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="mt-16 border-t border-border pt-12 md:pt-16"
-            aria-labelledby="pb-ipo-system-heading"
-          >
-            <CaseStudyLabel>
-              {primaryBidWiderContribution.ipoSystem.label}
-            </CaseStudyLabel>
-            <CaseStudyHeadline id="pb-ipo-system-heading">
-              {primaryBidWiderContribution.ipoSystem.headline}
-            </CaseStudyHeadline>
-            <div className="mt-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
-              <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.08}
+              variants={caseStudyFadeUp}
+            >
+              <h3 className="text-xl font-bold text-black md:text-2xl">
+                {primaryBidWiderContribution.ipoSystem.headline}
+              </h3>
+              <div className="mt-4 space-y-4 text-base leading-relaxed text-black md:text-lg">
                 {primaryBidWiderContribution.ipoSystem.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
-                <p>{primaryBidWiderContribution.ipoSystem.closing}</p>
               </div>
-
-              <motion.figure
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={0.08}
-                variants={caseStudyFadeUp}
-                className="mt-10 lg:mt-0"
-              >
-                <CaseStudyMockupImage
-                  src={primaryBidWiderContribution.ipoSystem.asideImage.src}
-                  alt={primaryBidWiderContribution.ipoSystem.asideImage.alt}
-                  className="w-full"
-                />
-              </motion.figure>
-            </div>
-
-            <motion.figure
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-30px" }}
-              variants={caseStudyFadeUp}
-              className="mt-10"
-            >
-              <CaseStudyMockupImage
-                src={primaryBidWiderContribution.ipoSystem.fullWidthImage.src}
-                alt={primaryBidWiderContribution.ipoSystem.fullWidthImage.alt}
-                className="w-full"
-              />
-            </motion.figure>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       <section
+        id="engineering"
         className={cn(caseStudySection, "bg-cream")}
         aria-labelledby="pb-engineering-heading"
       >
@@ -1356,6 +1328,7 @@ export default function PrimaryBidCaseStudy() {
       </section>
 
       <section
+        id="mentoring"
         className={cn(caseStudySection, "bg-white")}
         aria-labelledby="pb-mentoring-heading"
       >
@@ -1365,9 +1338,11 @@ export default function PrimaryBidCaseStudy() {
             headline={primaryBidMentoring.headline}
             headlineId="pb-mentoring-heading"
           >
-            <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
-              {primaryBidMentoring.body}
-            </p>
+            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {primaryBidMentoring.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
           </SectionIntro>
         </div>
       </section>

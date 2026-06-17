@@ -1,20 +1,13 @@
 export const primaryBidSubnav = [
   { id: "overview", label: "Overview" },
   { id: "challenge", label: "Challenge" },
-  { id: "research", label: "Demand" },
-  { id: "archetypes", label: "Archetypes" },
-  { id: "verbatims", label: "Verbatims" },
-  { id: "observing", label: "Observations" },
+  { id: "research", label: "Research" },
   { id: "strategy", label: "Strategy" },
-  { id: "principles", label: "Principles" },
-  { id: "structuring", label: "Structure" },
-  { id: "t-web", label: "T-Web" },
-  { id: "urgency", label: "Urgency" },
-  { id: "learn", label: "Learn" },
-  { id: "payment", label: "Payment" },
-  { id: "broker", label: "Broker" },
-  { id: "orders", label: "Orders" },
+  { id: "platform", label: "Platform" },
+  { id: "responsive-design", label: "Responsive design" },
+  { id: "transactions", label: "Transactions" },
   { id: "recovery", label: "Recovery" },
+  { id: "design-system", label: "Design system" },
   { id: "wider-contribution", label: "Wider contribution" },
   { id: "outcome", label: "Outcome" },
 ] as const;
@@ -38,7 +31,7 @@ export const primaryBidHero = {
   ],
   image: "/images/work/primarybid/hero-live-offers-mobiles.png",
   imageAlt:
-    "Three mobile-web screens showing PrimaryBid live offers, offer details and key dates across the responsive T-Web experience.",
+    "Three mobile-web screens showing PrimaryBid live offers, offer detail and key dates across the responsive T-Web experience.",
 };
 
 export const primaryBidMyRole = {
@@ -47,8 +40,8 @@ export const primaryBidMyRole = {
   avatarAlt: "Jacinto De Matos",
   body: [
     "As Senior Product Designer, I led the end-to-end product design of T-Web, PrimaryBid’s transactional website, across desktop, tablet and mobile-web breakpoints.",
-    "I worked across discovery, product definition, information architecture, interaction design, prototyping and delivery. The experience covered onboarding, offer discovery, company and investment information, applications, payments, order tracking and account management.",
-    "Alongside T-Web, I oversaw and supported work on the broker dashboard, produced interface concepts used in IPO pitches and developed reusable patterns for the supporting IPO design system.",
+    "I worked across discovery, product definition, information architecture, interaction design, prototyping and delivery. The experience covered onboarding, offer discovery, company and investment information, applications, payments, broker confirmation, order tracking and account management.",
+    "Alongside T-Web, I oversaw and supported work on the broker dashboard, created interface concepts used in IPO pitches and developed reusable patterns for the supporting design system.",
     "I collaborated with product, research, engineering, compliance and commercial teams, supported implementation through staged releases and mentored designers working across the wider product ecosystem.",
   ],
 };
@@ -57,16 +50,14 @@ export const primaryBidChallenge = {
   label: "The challenge",
   headline: "Investing decisions were happening across disconnected experiences",
   body: [
-    "PrimaryBid enabled retail investors to access public-market opportunities, but the customer experience had become increasingly app-led.",
+    "PrimaryBid enabled retail investors to access public-market opportunities, but the experience had become increasingly app-led.",
     "Research showed that the native app worked well for immediacy and time-sensitive transactions. However, many investors preferred desktop when reading offer documents, reviewing financial information, comparing opportunities and making considered decisions.",
     "Some customers also found app-only access difficult because of accessibility needs, small-screen limitations, technical issues or a lack of access to a suitable device.",
-    "The opportunity was not simply to reproduce the native app at a larger size. It was to design a transactional website that complemented the app while supporting research, decision-making and investment across responsive web breakpoints.",
+    "The opportunity was not to reproduce the native app on a larger screen. It was to design a connected transactional website that supported research, decision-making and investment across desktop, tablet and mobile web.",
   ],
   image: "/images/work/primarybid/t-web-splash.jpg",
   imageAlt:
     "Early PrimaryBid transactional web product vision showing onboarding, live offers and order history.",
-  imageCaption:
-    "Early product vision for PrimaryBid’s transactional web experience",
 };
 
 export const primaryBidOpportunity = {
@@ -164,7 +155,7 @@ export const primaryBidVerbatims = {
   summary:
     "These comments exposed overlapping problems around access, accessibility, screen size, confidence, security and the effort required to move between PrimaryBid and external banking or research tools.",
   closing:
-    "The opportunity was not web versus the native app. It was to let each product support the behaviour it was best suited to.",
+    "The opportunity was not the native app versus web. It was to let each product support the behaviour it was best suited to.",
 };
 
 export const primaryBidObservingDecisions = {
@@ -207,7 +198,7 @@ export const primaryBidCrossChannel = {
     note: "The native app was owned by the Principal Designer and is shown here to explain the wider channel strategy.",
   },
   web: {
-    title: "Transactional web",
+    title: "Transactional web — my direct ownership",
     points: [
       "deeper research",
       "long documents and financial information",
@@ -217,7 +208,7 @@ export const primaryBidCrossChannel = {
       "responsive access across desktop, tablet and mobile web",
     ],
   },
-  body: "Rather than reproducing the native app on a larger screen, I designed T-Web around the research, comparison and transactional behaviours that web supported best.",
+  body: "Rather than reproducing the native app at a different size, I designed T-Web around the research, comparison and transactional behaviours that web supported best.",
   nativeAppImage: "/images/work/primarybid/iphone-x-mockup.png",
   nativeAppImageAlt:
     "Existing PrimaryBid native app live-offers screen shown for product and channel context.",
@@ -259,11 +250,9 @@ export const primaryBidStructuring = {
   architectureImage: "/images/work/primarybid/t-web-info-architecture.png",
   architectureAlt:
     "PrimaryBid transactional web information architecture organised around the investment lifecycle.",
-  architectureCaption: "Investment lifecycle information architecture",
   indexImage: "/images/work/primarybid/index-screen.jpg",
   indexAlt:
     "Desktop transactional-web interface showing PrimaryBid live offers and navigation structure.",
-  indexCaption: "Product interpretation of the connected T-Web platform structure",
 };
 
 export const primaryBidResponsiveOffer = {
@@ -273,12 +262,12 @@ export const primaryBidResponsiveOffer = {
   annotations: [
     {
       title: "Desktop",
-      copy: "Persistent navigation supported browsing and comparison while keeping detailed offer information visible.",
+      copy: "Persistent navigation supported browsing while keeping offer detail visible.",
       icon: "desktop" as const,
     },
     {
       title: "Tablet",
-      copy: "The layout retained the depth of the desktop experience while supporting more portable access to offers, orders and account information.",
+      copy: "The layout retained depth while allowing customers to review orders and account information in a more portable format.",
       icon: "tablet" as const,
     },
     {
@@ -297,14 +286,13 @@ export const primaryBidTimeSensitive = {
   headline: "Making urgency visible without creating pressure",
   body: [
     "Some PrimaryBid opportunities were available only briefly. Customers needed to understand when an offer was expected to close without the interface becoming unnecessarily alarming or manipulative.",
-    "The responsive T-Web offer experience surfaced offer status, expected close time, minimum investment, current share price, investment type, supporting information and the primary application action.",
+    "The responsive T-Web offer experience surfaced offer status, expected close time, minimum investment, current share price, investment type, access to further information and the primary application action.",
   ],
   principle:
     "Communicate urgency clearly, but keep the customer in control.",
   image: "/images/work/primarybid/ipad-live-offer-detail.png",
   imageAlt:
     "Tablet T-Web screen showing company detail, key dates and apply action within the responsive offer experience.",
-  imageCaption: "Time-sensitive offer detail within the responsive T-Web experience",
 };
 
 export const primaryBidLearn = {
@@ -333,17 +321,14 @@ export const primaryBidLearn = {
     {
       src: "/images/work/primarybid/learn-concept.jpg",
       alt: "Modular T-Web Learn article layout with supporting imagery and structured content blocks.",
-      caption: "Modular article system",
     },
     {
       src: "/images/work/primarybid/learn-mobile.png",
       alt: "Responsive T-Web Learn article on mobile web.",
-      caption: "Responsive article page",
     },
     {
       src: "/images/work/primarybid/learn-card.jpg",
       alt: "Educational article surfaced from a T-Web offer detail page.",
-      caption: "Contextual content from an offer",
     },
   ],
 };
@@ -378,8 +363,8 @@ export const primaryBidBroker = {
   label: "Broker confirmation",
   headline: "Closing a critical information gap",
   body: [
-    "This was part of the transactional web journey and used responsive patterns across the T-Web breakpoints.",
     "The existing payment journey did not allow customers to confirm or correct their broker details before completing an application.",
+    "This formed part of the responsive transactional-web journey across T-Web breakpoints.",
     "Rather than rebuilding the transaction flow, I introduced a confirmation step using patterns and components that already existed.",
     "Customers could review their broker and account number, edit either field where necessary and then continue into the existing payment journey.",
     "I kept broker selection and account-number editing within one connected sequence. Treating them as separate isolated edits would have forced customers backwards and forwards and increased the risk of submitting mismatched information.",
@@ -452,60 +437,49 @@ export const primaryBidRecovery = {
   ],
 };
 
+export const primaryBidComponents = {
+  label: "Reusable platform components",
+  headline: "Building once for multiple partners and journeys",
+  body: [
+    "PrimaryBid worked with a growing network of issuers, banks and brokers. Rather than designing every partner experience from scratch, I developed configurable components that could adapt to different brands, content and transactional journeys.",
+    "The system covered modular layouts, partner logos, progress indicators, alerts, investment controls, regulatory information and payment states — creating a consistent foundation that could scale across propositions.",
+  ],
+  closing:
+    "These same foundations also supported product concepts used during IPO pitches, allowing different issuer, bank, broker and partner propositions to be represented without rebuilding every experience from scratch.",
+  asideImage: {
+    src: "/images/work/primarybid/component-base.png",
+    alt: "Configurable T-Web transaction layout with modular content blocks for partner journeys.",
+  },
+  fullWidthImage: {
+    src: "/images/work/primarybid/components-logos.png",
+    alt: "Flexible partner-branding framework across brokers, issuers and IPO pitch experiences.",
+  },
+};
+
 export const primaryBidWiderContribution = {
   label: "Wider contribution",
-  headline: "Extending the product ecosystem beyond T-Web",
+  headline: "Extending the product ecosystem beyond T-Web.",
   intro:
-    "My principal ownership was T-Web, but my role also extended into two important adjacent areas: the broker dashboard and the product system used to support IPO pitches.",
+    "My principal ownership was T-Web, but my role also extended into the broker dashboard and the product system used to support IPO pitches.",
   brokerDashboard: {
-    label: "Broker dashboard",
     headline: "Overseeing the broker dashboard",
     body: [
-      "Alongside the customer-facing transactional website, I oversaw and supported design work for PrimaryBid’s broker dashboard.",
-      "The dashboard served a different audience from T-Web. Broker teams needed to understand customer and transaction activity, review operational information and manage complex financial workflows clearly.",
-      "My role involved reviewing journey structure, information architecture and interaction patterns, helping the designer responsible for the detailed execution and ensuring the dashboard remained consistent with the wider PrimaryBid product ecosystem.",
-      "This allowed me to contribute at a broader product level without becoming the sole designer responsible for every dashboard screen.",
+      "I oversaw and supported design work for PrimaryBid’s broker dashboard, reviewing journey structure, information architecture and interaction patterns.",
+      "I helped the designer responsible for the detailed execution work through complex regulated workflows and ensured the dashboard remained consistent with the wider product ecosystem.",
     ],
-    cards: [
-      {
-        title: "Journey oversight",
-        copy: "Reviewed end-to-end broker workflows and helped identify gaps or unnecessary complexity.",
-        icon: "route" as const,
-      },
-      {
-        title: "Design critique",
-        copy: "Provided structured feedback on information hierarchy, interaction patterns and regulated states.",
-        icon: "message" as const,
-      },
-      {
-        title: "Designer support",
-        copy: "Mentored and supported the designer responsible for the detailed broker-dashboard work.",
-        icon: "users" as const,
-      },
+    bullets: [
+      "journey oversight",
+      "design critique",
+      "designer support",
     ],
-    image: "/images/work/primarybid/broker-dashboard.png",
-    imageAlt:
-      "Broker dashboard interface showing operational analytics and transaction activity.",
   },
   ipoSystem: {
-    label: "IPO pitches and design system",
-    headline: "Supporting IPO pitches with a reusable design system",
+    headline: "Supporting IPO pitches and the design system",
     body: [
-      "PrimaryBid needed to demonstrate how its technology could support different issuers, banks, brokers and partner brands during IPO pitches.",
-      "I created adaptable interface concepts and reusable patterns that allowed the team to present tailored investor experiences without designing every proposition from scratch.",
-      "The system supported configurable branding, partner logos, progress indicators, content, alerts, investment controls, regulatory information and payment states.",
-      "This helped turn pitch work from a series of one-off mock-ups into a more consistent and scalable product framework.",
+      "I created adaptable interface concepts and reusable patterns used to support IPO pitches across issuers, banks, brokers and partner brands.",
+      "The system covered configurable branding, logos, content, progress indicators, alerts, investment controls, regulatory information and payment states.",
+      "I later handed the design-system work to another designer and supported the transition so it could continue evolving beyond my direct involvement.",
     ],
-    closing:
-      "I later handed the design-system work to another designer and supported the transition so the system could continue evolving beyond my direct involvement.",
-    asideImage: {
-      src: "/images/work/primarybid/component-base.png",
-      alt: "Configurable T-Web transaction layout with modular content blocks for IPO pitch experiences.",
-    },
-    fullWidthImage: {
-      src: "/images/work/primarybid/components-logos.png",
-      alt: "Flexible partner-branding framework across brokers, issuers and IPO pitch experiences.",
-    },
   },
 };
 
@@ -540,8 +514,12 @@ export const primaryBidEngineering = {
 
 export const primaryBidMentoring = {
   label: "Mentoring and team contribution",
-  headline: "Supporting designers across the ecosystem",
-  body: "Alongside my direct ownership of T-Web, I supported designers working across the broker dashboard and IPO design system. I reviewed work, helped structure complex regulated journeys, provided critique on information architecture and interaction design, and supported the handover of reusable patterns. This allowed the wider team to continue evolving the products consistently while keeping ownership of the detailed execution with the relevant designer.",
+  headline: "Contributing beyond my individual product work.",
+  body: [
+    "Alongside my direct ownership of T-Web, I supported designers working across the broker dashboard and IPO design system.",
+    "I reviewed work, helped structure complex regulated journeys, provided critique on information architecture and interaction design, and supported the handover of reusable patterns.",
+    "This allowed the wider team to continue evolving the products consistently while keeping detailed execution with the relevant designer.",
+  ],
 };
 
 export const primaryBidOutcome = {
@@ -567,7 +545,11 @@ export const primaryBidOutcome = {
     },
     {
       title: "Reusable partner patterns",
-      copy: "Developed configurable components used across partner, issuer and IPO pitch experiences.",
+      copy: "Developed configurable components for partner, issuer and IPO pitch experiences.",
+    },
+    {
+      title: "Wider design leadership",
+      copy: "Supported broker-dashboard quality through design review, guidance and mentoring.",
     },
     {
       title: "Broker-dashboard oversight",
