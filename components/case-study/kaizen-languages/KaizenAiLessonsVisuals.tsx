@@ -28,27 +28,25 @@ const impactCards: {
   title: string;
   copy: string;
   icon: LucideIcon;
-  highlight?: boolean;
   link?: { href: string; label: string };
 }[] = [
   {
-    metric: "+25%",
-    title: "Lesson completions",
-    copy: "After introducing Suggestions to help learners recover from pronunciation failure.",
-    icon: TrendingUp,
-    highlight: true,
-  },
-  {
     metric: "V5 → V6",
     title: "Clearer recovery paths",
-    copy: "Improved conversation progression through typing states, drawer support and in-context grammar.",
+    copy: "Typing states, drawer support and in-context grammar improved lesson progression before Suggestion addressed pronunciation failure.",
     icon: MessageCircle,
   },
   {
-    metric: "Foundation",
-    title: "Retention and gamification",
-    copy: "Created a stronger interaction model for later product work across the app.",
+    metric: "Measured",
+    title: "Behaviour-led iteration",
+    copy: "Mixpanel funnels compared lesson versions so design changes could be assessed against real completion behaviour.",
     icon: Layers,
+  },
+  {
+    metric: "Foundation",
+    title: "Connected product work",
+    copy: "The conversation model informed later areas including practice and retention mechanics.",
+    icon: TrendingUp,
     link: {
       href: "/work/kaizen-languages/retention",
       label: "See retention case study",
@@ -56,27 +54,13 @@ const impactCards: {
   },
 ];
 
-function FunnelBar({ label, value }: { label: string; value: number }) {
-  return (
-    <div>
-      <div className="mb-1.5 flex items-center justify-between gap-3 text-xs">
-        <span className="font-medium text-black">{label}</span>
-        <span className="font-black text-orange">{value}%</span>
-      </div>
-      <div className="h-2 overflow-hidden rounded-full bg-cream-muted">
-        <div
-          className="h-full rounded-full bg-orange"
-          style={{ width: `${value}%` }}
-        />
-      </div>
-    </div>
-  );
-}
-
 export function KaizenLessonFunnelsInfographic({ className }: { className?: string }) {
   const averageOverall =
     mizukiLessonFunnels.reduce((sum, item) => sum + item.overall, 0) /
     mizukiLessonFunnels.length;
+  const lowestCompletion = mizukiLessonFunnels.reduce((lowest, item) =>
+    item.overall < lowest.overall ? item : lowest,
+  );
 
   return (
     <motion.div
@@ -89,31 +73,30 @@ export function KaizenLessonFunnelsInfographic({ className }: { className?: stri
         className,
       )}
       role="img"
-      aria-label="Illustrated Mixpanel lesson funnels for Mizuki lessons on iOS showing three-step progression and completion rates"
+      aria-label="Illustrated Mixpanel lesson funnels showing average completion and key drop-off pattern"
     >
       <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-grey">
         Mizuki lessons · iOS · Last 7 days
       </p>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-xl bg-[#FFF0E8] px-3 py-4 text-center">
-          <p className="text-xl font-black leading-none text-orange md:text-2xl">
+      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="rounded-xl bg-[#FFF0E8] px-4 py-5 text-center">
+          <p className="text-3xl font-black leading-none text-orange md:text-4xl">
             {averageOverall.toFixed(1)}%
           </p>
           <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-grey">
-            Avg lesson completion
+            Average lesson completion
           </p>
         </div>
-        <div className="rounded-xl bg-cream-muted px-3 py-4 text-center">
-          <p className="text-xl font-black leading-none text-black md:text-2xl">8</p>
-          <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-grey">
-            Lessons tracked
+        <div className="rounded-xl border border-border bg-cream-muted/60 px-4 py-5">
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-orange">
+            Key drop-off finding
           </p>
-        </div>
-        <div className="rounded-xl bg-cream-muted px-3 py-4 text-center">
-          <p className="text-xl font-black leading-none text-black md:text-2xl">3</p>
-          <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-grey">
-            Funnel steps
+          <p className="mt-3 text-sm leading-relaxed text-black">
+            Most learners sent messages successfully, but completion varied —
+            {lowestCompletion.lesson} dropped to {lowestCompletion.overall}%
+            overall, signalling friction after repeated failure rather than at
+            lesson entry.
           </p>
         </div>
       </div>
@@ -141,29 +124,6 @@ export function KaizenLessonFunnelsInfographic({ className }: { className?: stri
           ))}
         </ol>
       </div>
-
-      <div className="mt-5">
-        <p className="text-xs font-bold uppercase tracking-[0.15em] text-orange">
-          Completion by lesson
-        </p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {mizukiLessonFunnels.map((lesson) => (
-            <div
-              key={lesson.lesson}
-              className="rounded-xl border border-border bg-white p-4"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <p className="text-sm font-bold text-black">{lesson.lesson}</p>
-                <p className="text-sm font-black text-orange">{lesson.overall}%</p>
-              </div>
-              <div className="mt-3 space-y-2">
-                <FunnelBar label="Message sent" value={lesson.messageSent} />
-                <FunnelBar label="Lesson completed" value={lesson.completed} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </motion.div>
   );
 }
@@ -183,27 +143,16 @@ export function KaizenAiLessonsImpactCards({ className }: { className?: string }
             custom={index * 0.05}
             variants={caseStudyFadeUp}
             className={cn(
-              "flex h-full min-w-0 flex-col rounded-2xl border p-6 md:p-8",
-              card.highlight
-                ? "border-orange/20 bg-[#FFF0E8]"
-                : "border-border bg-white",
+              "flex h-full min-w-0 flex-col rounded-2xl border border-border bg-white p-6 md:p-8",
             )}
           >
             <div
-              className={cn(
-                "flex h-12 w-12 shrink-0 items-center justify-center rounded-full",
-                card.highlight ? "bg-white" : "bg-[#FFF0E8]",
-              )}
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FFF0E8]"
               aria-hidden
             >
               <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
             </div>
-            <p
-              className={cn(
-                "mt-5 text-3xl font-black leading-none md:text-4xl",
-                card.highlight ? "text-orange" : "text-black",
-              )}
-            >
+            <p className="mt-5 text-3xl font-black leading-none text-black md:text-4xl">
               {card.metric}
             </p>
             <h3 className="mt-4 text-base font-bold text-black md:text-lg">

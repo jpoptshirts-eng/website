@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
@@ -12,74 +11,109 @@ import {
   kaizenLesson,
   kaizenSuggestion,
 } from "@/lib/kaizen-languages-data";
+import { kaizenStoryResultsLearning } from "@/lib/kaizen-story-data";
 import { cn } from "@/lib/utils";
 import KaizenFeatureShell from "../KaizenFeatureShell";
 import {
   KaizenAiLessonsImpactCards,
   KaizenLessonFunnelsInfographic,
 } from "../KaizenAiLessonsVisuals";
-import {
-  BulletList,
-  FigureCaption,
-  KpiCallout,
-  MockupImage,
-} from "../kaizen-shared";
+import { KaizenResultsLearningSection } from "../kaizen-story-components";
+import { BulletList, FigureCaption, MockupImage } from "../kaizen-shared";
 
 const subnav = [
   { id: "challenge", label: "Challenge" },
   { id: "interaction", label: "Interaction" },
+  { id: "evidence", label: "Evidence" },
   { id: "iterations", label: "Iterations" },
   { id: "suggestion", label: "Suggestion" },
-  { id: "analytics", label: "Analytics" },
   { id: "delivery", label: "Delivery" },
-  { id: "impact", label: "Impact" },
+  { id: "results-learning", label: "Results" },
 ] as const;
 
-const versionIterations = [
+const learnerNeeds = [
+  {
+    need: "Understand what the AI is doing",
+    behaviours: [
+      {
+        title: "AI responding",
+        response: "Clear composing and speaking states so the lesson feels active.",
+      },
+    ],
+  },
+  {
+    need: "Hear and interpret the response",
+    behaviours: [
+      {
+        title: "Audio playback",
+        response: "Animated feedback when the tutor speaks.",
+      },
+      {
+        title: "Reduced-speed pronunciation",
+        response: "Normal and slowed playback when a phrase is unclear.",
+      },
+      {
+        title: "Translation",
+        response: "English support revealed on demand, not shown by default.",
+      },
+      {
+        title: "Character switching",
+        response: "Romaji and hiragana so reading difficulty could adapt.",
+      },
+    ],
+  },
+  {
+    need: "Access additional support when needed",
+    behaviours: [
+      {
+        title: "In-context grammar",
+        response: "Drawer cards and prompts without leaving the conversation.",
+      },
+    ],
+  },
+  {
+    need: "Recover from errors without losing the lesson",
+    behaviours: [
+      {
+        title: "Errors and retries",
+        response: "Clear error states with retry actions.",
+      },
+      {
+        title: "Suggestion",
+        response:
+          "Contextual pronunciation support after repeated failure — the key recovery decision.",
+      },
+    ],
+  },
+] as const;
+
+const versionTimeline = [
   {
     version: "Version 5",
-    problem:
-      "Lessons felt static, with limited interaction states and weaker recovery when learners became stuck.",
-    evidence:
-      "Guerrilla testing and funnel behaviour showed drop-off after repeated pronunciation failure.",
-    change:
-      "Limited composing states, fewer in-lesson controls and less contextual grammar support.",
-    improved: "Established the baseline conversation model.",
-    unresolved: "Recovery from pronunciation errors remained a major friction point.",
+    failed: "Limited interaction states and weak recovery when learners became stuck.",
+    changed: "Baseline conversation model with differentiated messages and core controls.",
+    evidence: "Funnels showed drop-off after repeated pronunciation failure.",
   },
   {
     version: "Version 6",
-    problem:
-      "Learners needed clearer feedback that the AI was responding and more support without leaving the lesson.",
-    evidence:
-      "Observed frustration in testing and weaker progression through lesson funnels.",
-    change:
-      "AI typing states, clearer options, drawer cards, grammar prompts and more supportive recovery moments.",
-    improved:
-      "The experience felt more responsive and easier to continue through difficult moments.",
-    unresolved:
-      "Pronunciation confidence still needed a dedicated recovery pattern.",
+    failed: "Learners needed clearer feedback and support without leaving the lesson.",
+    changed: "Typing states, drawer support, grammar prompts and clearer options.",
+    evidence: "Testing showed improved responsiveness; pronunciation recovery remained unresolved.",
   },
   {
     version: "Later versions",
-    problem:
-      "Controls and supporting content needed to sit closer to the instruction without overwhelming beginners.",
-    evidence:
-      "Mixpanel funnels compared how different lesson versions progressed from entry to completion.",
-    change:
-      "Controls moved closer to instructions, supporting content appeared in bottom drawers and grammar became accessible in context.",
-    improved: "Clearer lesson progression and more interactive learning loops.",
-    unresolved:
-      "Version-level funnel differences were monitored; sample sizes varied by lesson.",
+    failed: "Supporting content sat too far from the instruction.",
+    changed: "Controls moved closer to instructions; grammar accessible in context.",
+    evidence: "Mixpanel compared version progression from entry to completion.",
   },
-];
+] as const;
 
 export default function KaizenAiLessonsFeature() {
   return (
     <KaizenFeatureShell
       slug="ai-lessons"
       subnav={subnav}
-      summary="I developed the core AI conversation model, then iterated the lesson experience using observed frustration, funnel behaviour and repeated product versions."
+      summary="I developed the core AI conversation model, then iterated using observed frustration, funnel behaviour and product versions until Suggestion helped learners recover from pronunciation failure."
       heroImage="/images/work/kaizen-languages/mockup-lesson-chat.png"
       heroImageAlt="Kaizen Languages AI chat lesson showing conversation bubbles and correction states."
       heroImageClassName="mx-auto w-full max-w-[226px] sm:max-w-[242px] lg:max-w-[258px]"
@@ -99,16 +133,13 @@ export default function KaizenAiLessonsFeature() {
           >
             <CaseStudyLabel>Challenge</CaseStudyLabel>
             <CaseStudyHeadline id="ai-challenge-heading">
-              {kaizenAiConversation.headline}
+              Turning AI conversation into a teachable lesson
             </CaseStudyHeadline>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
               {kaizenAiConversation.intro.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <p className="mt-8 text-base leading-relaxed text-black md:text-lg">
-              {kaizenLesson.body}
-            </p>
           </motion.div>
         </div>
       </section>
@@ -131,14 +162,14 @@ export default function KaizenAiLessonsFeature() {
               id="ai-interaction-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
             >
-              {kaizenAiConversation.challenge.headline}
+              Four learner needs, one conversation
             </h2>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {kaizenAiConversation.challenge.body}
+              Rather than treating each control as a separate feature, I organised
+              the lesson around what learners needed at each moment — from
+              understanding the AI&apos;s state to recovering when confidence
+              broke down.
             </p>
-            <div className="mt-8">
-              <BulletList items={kaizenAiConversation.challenge.requirements} />
-            </div>
           </motion.div>
 
           <MockupImage
@@ -147,59 +178,70 @@ export default function KaizenAiLessonsFeature() {
             className="mt-12 w-full"
           />
 
-          <div className="mt-16">
-            <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
-              Interaction states
-            </h3>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {kaizenAiConversation.states.map((state, index) => (
-                <motion.li
-                  key={state.title}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-30px" }}
-                  custom={index * 0.04}
-                  variants={caseStudyFadeUp}
-                  className="rounded-2xl border border-border bg-white p-6"
-                >
-                  <p className="text-sm font-bold text-black md:text-base">
-                    {state.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-grey">
-                    <span className="font-semibold text-black">Learner need:</span>{" "}
-                    {state.learnerNeed}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-grey">
-                    <span className="font-semibold text-black">Design response:</span>{" "}
-                    {state.designResponse}
-                  </p>
-                </motion.li>
-              ))}
-            </ul>
+          <div className="mt-12 space-y-8">
+            {learnerNeeds.map((group, index) => (
+              <motion.div
+                key={group.need}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+                custom={index * 0.04}
+                variants={caseStudyFadeUp}
+                className="rounded-2xl border border-border bg-white p-6 md:p-8"
+              >
+                <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-orange">
+                  {group.need}
+                </h3>
+                <ul className="mt-5 space-y-4">
+                  {group.behaviours.map((behaviour) => (
+                    <li
+                      key={behaviour.title}
+                      className="border-t border-border pt-4 first:border-t-0 first:pt-0"
+                    >
+                      <p className="font-bold text-black">{behaviour.title}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-grey md:text-base">
+                        {behaviour.response}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
 
+      <section
+        id="evidence"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="ai-evidence-heading"
+      >
+        <div className={caseStudyContainer}>
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={caseStudyFadeUp}
-            className="mt-16 max-w-3xl"
+            className="max-w-3xl"
           >
-            <h3 className="text-2xl font-bold text-black md:text-3xl">
-              {kaizenAiConversation.support.headline}
-            </h3>
-            <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
-              {kaizenAiConversation.support.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+            <CaseStudyLabel>Evidence</CaseStudyLabel>
+            <CaseStudyHeadline id="ai-evidence-heading">
+              What testing and behaviour revealed
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {kaizenLesson.testingBody}
+            </p>
+            <p className="mt-4 text-base font-semibold leading-relaxed text-black md:text-lg">
+              {kaizenLesson.testingTakeaway}
+            </p>
           </motion.div>
+          <KaizenLessonFunnelsInfographic className="mt-10 w-full" />
         </div>
       </section>
 
       <section
         id="iterations"
-        className={cn(caseStudySection, "bg-white")}
+        className={cn(caseStudySection, "bg-cream-muted")}
         aria-labelledby="ai-iterations-heading"
       >
         <div className={caseStudyContainer}>
@@ -207,13 +249,8 @@ export default function KaizenAiLessonsFeature() {
           <CaseStudyHeadline id="ai-iterations-heading">
             {kaizenIteration.headline}
           </CaseStudyHeadline>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
-            Each major version responded to observed behaviour rather than
-            decorative UI changes. The goal was a lesson that felt teachable,
-            responsive and recoverable.
-          </p>
 
-          <figure className="mt-12">
+          <figure className="mt-10">
             <MockupImage
               src="/images/work/kaizen-languages/lesson-versions-v5-v6.jpg"
               alt="Side-by-side comparison of Kaizen Languages lesson interface versions 5 and 6."
@@ -222,71 +259,41 @@ export default function KaizenAiLessonsFeature() {
               className="w-full"
             />
             <FigureCaption>
-              Version 5 introduced the baseline conversation model. Version 6
-              added typing states, clearer options, drawer support and
-              in-context grammar.
+              Version 5 established the baseline. Version 6 added typing states,
+              drawer support and in-context grammar.
             </FigureCaption>
           </figure>
 
-          <div className="mt-12 flex flex-col gap-8">
-            {versionIterations.map((item, index) => (
-              <motion.article
-                key={item.version}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                custom={index * 0.04}
-                variants={caseStudyFadeUp}
-                className="rounded-2xl border border-border bg-cream-muted p-6 md:p-8"
-              >
-                <h3 className="text-xl font-bold text-black">{item.version}</h3>
-                <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-orange">
-                      What was not working
-                    </dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-black md:text-base">
-                      {item.problem}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-orange">
-                      What evidence showed
-                    </dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-black md:text-base">
-                      {item.evidence}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-orange">
-                      What changed
-                    </dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-black md:text-base">
-                      {item.change}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-semibold uppercase tracking-[0.15em] text-orange">
-                      What improved
-                    </dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-black md:text-base">
-                      {item.improved}
-                    </dd>
-                  </div>
-                </dl>
-                <p className="mt-4 text-sm leading-relaxed text-grey md:text-base">
-                  <span className="font-semibold text-black">Still unresolved:</span>{" "}
-                  {item.unresolved}
-                </p>
-              </motion.article>
-            ))}
+          <div className="mt-10 overflow-x-auto">
+            <table className="w-full min-w-[36rem] border-collapse text-left text-sm md:text-base">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="py-3 pr-4 font-bold text-black">Version</th>
+                  <th className="py-3 pr-4 font-bold text-black">What failed</th>
+                  <th className="py-3 pr-4 font-bold text-black">What changed</th>
+                  <th className="py-3 font-bold text-black">What evidence showed</th>
+                </tr>
+              </thead>
+              <tbody>
+                {versionTimeline.map((row) => (
+                  <tr key={row.version} className="border-b border-border align-top">
+                    <td className="py-4 pr-4 font-semibold text-orange">
+                      {row.version}
+                    </td>
+                    <td className="py-4 pr-4 text-grey">{row.failed}</td>
+                    <td className="py-4 pr-4 text-black">{row.changed}</td>
+                    <td className="py-4 text-grey">{row.evidence}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       <section
         id="suggestion"
-        className={cn(caseStudySection, "bg-cream-muted")}
+        className={cn(caseStudySection, "bg-white")}
         aria-labelledby="ai-suggestion-heading"
       >
         <div className={caseStudyContainer}>
@@ -305,17 +312,17 @@ export default function KaizenAiLessonsFeature() {
                 {kaizenSuggestion.headline}
               </h2>
               <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-                {kaizenLesson.testingBody}
-              </p>
-              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
                 {kaizenSuggestion.body}
               </p>
               <div className="mt-8">
                 <BulletList items={kaizenSuggestion.why} />
               </div>
-              <KpiCallout icon="trending" className="mt-8">
-                Lesson completions increased by 25% after introducing Suggestions.
-              </KpiCallout>
+              <p className="mt-8 border-l-2 border-orange pl-6 text-base leading-relaxed text-black md:text-lg">
+                Testing revealed repeated pronunciation failure. Correction alone
+                was not enough. Suggestion broke pronunciation into manageable
+                support while keeping the learner inside the lesson — increasing
+                lesson completion by 25%.
+              </p>
             </motion.div>
             <motion.div
               initial="hidden"
@@ -332,33 +339,6 @@ export default function KaizenAiLessonsFeature() {
               />
             </motion.div>
           </div>
-        </div>
-      </section>
-
-      <section
-        id="analytics"
-        className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="ai-analytics-heading"
-      >
-        <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>Product analytics</CaseStudyLabel>
-            <CaseStudyHeadline id="ai-analytics-heading">
-              Measuring lesson progression across versions
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              Individual lesson versions and funnel completion were monitored so
-              design changes could be compared against real behaviour rather
-              than assumptions alone.
-            </p>
-          </motion.div>
-          <KaizenLessonFunnelsInfographic className="mt-10 w-full" />
         </div>
       </section>
 
@@ -405,18 +385,18 @@ export default function KaizenAiLessonsFeature() {
                 className="rounded-2xl"
               />
               <FigureCaption>
-                Active interface work, prototyping and device testing with
-                founders, engineers and language specialists.
+                Prototyping and device testing with founders, engineers and
+                language specialists.
               </FigureCaption>
             </motion.div>
           </div>
+          <KaizenAiLessonsImpactCards className="mt-12" />
         </div>
       </section>
 
       <section
-        id="impact"
+        id="results-learning"
         className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="ai-impact-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -426,12 +406,10 @@ export default function KaizenAiLessonsFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Impact</CaseStudyLabel>
-            <CaseStudyHeadline id="ai-impact-heading">
-              A stronger foundation for the whole product
-            </CaseStudyHeadline>
+            <KaizenResultsLearningSection
+              data={kaizenStoryResultsLearning["ai-lessons"]}
+            />
           </motion.div>
-          <KaizenAiLessonsImpactCards />
         </div>
       </section>
     </KaizenFeatureShell>

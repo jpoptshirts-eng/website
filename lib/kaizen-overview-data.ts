@@ -36,7 +36,7 @@ export const kaizenOverviewRole = {
   title: "My role",
   avatar: "/images/jacinto-hero.png",
   avatarAlt: "Jacinto De Matos",
-  lead: "As the founding product designer, I helped shape Kaizen Languages from early concept through growth. My work covered product strategy, research, interaction design, visual direction, AI learning systems, retention and commercial experimentation across iOS and Android.",
+  lead: "As Founding Product Designer, I owned the product experience end to end—from customer research and product strategy through UX, interaction design, visual design, testing, analytics and delivery.",
   bullets: [
     "Product strategy and roadmap influence",
     "User research and testing",
@@ -76,7 +76,7 @@ export const kaizenOverviewStrategy = {
     },
     {
       title: "Build practice and retention mechanics",
-      copy: "Practice, streaks, freezes and progress feedback helped learners return without feeling punished.",
+      copy: "Practice, shipped streak mechanics and progress feedback helped learners return. Recovery concepts such as freezes were explored for a later phase.",
     },
     {
       title: "Experiment commercially",
@@ -104,7 +104,7 @@ export const kaizenOverviewImpact = {
     {
       metric: "40% / 22%",
       title: "Day 1 and Week 1 retention",
-      copy: "Versus education-tech benchmarks of 14.5% and 4.6%.",
+      copy: "Day 1 at 40% and Week 1 at 22% after shipped gamification mechanics.",
     },
     {
       metric: "+25%",
@@ -113,8 +113,8 @@ export const kaizenOverviewImpact = {
     },
     {
       metric: "+13%",
-      title: "Premium customers",
-      copy: "From the two-versus-three free-lesson experiment.",
+      title: "Premium conversion",
+      copy: "Approximately 13% relative premium-conversion uplift from the two-versus-three free-lesson experiment.",
     },
     {
       metric: "+20%",

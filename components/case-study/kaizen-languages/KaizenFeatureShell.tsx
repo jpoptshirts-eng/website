@@ -13,13 +13,14 @@ import {
 } from "@/lib/kaizen-features";
 import { cn } from "@/lib/utils";
 import KaizenFeatureNav from "./KaizenFeatureNav";
+import { KaizenAtAGlanceMatrix, KaizenHubEndLinks, KaizenStoryTransition } from "./kaizen-story-components";
+import { kaizenStoryAtAGlance, kaizenStoryTransitions } from "@/lib/kaizen-story-data";
 import { MockupImage, PhoneScreenMockup } from "./kaizen-shared";
 
 interface KaizenFeatureShellProps {
   slug: KaizenFeatureSlug;
   subnav: readonly { id: string; label: string }[];
   summary: string;
-  roleNote?: string;
   heroImage: string;
   heroImageAlt: string;
   heroInPhoneFrame?: boolean;
@@ -32,7 +33,6 @@ export default function KaizenFeatureShell({
   slug,
   subnav,
   summary,
-  roleNote = "Founding Product Designer · Approximately three years · iOS and Android",
   heroImage,
   heroImageAlt,
   heroInPhoneFrame = false,
@@ -41,6 +41,7 @@ export default function KaizenFeatureShell({
   children,
 }: KaizenFeatureShellProps) {
   const { current, previous, next, position } = getKaizenFeatureNav(slug);
+  const storyTransition = kaizenStoryTransitions[slug];
 
   if (!current) return null;
 
@@ -74,7 +75,6 @@ export default function KaizenFeatureShell({
               <p className="mt-6 max-w-xl text-base leading-relaxed text-black md:text-lg">
                 {summary}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-grey md:text-base">{roleNote}</p>
             </div>
             <div className="mt-10 flex justify-center lg:mt-0">
               {heroInPhoneFrame ? (
@@ -98,9 +98,17 @@ export default function KaizenFeatureShell({
         </div>
       </section>
 
+      <KaizenAtAGlanceMatrix data={kaizenStoryAtAGlance[slug]} />
+
       <CaseStudySubnav items={subnav} />
 
       {children}
+
+      {storyTransition ? (
+        <KaizenStoryTransition transition={storyTransition} />
+      ) : (
+        <KaizenHubEndLinks />
+      )}
 
       <KaizenFeatureNav
         previous={

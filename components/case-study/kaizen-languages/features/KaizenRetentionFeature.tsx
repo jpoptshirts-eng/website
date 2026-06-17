@@ -7,25 +7,36 @@ import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
 import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
 import { kaizenGamification, kaizenRetention } from "@/lib/kaizen-languages-data";
+import { kaizenStoryResultsLearning } from "@/lib/kaizen-story-data";
 import { cn } from "@/lib/utils";
 import KaizenFeatureShell from "../KaizenFeatureShell";
+import { KaizenRetentionAnalyticsInfographic } from "../KaizenRetentionVisuals";
 import {
-  KaizenRetentionAnalyticsInfographic,
-  KaizenRetentionImpactCards,
-} from "../KaizenRetentionVisuals";
-import {
-  BulletList,
-  MockupImage,
-  PhoneVideoMockup,
-} from "../kaizen-shared";
+  KaizenFeatureStatus,
+  KaizenResultsLearningSection,
+} from "../kaizen-story-components";
+import { BulletList, MockupImage, PhoneVideoMockup } from "../kaizen-shared";
 
 const subnav = [
-  { id: "retention-problem", label: "Retention problem" },
-  { id: "behaviour", label: "Behaviour" },
-  { id: "streaks", label: "Streaks" },
-  { id: "analytics", label: "Analytics" },
-  { id: "impact", label: "Impact" },
-  { id: "reflection", label: "Reflection" },
+  { id: "retention-problem", label: "Problem" },
+  { id: "hypothesis", label: "Hypothesis" },
+  { id: "shipped", label: "Shipped" },
+  { id: "explored", label: "Explored" },
+  { id: "measurement", label: "Measurement" },
+  { id: "results-learning", label: "Results" },
+] as const;
+
+const shippedMechanics = [
+  "Daily streak tracking with visible progress",
+  "Daily goals and rewards for lesson completion",
+  "Progress markers across words and grammar",
+  "Clear feedback when returning after a break",
+] as const;
+
+const exploredMechanics = [
+  "Streak freeze to protect consistency during busy days",
+  "Streak repair to recover after a missed day",
+  "Leaderboards and additional reward systems",
 ] as const;
 
 export default function KaizenRetentionFeature() {
@@ -33,7 +44,7 @@ export default function KaizenRetentionFeature() {
     <KaizenFeatureShell
       slug="retention"
       subnav={subnav}
-      summary="I introduced streaks, freezes, repairs and progress feedback to encourage regular learning while preserving learner confidence."
+      summary="I introduced shipped streak and reward mechanics to encourage regular learning, while exploring recovery concepts for a future phase."
       heroImage="/images/work/kaizen-languages/iphone-gamified-hero.png"
       heroImageAlt="Kaizen Languages gamified lessons screen showing progress, words, grammar and premium prompts."
     >
@@ -57,19 +68,14 @@ export default function KaizenRetentionFeature() {
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
               {kaizenRetention.body}
             </p>
-            <p className="mt-4 text-base leading-relaxed text-black md:text-lg">
-              Regular practice mattered to both learning outcomes and business
-              sustainability. The product needed repeat behaviour without making
-              missed days feel punitive.
-            </p>
           </motion.div>
         </div>
       </section>
 
       <section
-        id="behaviour"
+        id="hypothesis"
         className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="retention-behaviour-heading"
+        aria-labelledby="retention-hypothesis-heading"
       >
         <div className={caseStudyContainer}>
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
@@ -79,25 +85,22 @@ export default function KaizenRetentionFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Behavioural research</CaseStudyLabel>
+              <CaseStudyLabel>Behavioural hypothesis</CaseStudyLabel>
               <h2
-                id="retention-behaviour-heading"
+                id="retention-hypothesis-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
               >
-                {kaizenGamification.headline}
+                Visible continuity without punishment
               </h2>
               <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-                {kaizenGamification.body}
+                Visible continuity could encourage learners to return, but an
+                unforgiving streak risked undermining the confidence the lesson
+                experience was designed to build. Gamification needed to make
+                genuine progress visible — not reward activity for its own sake.
               </p>
               <div className="mt-8">
                 <BulletList items={kaizenGamification.why} />
               </div>
-              <p className="mt-8 text-base leading-relaxed text-black md:text-lg">
-                The risk was that streaks could become punitive. I designed
-                recovery mechanics — freezes, repairs and clear progress
-                feedback — to encourage consistency while preserving learner
-                confidence.
-              </p>
             </motion.div>
             <motion.div
               initial="hidden"
@@ -118,38 +121,32 @@ export default function KaizenRetentionFeature() {
       </section>
 
       <section
-        id="streaks"
+        id="shipped"
         className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="retention-streaks-heading"
+        aria-labelledby="retention-shipped-heading"
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Streak system</CaseStudyLabel>
-          <CaseStudyHeadline id="retention-streaks-heading">
-            Designing habits without punishing learners
+          <div className="mb-6">
+            <KaizenFeatureStatus status="shipped" />
+          </div>
+          <CaseStudyLabel>Shipped system</CaseStudyLabel>
+          <CaseStudyHeadline id="retention-shipped-heading">
+            Streaks, rewards and visible progress
           </CaseStudyHeadline>
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
-            {kaizenGamification.approach}
+            {kaizenGamification.approach.split(".")[0]}.
           </p>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          <div className="mt-10 grid gap-8 lg:grid-cols-2">
             <div>
               <h3 className="font-bold text-black">Visual system</h3>
               <BulletList items={kaizenGamification.visualSystem} />
             </div>
             <div>
-              <h3 className="font-bold text-black">Mechanics</h3>
-              <BulletList
-                items={[
-                  "Daily streak tracking with visible progress",
-                  "Streak freeze to protect consistency during busy days",
-                  "Streak repair to recover after a missed day",
-                  "Daily goals and rewards for lesson completion",
-                  "Clear feedback when returning after a break",
-                ]}
-              />
+              <h3 className="font-bold text-black">Shipped mechanics</h3>
+              <BulletList items={[...shippedMechanics]} />
             </div>
           </div>
-
         </div>
 
         <motion.div
@@ -173,9 +170,36 @@ export default function KaizenRetentionFeature() {
       </section>
 
       <section
-        id="analytics"
+        id="explored"
         className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="retention-analytics-heading"
+        aria-labelledby="retention-explored-heading"
+      >
+        <div className={caseStudyContainer}>
+          <div className="mb-6">
+            <KaizenFeatureStatus status="explored" />
+          </div>
+          <CaseStudyLabel>Future concepts</CaseStudyLabel>
+          <h2
+            id="retention-explored-heading"
+            className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
+          >
+            Recovery mechanics explored for a later phase
+          </h2>
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
+            I explored recovery concepts to protect motivation after a missed day.
+            These informed the direction but were not attributed to the measured
+            retention uplift, which came from the shipped streak mechanics above.
+          </p>
+          <div className="mt-8 max-w-3xl">
+            <BulletList items={[...exploredMechanics]} />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="measurement"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="retention-measurement-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -185,32 +209,18 @@ export default function KaizenRetentionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Analytics</CaseStudyLabel>
-            <CaseStudyHeadline id="retention-analytics-heading">
-              Tracking whether product changes translated into repeat behaviour
+            <CaseStudyLabel>Measurement</CaseStudyLabel>
+            <CaseStudyHeadline id="retention-measurement-heading">
+              Retention after shipped mechanics
             </CaseStudyHeadline>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              Firebase cohorts, engagement and platform usage helped assess whether
-              retention mechanics were creating sustainable habits beyond the first
-              session.
+              Firebase cohorts helped assess whether shipped streak mechanics
+              translated into repeat behaviour beyond the first session.
             </p>
           </motion.div>
 
           <KaizenRetentionAnalyticsInfographic className="mt-10 w-full" />
-        </div>
-      </section>
 
-      <section
-        id="impact"
-        className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="retention-impact-heading"
-      >
-        <div className={caseStudyContainer}>
-          <CaseStudyLabel>Impact</CaseStudyLabel>
-          <CaseStudyHeadline id="retention-impact-heading">
-            Measurable retention gains
-          </CaseStudyHeadline>
-          <KaizenRetentionImpactCards />
           <p className="mt-8 text-sm leading-relaxed text-grey md:text-base">
             Commercial experimentation used the same analytics infrastructure.{" "}
             <Link
@@ -225,9 +235,8 @@ export default function KaizenRetentionFeature() {
       </section>
 
       <section
-        id="reflection"
+        id="results-learning"
         className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="retention-reflection-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -237,16 +246,9 @@ export default function KaizenRetentionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Reflection</CaseStudyLabel>
-            <CaseStudyHeadline id="retention-reflection-heading">
-              Encouraging repeat use without guilt
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              Gamification was not decoration. It became part of the behavioural
-              system that helped users build consistency. The balance was
-              encouraging daily return while giving learners tools to recover
-              when life interrupted their streak.
-            </p>
+            <KaizenResultsLearningSection
+              data={kaizenStoryResultsLearning.retention}
+            />
           </motion.div>
         </div>
       </section>

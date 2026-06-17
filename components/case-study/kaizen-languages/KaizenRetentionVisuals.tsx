@@ -1,24 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BarChart3, CalendarDays, TrendingUp, type LucideIcon } from "lucide-react";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
-import { kaizenRetention } from "@/lib/kaizen-languages-data";
 import { cn } from "@/lib/utils";
 
-const retentionBenchmarks = [
-  {
-    label: "Day 1 retention",
-    kaizen: 40,
-    benchmark: 14.5,
-    benchmarkLabel: "Education-tech average",
-  },
-  {
-    label: "Week 1 retention",
-    kaizen: 22,
-    benchmark: 4.6,
-    benchmarkLabel: "Education-tech average",
-  },
+const retentionMetrics = [
+  { label: "Retention uplift", value: "+35%", detail: "After shipped streak mechanics" },
+  { label: "Day 1 retention", value: "40%", detail: "First-day return rate" },
+  { label: "Week 1 retention", value: "22%", detail: "Seven-day return rate" },
 ] as const;
 
 const analyticsSignals = [
@@ -33,70 +22,6 @@ const repeatFunnel = [
   "Day 1 return",
   "Week 1 return",
 ] as const;
-
-const impactCards: {
-  text: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    text: kaizenRetention.results[0],
-    icon: TrendingUp,
-  },
-  {
-    text: kaizenRetention.results[1],
-    icon: CalendarDays,
-  },
-  {
-    text: kaizenRetention.results[2],
-    icon: BarChart3,
-  },
-];
-
-function ComparisonBar({
-  label,
-  kaizen,
-  benchmark,
-  benchmarkLabel,
-}: {
-  label: string;
-  kaizen: number;
-  benchmark: number;
-  benchmarkLabel: string;
-}) {
-  const max = Math.max(kaizen, benchmark, 45);
-
-  return (
-    <div className="rounded-xl border border-border bg-white p-4 md:p-5">
-      <p className="text-sm font-bold text-black">{label}</p>
-      <div className="mt-4 space-y-3">
-        <div>
-          <div className="mb-1.5 flex items-center justify-between text-sm">
-            <span className="font-medium text-black">Kaizen</span>
-            <span className="font-black text-orange">{kaizen}%</span>
-          </div>
-          <div className="h-2.5 overflow-hidden rounded-full bg-cream-muted">
-            <div
-              className="h-full rounded-full bg-orange"
-              style={{ width: `${(kaizen / max) * 100}%` }}
-            />
-          </div>
-        </div>
-        <div>
-          <div className="mb-1.5 flex items-center justify-between text-sm">
-            <span className="text-grey">{benchmarkLabel}</span>
-            <span className="font-semibold text-black">{benchmark}%</span>
-          </div>
-          <div className="h-2.5 overflow-hidden rounded-full bg-cream-muted">
-            <div
-              className="h-full rounded-full bg-border"
-              style={{ width: `${(benchmark / max) * 100}%` }}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export function KaizenRetentionAnalyticsInfographic({
   className,
@@ -114,21 +39,27 @@ export function KaizenRetentionAnalyticsInfographic({
         className,
       )}
       role="img"
-      aria-label="Illustrated Firebase retention analytics showing benchmark comparisons, repeat behaviour funnel and tracked signals"
+      aria-label="Illustrated Firebase retention analytics showing Kaizen retention metrics, repeat behaviour funnel and tracked signals"
     >
       <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-grey">
         Retention analytics overview
       </p>
 
-      <div className="mt-5">
-        <p className="text-xs font-bold uppercase tracking-[0.15em] text-orange">
-          Benchmark comparison
-        </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {retentionBenchmarks.map((item) => (
-            <ComparisonBar key={item.label} {...item} />
-          ))}
-        </div>
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        {retentionMetrics.map((item) => (
+          <div
+            key={item.label}
+            className="rounded-xl border border-border bg-cream-muted/60 px-3 py-4 text-center"
+          >
+            <p className="text-xl font-black leading-none text-orange md:text-2xl">
+              {item.value}
+            </p>
+            <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-grey">
+              {item.label}
+            </p>
+            <p className="mt-1 text-xs text-grey">{item.detail}</p>
+          </div>
+        ))}
       </div>
 
       <div className="mt-6 rounded-xl border border-border bg-cream-muted/60 p-4 md:p-5">
@@ -136,8 +67,8 @@ export function KaizenRetentionAnalyticsInfographic({
           Repeat behaviour funnel
         </p>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-grey">
-          Firebase cohorts helped track whether product changes translated into
-          repeat behaviour beyond the first session.
+          Firebase cohorts helped track whether shipped streak mechanics translated
+          into repeat behaviour beyond the first session.
         </p>
         <ol className="mt-5 flex flex-col gap-3 md:flex-row md:items-stretch">
           {repeatFunnel.map((step, index) => (
@@ -179,37 +110,5 @@ export function KaizenRetentionAnalyticsInfographic({
         </ul>
       </div>
     </motion.div>
-  );
-}
-
-export function KaizenRetentionImpactCards({ className }: { className?: string }) {
-  return (
-    <div className={cn("mt-10 grid gap-4 md:grid-cols-3", className)}>
-      {impactCards.map((card, index) => {
-        const Icon = card.icon;
-
-        return (
-          <motion.article
-            key={card.text}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-30px" }}
-            custom={index * 0.05}
-            variants={caseStudyFadeUp}
-            className="flex h-full flex-col rounded-2xl border border-border bg-cream-muted p-5 md:p-6"
-          >
-            <div
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#FFF0E8]"
-              aria-hidden
-            >
-              <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
-            </div>
-            <p className="mt-4 text-sm font-semibold leading-relaxed text-black md:text-base">
-              {card.text}
-            </p>
-          </motion.article>
-        );
-      })}
-    </div>
   );
 }

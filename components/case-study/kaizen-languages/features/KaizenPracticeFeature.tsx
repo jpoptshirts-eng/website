@@ -1,34 +1,51 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
 import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
 import { kaizenPractice } from "@/lib/kaizen-languages-data";
+import { kaizenStoryResultsLearning } from "@/lib/kaizen-story-data";
 import { cn } from "@/lib/utils";
 import KaizenFeatureShell from "../KaizenFeatureShell";
 import {
-  BulletList,
-  FigureCaption,
-  KpiCallout,
-  PhoneScreenMockup,
-} from "../kaizen-shared";
+  KaizenDecisionTradeoff,
+  KaizenFeatureStatus,
+  KaizenResultsLearningSection,
+} from "../kaizen-story-components";
+import { BulletList, FigureCaption, PhoneScreenMockup } from "../kaizen-shared";
 
 const subnav = [
   { id: "problem", label: "Problem" },
-  { id: "practice-model", label: "Practice model" },
-  { id: "flashcards", label: "Exercises" },
-  { id: "outcome", label: "Outcome" },
+  { id: "practice-loop", label: "Practice loop" },
+  { id: "decision", label: "Decision" },
+  { id: "exercises", label: "Exercises" },
+  { id: "status", label: "Status" },
+  { id: "results-learning", label: "Results" },
 ] as const;
 
 const exerciseShowcase = [
-  kaizenPractice.screens.wordDetail,
+  {
+    src: kaizenPractice.hero.src,
+    alt: kaizenPractice.hero.alt,
+    caption: "Exercises hub and practice entry point",
+  },
   kaizenPractice.screens.wordsList,
   kaizenPractice.screens.grammarList,
   kaizenPractice.screens.conjugation,
 ] as const;
+
+const practiceTradeoff = {
+  alternative:
+    "Generic flashcard library organised by topic or chronology alone.",
+  chosen:
+    "Personalised practice connected to lesson history and confidence signals.",
+  evidence:
+    "Revision was more useful when it reflected material already encountered and showed where confidence was weakest.",
+  consequence:
+    "A connected loop from lesson activity to targeted revision and back to conversation.",
+};
 
 function FramedScreen({
   src,
@@ -59,7 +76,7 @@ export default function KaizenPracticeFeature() {
     <KaizenFeatureShell
       slug="practice"
       subnav={subnav}
-      summary="I designed practice tools that helped learners revisit vocabulary, recognise weak areas and continue learning outside structured lessons."
+      summary="I designed a practice system that connected lesson history, confidence signals and revision into a personalised loop beyond individual conversation lessons."
       heroImage={kaizenPractice.hero.src}
       heroImageAlt={kaizenPractice.hero.alt}
       heroInPhoneFrame
@@ -80,75 +97,95 @@ export default function KaizenPracticeFeature() {
           >
             <CaseStudyLabel>Problem</CaseStudyLabel>
             <CaseStudyHeadline id="practice-problem-heading">
-              Lesson completion alone did not guarantee retention
+              The gap after lesson completion
             </CaseStudyHeadline>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              Learners needed ways to revisit weak material, practise outside the
-              lesson, recognise learned content and build confidence before
-              returning to conversation. The practice layer had to connect lesson
-              history with independent revision.
+              Learners could finish a conversation lesson but lacked a simple way
+              to identify which vocabulary and grammar still required attention.
+              Lesson completion alone did not guarantee retention — they needed a
+              route back into difficult material without repeating entire lessons.
             </p>
           </motion.div>
         </div>
       </section>
 
       <section
-        id="practice-model"
+        id="practice-loop"
         className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="practice-model-heading"
+        aria-labelledby="practice-loop-heading"
       >
         <div className={caseStudyContainer}>
-          <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={caseStudyFadeUp}
-            >
-              <CaseStudyLabel>Practice model</CaseStudyLabel>
-              <CaseStudyHeadline id="practice-model-heading">
-                Connecting lessons, revision and confidence
-              </CaseStudyHeadline>
-              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-                Practice connected vocabulary, grammar, audio, recognition and recall
-                with lesson history and recommendations. The goal was a clearer
-                route back into difficult material without forcing learners to repeat
-                entire lessons.
-              </p>
-              <div className="mt-8">
-                <BulletList
-                  items={[
-                    "Vocabulary and grammar exercises outside structured lessons",
-                    "Audio replay and recognition tasks",
-                    "Progress through words and grammar categories",
-                    "Connection to lesson content and weak areas",
-                    "Recommendations informed by lesson history",
-                  ]}
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={0.06}
-              variants={caseStudyFadeUp}
-              className="mt-10 lg:mt-0 lg:flex lg:justify-end"
-            >
-              <FramedScreen
-                src={kaizenPractice.screens.wordsList.src}
-                alt={kaizenPractice.screens.wordsList.alt}
-                caption={kaizenPractice.screens.wordsList.caption}
-                className="w-full max-w-[14rem] sm:max-w-[15rem]"
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>Practice model</CaseStudyLabel>
+            <CaseStudyHeadline id="practice-loop-heading">
+              From lesson activity to personalised revision
+            </CaseStudyHeadline>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              The central loop connected what happened in lessons with independent
+              practice:
+            </p>
+            <p className="mt-4 border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg">
+              Lesson activity → confidence or difficulty signal → material
+              organised for revision → personalised practice → return to
+              conversation.
+            </p>
+            <div className="mt-8">
+              <BulletList
+                items={[
+                  "Vocabulary and grammar encountered in completed lessons",
+                  "Confidence indicators and incorrect or difficult material",
+                  "Lesson history informing what to revisit",
+                  "Learner-selected revision alongside recommendations",
+                  "Audio replay, recognition and recall exercises",
+                ]}
               />
-            </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section
+        id="decision"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="practice-decision-heading"
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <CaseStudyLabel>Key decision</CaseStudyLabel>
+            <h2
+              id="practice-decision-heading"
+              className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
+            >
+              Confidence over chronology
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              Practice was organised around where learners felt least confident,
+              not only the order lessons were completed. This made revision feel
+              relevant rather than generic.
+            </p>
+          </motion.div>
+
+          <div className="mt-10">
+            <KaizenDecisionTradeoff data={practiceTradeoff} columns={4} />
           </div>
         </div>
       </section>
 
       <section
-        id="flashcards"
-        className={cn(caseStudySection, "bg-white")}
+        id="exercises"
+        className={cn(caseStudySection, "bg-cream-muted")}
         aria-labelledby="practice-exercises-heading"
       >
         <div className={caseStudyContainer}>
@@ -164,20 +201,8 @@ export default function KaizenPracticeFeature() {
               Words, grammar and progress feedback
             </CaseStudyHeadline>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              The practice experience included vocabulary and grammar exercises
-              with audio, translation and progress through a set. Learners could
-              revisit material, mark confidence and continue building recall
-              outside the main lesson flow.
-            </p>
-            <p className="mt-6 text-sm leading-relaxed text-grey md:text-base">
-              See how{" "}
-              <Link
-                href="/work/kaizen-languages/ai-lessons"
-                className="font-semibold text-orange hover:underline"
-              >
-                Suggestions reduced pronunciation failure in the AI lessons case study
-              </Link>
-              .
+              Each screen demonstrates a different part of the loop — entry point,
+              vocabulary organisation, grammar lists and exercise interaction.
             </p>
           </motion.div>
 
@@ -206,9 +231,9 @@ export default function KaizenPracticeFeature() {
       </section>
 
       <section
-        id="outcome"
-        className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="practice-outcome-heading"
+        id="status"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="practice-status-heading"
       >
         <div className={caseStudyContainer}>
           <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
@@ -218,15 +243,23 @@ export default function KaizenPracticeFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Outcome</CaseStudyLabel>
-              <CaseStudyHeadline id="practice-outcome-heading">
-                A clearer route back into difficult material
-              </CaseStudyHeadline>
-              <KpiCallout className="mt-8">
-                The practice layer connected lesson content with independent
-                revision, giving learners a clearer route back into difficult
-                vocabulary and grammar.
-              </KpiCallout>
+              <CaseStudyLabel>Delivery status</CaseStudyLabel>
+              <h2
+                id="practice-status-heading"
+                className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
+              >
+                Shipped foundation, room to personalise further
+              </h2>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <KaizenFeatureStatus status="shipped" />
+                <KaizenFeatureStatus status="explored" />
+              </div>
+              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+                Core practice flows — vocabulary and grammar exercises, lesson
+                history and confidence markers — were designed and shipped. Deeper
+                personalisation logic was established as a foundation for later
+                development rather than a fully measured retention system.
+              </p>
             </motion.div>
             <motion.div
               initial="hidden"
@@ -234,7 +267,7 @@ export default function KaizenPracticeFeature() {
               viewport={{ once: true }}
               custom={0.06}
               variants={caseStudyFadeUp}
-              className="mt-10 lg:mt-0 lg:flex lg:justify-end"
+              className="mt-10 flex justify-center lg:mt-0"
             >
               <FramedScreen
                 src="/images/work/kaizen-languages/practice/streak-medal.png"
@@ -244,6 +277,25 @@ export default function KaizenPracticeFeature() {
               />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="results-learning"
+        className={cn(caseStudySection, "bg-cream")}
+      >
+        <div className={caseStudyContainer}>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="max-w-3xl"
+          >
+            <KaizenResultsLearningSection
+              data={kaizenStoryResultsLearning.practice}
+            />
+          </motion.div>
         </div>
       </section>
     </KaizenFeatureShell>

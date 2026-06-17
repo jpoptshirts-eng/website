@@ -103,7 +103,7 @@ export const kaizenFeatures: readonly KaizenFeatureMeta[] = [
     shortTitle: "Gamification and retention",
     title: "Designing habits without punishing learners",
     summary:
-      "I introduced streaks, freezes, repairs and progress feedback to encourage regular learning while preserving learner confidence.",
+      "I introduced shipped streak and reward mechanics to encourage regular learning, while exploring recovery concepts for a future phase.",
     problem:
       "The product needed repeat behaviour without making missed days feel punitive.",
     contribution:

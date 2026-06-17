@@ -1,15 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Layers,
-  Pencil,
-  Scale,
-  TrendingUp,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
 import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
@@ -20,81 +12,77 @@ import {
   kaizenStrategy,
   kaizenWriting,
 } from "@/lib/kaizen-languages-data";
+import { kaizenStoryResultsLearning } from "@/lib/kaizen-story-data";
 import { cn } from "@/lib/utils";
 import KaizenFeatureShell from "../KaizenFeatureShell";
 import {
-  BulletList,
-  FigureCaption,
-  iconWrap,
-  KpiCallout,
-  MockupImage,
-} from "../kaizen-shared";
+  KaizenDecisionTradeoff,
+  KaizenResultsLearningSection,
+} from "../kaizen-story-components";
+import { FigureCaption, MockupImage, PhoneScreenMockup } from "../kaizen-shared";
 
-const strategyPoints: {
-  copy: string;
-  icon: LucideIcon;
-}[] = [
-  {
-    copy: kaizenStrategy.points[0],
-    icon: Scale,
-  },
-  {
-    copy: kaizenStrategy.points[1],
-    icon: Users,
-  },
-  {
-    copy: kaizenStrategy.points[2],
-    icon: Pencil,
-  },
-  {
-    copy: kaizenStrategy.points[3],
-    icon: Layers,
-  },
-  {
-    copy: kaizenStrategy.points[4],
-    icon: TrendingUp,
-  },
-];
+const writingPhoneFrame = "/images/work/kaizen-languages/iphone-8-silver-bezel.png";
 
-const evidenceChain = [
-  "User interviews and testing",
-  "Recurring difficulty with Japanese writing",
-  "Unmet need for structure",
-  "Roadmap recommendation",
-  "Traditional learning research",
-  "Digital writing system",
+const subnav = [
+  { id: "roadmap", label: "Roadmap tension" },
+  { id: "customer-research", label: "Customer research" },
+  { id: "domain-research", label: "Domain research" },
+  { id: "learning-model", label: "Learning model" },
+  { id: "interface", label: "Interface" },
+  { id: "validation", label: "Validation" },
+  { id: "results-learning", label: "Results" },
 ] as const;
 
-const writingFlowInfographic = [
+const roadmapTradeoff = {
+  alternative:
+    "Expand intermediate and advanced lesson content as proposed by leadership.",
+  chosen:
+    "Prioritise Hiragana and Katakana foundations for the novice majority.",
+  evidence:
+    "Customer research showed writing was fragmented online; most learners remained beginner level.",
+  consequence:
+    "A structured beginner path from tracing to recall before harder lesson progression.",
+};
+
+const researchToDesign = [
+  {
+    principle: "Characters are learned in structured groups",
+    response: "Organised practice into character sets",
+  },
+  {
+    principle: "Stroke order is fundamental",
+    response: "Animated each stroke in sequence",
+  },
+  {
+    principle: "Beginners require physical guidance",
+    response: "Introduced tracing paths and start/end markers",
+  },
+  {
+    principle: "Support should reduce as competence grows",
+    response: "Removed guidance progressively across three levels",
+  },
+  {
+    principle: "Recall consolidates learning",
+    response: "Added a quiz after each character group",
+  },
+] as const;
+
+const writingLevels = [
   {
     level: "Level 1",
-    focus: "Guided stroke production",
-    support: "Dashed path, start/end markers and animated stroke order",
-    outcome: "Build confidence with vowel-column characters (A, I, U, E, O).",
+    title: "Full tracing guidance",
+    copy: "Dashed path, start/end markers and animated stroke order for vowel-column characters.",
   },
   {
     level: "Level 2",
-    focus: "Reduced guidance",
-    support: "Dashed path removed, markers still visible for orientation",
-    outcome: "Progress into K-column and S-column character families.",
+    title: "Reduced visual guidance",
+    copy: "Dashed path removed; markers remain for K-column and S-column families.",
   },
   {
     level: "Level 3",
-    focus: "Recall and recognition",
-    support: "Guidance removed, then reinforced through short recognition checks",
-    outcome: "Move from tracing to unaided writing and recognition.",
+    title: "Independent recall",
+    copy: "Guidance removed, reinforced through short recognition checks and final quiz.",
   },
-] as const;
-
-const subnav = [
-  { id: "opportunity", label: "Opportunity" },
-  { id: "user-research", label: "User research" },
-  { id: "strategy", label: "Strategy" },
-  { id: "research", label: "Research" },
-  { id: "learning-model", label: "Learning model" },
-  { id: "interface", label: "Interface" },
-  { id: "delivery", label: "Delivery" },
-  { id: "reflection", label: "Reflection" },
 ] as const;
 
 export default function KaizenWritingSystemFeature() {
@@ -107,33 +95,9 @@ export default function KaizenWritingSystemFeature() {
       heroImageAlt={kaizenWriting.heroAlt}
     >
       <section
-        id="opportunity"
+        id="roadmap"
         className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="ws-opportunity-heading"
-      >
-        <div className={caseStudyContainer}>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={caseStudyFadeUp}
-            className="max-w-3xl"
-          >
-            <CaseStudyLabel>Strategic context</CaseStudyLabel>
-            <CaseStudyHeadline id="ws-opportunity-heading">
-              {kaizenStrategy.headline}
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {kaizenStrategy.body}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <section
-        id="user-research"
-        className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="ws-user-research-heading"
+        aria-labelledby="ws-roadmap-heading"
       >
         <div className={caseStudyContainer}>
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
@@ -144,47 +108,74 @@ export default function KaizenWritingSystemFeature() {
               variants={caseStudyFadeUp}
               className="min-w-0"
             >
-              <CaseStudyLabel>User research</CaseStudyLabel>
-              <CaseStudyHeadline id="ws-user-research-heading">
-                The opportunity came from learners
+              <CaseStudyLabel>Strategic context</CaseStudyLabel>
+              <CaseStudyHeadline id="ws-roadmap-heading">
+                {kaizenStrategy.headline}
+              </CaseStudyHeadline>
+              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+                {kaizenStrategy.body}
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-black md:text-lg">
+                The CEO and CTO proposed adding more intermediate and advanced
+                content. The majority of the audience remained novice or beginner.
+                I recommended strengthening foundations through Hiragana and
+                Katakana before expanding advanced lessons.
+              </p>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.06}
+              variants={caseStudyFadeUp}
+              className="mt-10 flex justify-center lg:mt-0 lg:justify-end"
+            >
+              <PhoneScreenMockup
+                screenSrc="/images/work/kaizen-languages/character-a-stroke.png"
+                frameSrc={writingPhoneFrame}
+                alt="Kaizen Languages writing practice screen showing guided stroke tracing for hiragana character A"
+                className="w-full max-w-[14rem] sm:max-w-[15rem]"
+              />
+            </motion.div>
+          </div>
+          <div className="mt-10">
+            <KaizenDecisionTradeoff data={roadmapTradeoff} />
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="customer-research"
+        className={cn(caseStudySection, "bg-cream-muted")}
+        aria-labelledby="ws-customer-heading"
+      >
+        <div className={caseStudyContainer}>
+          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+              className="min-w-0"
+            >
+              <CaseStudyLabel>Customer research</CaseStudyLabel>
+              <CaseStudyHeadline id="ws-customer-heading">
+                Why writing mattered to learners
               </CaseStudyHeadline>
               <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
                 <p>
-                  The direction did not begin with a feature idea. It emerged
-                  through repeated conversations with people learning Japanese.
+                  During testing and interviews, learners repeatedly described
+                  Japanese writing as difficult to learn online. Available tools
+                  felt fragmented, hard to follow or disconnected from speaking
+                  practice.
                 </p>
                 <p>
-                  During testing and interviews, I asked learners how they were
-                  studying, which methods they enjoyed and what helped them feel
-                  that they were making structured progress.
+                  For many beginners, learning characters made progress feel
+                  tangible and helped them move beyond relying entirely on
+                  romaji. They valued tracing, repetition and structured
+                  character practice — not writing as a separate academic
+                  exercise.
                 </p>
-                <p>
-                  A recurring theme was the Japanese writing system. Several learners
-                  had tried to teach themselves hiragana and katakana, but found
-                  the available online experience fragmented, difficult to follow or
-                  disconnected from speaking and listening practice.
-                </p>
-                <p>
-                  For many, learning the characters represented an important next
-                  step. It made their progress feel more tangible and helped them
-                  move beyond relying entirely on romaji.
-                </p>
-                <p>
-                  This revealed an opportunity that was not being addressed by the
-                  existing Kaizen roadmap: rather than adding more advanced
-                  conversational content, we could provide complete beginners with a
-                  structured path into Japanese writing.
-                </p>
-              </div>
-              <div className="mt-10">
-                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange">
-                  Research signal
-                </p>
-                <KpiCallout>
-                  Learners did not see writing as a separate academic exercise. They
-                  saw it as the missing structure that would help them progress
-                  beyond basic conversation.
-                </KpiCallout>
               </div>
             </motion.div>
             <motion.div
@@ -201,8 +192,8 @@ export default function KaizenWritingSystemFeature() {
                 className="rounded-2xl"
               />
               <FigureCaption>
-                Interviewing a learner during research into how people were studying
-                Japanese and where writing practice felt fragmented or disconnected.
+                Interviewing learners about where writing practice felt fragmented
+                or disconnected.
               </FigureCaption>
             </motion.div>
           </div>
@@ -210,9 +201,9 @@ export default function KaizenWritingSystemFeature() {
       </section>
 
       <section
-        id="strategy"
+        id="domain-research"
         className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="ws-strategy-heading"
+        aria-labelledby="ws-domain-heading"
       >
         <div className={caseStudyContainer}>
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
@@ -221,33 +212,23 @@ export default function KaizenWritingSystemFeature() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
-              className="min-w-0"
             >
-              <CaseStudyLabel>Strategy</CaseStudyLabel>
+              <CaseStudyLabel>Domain research</CaseStudyLabel>
               <h2
-                id="ws-strategy-heading"
+                id="ws-domain-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
               >
-                From research insight to product direction
+                How Japanese writing is traditionally taught
               </h2>
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
-                <p>
-                  I used this evidence to challenge the proposed focus on additional
-                  intermediate and expert lessons.
-                </p>
-                <p>
-                  The majority of our audience was still at novice or beginner level.
-                  Introducing writing would deepen the experience for that existing
-                  audience while creating a clearer progression path within the
-                  product.
-                </p>
-                <p>
-                  I then researched how Japanese children traditionally learn hiragana
-                  and katakana—including stroke order, repetition, tracing,
-                  recognition and the gradual removal of guidance—and translated those
-                  principles into a digital learning model.
-                </p>
-              </div>
+              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+                {kaizenWriting.body}
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-black md:text-lg">
+                I studied how children learn hiragana and katakana — character
+                sets, stroke order, tracing, repetition, recognition and the
+                gradual removal of guidance — and translated those principles
+                into a mobile learning model.
+              </p>
             </motion.div>
             <motion.div
               initial="hidden"
@@ -263,195 +244,88 @@ export default function KaizenWritingSystemFeature() {
                 className="rounded-2xl"
               />
               <FigureCaption>
-                I studied Genki and other beginner learning materials to understand
-                how hiragana and katakana are introduced through stroke order,
-                repetition and guided practice.
+                Reference materials including Genki informed stroke order,
+                repetition and guided practice patterns.
               </FigureCaption>
             </motion.div>
           </div>
 
-          <div className="mt-10 max-w-5xl">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-orange">
-              Evidence chain
-            </p>
-            <ol className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-1.5">
-              {evidenceChain.map((step, index) => (
-                <li key={step} className="flex items-center gap-1.5">
-                  <span className="rounded-lg border border-border bg-cream-muted px-3 py-2 text-xs font-medium text-black sm:text-sm">
-                    {step}
-                  </span>
-                  {index < evidenceChain.length - 1 ? (
-                    <ArrowRight
-                      className="hidden h-3.5 w-3.5 shrink-0 text-orange sm:block"
-                      aria-hidden
-                    />
-                  ) : null}
-                </li>
-              ))}
-            </ol>
-          </div>
-
-          <div className="-mx-6 mt-12 overflow-x-auto px-6 scrollbar-none lg:mx-0 lg:overflow-visible lg:px-0">
-            <ul className="flex min-w-max gap-4 lg:min-w-0 lg:grid lg:grid-cols-5 lg:gap-5">
-              {strategyPoints.map((point, index) => {
-                const Icon = point.icon;
-                return (
-                  <motion.li
-                    key={point.copy}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-30px" }}
-                    custom={index * 0.04}
-                    variants={caseStudyFadeUp}
-                    className="w-[17rem] shrink-0 rounded-2xl border border-border bg-cream-muted p-6 md:w-[18rem] lg:w-auto lg:shrink"
-                  >
-                    <div
-                      className={cn(
-                        iconWrap,
-                        "mb-4 h-11 w-11",
-                        index % 2 === 1 && "bg-soft-pink",
-                      )}
-                    >
-                      <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
-                    </div>
-                    <p className="text-sm leading-relaxed text-black md:text-base">
-                      {point.copy}
-                    </p>
-                  </motion.li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="research"
-        className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="ws-research-heading"
-      >
-        <div className={caseStudyContainer}>
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={caseStudyFadeUp}
-            >
-              <CaseStudyLabel>Research</CaseStudyLabel>
-              <h2
-                id="ws-research-heading"
-                className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
-              >
-                How Japanese writing is traditionally learned
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-                {kaizenWriting.body}
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-black md:text-lg">
-                Research covered how children learn characters through repetition
-                and stroke order, guided versus unguided practice, recognition
-                versus production, and the gradual withdrawal of support.
-              </p>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={0.06}
-              variants={caseStudyFadeUp}
-              className="mt-10 lg:mt-0"
-            >
-              <MockupImage
-                src="/images/work/kaizen-languages/process/research-synthesis.jpeg"
-                alt="Research themes organised with coloured sticky notes"
-                className="rounded-2xl"
-              />
-              <FigureCaption>
-                Research synthesis mapping learning behaviour, feature themes and
-                beginner needs.
-              </FigureCaption>
-            </motion.div>
+          <div className="mt-12 overflow-x-auto">
+            <table className="w-full min-w-[32rem] border-collapse text-left text-sm md:text-base">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="py-3 pr-4 font-bold text-black">
+                    Research principle
+                  </th>
+                  <th className="py-3 font-bold text-black">Design response</th>
+                </tr>
+              </thead>
+              <tbody>
+                {researchToDesign.map((row) => (
+                  <tr key={row.principle} className="border-b border-border">
+                    <td className="py-4 pr-4 text-black">{row.principle}</td>
+                    <td className="py-4 text-grey">{row.response}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
       <section
         id="learning-model"
-        className={cn(caseStudySection, "bg-white")}
+        className={cn(caseStudySection, "bg-cream-muted")}
         aria-labelledby="ws-learning-heading"
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Learning architecture</CaseStudyLabel>
+          <CaseStudyLabel>Learning model</CaseStudyLabel>
           <CaseStudyHeadline id="ws-learning-heading">
-            Progressive support from guided writing to recall
+            Progressive support from tracing to recall
           </CaseStudyHeadline>
-          <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-black md:text-lg">
-            <p>
-              Once the opportunity was clear, the next challenge was translating
-              traditional writing instruction into a progression that worked on a
-              mobile device.
-            </p>
-            <p>{kaizenWriting.body2}</p>
+          <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
+            {kaizenWriting.body2}
+          </p>
+
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {writingLevels.map((stage, index) => (
+              <motion.div
+                key={stage.level}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-30px" }}
+                custom={index * 0.04}
+                variants={caseStudyFadeUp}
+                className="rounded-2xl border border-border bg-white p-5 md:p-6"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-orange">
+                  {stage.level}
+                </p>
+                <h3 className="mt-2 font-bold text-black">{stage.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                  {stage.copy}
+                </p>
+                {index < writingLevels.length - 1 ? (
+                  <ArrowRight
+                    className="mt-4 h-4 w-4 text-orange lg:hidden"
+                    aria-hidden
+                  />
+                ) : null}
+              </motion.div>
+            ))}
           </div>
 
-          <figure className="mt-10">
-            <div className="rounded-2xl border border-border bg-cream-muted p-5 md:p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-orange">
-                Writing progression infographic
-              </p>
-              <div className="mt-4 grid gap-4 lg:grid-cols-3">
-                {writingFlowInfographic.map((stage, index) => (
-                  <div
-                    key={stage.level}
-                    className="rounded-2xl border border-border bg-white p-5"
-                  >
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-orange">
-                      {stage.level}
-                    </p>
-                    <h3 className="mt-2 font-bold text-black">{stage.focus}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-grey">
-                      {stage.support}
-                    </p>
-                    <p className="mt-3 text-sm font-medium leading-relaxed text-black">
-                      {stage.outcome}
-                    </p>
-                    {index < writingFlowInfographic.length - 1 ? (
-                      <ArrowRight
-                        className="mt-4 h-4 w-4 text-orange lg:hidden"
-                        aria-hidden
-                      />
-                    ) : null}
-                  </div>
-                ))}
-              </div>
-            </div>
+          <figure className="mt-12">
+            <MockupImage
+              src="/images/work/kaizen-languages/writing-kanji-showcase.png"
+              alt="Collage of Kaizen Languages writing screens showing kanji introduction, tracing practice, character detail and lesson progression."
+              className="w-full"
+            />
             <FigureCaption>
-              Reconstructed from the original planning flow: the model moved
-              learners from guided stroke production to reduced support and then
-              unaided writing with recognition checks.
+              Writing progression from character introduction and guided tracing
+              through detail views and structured lesson sets.
             </FigureCaption>
           </figure>
-
-          <div className="mt-12 lg:grid lg:grid-cols-2 lg:gap-12">
-            <div>
-              <h3 className="font-bold text-black">Learning model</h3>
-              <BulletList items={kaizenWriting.learningModel} />
-            </div>
-            <div className="mt-8 flex flex-col gap-4 lg:mt-0">
-              {kaizenWriting.levels.map((level) => (
-                <div
-                  key={level.title}
-                  className="rounded-2xl border border-border bg-white p-5"
-                >
-                  <p className="font-bold text-black">{level.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-grey">
-                    {level.copy}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -503,9 +377,9 @@ export default function KaizenWritingSystemFeature() {
       </section>
 
       <section
-        id="delivery"
+        id="validation"
         className={cn(caseStudySection, "bg-cream-muted")}
-        aria-labelledby="ws-delivery-heading"
+        aria-labelledby="ws-validation-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -514,24 +388,26 @@ export default function KaizenWritingSystemFeature() {
             viewport={{ once: true }}
             variants={caseStudyFadeUp}
           >
-            <CaseStudyLabel>Delivery</CaseStudyLabel>
+            <CaseStudyLabel>Validation</CaseStudyLabel>
             <h2
-              id="ws-delivery-heading"
+              id="ws-validation-heading"
               className="max-w-3xl text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
             >
-              Collaboration across language, engineering and testing
+              Testing and delivery
             </h2>
-            <div className="mt-8 lg:grid lg:grid-cols-2 lg:items-center lg:gap-10 xl:gap-14">
-              <p className="text-base leading-relaxed text-black md:text-lg">
-                {kaizenWriting.collaboration}
-              </p>
-              <KpiCallout
-                icon="star"
-                className="mt-8 lg:mt-0 [&_p]:text-lg [&_p]:md:text-xl"
-              >
-                62% NPS in testing. {kaizenWriting.result}
-              </KpiCallout>
-            </div>
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
+              {kaizenWriting.collaboration}
+            </p>
+            <ul className="mt-8 max-w-3xl space-y-3 text-base leading-relaxed text-black md:text-lg">
+              <li>
+                <span className="font-bold">62% NPS</span> in testing.
+              </li>
+              <li>Learners remained engaged with the tracing mechanic.</li>
+              <li>
+                Learners recalled the majority of characters during the final
+                quiz. {kaizenWriting.result}
+              </li>
+            </ul>
           </motion.div>
         </div>
       </section>
@@ -539,9 +415,8 @@ export default function KaizenWritingSystemFeature() {
       <CaseStudyQuote text={kaizenQuotes[1]} />
 
       <section
-        id="reflection"
+        id="results-learning"
         className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="ws-reflection-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -551,16 +426,9 @@ export default function KaizenWritingSystemFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Reflection</CaseStudyLabel>
-            <CaseStudyHeadline id="ws-reflection-heading">
-              From conversation practice to a broader beginner proposition
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              The writing system expanded Kaizen from conversational practice
-              into a broader beginner-learning proposition. It gave novice
-              learners a clearer progression route and connected customer need
-              with longer-term retention and product depth.
-            </p>
+            <KaizenResultsLearningSection
+              data={kaizenStoryResultsLearning["writing-system"]}
+            />
           </motion.div>
         </div>
       </section>

@@ -156,25 +156,33 @@ export const kaizenVisualDirection = {
       title: "Photography-led",
       icon: "camera" as const,
       hypothesis:
-        "The hypothesis was that seeing real people and places would make the AI experience feel more credible, human and culturally connected.",
+        "Real people and places would make the AI experience feel credible, human and culturally connected.",
+      learnerResponse:
+        "Strongest response. Learners felt the experience was more authentic and tutor-like.",
     },
     {
       title: "Illustration direction one",
       icon: "sparkles" as const,
       hypothesis:
-        "The hypothesis was that a playful visual language could reduce anxiety and make starting a new language feel less intimidating.",
+        "A playful visual language could reduce anxiety and make starting a new language feel less intimidating.",
+      learnerResponse:
+        "Approachable, but less convincing as a genuine tutor before the first lesson.",
     },
     {
       title: "Illustration direction two",
       icon: "palette" as const,
       hypothesis:
-        "The hypothesis was that a more considered visual style could help the product feel distinctive and provide it with a stronger identity.",
+        "A more considered visual style could help the product feel distinctive and memorable.",
+      learnerResponse:
+        "Distinctive identity, but colder and less human than photography.",
     },
     {
       title: "Hybrid direction",
       icon: "layers" as const,
       hypothesis:
-        "The hypothesis was that photography could provide trust and realism, while illustration added warmth, flexibility and personality.",
+        "Photography could provide trust while illustration added warmth and flexibility.",
+      learnerResponse:
+        "Interesting combination, but felt less consistent than a single clear direction.",
     },
   ],
   heroImage: {
@@ -484,9 +492,9 @@ export const kaizenRetention = {
   headline: "Turning first-time use into repeat behaviour",
   body: "Once the core lesson experience improved, the next challenge was retention. I looked at how learning products create momentum and studied gamified patterns used by competitors. This led to the introduction of streaks and reward systems that encouraged daily return behaviour.",
   results: [
-    "Retention increased by over 35% after introducing streaks",
-    "Kaizen achieved 40% Day 1 retention versus an education-tech average of 14.5%",
-    "Kaizen achieved 22% Week 1 retention versus an average of 4.6%",
+    "Retention increased by more than 35% following the introduction of shipped streak mechanics",
+    "Day 1 retention reached 40%",
+    "Week 1 retention reached 22%",
   ],
   image: "/images/work/kaizen-languages/final-img.jpg",
   imageAlt:
@@ -501,10 +509,10 @@ export const kaizenConversion = {
   },
   freeLessons: {
     headline: "Balancing user value with subscription conversion",
-    body: "I used analytics and A/B testing to understand how lesson access influenced subscription behaviour. One experiment tested whether offering 2 or 3 free lessons per day led to stronger premium conversion. The data showed that limiting access to 2 free lessons increased subscription conversion from 1.15% to 1.3%, resulting in a 13% increase in premium customers.",
+    body: "I used analytics and A/B testing to understand how lesson access influenced subscription behaviour. One experiment tested whether offering two or three free lessons per day led to stronger premium conversion.",
     point:
       "This was not about adding friction for the sake of conversion. It was about finding the right balance between giving users enough value to understand the product and creating a clear reason to subscribe.",
-    result: "+13% increase in premium customers.",
+    result: "Approximately 13% relative premium-conversion uplift (1.15% to 1.3%).",
     image: "/images/work/kaizen-languages/mockup-free-lessons.png",
     imageAlt:
       "Kaizen Languages free daily lessons limit screen encouraging subscription.",
@@ -535,14 +543,14 @@ export const kaizenProof = {
     "Research, moderated testing and product analytics challenged the assumption that more advanced content alone would improve retention. The strongest gains came from recovery design, beginner foundations and small, measurable experiments.",
   cards: [
     {
-      title: "Completion improved through character control",
+      title: "Recovery improved lesson completion",
       copy:
-        "Giving learners the option to switch between Romaji, Hiragana and Kanji gave them more control over difficulty and increased lesson completion by 25%.",
+        "Suggestion helped learners recover from pronunciation failure without leaving the lesson, increasing completions by 25%.",
     },
     {
       title: "Writing validated active learning",
       copy:
-        "The writing feature was shaped around stroke order, repetition and recall, then validated with a 62% NPS, 12% above average.",
+        "The writing feature was shaped around stroke order, repetition and recall, then validated with a 62% NPS in testing.",
     },
     {
       title: "Small pricing changes improved conversion",
@@ -574,8 +582,8 @@ export const kaizenImpact = {
     },
     {
       metric: "+13%",
-      title: "Premium customers",
-      copy: "By reducing free lessons from 3 to 2 per day.",
+      title: "Premium conversion",
+      copy: "Approximately 13% relative uplift by reducing free lessons from three to two per day.",
     },
     {
       metric: "+20%",
@@ -595,12 +603,12 @@ export const kaizenImpact = {
     {
       metric: "40% / 22%",
       title: "Day 1 and Week 1 retention",
-      copy: "Versus education-tech benchmarks of 14.5% and 4.6%.",
+      copy: "After shipped gamification mechanics.",
     },
     {
       metric: "62% NPS",
       title: "Writing feature",
-      copy: "12% above average, with strong engagement in testing.",
+      copy: "Validated in testing with strong engagement.",
     },
   ],
 };

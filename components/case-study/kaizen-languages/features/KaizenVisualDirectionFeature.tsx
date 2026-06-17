@@ -6,12 +6,16 @@ import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
 import { caseStudyContainer, caseStudySection } from "@/lib/case-study-layout";
 import { kaizenVisualDirection } from "@/lib/kaizen-languages-data";
+import { kaizenStoryResultsLearning } from "@/lib/kaizen-story-data";
 import { cn } from "@/lib/utils";
 import KaizenFeatureShell from "../KaizenFeatureShell";
 import {
+  KaizenDecisionTradeoff,
+  KaizenResultsLearningSection,
+} from "../kaizen-story-components";
+import {
   FigureCaption,
   iconWrap,
-  KpiCallout,
   MockupImage,
   visualDirectionIcons,
 } from "../kaizen-shared";
@@ -22,8 +26,17 @@ const subnav = [
   { id: "routes", label: "Four routes" },
   { id: "testing", label: "Testing" },
   { id: "constraint", label: "Constraint" },
-  { id: "reflection", label: "Reflection" },
+  { id: "results-learning", label: "Results" },
 ] as const;
+
+const photographyTradeoff = {
+  alternative: "Photography-led direction — strongest learner preference in testing.",
+  chosen:
+    "Scalable illustration system retaining warmth and human connection.",
+  evidence: "Unsustainable production cost for an early-stage startup.",
+  consequence:
+    "A distinctive visual identity the business could maintain while preserving approachability.",
+};
 
 export default function KaizenVisualDirectionFeature() {
   return (
@@ -49,7 +62,7 @@ export default function KaizenVisualDirectionFeature() {
           >
             <CaseStudyLabel>Context</CaseStudyLabel>
             <CaseStudyHeadline id="vd-context-heading">
-              {kaizenVisualDirection.headline}
+              Building trust in an unfamiliar AI experience
             </CaseStudyHeadline>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
               {kaizenVisualDirection.intro.map((paragraph) => (
@@ -78,17 +91,30 @@ export default function KaizenVisualDirectionFeature() {
               id="vd-competitors-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
             >
-              What established products could — and could not — tell us
+              Useful conventions, but not the answer
             </h2>
             <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
               I reviewed onboarding, lesson structures, visual tone, tutor
-              representation, trust signals and learning progression across
-              established language-learning products. They offered useful
-              patterns, but none provided the same AI conversation proposition.
-              The visual direction had to build credibility for technology that
-              learners had not yet experienced.
+              representation and learning progression across established
+              language-learning products. They offered useful patterns for
+              introducing a new language, but none answered how an AI tutor
+              should appear before conversational AI was widely understood. The
+              visual direction had to build credibility for technology learners
+              had not yet experienced.
             </p>
           </motion.div>
+
+          <figure className="mt-10">
+            <MockupImage
+              src="/images/work/kaizen-languages/visual-direction-competitors.jpg"
+              alt="Comparison of Duolingo, Babbel, Busuu and Memrise mobile app interfaces reviewed during competitor analysis."
+              className="w-full"
+            />
+            <FigureCaption>
+              Established language-learning products reviewed for onboarding,
+              lesson structure and visual conventions.
+            </FigureCaption>
+          </figure>
         </div>
       </section>
 
@@ -126,9 +152,17 @@ export default function KaizenVisualDirectionFeature() {
                     >
                       <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
                     </div>
-                    <h3 className="font-bold text-black">{route.title}</h3>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-orange">
+                      Direction
+                    </p>
+                    <h3 className="mt-1 font-bold text-black">{route.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                      <span className="font-semibold text-black">Hypothesis:</span>{" "}
                       {route.hypothesis}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
+                      <span className="font-semibold text-black">Learner response:</span>{" "}
+                      {route.learnerResponse}
                     </p>
                   </motion.li>
                 );
@@ -143,8 +177,7 @@ export default function KaizenVisualDirectionFeature() {
               className="w-full"
             />
             <FigureCaption>
-              Reconstructed representation of the four directions explored. The
-              original route files are no longer available.
+              Reconstructed representation of the four directions explored.
             </FigureCaption>
           </figure>
         </div>
@@ -211,7 +244,7 @@ export default function KaizenVisualDirectionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Business constraint</CaseStudyLabel>
+            <CaseStudyLabel>Final direction</CaseStudyLabel>
             <h2
               id="vd-constraint-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -223,20 +256,29 @@ export default function KaizenVisualDirectionFeature() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <p className="mt-8 border-l-2 border-orange pl-6 text-base font-bold leading-relaxed text-black md:text-lg">
-              Design decision: {kaizenVisualDirection.constraint.decision}
-            </p>
-            <p className="mt-6 text-base leading-relaxed text-grey md:text-lg">
-              {kaizenVisualDirection.constraint.supporting}
-            </p>
           </motion.div>
+
+          <figure className="mt-10">
+            <MockupImage
+              src="/images/work/kaizen-languages/visual-direction-routes-figma.jpg"
+              alt="Figma board showing three explored app design routes with onboarding, sign-up and lesson flows."
+              className="w-full"
+            />
+            <FigureCaption>
+              Figma exploration of three onboarding and lesson flows built while
+              comparing visual directions.
+            </FigureCaption>
+          </figure>
+
+          <div className="mt-10">
+            <KaizenDecisionTradeoff data={photographyTradeoff} columns={4} />
+          </div>
         </div>
       </section>
 
       <section
-        id="reflection"
+        id="results-learning"
         className={cn(caseStudySection, "bg-cream")}
-        aria-labelledby="vd-reflection-heading"
       >
         <div className={caseStudyContainer}>
           <motion.div
@@ -244,22 +286,19 @@ export default function KaizenVisualDirectionFeature() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={caseStudyFadeUp}
-            className="max-w-3xl"
           >
-            <CaseStudyLabel>Reflection</CaseStudyLabel>
-            <CaseStudyHeadline id="vd-reflection-heading">
-              Evidence-led recommendation, pragmatic adaptation
-            </CaseStudyHeadline>
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              Photography received the strongest response in testing, but the
-              startup could not sustain that production model. The illustration
-              system I built retained warmth and human connection within a
-              scalable direction — a reminder that the best evidence does not
-              always map directly to the first execution path.
-            </p>
-            <KpiCallout className="mt-8">
-              {kaizenVisualDirection.transitionToAi}
-            </KpiCallout>
+            <KaizenResultsLearningSection
+              data={kaizenStoryResultsLearning["visual-direction"]}
+              aside={
+                <MockupImage
+                  src="/images/work/kaizen-languages/iphone-payments-mockup.png"
+                  alt="Kaizen Languages Go premium subscription screen on iPhone"
+                  className="h-auto w-full max-w-[328px] sm:max-w-[344px] lg:max-w-[360px]"
+                  width={1200}
+                  height={2000}
+                />
+              }
+            />
           </motion.div>
         </div>
       </section>
