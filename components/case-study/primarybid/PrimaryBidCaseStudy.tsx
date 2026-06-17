@@ -5,16 +5,22 @@ import { useCallback, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
+  Building2,
   ClipboardList,
   Compass,
   Eye,
+  Layers,
   Maximize2,
+  MessageSquare,
   Monitor,
   Repeat,
+  RotateCcw,
+  Route,
   Search,
   Smartphone,
   Tablet,
   UserCog,
+  Users,
   X,
 } from "lucide-react";
 import CaseStudyLabel from "@/components/case-study/CaseStudyLabel";
@@ -34,7 +40,6 @@ import {
   primaryBidArchetypes,
   primaryBidBroker,
   primaryBidChallenge,
-  primaryBidComponents,
   primaryBidCrossChannel,
   primaryBidEngineering,
   primaryBidHero,
@@ -55,6 +60,7 @@ import {
   primaryBidTimeSensitive,
   primaryBidValidatingDemand,
   primaryBidVerbatims,
+  primaryBidWiderContribution,
 } from "@/lib/primarybid-data";
 import { cn } from "@/lib/utils";
 
@@ -74,6 +80,18 @@ const orderOutcomeIcons = {
   visibility: ClipboardList,
   control: UserCog,
   discovery: Compass,
+};
+
+const brokerDashboardIcons = {
+  route: Route,
+  message: MessageSquare,
+  users: Users,
+};
+
+const additionalImprovementIcons = {
+  recovery: RotateCcw,
+  broker: Building2,
+  ipo: Layers,
 };
 
 function FigureCaption({ children }: { children: ReactNode }) {
@@ -321,32 +339,33 @@ export default function PrimaryBidCaseStudy() {
             className="mt-12 border-t border-border pt-10 md:pt-12"
             aria-labelledby="pb-my-role-heading"
           >
-            <div className="lg:grid lg:grid-cols-2 lg:gap-10 xl:gap-14">
-              <div>
-                <div className="mb-5 flex flex-col items-start gap-3">
-                  <div className="relative h-[4.5rem] w-[4rem] shrink-0 overflow-hidden rounded-[50%] bg-soft-pink ring-2 ring-orange/15 sm:h-20 sm:w-[4.5rem]">
-                    <CaseStudyMockupImage
-                      src={primaryBidMyRole.avatar}
-                      alt={primaryBidMyRole.avatarAlt}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <h2
-                    id="pb-my-role-heading"
-                    className="text-2xl font-black tracking-tight text-black md:text-3xl"
-                  >
-                    {primaryBidMyRole.title}
-                  </h2>
+            <div>
+              <div className="mb-5 flex flex-col items-start gap-3">
+                <div className="relative h-[4.5rem] w-[4rem] shrink-0 overflow-hidden rounded-[50%] bg-soft-pink ring-2 ring-orange/15 sm:h-20 sm:w-[4.5rem]">
+                  <CaseStudyMockupImage
+                    src={primaryBidMyRole.avatar}
+                    alt={primaryBidMyRole.avatarAlt}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-                <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
-                  <p>{primaryBidMyRole.body}</p>
-                  <p>{primaryBidMyRole.body2}</p>
-                </div>
+                <h2
+                  id="pb-my-role-heading"
+                  className="text-2xl font-black tracking-tight text-black md:text-3xl"
+                >
+                  {primaryBidMyRole.title}
+                </h2>
               </div>
-              <div className="mt-8 lg:mt-0 lg:flex lg:flex-col lg:justify-center">
-                <p className="text-base leading-relaxed text-black md:text-lg">
-                  {primaryBidMyRole.body3}
-                </p>
+              <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14">
+                <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
+                  {primaryBidMyRole.body.slice(0, 2).map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <div className="mt-8 space-y-4 text-base leading-relaxed text-black md:mt-0 md:text-lg">
+                  {primaryBidMyRole.body.slice(2).map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
@@ -610,7 +629,7 @@ export default function PrimaryBidCaseStudy() {
 
       {/* Chapter 3 — Strategy */}
       <section
-        id="cross-channel"
+        id="strategy"
         className={cn(caseStudySection, "bg-white")}
         aria-labelledby="pb-cross-channel-heading"
       >
@@ -631,32 +650,47 @@ export default function PrimaryBidCaseStudy() {
               </p>
 
               <div className="mt-8 space-y-4">
-                {[primaryBidCrossChannel.mobile, primaryBidCrossChannel.web].map(
-                  (channel) => (
-                    <article
-                      key={channel.title}
-                      className="rounded-2xl border border-border bg-[#FFF0E8] p-6"
-                    >
-                      <h3 className="text-lg font-bold text-black">
-                        {channel.title}
-                      </h3>
-                      <ul className="mt-4 space-y-2">
-                        {channel.points.map((point) => (
-                          <li
-                            key={point}
-                            className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
-                          >
-                            <span
-                              className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                              aria-hidden
-                            />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-                    </article>
-                  ),
-                )}
+                <article className="rounded-2xl border border-border bg-[#FFF0E8] p-6">
+                  <h3 className="text-lg font-bold text-black">
+                    {primaryBidCrossChannel.nativeApp.title}
+                  </h3>
+                  <ul className="mt-4 space-y-2">
+                    {primaryBidCrossChannel.nativeApp.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
+                      >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                          aria-hidden
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-xs leading-relaxed text-grey">
+                    {primaryBidCrossChannel.nativeApp.note}
+                  </p>
+                </article>
+                <article className="rounded-2xl border border-border bg-[#FFF0E8] p-6">
+                  <h3 className="text-lg font-bold text-black">
+                    {primaryBidCrossChannel.web.title}
+                  </h3>
+                  <ul className="mt-4 space-y-2">
+                    {primaryBidCrossChannel.web.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
+                      >
+                        <span
+                          className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                          aria-hidden
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               </div>
             </motion.div>
 
@@ -669,8 +703,8 @@ export default function PrimaryBidCaseStudy() {
               className="mt-10 flex items-center justify-center lg:mt-0"
             >
               <CaseStudyMockupImage
-                src={primaryBidCrossChannel.mobileImage}
-                alt={primaryBidCrossChannel.mobileImageAlt}
+                src={primaryBidCrossChannel.nativeAppImage}
+                alt={primaryBidCrossChannel.nativeAppImageAlt}
                 className="h-auto w-full max-w-[14rem] sm:max-w-[16rem] lg:max-w-[18rem]"
               />
             </motion.figure>
@@ -771,9 +805,9 @@ export default function PrimaryBidCaseStudy() {
         </div>
       </section>
 
-      {/* Chapter 4 — Platform */}
+      {/* Chapter 4 — T-Web */}
       <section
-        id="responsive"
+        id="t-web"
         className={cn(caseStudySection, "bg-cream-muted")}
         aria-labelledby="pb-responsive-heading"
       >
@@ -933,55 +967,51 @@ export default function PrimaryBidCaseStudy() {
         aria-labelledby="pb-payment-heading"
       >
         <div className={caseStudyContainer}>
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={caseStudyFadeUp}
-            >
-              <CaseStudyLabel>{primaryBidPayment.label}</CaseStudyLabel>
-              <CaseStudyHeadline id="pb-payment-heading">
-                {primaryBidPayment.headline}
-              </CaseStudyHeadline>
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
-                {primaryBidPayment.body.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+          >
+            <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+              <div>
+                <CaseStudyLabel>{primaryBidPayment.label}</CaseStudyLabel>
+                <CaseStudyHeadline id="pb-payment-heading">
+                  {primaryBidPayment.headline}
+                </CaseStudyHeadline>
+                <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
+                  {primaryBidPayment.body.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
-              <div className="mt-8">
+              <div className="mt-8 lg:mt-0">
                 <JourneyPills steps={primaryBidPayment.process} />
+                <ul className="mt-8 space-y-3">
+                  {primaryBidPayment.decisions.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
+                    >
+                      <span
+                        className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
+                        aria-hidden
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-8 space-y-3">
-                {primaryBidPayment.decisions.map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-3 text-sm leading-relaxed text-black md:text-base"
-                  >
-                    <span
-                      className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange"
-                      aria-hidden
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            <motion.figure
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={0.08}
-              variants={caseStudyFadeUp}
-              className="mt-10 lg:mt-0"
-            >
+            </div>
+
+            <figure className="mt-10">
               <CaseStudyMockupImage
                 src={primaryBidPayment.image}
                 alt={primaryBidPayment.imageAlt}
                 className="w-full"
               />
-            </motion.figure>
-          </div>
+            </figure>
+          </motion.div>
         </div>
       </section>
 
@@ -1154,63 +1184,138 @@ export default function PrimaryBidCaseStudy() {
       </section>
 
       <section
-        id="components"
+        id="wider-contribution"
         className={cn(caseStudySection, "bg-white")}
-        aria-labelledby="pb-components-heading"
+        aria-labelledby="pb-wider-contribution-heading"
       >
         <div className={caseStudyContainer}>
-          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={caseStudyFadeUp}
-            >
-              <CaseStudyLabel>{primaryBidComponents.label}</CaseStudyLabel>
-              <CaseStudyHeadline id="pb-components-heading">
-                {primaryBidComponents.headline}
-              </CaseStudyHeadline>
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
-                {primaryBidComponents.body.map((paragraph) => (
+          <SectionIntro
+            label={primaryBidWiderContribution.label}
+            headline={primaryBidWiderContribution.headline}
+            headlineId="pb-wider-contribution-heading"
+          >
+            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+              {primaryBidWiderContribution.intro}
+            </p>
+          </SectionIntro>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-16 border-t border-border pt-12 md:pt-16"
+            aria-labelledby="pb-broker-dashboard-heading"
+          >
+            <CaseStudyLabel>
+              {primaryBidWiderContribution.brokerDashboard.label}
+            </CaseStudyLabel>
+            <CaseStudyHeadline id="pb-broker-dashboard-heading">
+              {primaryBidWiderContribution.brokerDashboard.headline}
+            </CaseStudyHeadline>
+            <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-black md:text-lg">
+              {primaryBidWiderContribution.brokerDashboard.body.map(
+                (paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ),
+              )}
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-3">
+              {primaryBidWiderContribution.brokerDashboard.cards.map(
+                (card, index) => {
+                  const Icon = brokerDashboardIcons[card.icon];
+                  return (
+                    <motion.article
+                      key={card.title}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: "-30px" }}
+                      custom={index * 0.04}
+                      variants={caseStudyFadeUp}
+                      className="rounded-2xl border border-border bg-[#FFF0E8] p-6"
+                    >
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-white">
+                        <Icon
+                          className="h-5 w-5 text-orange"
+                          strokeWidth={1.75}
+                        />
+                      </div>
+                      <h3 className="font-bold text-black">{card.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-grey">
+                        {card.copy}
+                      </p>
+                    </motion.article>
+                  );
+                },
+              )}
+            </div>
+
+            <figure className="mt-10">
+              <CaseStudyMockupImage
+                src={primaryBidWiderContribution.brokerDashboard.image}
+                alt={primaryBidWiderContribution.brokerDashboard.imageAlt}
+                className="w-full rounded-xl border border-border"
+              />
+            </figure>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={caseStudyFadeUp}
+            className="mt-16 border-t border-border pt-12 md:pt-16"
+            aria-labelledby="pb-ipo-system-heading"
+          >
+            <CaseStudyLabel>
+              {primaryBidWiderContribution.ipoSystem.label}
+            </CaseStudyLabel>
+            <CaseStudyHeadline id="pb-ipo-system-heading">
+              {primaryBidWiderContribution.ipoSystem.headline}
+            </CaseStudyHeadline>
+            <div className="mt-10 lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+              <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
+                {primaryBidWiderContribution.ipoSystem.body.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
+                <p>{primaryBidWiderContribution.ipoSystem.closing}</p>
               </div>
-            </motion.div>
+
+              <motion.figure
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={0.08}
+                variants={caseStudyFadeUp}
+                className="mt-10 lg:mt-0"
+              >
+                <CaseStudyMockupImage
+                  src={primaryBidWiderContribution.ipoSystem.asideImage.src}
+                  alt={primaryBidWiderContribution.ipoSystem.asideImage.alt}
+                  className="w-full"
+                />
+              </motion.figure>
+            </div>
 
             <motion.figure
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
-              custom={0.08}
+              viewport={{ once: true, margin: "-30px" }}
               variants={caseStudyFadeUp}
-              className="mt-10 lg:mt-0"
+              className="mt-10"
             >
               <CaseStudyMockupImage
-                src={primaryBidComponents.asideImage.src}
-                alt={primaryBidComponents.asideImage.alt}
+                src={primaryBidWiderContribution.ipoSystem.fullWidthImage.src}
+                alt={primaryBidWiderContribution.ipoSystem.fullWidthImage.alt}
                 className="w-full"
               />
             </motion.figure>
-          </div>
-
-          <motion.figure
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-30px" }}
-            variants={caseStudyFadeUp}
-            className="mt-10"
-          >
-            <CaseStudyMockupImage
-              src={primaryBidComponents.fullWidthImage.src}
-              alt={primaryBidComponents.fullWidthImage.alt}
-              className="w-full"
-            />
-          </motion.figure>
+          </motion.div>
         </div>
       </section>
 
       <section
-        id="engineering"
         className={cn(caseStudySection, "bg-cream")}
         aria-labelledby="pb-engineering-heading"
       >
@@ -1251,7 +1356,6 @@ export default function PrimaryBidCaseStudy() {
       </section>
 
       <section
-        id="mentoring"
         className={cn(caseStudySection, "bg-white")}
         aria-labelledby="pb-mentoring-heading"
       >
@@ -1323,22 +1427,31 @@ export default function PrimaryBidCaseStudy() {
             {primaryBidAdditional.headline}
           </h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {primaryBidAdditional.cards.map((card, index) => (
-              <motion.article
-                key={card.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                custom={index * 0.04}
-                variants={caseStudyFadeUp}
-                className="rounded-xl border border-border bg-cream-muted p-5"
-              >
-                <h3 className="text-sm font-bold text-black">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-grey">
-                  {card.copy}
-                </p>
-              </motion.article>
-            ))}
+            {primaryBidAdditional.cards.map((card, index) => {
+              const Icon = additionalImprovementIcons[card.icon];
+              return (
+                <motion.article
+                  key={card.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-30px" }}
+                  custom={index * 0.04}
+                  variants={caseStudyFadeUp}
+                  className="rounded-xl border border-border bg-cream-muted p-5 md:p-6"
+                >
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FFE4D6]">
+                    <Icon
+                      className="h-5 w-5 text-orange"
+                      strokeWidth={1.75}
+                    />
+                  </div>
+                  <h3 className="text-sm font-bold text-black">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-grey">
+                    {card.copy}
+                  </p>
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </section>
