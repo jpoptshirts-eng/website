@@ -6,7 +6,7 @@ import PrimaryBidCaseStudy from "@/components/case-study/primarybid/PrimaryBidCa
 export const metadata: Metadata = {
   title: "PrimaryBid — Case Study | Jacinto De Matos",
   description:
-    "Designing confidence into regulated investment journeys. A PrimaryBid case study on fintech UX, high-trust product design and scalable financial workflows.",
+    "Designing a cross-channel investment platform for PrimaryBid — product strategy, regulated UX and responsive transactional web across research, applications and order tracking.",
 };
 
 export default function PrimaryBidPage() {
