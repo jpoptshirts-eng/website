@@ -673,6 +673,10 @@ export const mealPlansReflection = {
   body: "Meal Plans proved that customers saw value in guided planning, but it also revealed that the strongest experience depends on the systems beneath the interface: recipe data, tagging, content quality, accessibility, personalisation and basket logic.",
   body2:
     "The value was not just helping customers pick recipes. It was helping them turn food inspiration into a practical, repeatable shopping journey.",
+  liveLink: {
+    href: "https://www.waitrose.com/ecom/recipes/meal-plans",
+    label: "View Meal Plans on Waitrose",
+  },
   image: "/images/work/meal-plans/convention.png",
   imageAlt:
     "Mobile mockup showing the recipe name convention editor within the Meal Plans experience.",

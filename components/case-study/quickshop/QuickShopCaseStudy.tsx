@@ -23,6 +23,7 @@ import CaseStudyProof from "@/components/case-study/CaseStudyProof";
 import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import CaseStudyMockupImage from "@/components/case-study/CaseStudyMockupImage";
+import ArrowLink from "@/components/ArrowLink";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
 import { caseStudyContainer, caseStudySection, caseStudyHeroRow, caseStudyHeroImageColumn } from "@/lib/case-study-layout";
 import {
@@ -1038,6 +1039,14 @@ export default function QuickShopCaseStudy() {
                 <p>{quickShopReflection.body2}</p>
                 <p>{quickShopReflection.body3}</p>
               </div>
+              <ArrowLink
+                href={quickShopReflection.liveLink.href}
+                external
+                variant="orange"
+                className="mt-8"
+              >
+                {quickShopReflection.liveLink.label}
+              </ArrowLink>
             </motion.div>
 
             <motion.aside

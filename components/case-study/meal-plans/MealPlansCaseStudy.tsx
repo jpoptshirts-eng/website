@@ -42,6 +42,7 @@ import CaseStudyQuote from "@/components/case-study/CaseStudyQuote";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
 import CaseStudyMockupImage from "@/components/case-study/CaseStudyMockupImage";
 import CaseStudyProjectNav from "@/components/case-study/CaseStudyProjectNav";
+import ArrowLink from "@/components/ArrowLink";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
 import {
   caseStudyContainer,
@@ -1417,6 +1418,14 @@ export default function MealPlansCaseStudy() {
                 <p className="text-black">{mealPlansReflection.body}</p>
                 <p>{mealPlansReflection.body2}</p>
               </div>
+              <ArrowLink
+                href={mealPlansReflection.liveLink.href}
+                external
+                variant="orange"
+                className="mt-8"
+              >
+                {mealPlansReflection.liveLink.label}
+              </ArrowLink>
             </motion.div>
             <motion.div
               initial="hidden"

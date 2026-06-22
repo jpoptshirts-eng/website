@@ -450,4 +450,8 @@ export const quickShopReflection = {
     "Designing for repeat grocery behaviour required balancing prediction with clarity, speed with trust and automation with human shopping habits.",
   from: "How do we recommend more products?",
   to: "How do we make routine shopping feel effortless?",
+  liveLink: {
+    href: "https://www.waitrose.com/ecom/quick-shop",
+    label: "View Quick Shop on Waitrose",
+  },
 };
