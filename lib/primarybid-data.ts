@@ -510,6 +510,10 @@ export const primaryBidEngineering = {
       copy: "Improve the experience through ongoing learning",
     },
   ],
+  video: "/videos/work/primarybid/iphone-live-back-button.mp4",
+  phoneFrame: "/images/work/primarybid/iphone-x-bezel.png",
+  videoAlt:
+    "Responsive T-Web mobile-web prototype showing live offers navigation and offer cards.",
 };
 
 export const primaryBidMentoring = {

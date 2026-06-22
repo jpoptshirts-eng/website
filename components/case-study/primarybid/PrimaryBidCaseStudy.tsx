@@ -86,6 +86,47 @@ const additionalImprovementIcons = {
   ipo: Layers,
 };
 
+function PhoneVideoMockup({
+  videoSrc,
+  frameSrc,
+  alt,
+  className,
+}: {
+  videoSrc: string;
+  frameSrc: string;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative mx-auto w-full max-w-[15rem] bg-transparent sm:max-w-[16rem] lg:max-w-[17.5rem]",
+        className,
+      )}
+      style={{ aspectRatio: "507 / 1024" }}
+    >
+      <video
+        src={videoSrc}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-label={alt}
+        className="absolute left-[6.1%] top-[3.6%] z-0 h-[93.5%] w-[88%] origin-center scale-[1.02] rounded-[8%] bg-transparent object-cover object-top"
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={frameSrc}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full object-contain"
+        decoding="async"
+      />
+    </div>
+  );
+}
+
 function InsightCallout({ children }: { children: ReactNode }) {
   return (
     <div className="border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg">
@@ -1292,38 +1333,60 @@ export default function PrimaryBidCaseStudy() {
         aria-labelledby="pb-engineering-heading"
       >
         <div className={caseStudyContainer}>
-          <SectionIntro
-            label={primaryBidEngineering.label}
-            headline={primaryBidEngineering.headline}
-            headlineId="pb-engineering-heading"
-          >
-            <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
-              {primaryBidEngineering.body}
-            </p>
-          </SectionIntro>
+          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={caseStudyFadeUp}
+            >
+              <CaseStudyLabel>{primaryBidEngineering.label}</CaseStudyLabel>
+              <CaseStudyHeadline id="pb-engineering-heading">
+                {primaryBidEngineering.headline}
+              </CaseStudyHeadline>
+              <p className="mt-6 text-base leading-relaxed text-black md:text-lg">
+                {primaryBidEngineering.body}
+              </p>
 
-          <ol className="relative mt-10 space-y-0 border-l border-border pl-6 md:pl-8">
-            {primaryBidEngineering.timeline.map((step, index) => (
-              <motion.li
-                key={step.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-30px" }}
-                custom={index * 0.04}
-                variants={caseStudyFadeUp}
-                className="relative pb-8 last:pb-0"
-              >
-                <span
-                  className="absolute -left-[1.625rem] top-1.5 h-3 w-3 rounded-full bg-orange md:-left-[2.125rem]"
-                  aria-hidden
-                />
-                <h3 className="font-bold text-black">{step.title}</h3>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-grey md:text-base">
-                  {step.copy}
-                </p>
-              </motion.li>
-            ))}
-          </ol>
+              <ol className="relative mt-10 space-y-0 border-l border-border pl-6 md:pl-8">
+                {primaryBidEngineering.timeline.map((step, index) => (
+                  <motion.li
+                    key={step.title}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-30px" }}
+                    custom={index * 0.04}
+                    variants={caseStudyFadeUp}
+                    className="relative pb-8 last:pb-0"
+                  >
+                    <span
+                      className="absolute -left-[1.625rem] top-1.5 h-3 w-3 rounded-full bg-orange md:-left-[2.125rem]"
+                      aria-hidden
+                    />
+                    <h3 className="font-bold text-black">{step.title}</h3>
+                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-grey md:text-base">
+                      {step.copy}
+                    </p>
+                  </motion.li>
+                ))}
+              </ol>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0.08}
+              variants={caseStudyFadeUp}
+              className="mt-10 flex justify-center lg:mt-0 lg:justify-end"
+            >
+              <PhoneVideoMockup
+                videoSrc={primaryBidEngineering.video}
+                frameSrc={primaryBidEngineering.phoneFrame}
+                alt={primaryBidEngineering.videoAlt}
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
