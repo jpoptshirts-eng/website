@@ -392,6 +392,9 @@ export const primaryBidOrders = {
   primaryImage: "/images/work/primarybid/mockup-tablet-orders.png",
   primaryAlt:
     "Tablet T-Web orders screen showing confirmed allocations and future discovery.",
+  video: "/videos/work/primarybid/orders-prototype.mp4",
+  tabletFrame: "/images/work/primarybid/ipad-landscape-bezel.png",
+  poster: "/images/work/primarybid/orders-prototype-poster.jpg",
   outcomes: [
     {
       title: "Order visibility",

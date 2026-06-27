@@ -25,6 +25,7 @@ import CaseStudyHeadline from "@/components/case-study/CaseStudyHeadline";
 import CaseStudyMockupImage from "@/components/case-study/CaseStudyMockupImage";
 import CaseStudyProjectNav from "@/components/case-study/CaseStudyProjectNav";
 import CaseStudySubnav from "@/components/case-study/CaseStudySubnav";
+import PrimaryBidOnboardingCarousel from "@/components/case-study/primarybid/onboarding/PrimaryBidOnboardingCarousel";
 import { caseStudyFadeUp } from "@/components/case-study/case-study-motion";
 import {
   caseStudyContainer,
@@ -127,18 +128,77 @@ function PhoneVideoMockup({
   );
 }
 
-function InsightCallout({ children }: { children: ReactNode }) {
+function TabletVideoMockup({
+  videoSrc,
+  frameSrc,
+  posterSrc,
+  fallbackImageSrc,
+  alt,
+  className,
+}: {
+  videoSrc: string;
+  frameSrc: string;
+  posterSrc: string;
+  fallbackImageSrc: string;
+  alt: string;
+  className?: string;
+}) {
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  if (videoFailed) {
+    return (
+      <CaseStudyMockupImage
+        src={fallbackImageSrc}
+        alt={alt}
+        className={className}
+      />
+    );
+  }
+
   return (
-    <div className="border-l-2 border-orange pl-6 text-base font-medium leading-relaxed text-black md:text-lg">
-      {children}
+    <div
+      className={cn("relative mx-auto w-full bg-transparent", className)}
+      style={{ aspectRatio: "1024 / 741" }}
+    >
+      <video
+        src={videoSrc}
+        poster={posterSrc}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={alt}
+        onError={() => setVideoFailed(true)}
+        className="absolute left-[4.3%] top-[5.1%] z-0 h-[89.1%] w-[91.6%] rounded-[1.5%] bg-black object-cover object-top"
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={frameSrc}
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-10 h-full w-full object-contain"
+        decoding="async"
+      />
     </div>
   );
 }
 
-function HighlightPanel({ children }: { children: ReactNode }) {
+function InsightCallout({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <div className="rounded-2xl border border-orange/20 bg-[#FFF0E8] p-6 md:p-8">
-      <InsightCallout>{children}</InsightCallout>
+    <div
+      className={cn(
+        "border-l-2 border-orange pl-6 text-[20px] font-medium leading-relaxed text-black md:pl-7 md:text-[22px]",
+        className,
+      )}
+    >
+      {children}
     </div>
   );
 }
@@ -325,7 +385,7 @@ export default function PrimaryBidCaseStudy() {
               <CaseStudyHeadline as="h1" id="primarybid-title">
                 {primaryBidHero.title}
               </CaseStudyHeadline>
-              <p className="mt-8 max-w-lg border-l-2 border-orange pl-6 text-base leading-relaxed text-black md:mt-10 md:text-lg">
+              <p className="mt-8 max-w-lg border-l-2 border-orange pl-6 text-[20px] leading-relaxed text-black md:mt-10 md:pl-7 md:text-[22px]">
                 {primaryBidHero.subcopy}
               </p>
               <dl className="mt-10 flex flex-col gap-5 lg:mt-12">
@@ -437,11 +497,9 @@ export default function PrimaryBidCaseStudy() {
             className="mt-16 md:mt-20"
           >
             <CaseStudyLabel>{primaryBidOpportunity.label}</CaseStudyLabel>
-            <HighlightPanel>
-              <p className="text-lg font-bold text-black md:text-xl">
-                {primaryBidOpportunity.insight}
-              </p>
-            </HighlightPanel>
+            <InsightCallout className="font-bold text-[22px] md:text-[24px]">
+              {primaryBidOpportunity.insight}
+            </InsightCallout>
             <p className="mt-6 max-w-3xl text-base leading-relaxed text-black md:text-lg">
               {primaryBidOpportunity.body}
             </p>
@@ -544,7 +602,7 @@ export default function PrimaryBidCaseStudy() {
           </div>
 
           <div className="mt-10 max-w-3xl">
-            <HighlightPanel>{primaryBidArchetypes.implication}</HighlightPanel>
+            <InsightCallout>{primaryBidArchetypes.implication}</InsightCallout>
           </div>
         </div>
       </section>
@@ -586,7 +644,7 @@ export default function PrimaryBidCaseStudy() {
             {primaryBidVerbatims.summary}
           </p>
           <div className="mt-8 max-w-3xl">
-            <HighlightPanel>{primaryBidVerbatims.closing}</HighlightPanel>
+            <InsightCallout>{primaryBidVerbatims.closing}</InsightCallout>
           </div>
         </div>
       </section>
@@ -902,7 +960,7 @@ export default function PrimaryBidCaseStudy() {
                 ))}
               </div>
               <div className="mt-8">
-                <HighlightPanel>{primaryBidTimeSensitive.principle}</HighlightPanel>
+                <InsightCallout>{primaryBidTimeSensitive.principle}</InsightCallout>
               </div>
             </motion.div>
             <motion.figure
@@ -1058,7 +1116,7 @@ export default function PrimaryBidCaseStudy() {
                 ))}
               </div>
               <div className="mt-8">
-                <HighlightPanel>{primaryBidBroker.tradeoff}</HighlightPanel>
+                <InsightCallout>{primaryBidBroker.tradeoff}</InsightCallout>
               </div>
               <div className="mt-8">
                 <JourneyPills steps={primaryBidBroker.process} />
@@ -1102,8 +1160,11 @@ export default function PrimaryBidCaseStudy() {
           </SectionIntro>
 
           <figure className="mt-10">
-            <CaseStudyMockupImage
-              src={primaryBidOrders.primaryImage}
+            <TabletVideoMockup
+              videoSrc={primaryBidOrders.video}
+              frameSrc={primaryBidOrders.tabletFrame}
+              posterSrc={primaryBidOrders.poster}
+              fallbackImageSrc={primaryBidOrders.primaryImage}
               alt={primaryBidOrders.primaryAlt}
               className="mx-auto w-full max-w-2xl lg:max-w-3xl"
             />
@@ -1133,6 +1194,16 @@ export default function PrimaryBidCaseStudy() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section
+        id="onboarding"
+        className={cn(caseStudySection, "bg-white")}
+        aria-labelledby="pb-onboarding-heading"
+      >
+        <div className={caseStudyContainer}>
+          <PrimaryBidOnboardingCarousel />
         </div>
       </section>
 
@@ -1198,7 +1269,7 @@ export default function PrimaryBidCaseStudy() {
           </div>
 
           <div className="mt-10 max-w-3xl">
-            <HighlightPanel>{primaryBidRecovery.closing}</HighlightPanel>
+            <InsightCallout>{primaryBidRecovery.closing}</InsightCallout>
           </div>
         </div>
       </section>
@@ -1447,7 +1518,7 @@ export default function PrimaryBidCaseStudy() {
           </div>
 
           <div className="mt-10 max-w-3xl">
-            <HighlightPanel>{primaryBidOutcome.closing}</HighlightPanel>
+            <InsightCallout>{primaryBidOutcome.closing}</InsightCallout>
           </div>
         </div>
       </section>

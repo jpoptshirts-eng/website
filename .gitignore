@@ -36,3 +36,4 @@ next-env.d.ts
 # python venv (image processing)
 .venv
 .venv-img
+.venv-pdf
