@@ -5,6 +5,7 @@ interface CaseStudyMockupImageProps {
   alt: string;
   priority?: boolean;
   className?: string;
+  style?: React.CSSProperties;
   /** Intrinsic width — helps the browser avoid upscaling past native resolution */
   width?: number;
   height?: number;
@@ -15,6 +16,7 @@ export default function CaseStudyMockupImage({
   alt,
   priority = false,
   className,
+  style,
   width,
   height,
 }: CaseStudyMockupImageProps) {
@@ -25,7 +27,12 @@ export default function CaseStudyMockupImage({
       alt={alt}
       width={width}
       height={height}
-      className={cn("h-auto w-full max-w-full object-contain", className)}
+      style={style}
+      className={cn(
+        "h-auto max-w-full object-contain",
+        width ? "w-auto" : "w-full",
+        className,
+      )}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
     />

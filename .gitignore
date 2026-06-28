@@ -37,3 +37,4 @@ next-env.d.ts
 .venv
 .venv-img
 .venv-pdf
+.scripts/.tmp-participants
