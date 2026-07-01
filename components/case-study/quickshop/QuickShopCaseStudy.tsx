@@ -276,9 +276,14 @@ export default function QuickShopCaseStudy() {
               <CaseStudyMockupImage
                 src={quickShopExistingBehaviour.image}
                 alt={quickShopExistingBehaviour.imageAlt}
-                width={390}
-                height={842}
-                className="h-auto w-full max-w-[390px] bg-transparent"
+                width={quickShopExistingBehaviour.imageWidth}
+                height={quickShopExistingBehaviour.imageHeight}
+                className="mx-auto h-auto max-w-full bg-transparent"
+                style={{
+                  width: quickShopExistingBehaviour.imageWidth,
+                  maxWidth: "100%",
+                  height: "auto",
+                }}
               />
             </figure>
           </motion.div>

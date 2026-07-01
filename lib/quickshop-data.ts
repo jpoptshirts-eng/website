@@ -81,8 +81,8 @@ export const quickShopExistingBehaviour = {
   conclusion:
     "QuickShop shifted repeat shopping from remembering and searching towards recognising and confirming.",
   image: "/images/work/quickshop/context/current-favs.png",
-  imageWidth: 784,
-  imageHeight: 1692,
+  imageWidth: 390,
+  imageHeight: 842,
   imageAlt:
     "Waitrose Favourites mobile screen showing category filters, sort options and a long list of previously purchased products.",
 };
