@@ -131,7 +131,7 @@ export default function KaizenAiLessonsFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Challenge</CaseStudyLabel>
+            <CaseStudyLabel>01 Challenge</CaseStudyLabel>
             <CaseStudyHeadline id="ai-challenge-heading">
               Turning AI conversation into a teachable lesson
             </CaseStudyHeadline>
@@ -157,7 +157,7 @@ export default function KaizenAiLessonsFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Interaction model</CaseStudyLabel>
+            <CaseStudyLabel>02 Interaction model</CaseStudyLabel>
             <h2
               id="ai-interaction-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -224,7 +224,7 @@ export default function KaizenAiLessonsFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Evidence</CaseStudyLabel>
+            <CaseStudyLabel>03 Evidence</CaseStudyLabel>
             <CaseStudyHeadline id="ai-evidence-heading">
               What testing and behaviour revealed
             </CaseStudyHeadline>
@@ -245,7 +245,7 @@ export default function KaizenAiLessonsFeature() {
         aria-labelledby="ai-iterations-heading"
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Iterations</CaseStudyLabel>
+          <CaseStudyLabel>04 Iterations</CaseStudyLabel>
           <CaseStudyHeadline id="ai-iterations-heading">
             {kaizenIteration.headline}
           </CaseStudyHeadline>
@@ -304,7 +304,7 @@ export default function KaizenAiLessonsFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Suggestion</CaseStudyLabel>
+              <CaseStudyLabel>05 Suggestion</CaseStudyLabel>
               <h2
                 id="ai-suggestion-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -355,7 +355,7 @@ export default function KaizenAiLessonsFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Delivery</CaseStudyLabel>
+              <CaseStudyLabel>06 Delivery</CaseStudyLabel>
               <h2
                 id="ai-delivery-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -408,6 +408,7 @@ export default function KaizenAiLessonsFeature() {
           >
             <KaizenResultsLearningSection
               data={kaizenStoryResultsLearning["ai-lessons"]}
+              label="07 Results and learning"
             />
           </motion.div>
         </div>

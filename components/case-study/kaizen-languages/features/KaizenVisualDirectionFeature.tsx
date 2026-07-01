@@ -60,7 +60,7 @@ export default function KaizenVisualDirectionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Context</CaseStudyLabel>
+            <CaseStudyLabel>01 Context</CaseStudyLabel>
             <CaseStudyHeadline id="vd-context-heading">
               Building trust in an unfamiliar AI experience
             </CaseStudyHeadline>
@@ -86,7 +86,7 @@ export default function KaizenVisualDirectionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Competitor analysis</CaseStudyLabel>
+            <CaseStudyLabel>02 Competitor analysis</CaseStudyLabel>
             <h2
               id="vd-competitors-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -124,7 +124,7 @@ export default function KaizenVisualDirectionFeature() {
         aria-labelledby="vd-routes-heading"
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Exploration</CaseStudyLabel>
+          <CaseStudyLabel>03 Exploration</CaseStudyLabel>
           <CaseStudyHeadline id="vd-routes-heading">
             Four contrasting routes
           </CaseStudyHeadline>
@@ -196,7 +196,7 @@ export default function KaizenVisualDirectionFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Testing</CaseStudyLabel>
+              <CaseStudyLabel>04 Testing</CaseStudyLabel>
               <h2
                 id="vd-testing-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -244,7 +244,7 @@ export default function KaizenVisualDirectionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Final direction</CaseStudyLabel>
+            <CaseStudyLabel>05 Final direction</CaseStudyLabel>
             <h2
               id="vd-constraint-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -289,6 +289,7 @@ export default function KaizenVisualDirectionFeature() {
           >
             <KaizenResultsLearningSection
               data={kaizenStoryResultsLearning["visual-direction"]}
+              label="06 Results and learning"
               aside={
                 <MockupImage
                   src="/images/work/kaizen-languages/iphone-payments-mockup.png"

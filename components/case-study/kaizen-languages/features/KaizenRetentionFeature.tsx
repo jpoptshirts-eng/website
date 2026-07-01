@@ -61,7 +61,7 @@ export default function KaizenRetentionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Retention problem</CaseStudyLabel>
+            <CaseStudyLabel>01 Retention problem</CaseStudyLabel>
             <CaseStudyHeadline id="retention-problem-heading">
               {kaizenRetention.headline}
             </CaseStudyHeadline>
@@ -85,7 +85,7 @@ export default function KaizenRetentionFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Behavioural hypothesis</CaseStudyLabel>
+              <CaseStudyLabel>02 Behavioural hypothesis</CaseStudyLabel>
               <h2
                 id="retention-hypothesis-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -129,7 +129,7 @@ export default function KaizenRetentionFeature() {
           <div className="mb-6">
             <KaizenFeatureStatus status="shipped" />
           </div>
-          <CaseStudyLabel>Shipped system</CaseStudyLabel>
+          <CaseStudyLabel>03 Shipped system</CaseStudyLabel>
           <CaseStudyHeadline id="retention-shipped-heading">
             Streaks, rewards and visible progress
           </CaseStudyHeadline>
@@ -178,7 +178,7 @@ export default function KaizenRetentionFeature() {
           <div className="mb-6">
             <KaizenFeatureStatus status="explored" />
           </div>
-          <CaseStudyLabel>Future concepts</CaseStudyLabel>
+          <CaseStudyLabel>04 Future concepts</CaseStudyLabel>
           <h2
             id="retention-explored-heading"
             className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -209,7 +209,7 @@ export default function KaizenRetentionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Measurement</CaseStudyLabel>
+            <CaseStudyLabel>05 Measurement</CaseStudyLabel>
             <CaseStudyHeadline id="retention-measurement-heading">
               Retention after shipped mechanics
             </CaseStudyHeadline>
@@ -248,6 +248,7 @@ export default function KaizenRetentionFeature() {
           >
             <KaizenResultsLearningSection
               data={kaizenStoryResultsLearning.retention}
+              label="06 Results and learning"
             />
           </motion.div>
         </div>

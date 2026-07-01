@@ -8,7 +8,7 @@ export const cellarSubnav = [
 ] as const;
 
 export const cellarHero = {
-  label: "Case Study 3",
+  label: "01 Case Study",
   title: "Waitrose Cellar",
   headline: "Realising a £2m CRM opportunity through MVP redefinition",
   intro:
@@ -31,7 +31,7 @@ export const cellarHero = {
 };
 
 export const cellarOpportunity = {
-  label: "Opportunity",
+  label: "02 Opportunity",
   headline: "Unlocking customer value",
   body: "Waitrose Cellar had identified a significant commercial opportunity. Customers purchasing through Cellar remained largely anonymous, limiting CRM activity, personalisation and loyalty initiatives.",
   body2:
@@ -45,7 +45,7 @@ export const cellarOpportunity = {
 };
 
 export const cellarProblem = {
-  label: "Problem",
+  label: "03 Problem",
   headline: "Why the original approach was not enough",
   intro: [
     "While the business identified a £2m CRM opportunity through customer identification, the proposed solution required building a dedicated Cellar account platform from scratch.",
@@ -91,7 +91,7 @@ export const cellarProblem = {
 };
 
 export const cellarReframe = {
-  label: "Reframe",
+  label: "04 Reframe",
   before: "How do we build a Waitrose Cellar account platform?",
   after: "How do we identify customers and unlock loyalty as quickly as possible?",
   body: [
@@ -105,7 +105,7 @@ export const cellarReframe = {
 };
 
 export const cellarStrategy = {
-  label: "Strategy",
+  label: "05 Strategy",
   headline: "The Strategy",
   subtitle: "Reusing existing infrastructure",
   body: "Rather than creating a dedicated Cellar account ecosystem, I proposed leveraging the existing Waitrose authentication platform.",
@@ -140,7 +140,7 @@ export const cellarStrategy = {
 };
 
 export const cellarInfrastructure = {
-  label: "Rationale",
+  label: "06 Rationale",
   headline: "Why existing infrastructure made sense",
   cards: [
     {
@@ -161,7 +161,7 @@ export const cellarInfrastructure = {
 };
 
 export const cellarOrderHistory = {
-  label: "Prioritisation",
+  label: "07 Prioritisation",
   headline: "Why order history became the next priority",
   body: [
     "One of the strongest themes emerging from customer feedback was the need for easier access to previous purchases.",
@@ -182,7 +182,7 @@ export const cellarOrderHistory = {
 };
 
 export const cellarOutcome = {
-  label: "Outcome",
+  label: "08 Outcome",
   headline: "Redirecting investment toward customer value",
   body: [
     "The success of the initiative was not simply reducing delivery effort.",

@@ -497,7 +497,7 @@ export const mealPlansValidation = {
 };
 
 export const mealPlansTradeOffs = {
-  label: "Trade-offs & delivery constraints",
+  label: "15 Trade-offs & delivery constraints",
   headline: "Several constraints shaped what we could ship for MVP.",
   intro:
     "Meal Plans was not only a UX challenge. The experience depended on recipe content, dietary tagging, backend rules, author confidence and trolley logic all working together. Several constraints shaped what we could ship for MVP and what needed to move into later phases.",
@@ -557,7 +557,7 @@ export const mealPlansQuotes = [
 ];
 
 export const mealPlansImpact = {
-  label: "15 Impact and results",
+  label: "16 Impact and results",
   headline: "Meal Plans showed demand with limited exposure.",
   intro:
     "Despite limited placement on the recipe index, Meal Plans generated meaningful commercial performance and positive customer feedback.",
@@ -593,7 +593,7 @@ export const mealPlansImpact = {
 };
 
 export const mealPlansLearnings = {
-  label: "16 What we learned",
+  label: "17 What we learned",
   headline: "Meal planning needed stronger foundations before it could scale.",
   body: "The project showed that customers valued guided planning, but scaling the experience depended on improving the recipe ecosystem underneath it.",
   cards: [
@@ -626,7 +626,7 @@ export const mealPlansLearnings = {
 };
 
 export const mealPlansNextSteps = {
-  label: "17 Next steps",
+  label: "18 Next steps",
   headline: "Improving the recipe ecosystem.",
   body: "The next phase should focus on strengthening the foundations that allow Meal Plans to become more personalised, flexible and repeatable.",
   cards: [
@@ -667,7 +667,7 @@ export const mealPlansNextSteps = {
 };
 
 export const mealPlansReflection = {
-  label: "18 Closing thought",
+  label: "19 Closing thought",
   headline:
     "Inspiration and shopping still needed stronger foundations.",
   body: "Meal Plans proved that customers saw value in guided planning, but it also revealed that the strongest experience depends on the systems beneath the interface: recipe data, tagging, content quality, accessibility, personalisation and basket logic.",

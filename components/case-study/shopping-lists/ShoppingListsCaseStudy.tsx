@@ -92,18 +92,31 @@ function MockupImage({
   alt,
   priority = false,
   className,
+  width,
+  height,
+  style,
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   className?: string;
+  width?: number;
+  height?: number;
+  style?: React.CSSProperties;
 }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={alt}
-      className={cn("h-auto w-full bg-transparent object-contain", className)}
+      width={width}
+      height={height}
+      style={style}
+      className={cn(
+        "h-auto max-w-full bg-transparent object-contain",
+        width ? "w-auto" : "w-full",
+        className,
+      )}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
     />
@@ -566,6 +579,27 @@ export default function ShoppingListsCaseStudy() {
           >
             {modelShift.closing}
           </motion.p>
+
+          <motion.figure
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="mt-12 flex justify-center"
+          >
+            <MockupImage
+              src={modelShift.image}
+              alt={modelShift.imageAlt}
+              width={modelShift.imageWidth}
+              height={modelShift.imageHeight}
+              className="mx-auto h-auto max-w-full bg-transparent"
+              style={{
+                width: modelShift.imageWidth,
+                maxWidth: "100%",
+                height: "auto",
+              }}
+            />
+          </motion.figure>
         </div>
       </section>
 

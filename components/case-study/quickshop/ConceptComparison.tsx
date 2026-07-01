@@ -96,27 +96,21 @@ export default function ConceptComparison({
               <p className="mt-3 text-base leading-relaxed text-black md:text-lg">
                 {concept.description}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-grey md:text-base">
-                {concept.detail}
-              </p>
 
-              <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange">
-                  What testing showed
-                </p>
-                <p className="mt-3 text-base leading-relaxed text-black md:text-lg">
-                  {concept.testResults}
-                </p>
-              </div>
-
-              <div className="mt-6 space-y-3 text-sm leading-relaxed md:text-base">
+              <div className="mt-6 space-y-4 text-sm leading-relaxed md:text-base">
                 <p>
-                  <span className="font-semibold text-black">Advantage: </span>
-                  {concept.advantage}
+                  <span className="font-semibold text-black">Benefit: </span>
+                  {concept.benefit}
                 </p>
-                <p className="text-grey">
-                  <span className="font-semibold text-black">Limitation: </span>
-                  {concept.limitation}
+                {concept.risk ? (
+                  <p className="text-grey">
+                    <span className="font-semibold text-black">Risk: </span>
+                    {concept.risk}
+                  </p>
+                ) : null}
+                <p>
+                  <span className="font-semibold text-black">Finding: </span>
+                  {concept.finding}
                 </p>
               </div>
             </div>
@@ -171,9 +165,6 @@ export default function ConceptComparison({
             </p>
           ))}
         </div>
-        <p className="mt-8 border-l-2 border-orange pl-6 text-[20px] font-medium leading-relaxed text-black md:pl-7 md:text-[22px]">
-          {data.direction.pullQuote}
-        </p>
       </motion.div>
     </div>
   );

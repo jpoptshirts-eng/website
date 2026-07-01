@@ -108,7 +108,7 @@ export default function KaizenWritingSystemFeature() {
               variants={caseStudyFadeUp}
               className="min-w-0"
             >
-              <CaseStudyLabel>Strategic context</CaseStudyLabel>
+              <CaseStudyLabel>01 Strategic context</CaseStudyLabel>
               <CaseStudyHeadline id="ws-roadmap-heading">
                 {kaizenStrategy.headline}
               </CaseStudyHeadline>
@@ -158,7 +158,7 @@ export default function KaizenWritingSystemFeature() {
               variants={caseStudyFadeUp}
               className="min-w-0"
             >
-              <CaseStudyLabel>Customer research</CaseStudyLabel>
+              <CaseStudyLabel>02 Customer research</CaseStudyLabel>
               <CaseStudyHeadline id="ws-customer-heading">
                 Why writing mattered to learners
               </CaseStudyHeadline>
@@ -213,7 +213,7 @@ export default function KaizenWritingSystemFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Domain research</CaseStudyLabel>
+              <CaseStudyLabel>03 Domain research</CaseStudyLabel>
               <h2
                 id="ws-domain-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -279,7 +279,7 @@ export default function KaizenWritingSystemFeature() {
         aria-labelledby="ws-learning-heading"
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Learning model</CaseStudyLabel>
+          <CaseStudyLabel>04 Learning model</CaseStudyLabel>
           <CaseStudyHeadline id="ws-learning-heading">
             Progressive support from tracing to recall
           </CaseStudyHeadline>
@@ -335,7 +335,7 @@ export default function KaizenWritingSystemFeature() {
         aria-labelledby="ws-interface-heading"
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Interface</CaseStudyLabel>
+          <CaseStudyLabel>05 Interface</CaseStudyLabel>
           <CaseStudyHeadline id="ws-interface-heading">
             {kaizenWriting.headline}
           </CaseStudyHeadline>
@@ -388,7 +388,7 @@ export default function KaizenWritingSystemFeature() {
             viewport={{ once: true }}
             variants={caseStudyFadeUp}
           >
-            <CaseStudyLabel>Validation</CaseStudyLabel>
+            <CaseStudyLabel>06 Validation</CaseStudyLabel>
             <h2
               id="ws-validation-heading"
               className="max-w-3xl text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -428,6 +428,7 @@ export default function KaizenWritingSystemFeature() {
           >
             <KaizenResultsLearningSection
               data={kaizenStoryResultsLearning["writing-system"]}
+              label="07 Results and learning"
             />
           </motion.div>
         </div>

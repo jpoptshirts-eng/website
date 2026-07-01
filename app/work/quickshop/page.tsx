@@ -6,7 +6,7 @@ import QuickShopCaseStudy from "@/components/case-study/quickshop/QuickShopCaseS
 export const metadata: Metadata = {
   title: "QuickShop — Case Study | Jacinto De Matos",
   description:
-    "Reducing weekly grocery friction through personalised basket building. A Waitrose case study on behavioural UX, recommendation confidence and AI-assisted commerce.",
+    "Reducing weekly grocery friction through behaviour-led basket building. A Waitrose case study on predictive personalisation, recommendation confidence and customer control.",
 };
 
 export default function QuickShopPage() {

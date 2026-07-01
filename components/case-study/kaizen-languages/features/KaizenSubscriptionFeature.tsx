@@ -90,7 +90,7 @@ export default function KaizenSubscriptionFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Commercial tension</CaseStudyLabel>
+            <CaseStudyLabel>01 Commercial tension</CaseStudyLabel>
             <h2
               id="sub-challenge-heading"
               className="text-balance font-black tracking-tight text-black text-3xl leading-[1.05] sm:text-4xl md:text-5xl"
@@ -125,7 +125,7 @@ export default function KaizenSubscriptionFeature() {
               variants={caseStudyFadeUp}
               className="min-w-0"
             >
-              <CaseStudyLabel>Commercial monitoring</CaseStudyLabel>
+              <CaseStudyLabel>02 Commercial monitoring</CaseStudyLabel>
               <h2
                 id="sub-monitoring-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -232,7 +232,7 @@ export default function KaizenSubscriptionFeature() {
           <div className="lg:grid lg:grid-cols-[minmax(0,0.5fr)_minmax(0,0.5fr)] lg:items-start lg:gap-10 xl:gap-14">
             <div className="pb-16 md:pb-20 lg:pb-0">
               <KaizenFeatureStatus status="explored" />
-              <CaseStudyLabel className="mt-6 block">Additional exploration</CaseStudyLabel>
+              <CaseStudyLabel className="mt-6 block">03 Additional exploration</CaseStudyLabel>
               <h2
                 id="sub-exploration-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -309,7 +309,7 @@ export default function KaizenSubscriptionFeature() {
         className={cn(caseStudySection, "bg-cream")}
       >
         <div className={caseStudyContainer}>
-          <CaseStudyLabel>Verified outcomes</CaseStudyLabel>
+          <CaseStudyLabel>04 Verified outcomes</CaseStudyLabel>
           <KaizenConversionResultsVisual className="mt-8" />
           <motion.div
             initial="hidden"
@@ -320,6 +320,7 @@ export default function KaizenSubscriptionFeature() {
           >
             <KaizenResultsLearningSection
               data={kaizenStoryResultsLearning.subscription}
+              label="05 Results and learning"
             />
           </motion.div>
         </div>

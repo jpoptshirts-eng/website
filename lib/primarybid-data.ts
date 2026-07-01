@@ -13,7 +13,7 @@ export const primaryBidSubnav = [
 ] as const;
 
 export const primaryBidHero = {
-  label: "PrimaryBid",
+  label: "01 Case Study",
   title: "Designing a cross-channel investment platform",
   subcopy:
     "Creating a responsive transactional web experience that helped retail investors research opportunities, apply for offers and manage their investments across desktop, tablet and mobile web.",
@@ -47,7 +47,7 @@ export const primaryBidMyRole = {
 };
 
 export const primaryBidChallenge = {
-  label: "The challenge",
+  label: "02 The challenge",
   headline: "Investing decisions were happening across disconnected experiences",
   body: [
     "PrimaryBid enabled retail investors to access public-market opportunities, but the experience had become increasingly app-led.",
@@ -61,7 +61,7 @@ export const primaryBidChallenge = {
 };
 
 export const primaryBidOpportunity = {
-  label: "The product opportunity",
+  label: "03 The product opportunity",
   insight:
     "The native app supported immediacy. T-Web supported deeper research, comparison and considered investment decisions.",
   body: "Rather than treating the native app and T-Web as competing products, I helped define the role the transactional website could play within the wider investment journey.",
@@ -69,7 +69,7 @@ export const primaryBidOpportunity = {
 };
 
 export const primaryBidValidatingDemand = {
-  label: "Validating demand",
+  label: "04 Validating demand",
   headline: "Validating demand before committing to the build",
   body: [
     "Before defining the product, the team tested whether there was meaningful demand for transactional web access among existing and previously active PrimaryBid customers.",
@@ -89,7 +89,7 @@ export const primaryBidValidatingDemand = {
 };
 
 export const primaryBidArchetypes = {
-  label: "Understanding different investors",
+  label: "05 Understanding different investors",
   headline: "One platform could not serve every investor in the same way",
   intro:
     "Our research identified five investor archetypes with different levels of experience, confidence and investment behaviour.",
@@ -128,7 +128,7 @@ export const primaryBidArchetypes = {
 };
 
 export const primaryBidVerbatims = {
-  label: "Customer verbatims",
+  label: "06 Customer verbatims",
   headline: "What customers were telling us",
   quotes: [
     {
@@ -159,7 +159,7 @@ export const primaryBidVerbatims = {
 };
 
 export const primaryBidObservingDecisions = {
-  label: "Observing investment decisions",
+  label: "07 Observing investment decisions",
   headline: "Observing the decision-making process",
   body: "We designed a mixed research study combining discovery interviews with observed investment tasks.",
   points: [
@@ -184,7 +184,7 @@ export const primaryBidObservingDecisions = {
 };
 
 export const primaryBidCrossChannel = {
-  label: "Defining the cross-channel role",
+  label: "08 Defining the cross-channel role",
   headline: "Giving each channel a clear role",
   nativeApp: {
     title: "Native app — product context",
@@ -215,7 +215,7 @@ export const primaryBidCrossChannel = {
 };
 
 export const primaryBidPrinciples = {
-  label: "Product principles",
+  label: "09 Product principles",
   headline: "Principles that guided the platform",
   cards: [
     {
@@ -237,7 +237,7 @@ export const primaryBidPrinciples = {
 };
 
 export const primaryBidStructuring = {
-  label: "Structuring the platform",
+  label: "10 Structuring the platform",
   headline: "Turning research into a connected platform",
   body: "The information architecture was organised around the customer’s investment lifecycle rather than around isolated product features.",
   lifecycle: [
@@ -256,7 +256,7 @@ export const primaryBidStructuring = {
 };
 
 export const primaryBidResponsiveOffer = {
-  label: "The responsive offer experience",
+  label: "11 The responsive offer experience",
   headline: "A consistent investment journey across screen sizes",
   body: "T-Web was designed responsively across desktop, tablet and mobile web. It was not simply reduced from a desktop layout: the information hierarchy, navigation and interaction model adapted to the available space and the customer’s likely context.",
   annotations: [
@@ -282,7 +282,7 @@ export const primaryBidResponsiveOffer = {
 };
 
 export const primaryBidTimeSensitive = {
-  label: "Time-sensitive offers",
+  label: "12 Time-sensitive offers",
   headline: "Making urgency visible without creating pressure",
   body: [
     "Some PrimaryBid opportunities were available only briefly. Customers needed to understand when an offer was expected to close without the interface becoming unnecessarily alarming or manipulative.",
@@ -296,7 +296,7 @@ export const primaryBidTimeSensitive = {
 };
 
 export const primaryBidLearn = {
-  label: "Supporting research",
+  label: "13 Supporting research",
   headline: "Bringing decision-support content into the experience",
   body: [
     "Research showed that customers frequently left PrimaryBid to understand unfamiliar investment types, assess a company or compare market information.",
@@ -334,7 +334,7 @@ export const primaryBidLearn = {
 };
 
 export const primaryBidPayment = {
-  label: "Application and payment",
+  label: "14 Application and payment",
   headline: "Designing confidence into a regulated payment journey",
   body: [
     "The application journey needed to balance commercial speed with regulatory clarity and customer confidence.",
@@ -360,7 +360,7 @@ export const primaryBidPayment = {
 };
 
 export const primaryBidBroker = {
-  label: "Broker confirmation",
+  label: "15 Broker confirmation",
   headline: "Closing a critical information gap",
   body: [
     "The existing payment journey did not allow customers to confirm or correct their broker details before completing an application.",
@@ -383,7 +383,7 @@ export const primaryBidBroker = {
 };
 
 export const primaryBidOrders = {
-  label: "Orders and account management",
+  label: "16 Orders and account management",
   headline: "Extending the experience beyond the transaction",
   body: [
     "The T-Web journey did not end when a payment succeeded. Customers needed to understand application status, review allocations, revisit previous orders and maintain regulated account information across desktop, tablet and mobile web.",
@@ -415,7 +415,7 @@ export const primaryBidOrders = {
 };
 
 export const primaryBidRecovery = {
-  label: "Designing recovery paths",
+  label: "18 Designing recovery paths",
   headline: "Designing recovery paths, not only the happy path",
   body: [
     "Analysis of onboarding drop-off showed that failure was rarely caused by one screen.",
@@ -441,7 +441,7 @@ export const primaryBidRecovery = {
 };
 
 export const primaryBidComponents = {
-  label: "Reusable platform components",
+  label: "19 Reusable platform components",
   headline: "Building once for multiple partners and journeys",
   body: [
     "PrimaryBid worked with a growing network of issuers, banks and brokers. Rather than designing every partner experience from scratch, I developed configurable components that could adapt to different brands, content and transactional journeys.",
@@ -460,7 +460,7 @@ export const primaryBidComponents = {
 };
 
 export const primaryBidWiderContribution = {
-  label: "Wider contribution",
+  label: "20 Wider contribution",
   headline: "Extending the product ecosystem beyond T-Web.",
   intro:
     "My principal ownership was T-Web, but my role also extended into the broker dashboard and the product system used to support IPO pitches.",
@@ -487,7 +487,7 @@ export const primaryBidWiderContribution = {
 };
 
 export const primaryBidEngineering = {
-  label: "Working with engineering",
+  label: "21 Working with engineering",
   headline: "From prototype to staged release",
   body: "My involvement continued beyond design handoff. I worked with product and engineering throughout feasibility discussions, acceptance criteria, implementation reviews and staged releases for T-Web.",
   timeline: [
@@ -520,7 +520,7 @@ export const primaryBidEngineering = {
 };
 
 export const primaryBidMentoring = {
-  label: "Mentoring and team contribution",
+  label: "22 Mentoring and team contribution",
   headline: "Contributing beyond my individual product work.",
   body: [
     "Alongside my direct ownership of T-Web, I supported designers working across the broker dashboard and IPO design system.",
@@ -530,7 +530,7 @@ export const primaryBidMentoring = {
 };
 
 export const primaryBidOutcome = {
-  label: "Outcome",
+  label: "23 Outcome",
   headline: "A platform foundation for cross-channel investing",
   body: "The work established the foundations for a transactional website shaped around how investors researched opportunities and made decisions, while complementing the existing native app.",
   outcomes: [
@@ -579,7 +579,7 @@ export const primaryBidOutcome = {
 };
 
 export const primaryBidAdditional = {
-  label: "Additional improvements",
+  label: "24 Additional improvements",
   headline: "Additional improvements across the investor experience",
   cards: [
     {

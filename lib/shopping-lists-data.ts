@@ -216,6 +216,11 @@ export const modelShift = {
   },
   closing:
     "The goal was not full automation. It was to reduce the effort between intent and trolley while keeping confidence high.",
+  image: "/images/work/shopping-lists/ipad-list-view.png",
+  imageAlt:
+    "iPad showing the prediction-first shopping list with meals, essentials and a build shop action.",
+  imageWidth: 896,
+  imageHeight: 1237,
 };
 
 export const productGap = {

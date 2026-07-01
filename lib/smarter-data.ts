@@ -31,7 +31,7 @@ export const smarterSubnav = [
 ] as const;
 
 export const smarterHero = {
-  label: "Smarter · Connected kitchen ecosystem",
+  label: "01 Smarter · Connected kitchen ecosystem",
   title: "Designing one app for three connected products",
   supporting:
     "Smarter brought the iKettle, Smarter Coffee and FridgeCam into a single mobile ecosystem. Customers could connect each product to their home network, complete its setup and control it remotely, but every appliance had different physical behaviours, controls and potential points of failure.",
@@ -69,7 +69,7 @@ export const smarterMyRole = {
 };
 
 export const smarterOverview = {
-  label: "01 Project overview",
+  label: "02 Project overview",
   headline: "One app, three very different products",
   body: "Customers experienced Smarter as one connected ecosystem, but the products beneath it behaved very differently.",
   body2:
@@ -115,7 +115,7 @@ export const smarterOverview = {
 };
 
 export const smarterChallenge = {
-  label: "02 The system challenge",
+  label: "03 The system challenge",
   headline: "The experience was larger than the screen",
   body: "The app sat between the customer, their phone, the home network, a cloud service and a physical appliance. FridgeCam also introduced the fridge environment, camera placement, product recognition and external grocery services.",
   body2:
@@ -133,7 +133,7 @@ export const smarterChallenge = {
 };
 
 export const smarterEcosystem = {
-  label: "03 Mapping the ecosystem",
+  label: "04 Mapping the ecosystem",
   headline: "Mapping physical and digital states together",
   body: "I began by mapping the complete journey around each product rather than designing isolated app screens.",
   body2:
@@ -161,7 +161,7 @@ export const smarterEcosystem = {
 };
 
 export const smarterSetup = {
-  label: "04 A shared setup model",
+  label: "05 A shared setup model",
   headline: "A consistent foundation with product-specific guidance",
   body: "Although every product required different physical instructions, the overall setup journey needed to remain predictable.",
   body2:
@@ -184,7 +184,7 @@ export const smarterSetup = {
 };
 
 export const smarterBlinkUp = {
-  label: "05 Guiding customers through BlinkUp",
+  label: "06 Guiding customers through BlinkUp",
   headline: "Turning an unfamiliar connection process into a guided physical action",
   body: "The products used BlinkUp during setup. Customers needed to enter their network details, prepare the appliance and position their phone correctly while the connection process took place.",
   body2:
@@ -212,7 +212,7 @@ export const smarterBlinkUp = {
 };
 
 export const smarterPhysical = {
-  label: "06 Designing with the physical product",
+  label: "07 Designing with the physical product",
   headline: "Testing the experience beyond the prototype",
   body: "Working directly with the hardware exposed issues that would not have appeared in a screen-only prototype.",
   body2:
@@ -238,7 +238,7 @@ export const smarterPhysical = {
 };
 
 export const smarterFridgecam = {
-  label: "07 The FridgeCam opportunity",
+  label: "08 The FridgeCam opportunity",
   headline: "From seeing the fridge to managing what was inside it",
   body: "FridgeCam captured an image when the fridge door closed and made the latest view available through the app.",
   body2:
@@ -262,7 +262,7 @@ export const smarterFridgecam = {
 };
 
 export const smarterFoodWaste = {
-  label: "08 Food-waste context",
+  label: "09 Food-waste context",
   headline: "Designing around a meaningful household problem",
   body: "Smarter framed FridgeCam around reducing unnecessary purchases and avoidable food waste.",
   body2:
@@ -282,7 +282,7 @@ export const smarterFoodWaste = {
 };
 
 export const smarterAssist = {
-  label: "09 Smarter Assist",
+  label: "10 Smarter Assist",
   headline: "Connecting inventory with grocery replenishment",
   body: "Smarter Assist extended FridgeCam from passive visibility into household management.",
   body2:
@@ -308,7 +308,7 @@ export const smarterAssist = {
 };
 
 export const smarterPrinciples = {
-  label: "10 Design principles",
+  label: "11 Design principles",
   headline: "Principles that shaped the experience",
   items: [
     {
@@ -331,7 +331,7 @@ export const smarterPrinciples = {
 };
 
 export const smarterTradeoffs = {
-  label: "11 Constraints and trade-offs",
+  label: "12 Constraints and trade-offs",
   headline: "The key trade-offs",
   items: [
     {
@@ -354,7 +354,7 @@ export const smarterTradeoffs = {
 };
 
 export const smarterDelivered = {
-  label: "12 What I delivered",
+  label: "13 What I delivered",
   headline: "What I delivered",
   body: "The work established a single mobile ecosystem across three connected kitchen products while allowing each product to retain the behaviours and controls it required.",
   items: [
@@ -371,7 +371,7 @@ export const smarterDelivered = {
 };
 
 export const smarterReflection = {
-  label: "13 Reflection",
+  label: "14 Reflection",
   headline: "What connected-product design taught me",
   body: "This project changed how I thought about mobile product design. The interface could not be considered separately from the appliance, network, sensor, physical environment or external service.",
   body2:

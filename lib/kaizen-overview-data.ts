@@ -9,7 +9,7 @@ export const kaizenOverviewSubnav = [
 ] as const;
 
 export const kaizenOverviewHero = {
-  label: "Case Study",
+  label: "01 Case Study",
   title: "Kaizen Languages",
   subcopy:
     "Designing an AI-powered language learning experience around confidence, motivation and retention.",
@@ -49,13 +49,13 @@ export const kaizenOverviewRole = {
 };
 
 export const kaizenOverviewChallenge = {
-  label: "Product challenge",
+  label: "02 Product challenge",
   headline: "Making AI language learning useful for complete beginners",
   body: "Kaizen used conversational AI to help people practise speaking with digital tutors. The challenge was not simply to create a chat interface. We needed to make unfamiliar technology feel human, provide enough structure for complete beginners and build habits strong enough to support both learning outcomes and a sustainable subscription product.",
 };
 
 export const kaizenOverviewStrategy = {
-  label: "Product-level strategy",
+  label: "03 Product-level strategy",
   headline: "Connected decisions across three years of product work",
   items: [
     {
@@ -86,7 +86,7 @@ export const kaizenOverviewStrategy = {
 };
 
 export const kaizenOverviewImpact = {
-  label: "Combined impact",
+  label: "04 Combined impact",
   headline: "Strongest defensible outcomes",
   intro:
     "Across three years, the strongest gains came from connecting learning behaviour, product confidence and commercial experimentation rather than treating them as separate activities.",
@@ -125,14 +125,14 @@ export const kaizenOverviewImpact = {
 };
 
 export const kaizenOverviewExplore = {
-  label: "Explore work",
+  label: "05 Explore work",
   headline: "Explore three years of product work",
   intro:
     "Six feature stories cover the major product areas I shaped as founding designer. Each page goes deeper into the problem, evidence, design decisions and outcomes.",
 };
 
 export const kaizenOverviewReflection = {
-  label: "Reflection",
+  label: "06 Reflection",
   headline: "What three years as a founding designer taught me",
   body: "Kaizen required me to move continuously between product strategy, detailed interaction design, learning behaviour and commercial decisions. The strongest outcomes came from treating those areas as one connected system rather than separate design activities.",
 };

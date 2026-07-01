@@ -176,15 +176,17 @@ export function KaizenResultsLearningSection({
   id = "results-learning",
   className,
   aside,
+  label = "Results and learning",
 }: {
   data: KaizenResultsLearning;
   id?: string;
   className?: string;
   aside?: ReactNode;
+  label?: string;
 }) {
   const content = (
     <>
-      <CaseStudyLabel>Results and learning</CaseStudyLabel>
+      <CaseStudyLabel>{label}</CaseStudyLabel>
       <CaseStudyHeadline id={`${id}-heading`}>{data.headline}</CaseStudyHeadline>
       <div className="mt-6 space-y-4 text-base leading-relaxed text-black md:text-lg">
         {data.body.map((paragraph) => (

@@ -95,7 +95,7 @@ export default function KaizenPracticeFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Problem</CaseStudyLabel>
+            <CaseStudyLabel>01 Problem</CaseStudyLabel>
             <CaseStudyHeadline id="practice-problem-heading">
               The gap after lesson completion
             </CaseStudyHeadline>
@@ -122,7 +122,7 @@ export default function KaizenPracticeFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Practice model</CaseStudyLabel>
+            <CaseStudyLabel>02 Practice model</CaseStudyLabel>
             <CaseStudyHeadline id="practice-loop-heading">
               From lesson activity to personalised revision
             </CaseStudyHeadline>
@@ -163,7 +163,7 @@ export default function KaizenPracticeFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Key decision</CaseStudyLabel>
+            <CaseStudyLabel>03 Key decision</CaseStudyLabel>
             <h2
               id="practice-decision-heading"
               className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -196,7 +196,7 @@ export default function KaizenPracticeFeature() {
             variants={caseStudyFadeUp}
             className="max-w-3xl"
           >
-            <CaseStudyLabel>Exercises</CaseStudyLabel>
+            <CaseStudyLabel>04 Exercises</CaseStudyLabel>
             <CaseStudyHeadline id="practice-exercises-heading">
               Words, grammar and progress feedback
             </CaseStudyHeadline>
@@ -243,7 +243,7 @@ export default function KaizenPracticeFeature() {
               viewport={{ once: true }}
               variants={caseStudyFadeUp}
             >
-              <CaseStudyLabel>Delivery status</CaseStudyLabel>
+              <CaseStudyLabel>05 Delivery status</CaseStudyLabel>
               <h2
                 id="practice-status-heading"
                 className="text-balance font-black tracking-tight text-black text-2xl leading-[1.1] sm:text-3xl md:text-4xl"
@@ -294,6 +294,7 @@ export default function KaizenPracticeFeature() {
           >
             <KaizenResultsLearningSection
               data={kaizenStoryResultsLearning.practice}
+              label="06 Results and learning"
             />
           </motion.div>
         </div>

@@ -105,7 +105,7 @@ export const kaizenQuotes = [
 ];
 
 export const kaizenInsight = {
-  label: "04 Key user insight",
+  label: "05 Key user insight",
   headline: "Learners did not just need content. They needed confidence.",
   body: "The biggest friction was not simply “learning a language”. It was the emotional barrier inside the lesson. Users were often unsure whether they were pronouncing things correctly. When correction repeated without enough support, the experience started to feel punitive rather than helpful.",
   points: [
@@ -119,7 +119,7 @@ export const kaizenInsight = {
 };
 
 export const kaizenResearch = {
-  label: "05 Discovery and research",
+  label: "04 Discovery and research",
   headline: "Understanding how people learn, where they struggle and what keeps them going",
   body: "To design a credible learning product, I needed to understand both the educational and behavioural side of language learning. The research focused on how learners build confidence, where they lose momentum and what type of support helps them continue after making mistakes.",
   inputs: [
@@ -145,7 +145,7 @@ export const kaizenResearch = {
 };
 
 export const kaizenVisualDirection = {
-  label: "Early product direction",
+  label: "06 Early product direction",
   headline: "Defining how an AI tutor should feel",
   intro: [
     "Before designing the core lesson experience, I reviewed established language-learning products to understand their onboarding, learning flows, visual conventions and how they introduced learners to a new language.",
@@ -213,7 +213,7 @@ export const kaizenVisualDirection = {
 };
 
 export const kaizenAiConversation = {
-  label: "Core interaction model",
+  label: "07 Core interaction model",
   headline: "Designing conversation as a lesson",
   intro: [
     "Conversation was the core of the Kaizen experience, but a conventional messaging interface would not provide enough support for someone learning a new language.",
@@ -293,7 +293,7 @@ export const kaizenAiConversation = {
 };
 
 export const kaizenLesson = {
-  label: "06 Core lesson experience",
+  label: "08 Core lesson experience",
   headline: "Making AI chat feel teachable, responsive and engaging",
   body: "One of the core product problems was how to translate a chat interface into an effective lesson environment. The messaging experience had to do more than look like chat. It had to teach. I explored how users would distinguish AI responses from their own, replay audio, view translations, understand errors and hear slowed-down pronunciation.",
   designed: [
@@ -315,7 +315,7 @@ export const kaizenLesson = {
 };
 
 export const kaizenSuggestion = {
-  label: "07 Design decision",
+  label: "09 Design decision",
   headline: "Helping users recover when pronunciation failed",
   body: "To reduce frustration, I introduced Suggestion, a support card that broke pronunciation into simpler syllables and allowed users to hear the word more slowly. The goal was to preserve challenge while giving users a way through moments of failure. The design was triggered after repeated errors, directly inside the lesson flow.",
   why: [
@@ -332,7 +332,7 @@ export const kaizenSuggestion = {
 };
 
 export const kaizenIteration = {
-  label: "08 Iteration",
+  label: "10 Iteration",
   headline: "From static lessons to interactive learning loops",
   before: {
     title: "Version 5",
@@ -347,7 +347,7 @@ export const kaizenIteration = {
 };
 
 export const kaizenStrategy = {
-  label: "09 Product strategy",
+  label: "11 Product strategy",
   headline: "Why I prioritised beginner confidence over more advanced content",
   body: "A key strategic moment in the project was challenging the initial direction from the CEO and CTO. The business wanted to add more intermediate and expert-level lessons to increase revenue and reduce churn. But research suggested that our strongest opportunity was not simply adding more content.",
   body2:
@@ -365,7 +365,7 @@ export const kaizenStrategy = {
 };
 
 export const kaizenWriting = {
-  label: "10 Writing system",
+  label: "12 Writing system",
   headline: "Translating a physical learning method into a digital experience",
   body: "To design the writing feature, I first needed to understand how Japanese characters are traditionally learned. I studied Genki and beginner learning methods to understand how Hiragana and Katakana are introduced through character groups, repetition, stroke order and recall.",
   body2:
@@ -415,7 +415,7 @@ export const kaizenWriting = {
 };
 
 export const kaizenGamification = {
-  label: "11 Gamification",
+  label: "13 Gamification",
   headline: "Designing motivation through behavioural psychology",
   body: "To improve retention, I explored how successful learning products sustain engagement over time. Through competitor analysis, particularly studying Duolingo, it became clear that gamification is not just a feature. It is a behavioural system.",
   why: [
@@ -488,7 +488,7 @@ export const kaizenPractice = {
 };
 
 export const kaizenRetention = {
-  label: "16 Retention",
+  label: "19 Retention",
   headline: "Turning first-time use into repeat behaviour",
   body: "Once the core lesson experience improved, the next challenge was retention. I looked at how learning products create momentum and studied gamified patterns used by competitors. This led to the introduction of streaks and reward systems that encouraged daily return behaviour.",
   results: [
@@ -502,7 +502,7 @@ export const kaizenRetention = {
 };
 
 export const kaizenConversion = {
-  label: "12 Conversion",
+  label: "14 Conversion",
   sectionHeadline: {
     line1: "Conversion and subscription",
     line2: "experiments",
@@ -537,7 +537,7 @@ export const kaizenConversion = {
 };
 
 export const kaizenProof = {
-  label: "Proof",
+  label: "15 Proof",
   headline: "What changed the product direction",
   intro:
     "Research, moderated testing and product analytics challenged the assumption that more advanced content alone would improve retention. The strongest gains came from recovery design, beginner foundations and small, measurable experiments.",
@@ -563,7 +563,7 @@ export const kaizenProof = {
 };
 
 export const kaizenImpact = {
-  label: "13 Impact",
+  label: "16 Impact",
   headline: "Impact at a glance",
   intro:
     "The writing feature became one of the strongest indicators that beginner-focused learning could create deeper engagement. It showed that users valued active practice, guided progression and the feeling of genuine learning achievement.",
@@ -614,7 +614,7 @@ export const kaizenImpact = {
 };
 
 export const kaizenDecisions = {
-  label: "14 Decisions",
+  label: "17 Decisions",
   headline: "The decisions that shaped the product",
   items: [
     {
@@ -646,7 +646,7 @@ export const kaizenDecisions = {
 };
 
 export const kaizenReflection = {
-  label: "15 Reflection",
+  label: "18 Reflection",
   headline: "What this project taught me",
   lead: "Kaizen showed me that successful learning products are not simply educational systems. They are behavioural systems.",
   body: "Retention was driven less by content volume and more by confidence, emotional reinforcement, progress visibility and habit sustainability.",

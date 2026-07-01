@@ -24,7 +24,7 @@ function screen(filename: string, alt: string): OnboardingScreen {
 }
 
 export const primaryBidOnboardingCarousel = {
-  label: "Onboarding journey",
+  label: "17 Onboarding journey",
   headline: "A staged journey from registration to investment readiness",
   intro:
     "The onboarding journey progressively collected the personal, eligibility and broker information customers needed before they could invest. Explore each stage of the experience below.",

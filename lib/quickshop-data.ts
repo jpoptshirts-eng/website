@@ -1,11 +1,13 @@
 export const quickShopSubnav = [
   { id: "overview", label: "Overview" },
-  { id: "challenge", label: "Challenge" },
-  { id: "research", label: "Research" },
+  { id: "problem", label: "Problem" },
+  { id: "behaviour", label: "Behaviour" },
+  { id: "model", label: "Model" },
+  { id: "constraints", label: "Constraints" },
   { id: "concepts", label: "Concepts" },
+  { id: "prototype", label: "Prototype" },
+  { id: "testing", label: "Testing" },
   { id: "solution", label: "Solution" },
-  { id: "recommendations", label: "Recommendations" },
-  { id: "mvp", label: "MVP" },
   { id: "results", label: "Results" },
   { id: "reflection", label: "Reflection" },
 ] as const;
@@ -16,14 +18,14 @@ export const quickShopHero = {
   subcopy:
     "Reducing weekly grocery friction through personalised basket building",
   supporting:
-    "A personalised basket-building experience designed to help customers rebuild their regular shop faster using behavioural data and recommendation confidence.",
+    "A behaviour-led basket-building experience designed to help customers rebuild their regular shop faster using purchase history and recommendation confidence.",
   meta: [
     { label: "Role", value: "Senior Product Designer" },
     { label: "Company", value: "Waitrose & Partners" },
     { label: "Timeline", value: "8 months" },
     {
       label: "Focus",
-      value: "Personalisation / Behavioural UX / AI-assisted commerce",
+      value: "Predictive personalisation / Behavioural UX / Commerce",
     },
   ],
   image: "/images/work/quickshop/hero-hand.png",
@@ -35,45 +37,58 @@ export const quickShopMyRole = {
   title: "My role",
   avatar: "/images/jacinto-hero.png",
   avatarAlt: "Jacinto De Matos",
-  body: "I led the experience strategy, interaction design, prototyping and validation for QuickShop — a responsive web experience designed mobile-first and adapted across breakpoints. I worked closely with product, engineering, data and UX research to shape a focused Top Regulars MVP.",
+  body: "I led the translation of Data Science’s Basket Building Model into a customer-facing proposition. I defined how recommendation confidence influenced hierarchy, grouping and progression; designed and tested three interaction models; created a data-connected prototype capable of representing different customer behaviours; and worked with Product, Data Science and Engineering to narrow the initial release to Top Regulars.",
   bullets: [
-    "Defined the behavioural problem around repeat weekly grocery shopping",
-    "Designed and compared personalised basket-building interaction models with UX research",
-    "Created prototypes to test recommendation structure, confidence and customer control",
-    "Worked with product, data and engineering to shape and ship a focused Top Regulars MVP",
+    "Translated behavioural model outputs into interface hierarchy, grouping and progression",
+    "Designed and compared three personalised basket-building interaction models with UX research",
+    "Built a data-connected prototype to test recommendation behaviour across customer datasets",
+    "Worked with product, data science and engineering to shape and ship a focused Top Regulars MVP",
   ],
 };
 
 export const quickShopChallenge = {
-  label: "The challenge",
+  label: "02 The challenge",
   headline: "Repeat shopping still felt like starting again.",
   body: [
     "Most online grocery experiences treated every shopping session as a new browsing journey. Regular customers still searched, navigated categories and rebuilt similar baskets week after week.",
     "Favourites preserved historical purchases, but historical behaviour did not always reflect current intent. As saved products accumulated, finding what mattered now became slower — especially when diets, households or routines changed.",
-    "QuickShop explored whether personalisation could make routine shopping faster, clearer and more controlled without reducing customer confidence.",
+    "QuickShop explored whether predictive personalisation could make routine shopping faster, clearer and more controlled without reducing customer confidence.",
   ],
   contextImage: "/images/work/quickshop/context/customer-waitrose.jpg",
   contextImageAlt:
     "Customer leaving a Waitrose store carrying branded shopping bags after a weekly shop.",
 };
 
-export const quickShopExistingExperience = {
-  label: "Existing experience",
-  headline: "Favourites remembered purchases, but not always current intent.",
-  body: [
-    "Favourites captured everything a customer had bought before. QuickShop was designed as a more focused route into repeat shopping — surfacing high-confidence regulars rather than asking customers to navigate their full purchase history.",
+export const quickShopExistingBehaviour = {
+  label: "03 Existing behaviour",
+  headline: "Why regular shopping still took too much effort.",
+  intro:
+    "Customers already had ways to revisit familiar products, but each route placed work back onto them. The opportunity was not simply to create another list. It was to make rebuilding a routine shop faster and more relevant to the customer’s current needs.",
+  cards: [
+    {
+      title: "Favourites required manual curation",
+      copy: "Customers were using Favourites as a workaround for rebuilding regular shops, but they still had to maintain the list themselves and decide what was relevant each time.",
+    },
+    {
+      title: "Previous Orders required searching backwards",
+      copy: "Only 2.4% of total add-to-trolley actions came through Previous Orders. Customers had to open historic orders and identify what they wanted to buy again.",
+    },
+    {
+      title: "QuickShop could predict what was relevant now",
+      copy: "Rather than asking customers to maintain a list or browse previous baskets, QuickShop used recurring purchase behaviour to prioritise products they were most likely to need.",
+    },
   ],
+  conclusion:
+    "QuickShop shifted repeat shopping from remembering and searching towards recognising and confirming.",
   image: "/images/work/quickshop/context/current-favs.png",
-  imageWidth: 474,
-  imageHeight: 1024,
+  imageWidth: 784,
+  imageHeight: 1692,
   imageAlt:
     "Waitrose Favourites mobile screen showing category filters, sort options and a long list of previously purchased products.",
-  caption:
-    "QuickShop created a distinct route for high-confidence repeat purchases rather than asking customers to navigate their full purchase history.",
 };
 
 export const quickShopResearch = {
-  label: "Research",
+  label: "04 Research",
   headline: "Understanding when personalisation stopped feeling personal.",
   intro:
     "Working closely with the UX researcher, we combined behavioural evidence, customer conversations and prototype testing to understand where the existing experience broke down and which interaction model customers trusted most.",
@@ -81,15 +96,6 @@ export const quickShopResearch = {
     image: "/images/work/quickshop/research/miro-workspace.png",
     imageAlt:
       "Miro research board showing QuickShop concept development, prototype journeys, test observations and competitor analysis.",
-    caption:
-      "The shared research workspace brought together behavioural evidence, concept development, prototype journeys, test observations and competitor analysis.",
-  },
-  bridge: {
-    image: "/images/work/quickshop/research/miro-angled.png",
-    imageAlt:
-      "Angled view of the QuickShop research board showing ideation clusters and mobile prototype screens.",
-    caption:
-      "Testing showed that related options needed to remain visible together, leading to a family of grouped recommendation variants rather than one universal card.",
   },
 };
 
@@ -102,7 +108,7 @@ export type QuickShopParticipant = {
 };
 
 export const quickShopParticipants = {
-  label: "Participants",
+  label: "05 Participants",
   headline: "Testing across different shopping routines.",
   intro:
     "We compared the concepts with six experienced Waitrose online customers whose basket sizes, shopping responsibilities and routines varied substantially. This helped us test whether the interaction model worked beyond one narrow type of repeat shopper.",
@@ -159,7 +165,7 @@ export type QuickShopInsight = {
 };
 
 export const quickShopInsights = {
-  label: "Insights",
+  label: "06 Insights",
   headline: "Customers wanted speed, but not at the cost of control.",
   items: [
     {
@@ -185,14 +191,130 @@ export const quickShopInsights = {
   ] satisfies QuickShopInsight[],
 };
 
+export const quickShopModel = {
+  label: "07 Behavioural model",
+  headline: "Turning repeat behaviour into recommendation confidence.",
+  intro:
+    "I worked with Peter in Data Science to translate the existing Basket Building Model into a customer-facing experience. The model examined both how frequently and how regularly an individual customer purchased each product.",
+  body: "Together, these signals produced a predictability score for each customer-product relationship. A product bought frequently and at a consistent interval could be treated as a high-confidence recommendation. Occasional or irregular purchases required more cautious placement.",
+  chart: {
+    src: "/images/work/quickshop/model/regularity-frequency-chart.png",
+    alt: "Scatterplot showing product purchase analysis with purchase frequency on the x-axis and purchase regularity on the y-axis.",
+    width: 1024,
+    height: 780,
+  },
+  signals: [
+    {
+      title: "Frequency",
+      copy: "How often the customer purchased the product across their order history.",
+    },
+    {
+      title: "Regularity",
+      copy: "How consistently the purchase appeared within the customer’s routine.",
+    },
+    {
+      title: "Predictability",
+      copy: "The combined confidence that the product was relevant to the customer’s next shop.",
+    },
+  ],
+  flow: [
+    "Purchase history",
+    "Frequency and regularity",
+    "Predictability score",
+    "Recommendation priority",
+    "Customer interface",
+  ],
+  highlight:
+    "The challenge was not only producing recommendations. It was deciding how much confidence was required before a recommendation deserved the customer’s attention.",
+};
+
+export const quickShopConstraints = {
+  label: "08 Constraints and trade-offs",
+  headline: "Prioritising what we could prove in the MVP.",
+  intro:
+    "QuickShop needed to validate predictive basket building without blocking roadmap delivery. Real constraints around engineering effort, category scale and customer trust shaped what shipped first.",
+  constraintsLabel: "Constraints",
+  tradeoffsLabel: "Trade-offs",
+  constraints: [
+    {
+      title: "Fast validation required",
+      copy: "We needed to prove the predictive shopping experience quickly without delaying broader roadmap delivery.",
+    },
+    {
+      title: "Engineering cost of the full vision",
+      copy: "A fully guided multi-step experience demanded significant build effort before value was proven.",
+    },
+    {
+      title: "Relevance at category scale",
+      copy: "Maintaining useful recommendations across large product ranges added complexity to logic and presentation.",
+    },
+    {
+      title: "Risk of recommendation overload",
+      copy: "Too many layers could overwhelm customers and weaken confidence in what was being suggested.",
+    },
+    {
+      title: "Speed, familiarity and discovery",
+      copy: "The journey had to balance routine efficiency with enough discovery without slowing repeat shops.",
+    },
+    {
+      title: "Evidence before scale",
+      copy: "Behavioural and commercial metrics needed to justify investment before expanding the experience.",
+    },
+  ],
+  tradeoffs: [
+    {
+      title: "Top Regulars as MVP",
+      copy: "We launched a focused entry point first rather than the full multi-step basket-building experience.",
+    },
+    {
+      title: "Less exploration upfront",
+      copy: "Category breadth was reduced initially to improve delivery speed and learning clarity.",
+    },
+    {
+      title: "Structured steps over Joy Scrolling",
+      copy: "Testing showed continuous feeds caused cognitive fatigue and loss of orientation, so we prioritised step-based navigation.",
+    },
+    {
+      title: "Inspiration deferred",
+      copy: "Recipe-led and inspirational experiences waited until core behavioural assumptions were validated.",
+    },
+    {
+      title: "Customer control over automation",
+      copy: "Selections stayed reviewable rather than relying too heavily on automated basket creation.",
+    },
+  ],
+};
+
+export const quickShopPrinciples = {
+  label: "09 Design principles",
+  headline: "Reduce effort, not control.",
+  items: [
+    {
+      title: "Prioritise confidence over quantity",
+      copy: "A smaller set of relevant recommendations was more valuable than a large set of uncertain suggestions.",
+    },
+    {
+      title: "Reduce decision fatigue",
+      copy: "The experience should minimise unnecessary browsing, scanning and repeated searching.",
+    },
+    {
+      title: "Reflect natural shopping behaviour",
+      copy: "Recommendations should follow routines, replenishment patterns and recognisable categories.",
+    },
+    {
+      title: "Keep the experience lightweight",
+      copy: "Customers needed to progress quickly while retaining the ability to review and refine their basket.",
+    },
+  ],
+};
+
 export type QuickShopConcept = {
   number: string;
   title: string;
   description: string;
-  detail: string;
-  testResults: string;
-  advantage: string;
-  limitation: string;
+  benefit: string;
+  risk?: string;
+  finding: string;
   outcome: string;
   outcomeTone: "positive" | "muted" | "neutral";
   diagram: "feed" | "steps" | "carousels";
@@ -207,12 +329,11 @@ export type QuickShopConceptsSection = {
   direction: {
     headline: string;
     body: string[];
-    pullQuote: string;
   };
 };
 
 export const quickShopConcepts = {
-  label: "Concepts",
+  label: "10 Concepts",
   headline: "Three ways to make repeat shopping faster.",
   intro: [
     "A major part of the project focused on testing different interaction models for personalised basket building.",
@@ -227,32 +348,25 @@ export const quickShopConcepts = {
       number: "01",
       title: "Joy Scrolling",
       description:
-        "A continuous feed of recommended products displayed within a single long page.",
-      detail:
-        "Every recommendation appeared in one scrollable stream, prioritising speed of exposure over category structure. The hypothesis was that habitual shoppers could scan and tap quickly without navigating between sections.",
-      testResults:
-        "Customers struggled to maintain context. Recommendations felt overwhelming, category switching created friction and lower-confidence products reduced trust. Several participants lost track of what they had already added.",
-      advantage:
+        "An exploratory continuous feed designed to make browsing feel engaging.",
+      benefit:
         "Continuous browsing created a fast, lightweight entry into recommendations.",
-      limitation:
-        "Long feeds weakened orientation and made the journey feel harder to complete.",
+      risk: "It created scanning fatigue and weakened customers’ sense of progression.",
+      finding:
+        "Customers struggled to maintain context. Recommendations felt overwhelming, category switching created friction and lower-confidence products reduced trust.",
       outcome: "Rejected",
       outcomeTone: "muted",
       diagram: "feed",
     },
     {
       number: "02",
-      title: "Step-by-Step Shopping",
+      title: "Step-by-Step",
       description:
-        "A structured basket-building experience organised into focused stages such as Top Regulars, Food & Drink and Household.",
-      detail:
-        "Each stage surfaced a smaller, confidence-scored set of recommendations aligned with a familiar shopping rhythm. Customers could complete high-certainty regulars first, then move into broader categories without facing one continuous feed.",
-      testResults:
-        "This aligned most closely with customer mental models. Participants described it as faster, clearer, easier to trust and more predictable. Structured flows increased confidence because customers always knew where they were in the journey.",
-      advantage:
+        "A structured flow that grouped recommendations into manageable stages.",
+      benefit:
         "Clear stages reduced cognitive load and gave customers a stronger sense of progression.",
-      limitation:
-        "The wider vision introduced greater design and engineering complexity.",
+      finding:
+        "It provided the clearest orientation, strongest progression and best fit with routine shopping behaviour.",
       outcome: "Preferred direction",
       outcomeTone: "positive",
       diagram: "steps",
@@ -261,14 +375,11 @@ export const quickShopConcepts = {
       number: "03",
       title: "Netflix-style navigation",
       description:
-        "A vertically stacked interface using horizontal product carousels grouped by recommendation themes.",
-      detail:
-        "Categories were separated into distinct rows customers could swipe through laterally — borrowing from media browsing patterns to keep the screen feeling scannable while preserving grouping.",
-      testResults:
-        "It improved category separation but created excessive lateral scanning, fragmented focus and weaker progression through basket building. Useful for understanding grouping, but not as the primary navigation model.",
-      advantage: "Horizontal groups created clear category separation.",
-      limitation:
-        "Repeated lateral scanning fragmented attention and made comparison less efficient.",
+        "A collection-led model designed to encourage discovery across recommendation groups.",
+      benefit: "Horizontal groups created clear category separation.",
+      risk: "It felt visually familiar but required too much browsing for a task primarily driven by speed.",
+      finding:
+        "It improved category separation but created excessive lateral scanning, fragmented focus and weaker progression through basket building.",
       outcome: "Useful learning",
       outcomeTone: "neutral",
       diagram: "carousels",
@@ -277,165 +388,185 @@ export const quickShopConcepts = {
   direction: {
     headline: "Why Step-by-Step became the direction",
     body: [
-      "Across the three models, the clearest signal was that routine shoppers wanted speed without sacrificing orientation. Joy Scrolling felt fast initially but became disorienting. Netflix-style navigation improved grouping but slowed comparison.",
       "Step-by-Step Shopping became the preferred direction because it matched how customers already thought about a weekly shop — handling regulars first, then moving through familiar categories with a clear sense of progress.",
       "Carousel-style grouping still informed how related products were presented within each stage, but the overall journey was structured rather than feed-driven.",
     ],
-    pullQuote:
-      "Customers preferred recommendations that felt structured, transparent and confidence-driven.",
   },
 } satisfies QuickShopConceptsSection;
 
-export const quickShopSolution = {
-  label: "Selected direction",
-  headline: "A clearer path through the routine shop.",
-  body: [
-    "Step-by-Step separated the shop into understandable stages. Customers could handle high-confidence regular purchases first, then move into broader categories and inspiration without facing one continuous recommendation feed.",
-    "The intended progression moved from Top Regulars into Food & Drink, Household, inspirational meals and finally trolley review — keeping confidence high before broader discovery.",
-  ],
-  pullQuote: "Speed earned attention; structure preserved confidence.",
-  flowImage: "/images/work/quickshop/solution/QS_Flow.png",
-  flowImageWidth: 4157,
-  flowImageHeight: 3170,
-  flowImageAlt:
-    "Step-by-step Quick Shop flow showing progression from Top Regulars through Food & Drink, Household and inspirational categories.",
-};
-
-export type QuickShopResponsiveShowcase = {
-  image: { src: string; alt: string; width: number; height: number };
-};
-
-export const quickShopResponsive = {
-  label: "Responsive design",
-  headline: "One recommendation hierarchy across different screen sizes.",
-  body: "The underlying hierarchy remained consistent across breakpoints, but density changed with the available space. Mobile prioritised a readable selectable list, while desktop supported a higher-density grid for scanning and comparison.",
-  showcase: {
-    image: {
-      src: "/images/work/quickshop/solution/desktop-grid.png",
-      alt: "Desktop Quick Shop grid showing Top Regulars arranged in a high-density product layout.",
-      width: 992,
-      height: 800,
+export const quickShopPrototype = {
+  label: "11 Prototyping the system",
+  headline: "Static screens could not test a dynamic product.",
+  intro:
+    "The proposed experience depended on customer-specific data, recommendation confidence, product categories, quantities, offers and grouping rules. Conventional Figma prototypes could show individual journeys, but they could not represent the behaviour of the wider system efficiently.",
+  limitationHeading: "The limitation",
+  limitations: [
+    {
+      title: "The spaghetti trap",
+      copy: "Manually connecting every possible state created prototypes that were difficult to edit, debug and maintain.",
     },
-  } satisfies QuickShopResponsiveShowcase,
-};
-
-export type QuickShopRecommendationSystem = {
-  overview: { src: string; alt: string; width: number; height: number };
-  variants: {
-    title: string;
-    copy: string;
-    icon: "single" | "paired" | "expandable";
-  }[];
-  principles: { title: string; copy: string }[];
-  pullQuote: string;
-};
-
-export const quickShopRecommendations = {
-  label: "Recommendation system",
-  headline: "Grouping related choices reduced scrolling and improved comparison.",
-  intro: [
-    "The recommendation model ranked individual products by probability. However, customers often compared products relationally — by brand, variant, pack size, offer or substitute. Ranking each item independently could separate closely related choices across a long list.",
-    "I introduced flexible recommendation groups that kept comparable products together while preserving a clear primary recommendation.",
-  ],
-  system: {
-    overview: {
-      src: "/images/work/quickshop/components/recommendation-system-overview.png",
-      alt: "Figma component exploration showing single, paired and expandable recommendation groups.",
-      width: 1024,
-      height: 735,
+    {
+      title: "Rigid customer journeys",
+      copy: "Static screens could not respond credibly to different customer histories and product recommendations.",
     },
-    variants: [
-      {
-        title: "Single recommendation",
-        copy: "The highest-confidence product remained immediately visible with a clear primary action.",
-        icon: "single" as const,
-      },
-      {
-        title: "Paired recommendation",
-        copy: "Comparable variants or pack sizes appeared together without splitting attention across the list.",
-        icon: "paired" as const,
-      },
-      {
-        title: "Expandable group",
-        copy: "Additional options stayed behind progressive disclosure until the customer chose to inspect them.",
-        icon: "expandable" as const,
-      },
-    ],
-    principles: [
-      {
-        title: "Keep the primary recommendation clear",
-        copy: "The highest-confidence choice remained immediately visible.",
-      },
-      {
-        title: "Bring comparable choices together",
-        copy: "Related products, variants, offers or pack sizes appeared in one group.",
-      },
-      {
-        title: "Reveal complexity progressively",
-        copy: "Additional options remained behind “View more” until the customer chose to inspect them.",
-      },
-    ],
-    pullQuote:
-      "The model ranked products individually. Customers compared them relationally.",
-  } satisfies QuickShopRecommendationSystem,
+    {
+      title: "Slow iteration",
+      copy: "Building a realistic journey could take up to two weeks, limiting the number of ideas we could test.",
+    },
+    {
+      title: "Scaling failure",
+      copy: "As personalisation increased, the number of screens and connections expanded faster than the prototype could support.",
+    },
+  ],
+  responseHeading: "The response",
+  response:
+    "I used Figma Make with a structured Supabase dataset to create a more realistic prototype. This allowed different customer datasets and product rules to populate the same interface rather than manually rebuilding every possible journey.",
+  supports: [
+    {
+      title: "Structured product data",
+      copy: "Products included recommendation order, quantity, category, grouping, product type and offer information.",
+    },
+    {
+      title: "Reusable interface logic",
+      copy: "The same components could respond to different datasets and behavioural conditions.",
+    },
+    {
+      title: "Faster learning",
+      copy: "We could test the behaviour of the recommendation system, not only the appearance of individual screens.",
+    },
+  ],
 };
 
-export const quickShopDecisions = {
-  label: "Key product decisions",
-  headline: "The decisions that shaped what shipped.",
-  items: [
+export const quickShopInteractionLogic = {
+  label: "12 Interaction logic",
+  headline: "How behavioural signals shaped the interface.",
+  intro:
+    "The model produced scores and product attributes, but customers needed a clear, manageable shopping experience. I translated those outputs into a set of interface rules governing what appeared, where it appeared and how products were grouped.",
+  flow: [
+    "Behavioural data",
+    "Confidence threshold",
+    "Product grouping",
+    "Journey position",
+    "Quick basket action",
+  ],
+  rules: [
     {
       number: "01",
-      title: "Top Regulars first",
-      copy: "The journey started where recommendation confidence was strongest and time-saving value was clearest.",
+      title: "High-confidence products became Top Regulars",
+      copy: "Products above the agreed confidence threshold could be surfaced prominently as likely repeat purchases.",
+      detail:
+        "The prototype initially used a confidence threshold of approximately 60% to explore how many products could be shown before relevance and trust began to fall.",
     },
     {
       number: "02",
-      title: "Confidence before discovery",
-      copy: "Routine replenishment came before broader inspirational browsing.",
+      title: "Related products were grouped together",
+      copy: "Alternative or related products could be assigned a shared grouping identifier and displayed together, reducing repetitive scrolling and supporting quicker comparison.",
     },
     {
       number: "03",
-      title: "Progressive disclosure of alternatives",
-      copy: "Comparable options stayed grouped and expandable rather than flattening into one long feed.",
+      title: "Categories shaped progression",
+      copy: "Product categories helped determine where recommendations appeared within the Step-by-Step journey, aligning the flow with recognisable shopping behaviour rather than a continuous recommendation feed.",
     },
     {
       number: "04",
-      title: "Clear review before adding products",
-      copy: "Customers could inspect selections before committing items to the trolley.",
-    },
-    {
-      number: "05",
-      title: "Responsive density changes",
-      copy: "The same hierarchy adapted to list-first mobile and grid-first desktop layouts.",
-    },
-    {
-      number: "06",
-      title: "A narrower MVP than the tested vision",
-      copy: "Later journey stages were deprioritised so the team could validate the highest-confidence behaviour first.",
+      title: "Offers supported value without disrupting the journey",
+      copy: "Offer data could influence product presentation and quantity recommendations while keeping customers within the main flow.",
+      detail:
+        "Product groups could use different presentation patterns such as standard, single and double depending on the recommendation context.",
     },
   ],
+  image: {
+    src: "/images/work/quickshop/interaction/recommendation-variants.png",
+    alt: "Figma specification showing single, double and standard recommendation variants with score and grouping parameters.",
+    width: 3358,
+    height: 1890,
+  },
 };
 
-export const quickShopMvp = {
-  label: "MVP",
-  headline: "Starting with the highest-confidence part of the journey.",
-  body: [
-    "The broader concept organised repeat shopping across multiple stages. The MVP focused on Top Regulars, where confidence was strongest and the time-saving value was clearest.",
-    "Although broader recommendation groups and later journey stages tested positively, subsequent stages were reduced to a one-page concept following analytics — allowing the team to validate behavioural assumptions before expanding scope.",
+export const quickShopTesting = {
+  label: "13 Validation and iteration",
+  headline: "Testing changed the density, confidence and scope.",
+  intro:
+    "Testing focused on more than whether customers could complete the flow. We needed to understand how recommendation confidence, information density and progression affected trust.",
+  beforeLabel: "Before testing",
+  afterLabel: "After testing",
+  before: [
+    "Broader recommendation sets",
+    "More categories shown upfront",
+    "Lower-confidence products appeared too prominently",
+    "Continuous browsing increased scanning",
+    "The full multi-step concept carried significant delivery complexity",
   ],
-  image: "/images/work/quickshop/solution/mvp-entry.png",
-  imageWidth: 529,
-  imageHeight: 1024,
-  imageAlt:
-    "Quick Shop entry screen showing regular items ready to add to the trolley.",
+  after: [
+    "Higher-confidence products were prioritised",
+    "Fewer recommendations appeared at each stage",
+    "Related products were grouped more clearly",
+    "Step-based progression improved orientation",
+    "Top Regulars became the focused initial release",
+  ],
+  evidence: [
+    {
+      title: "Structured flows increased confidence",
+      copy: "Customers responded positively to Step-by-Step because it reduced overwhelm, improved clarity and created stronger progression.",
+    },
+    {
+      title: "Recommendation transparency mattered",
+      copy: "Trust improved when recommendations felt relevant and behaviourally logical.",
+    },
+    {
+      title: "Simplicity outperformed novelty",
+      copy: "Customers prioritised speed, predictability and efficiency over visually exploratory browsing.",
+    },
+    {
+      title: "Poor matches reduced trust quickly",
+      copy: "Lower-confidence recommendations made the experience feel less reliable when they appeared too prominently.",
+    },
+  ],
+  pullQuote:
+    "The winning direction was not the most visually novel. It was the one that best matched routine shopping behaviour.",
+};
+
+export const quickShopSolution = {
+  label: "14 Solution",
+  headline: "A faster way to rebuild regular shops.",
+  body: [
+    "The broader Step-by-Step model established the long-term direction, but the first release focused on Top Regulars: the highest-confidence repeat purchases within each customer’s history.",
+    "Recommendations were prioritised using behavioural confidence and presented in a lightweight, reviewable flow. Customers could quickly select familiar products, adjust quantities and continue building their basket without handing complete control to automation.",
+  ],
+  features: [
+    {
+      title: "Top Regulars",
+      copy: "High-confidence repeat purchases formed the foundation of the initial basket-building experience.",
+    },
+    {
+      title: "Structured recommendation groups",
+      copy: "The broader design direction organised products around shopping behaviour and recognisable categories.",
+    },
+    {
+      title: "Lightweight interaction design",
+      copy: "The experience prioritised rapid selection, clear progression and easy basket refinement.",
+    },
+  ],
+  flow: [
+    "Purchase behaviour",
+    "Predictability score",
+    "Confidence threshold",
+    "Product grouping",
+    "Quick basket action",
+  ],
+  image: {
+    src: "/images/work/quickshop/solution/quickshop-widget.png",
+    alt: "Waitrose Favourites screen showing the Quick Shop widget with regular items ready to add to the trolley.",
+    width: 1550,
+    height: 2996,
+  },
 };
 
 export const quickShopImpact = {
-  label: "Results",
+  label: "15 Results",
   headline: "The impact of reducing repeat shopping friction.",
   intro:
-    "QuickShop delivered measurable gains in speed, basket value, engagement and repeat behaviour — showing the value of data-informed personalisation when it is designed around customer confidence and control.",
+    "QuickShop delivered measurable gains in speed, basket value, engagement and repeat behaviour — showing the value of behaviour-led personalisation when it is designed around customer confidence and control.",
   sequence: [
     "Easier to find regular products",
     "Faster to complete the shop",
@@ -463,12 +594,12 @@ export const quickShopImpact = {
     {
       metric: "2",
       title: "extra orders",
-      copy: "Users made two additional orders over a 13-week period.",
+      copy: "Customers made two additional orders over a 13-week period.",
     },
     {
       metric: "37%",
       title: "feature retention",
-      copy: "37% of users returned to use the feature again.",
+      copy: "37% of customers returned to use the feature again.",
     },
   ],
   secondary: [
@@ -495,12 +626,25 @@ export const quickShopImpact = {
 };
 
 export const quickShopReflection = {
-  label: "Reflection",
-  headline: "Personalisation only worked when it reduced effort.",
+  label: "16 Reflection",
+  headline: "Personalisation was only valuable when it made the shop feel simpler.",
   body: [
-    "The most important learning was that personalisation alone does not reduce friction. Recommendation quality is not only a model problem — interface structure affects trust in personalisation.",
-    "Ranking and comparison are different customer needs. A strong future vision can still produce a deliberately narrower MVP, and customer confidence can matter more than recommendation volume.",
-    "QuickShop showed that personalisation becomes useful only when customers can understand, compare and correct what the system recommends.",
+    "QuickShop showed that predictive technology alone does not create a useful experience. Customers judged the system through the quality, order and density of what appeared in front of them.",
+    "The most important design work was translating invisible behavioural signals into clear interface rules, then reducing the first release to the smallest proposition that could prove customer and commercial value.",
+  ],
+  points: [
+    {
+      title: "Design the confidence, not only the recommendation",
+      copy: "Where and how a suggestion appeared mattered as much as the product itself.",
+    },
+    {
+      title: "Prototype the system behaviour",
+      copy: "Realistic data and rules exposed issues that static happy-path screens could not.",
+    },
+    {
+      title: "Prove the habit before expanding the vision",
+      copy: "Top Regulars allowed the team to validate repeat-shopping value before investing in the broader Step-by-Step journey.",
+    },
   ],
   liveLink: {
     href: "https://www.waitrose.com/ecom/quick-shop",
@@ -511,5 +655,4 @@ export const quickShopReflection = {
 export type QuickShopResearchWorkspace = {
   image: string;
   imageAlt: string;
-  caption: string;
 };
